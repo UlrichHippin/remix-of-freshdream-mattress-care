@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
+import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoMark from "@/assets/logo-mark.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -35,16 +37,22 @@ export default function Header() {
       )}
     >
       <div className="container-tight flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2 font-bold text-primary" aria-label={site.name}>
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <Sparkles className="h-4 w-4" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-base">FreshDream</span>
-            <span className="block text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
-              Mattress Care
-            </span>
-          </span>
+        <Link to="/" className="flex items-center gap-2" aria-label={site.name}>
+          {/* Mark on mobile, horizontal lockup on larger screens */}
+          <img
+            src={logoMark}
+            alt={site.name}
+            width={48}
+            height={48}
+            className="h-10 w-10 object-contain sm:hidden"
+          />
+          <img
+            src={logoHorizontal}
+            alt={site.name}
+            width={1200}
+            height={400}
+            className="hidden h-12 w-auto object-contain sm:block lg:h-14"
+          />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">

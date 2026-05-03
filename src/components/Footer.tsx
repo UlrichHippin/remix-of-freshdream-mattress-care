@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Sparkles } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 export default function Footer() {
   return (
     <footer className="mt-12 border-t border-border bg-surface">
       <div className="container-tight grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2 font-bold text-primary">
-            <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <span className="text-lg">{site.name}</span>
-          </div>
+          <Link to="/" aria-label={site.name} className="inline-block">
+            <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-14 w-auto object-contain" />
+          </Link>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments, and
             short-stay property managers in Nairobi. Based in {site.base}.
