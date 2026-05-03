@@ -52,7 +52,7 @@ export default function Admin() {
   }
   useEffect(() => { if (isAdmin) load(); }, [isAdmin]);
 
-  async function setStatus(id: string, status: string) {
+  async function setStatus(id: string, status: "requested" | "confirmed" | "declined" | "completed" | "cancelled") {
     const { error } = await supabase.from("bookings").update({ status }).eq("id", id);
     if (error) return toast.error(error.message);
     toast.success("Updated");
