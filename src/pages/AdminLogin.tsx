@@ -1,0 +1,59 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card } from "@/components/ui/card";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+
+export default function AdminLogin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) navigate("/admin", { replace: true });
+    });
+  }, [navigate]);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setLoading(false);
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+    navigate("/admin", { replace: true });
+  }
+
+  return (
+    <div className="grid min-h-screen place-items-center bg-gradient-hero px-4">
+      <Card className="w-full max-w-md p-8">
+        <h1 className="text-2xl font-bold text-primary">Admin login</h1>
+        <p className="mt-1 text-sm text-muted-foreground">Sign in to manage bookings and availability.</p>
+        <form className="mt-6 space-y-4" onSubmit={onSubmit}>
+          <div>
+            <Label htmlFor="em">Email</Label>
+            <Input id="em" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1.5" />
+          </div>
+          <div>
+            <Label htmlFor="pw">Password</Label>
+            <Input id="pw" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1.5" />
+          </div>
+          <Button type="submit" disabled={loading} className="w-full">
+            {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Sign in
+          </Button>
+        </form>
+        <p className="mt-6 text-xs text-muted-foreground">
+          Admin access is invitation only. Contact the site owner to receive credentials.
+        </p>
+      </Card>
+    </div>
+  );
+}
