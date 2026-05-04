@@ -165,16 +165,20 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
-              { t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
-              { t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
-              { t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
-              { t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
+              { icon: Sparkles, t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
+              { icon: FileCheck2, t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
+              { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
+              { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
+              { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
+              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-6">
-                <h3 className="font-semibold text-primary">{it.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{it.d}</p>
+              <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
+                <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <it.icon className="h-5 w-5" />
+                </div>
+                <h3 className="relative mt-4 font-semibold text-primary">{it.t}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground">{it.d}</p>
               </div>
             ))}
           </div>
