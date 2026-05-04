@@ -1,4 +1,9 @@
 import { Bed, Sparkles, Droplets, AlarmClock, Sofa, LucideIcon } from "lucide-react";
+import illustGuestReady from "@/assets/illust-guest-ready.png";
+import illustDeepClean from "@/assets/illust-deep-clean.png";
+import illustMattressCare from "@/assets/illust-mattress-care.png";
+import illustHostSupport from "@/assets/illust-host-support.png";
+import illustUpholstery from "@/assets/illust-upholstery.png";
 
 export interface ServiceDef {
   slug: string;
@@ -8,6 +13,7 @@ export interface ServiceDef {
   includes: string[];
   expectations: string;
   icon: LucideIcon;
+  illustration: string;
   whatsappTemplate: string;
 }
 
