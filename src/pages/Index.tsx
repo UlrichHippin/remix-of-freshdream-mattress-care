@@ -22,6 +22,9 @@ import logoFull from "@/assets/logo-full.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
+import illustProcessFlow from "@/assets/illust-process-flow.png";
+import illustEmergencyResponse from "@/assets/illust-emergency-response.png";
+import illustTrustBadges from "@/assets/illust-trust-badges.png";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 
@@ -198,16 +201,21 @@ export default function Home() {
       {/* Why hosts choose us */}
       <section className="section">
         <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Specialist support for short-stay properties — not generic cleaning.
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-              for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
-              to help reduce drying time.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+                Specialist support for short-stay properties — not generic cleaning.
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                We work the way hosts actually operate: tight check-ins, recurring units, and zero room
+                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
+                to help reduce drying time.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <IllustrationFrame src={illustTrustBadges} alt="Trust and quality badges illustration" tone="primary" badge="What hosts get" />
+            </div>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
@@ -433,33 +441,43 @@ export default function Home() {
             </ol>
           </div>
 
-          {/* Hospitality process visual */}
-          <figure className="relative mt-12 overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={hospitalityApartment}
-              alt="Bright short-stay apartment bedroom prepared to a guest-ready standard"
-              width={1600}
-              height={900}
-              loading="lazy"
-              className="aspect-[16/9] h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" aria-hidden="true" />
-            <figcaption className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 text-primary-foreground sm:p-8">
-              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
-                <ShieldCheck className="h-3.5 w-3.5" /> From request to guest-ready
-              </p>
-              <p className="text-balance text-lg font-bold leading-tight sm:text-xl">
-                A documented process — so every check-in starts calm and on time.
-              </p>
-            </figcaption>
-          </figure>
+          {/* Process flow illustration */}
+          <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <IllustrationFrame
+                src={illustProcessFlow}
+                alt="Four-step process flow illustration: chat, calendar, treatment, photo"
+                tone="accent"
+                badge="Process at a glance"
+              />
+            </div>
+            <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift lg:col-span-7">
+              <img
+                src={hospitalityApartment}
+                alt="Bright short-stay apartment bedroom prepared to a guest-ready standard"
+                width={1600}
+                height={900}
+                loading="lazy"
+                className="aspect-[16/9] h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" aria-hidden="true" />
+              <figcaption className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 text-primary-foreground sm:p-8">
+                <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
+                  <ShieldCheck className="h-3.5 w-3.5" /> From request to guest-ready
+                </p>
+                <p className="text-balance text-lg font-bold leading-tight sm:text-xl">
+                  A documented process — so every check-in starts calm and on time.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
       {/* Emergency band */}
       <section className="section bg-gradient-band text-primary-foreground">
-        <div className="container-tight grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
             </p>
@@ -471,15 +489,28 @@ export default function Home() {
               Send us photos and your next check-in time. We'll tell you honestly what's possible and
               prioritize you for same-day or next-day support where we can.
             </p>
+            <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
+              <WhatsAppButton size="lg" label="WhatsApp now" className="w-full" />
+              <a
+                href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50"
+              >
+                <PhoneCall className="h-4 w-4" /> Call us
+              </a>
+            </div>
           </div>
-          <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:w-auto lg:flex-wrap lg:justify-end">
-            <WhatsAppButton size="lg" label="WhatsApp now" className="w-full lg:w-auto" />
-            <a
-              href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto"
-            >
-              <PhoneCall className="h-4 w-4" /> Call us
-            </a>
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-3xl bg-primary-foreground/5 p-6 ring-1 ring-primary-foreground/15 backdrop-blur-sm">
+              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/30 blur-3xl" aria-hidden="true" />
+              <img
+                src={illustEmergencyResponse}
+                alt="Emergency response illustration: bed with alarm clock"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="relative mx-auto h-auto w-full max-w-[380px] object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>

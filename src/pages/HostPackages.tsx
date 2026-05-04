@@ -5,7 +5,7 @@ import SectionDivider from "@/components/SectionDivider";
 import { hostPackages } from "@/data/content";
 import { ClipboardCheck, Repeat, ShieldCheck, Building2, AlarmClock, FileText, Star } from "lucide-react";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
-import illustHostSupport from "@/assets/illust-host-support.png";
+import illustPortfolio from "@/assets/illust-portfolio.png";
 import hospitalitySuite from "@/assets/hospitality-suite.jpg";
 
 export default function HostPackages() {
@@ -29,7 +29,7 @@ export default function HostPackages() {
             <div className="mt-6"><WhatsAppButton label="Request a tailored package" /></div>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame src={illustMultiUnit} alt="Multi-unit hosting" tone="primary" badge="Multi-unit ready" />
+            <IllustrationFrame src={illustPortfolio} alt="Multi-unit portfolio illustration" tone="primary" badge="Multi-unit ready" />
           </div>
         </div>
       </section>

@@ -10,7 +10,7 @@ import {
   ShieldCheck, MessageSquareText, ImageDown, CalendarClock,
 } from "lucide-react";
 import { toast } from "sonner";
-import illustHostSupport from "@/assets/illust-host-support.png";
+import illustWhatsAppQuote from "@/assets/illust-whatsapp-quote.png";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -47,7 +47,7 @@ export default function Contact() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame src={illustHostSupport} alt="WhatsApp host support" tone="accent" badge="Direct WhatsApp" />
+            <IllustrationFrame src={illustWhatsAppQuote} alt="WhatsApp quote illustration" tone="accent" badge="Direct WhatsApp" />
           </div>
         </div>
       </section>
