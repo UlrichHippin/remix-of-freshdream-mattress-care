@@ -8,7 +8,7 @@ import {
   Clock4, Droplets, ShieldCheck, AlarmClock, Building2, Sofa,
   Camera, Layers, MapPin, MessageSquareText, Bed, HelpCircle,
 } from "lucide-react";
-import illustHostSupport from "@/assets/illust-host-support.png";
+import illustWhatsAppQuote from "@/assets/illust-whatsapp-quote.png";
 
 const faqIcons = [
   Clock4, Droplets, ShieldCheck, AlarmClock, Building2, Sofa,
@@ -35,7 +35,7 @@ export default function FAQ() {
             </p>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame src={illustHostSupport} alt="Host support" tone="accent" badge="Real answers" />
+            <IllustrationFrame src={illustWhatsAppQuote} alt="WhatsApp quote illustration" tone="accent" badge="Real answers" />
           </div>
         </div>
       </section>
