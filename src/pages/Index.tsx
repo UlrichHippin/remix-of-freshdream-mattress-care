@@ -418,7 +418,7 @@ export default function Home() {
             <WhatsAppButton size="lg" label="WhatsApp now" className="w-full lg:w-auto" />
             <a
               href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90 lg:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto"
             >
               <PhoneCall className="h-4 w-4" /> Call us
             </a>
@@ -484,10 +484,10 @@ export default function Home() {
               </div>
               <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-3 lg:flex lg:w-auto lg:flex-col lg:items-stretch">
                 <WhatsAppButton size="lg" className="w-full lg:w-auto" />
-                <Link to="/contact" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90 lg:w-auto">
+                <Link to="/contact" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto">
                   Request a Quote
                 </Link>
-                <Link to="/host-packages" className="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10 lg:w-auto">
+                <Link to="/host-packages" className="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground transition-all hover:border-primary-foreground/60 hover:bg-primary-foreground/10 active:scale-[0.98] active:bg-primary-foreground/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto">
                   Host Packages
                 </Link>
               </div>

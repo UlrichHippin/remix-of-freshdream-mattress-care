@@ -24,12 +24,12 @@ export function WhatsAppButton({
   } as const;
 
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all shadow-soft hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp";
+    "inline-flex items-center justify-center gap-2 rounded-full font-semibold shadow-soft transition-all hover:shadow-card active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp aria-disabled:pointer-events-none aria-disabled:opacity-50";
 
   const variants = {
-    solid: "bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover",
+    solid: "bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp-hover active:bg-whatsapp-hover/90",
     outline:
-      "border-2 border-whatsapp text-whatsapp hover:bg-whatsapp hover:text-whatsapp-foreground",
+      "border-2 border-whatsapp text-whatsapp hover:bg-whatsapp hover:text-whatsapp-foreground active:bg-whatsapp-hover active:text-whatsapp-foreground",
   } as const;
 
   return (
