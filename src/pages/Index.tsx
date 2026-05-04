@@ -32,16 +32,37 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
 
-        <div className="container-tight grid gap-10 py-20 sm:py-24 lg:grid-cols-12 lg:gap-12 lg:py-32">
+        {/* Subtle giant logo watermark on the right */}
+        <img
+          src={logoMark}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 -top-10 -z-10 hidden h-[520px] w-[520px] object-contain opacity-[0.08] lg:block"
+        />
+
+        <div className="container-tight grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:py-28">
           <div className="lg:col-span-8">
-            {/* Brand lockup */}
-            <div className="inline-flex items-center gap-3 rounded-2xl bg-primary-foreground/10 px-3 py-2 backdrop-blur-sm ring-1 ring-primary-foreground/20">
-              <img src={logoMark} alt="" width={48} height={48} className="h-10 w-10 object-contain" />
-              <img src={logoHorizontal} alt={site.name} width={1200} height={400} className="hidden h-8 w-auto object-contain sm:block" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/80 sm:hidden">{site.shortName}</span>
+            {/* Prominent brand lockup */}
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <div className="grid h-20 w-20 place-items-center rounded-2xl bg-primary-foreground p-3 shadow-lift ring-1 ring-primary-foreground/30 sm:h-24 sm:w-24">
+                <img src={logoMark} alt={site.name} width={96} height={96} className="h-full w-full object-contain" />
+              </div>
+              <div className="flex flex-col">
+                <img
+                  src={logoHorizontal}
+                  alt={site.name}
+                  width={1200}
+                  height={400}
+                  className="hidden h-12 w-auto object-contain brightness-0 invert sm:block lg:h-14"
+                />
+                <span className="text-2xl font-bold tracking-tight text-primary-foreground sm:hidden">{site.name}</span>
+                <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary-foreground/80">
+                  Sleep better · Live fresher
+                </span>
+              </div>
             </div>
 
-            <p className="eyebrow mt-6 bg-primary-foreground/10 text-primary-foreground/90 ring-1 ring-primary-foreground/20">
+            <p className="eyebrow mt-7 bg-primary-foreground/10 text-primary-foreground/90 ring-1 ring-primary-foreground/20">
               <MapPin className="h-3.5 w-3.5" /> Based in Roysambu, Nairobi
             </p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-6xl">
