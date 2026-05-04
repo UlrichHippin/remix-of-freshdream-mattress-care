@@ -408,17 +408,17 @@ export default function Home() {
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
             </p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">A guest just checked out and something's wrong?</h2>
-            <p className="mt-3 max-w-2xl text-primary-foreground/80">
+            <h2 className="mt-4 text-balance text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">A guest just checked out and something's wrong?</h2>
+            <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
               Send us photos and your next check-in time. We'll tell you honestly what's possible and
               prioritize you for same-day or next-day support where we can.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3 md:justify-end">
-            <WhatsAppButton size="lg" label="WhatsApp now" />
+          <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:w-auto lg:flex-wrap lg:justify-end">
+            <WhatsAppButton size="lg" label="WhatsApp now" className="w-full lg:w-auto" />
             <a
               href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90 lg:w-auto"
             >
               <PhoneCall className="h-4 w-4" /> Call us
             </a>
