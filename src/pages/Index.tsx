@@ -363,20 +363,30 @@ export default function Home() {
             <p className="eyebrow">How it works</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Four simple steps.</h2>
           </div>
-          <ol className="mt-10 grid gap-5 md:grid-cols-4">
-            {[
-              { t: "Send details on WhatsApp", d: "Location, mattress size or furniture, photos, next check-in time." },
-              { t: "Quote &amp; time slot", d: "We confirm a realistic price, an available slot and what to expect." },
-              { t: "On-site service", d: "Inspection, treatment and cleaning with controlled-moisture process." },
-              { t: "Photo proof &amp; drying guidance", d: "After-service documentation and clear next steps." },
-            ].map((s, i) => (
-              <li key={s.t} className="card-soft relative p-6">
-                <span className="absolute -top-3 left-6 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{i + 1}</span>
-                <h3 className="mt-2 font-semibold text-primary" dangerouslySetInnerHTML={{ __html: s.t }} />
-                <p className="mt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: s.d }} />
-              </li>
-            ))}
-          </ol>
+          <div className="relative mt-12">
+            {/* Connecting line */}
+            <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent md:block" aria-hidden="true" />
+            <ol className="relative grid gap-6 md:grid-cols-4">
+              {[
+                { icon: Send, t: "Send details on WhatsApp", d: "Location, mattress size or furniture, photos, next check-in time." },
+                { icon: MessageCircle, t: "Quote & time slot", d: "We confirm a realistic price, an available slot and what to expect." },
+                { icon: Wand2, t: "On-site service", d: "Inspection, treatment and cleaning with controlled-moisture process." },
+                { icon: ImageDown, t: "Photo proof & drying guidance", d: "After-service documentation and clear next steps." },
+              ].map((s, i) => (
+                <li key={s.t} className="relative flex flex-col items-center text-center">
+                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lift ring-4 ring-background">
+                    <s.icon className="h-6 w-6" />
+                    <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground ring-2 ring-background">
+                      {i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-semibold text-primary">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
         </div>
       </section>
 
