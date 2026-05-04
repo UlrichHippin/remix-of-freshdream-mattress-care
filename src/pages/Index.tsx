@@ -403,7 +403,7 @@ export default function Home() {
 
       {/* Emergency band */}
       <section className="section bg-gradient-band text-primary-foreground">
-        <div className="container-tight grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+        <div className="container-tight grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
