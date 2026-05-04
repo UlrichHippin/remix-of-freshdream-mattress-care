@@ -261,59 +261,97 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Host Packages preview */}
-      <section className="section bg-surface">
-        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary-soft blur-2xl" />
-              <img
-                src={hostPortfolioImg}
-                alt="Two well-presented short-stay apartment bedrooms suggesting multi-unit hospitality support"
-                width={1400}
-                height={900}
-                loading="lazy"
-                className="rounded-2xl border border-border object-cover shadow-card"
-              />
-            </div>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="eyebrow">Host Packages</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Structured support for repeat properties.</h2>
+      {/* Host Packages — premium pricing preview */}
+      <section className="section relative overflow-hidden bg-surface">
+        <div className="absolute -left-32 top-1/4 -z-10 h-96 w-96 rounded-full bg-primary-soft blur-3xl" aria-hidden="true" />
+        <div className="absolute -right-24 bottom-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl" aria-hidden="true" />
+
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow mx-auto"><Sparkles className="h-3.5 w-3.5" /> Host Packages</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              Choose the right package for your hosting setup.
+            </h2>
             <p className="mt-3 text-muted-foreground">
               Recurring turnovers, urgent guest incidents, multi-unit coordination — bundled into a
               package so you stop hunting for cleaners every week.
             </p>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              {hostPackages.map((p, i) => (
-                <div
-                  key={p.name}
-                  className={`card-soft relative overflow-hidden p-6 ${p.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
-                >
-                  <div className={`absolute -right-8 -top-8 h-28 w-28 rounded-full ${p.featured ? "bg-accent/15" : "bg-primary-soft"}`} aria-hidden="true" />
-                  <div className="relative flex items-start justify-between gap-2">
-                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                      {i % 2 === 0 ? <BedDouble className="h-5 w-5" /> : <Sofa className="h-5 w-5" />}
-                    </div>
-                    {p.featured && (
-                      <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                        <Star className="h-3 w-3" /> Popular
-                      </span>
-                    )}
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:gap-8">
+            {hostPackages.map((p, i) => (
+              <div
+                key={p.name}
+                className={`relative flex flex-col overflow-hidden rounded-3xl bg-card p-7 shadow-card ring-1 ring-border transition-all hover:-translate-y-1 hover:shadow-lift sm:p-9 ${
+                  p.featured ? "ring-2 ring-accent shadow-lift" : ""
+                }`}
+              >
+                {p.featured && (
+                  <span className="absolute right-6 top-6 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+                    <Star className="h-3 w-3" /> Most popular
+                  </span>
+                )}
+                <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary-soft/60" aria-hidden="true" />
+
+                <div className="relative">
+                  <div className={`grid h-14 w-14 place-items-center rounded-2xl shadow-soft ${
+                    p.featured
+                      ? "bg-gradient-to-br from-accent to-accent/80 text-accent-foreground"
+                      : "bg-gradient-to-br from-primary to-primary/70 text-primary-foreground"
+                  }`}>
+                    {i % 2 === 0 ? <BedDouble className="h-6 w-6" /> : <Sofa className="h-6 w-6" />}
                   </div>
-                  <h3 className="relative mt-4 text-lg font-bold text-primary">{p.name}</h3>
-                  <p className="relative mt-1 text-xs font-semibold uppercase tracking-wider text-accent">{p.units}</p>
-                  <ul className="relative mt-4 space-y-2 text-sm">
-                    {p.bullets.slice(0, 3).map((b) => (
-                      <li key={b} className="flex items-start gap-2"><BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{b}</li>
+                  <h3 className="mt-5 text-2xl font-bold text-primary">{p.name}</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-accent">{p.units}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.summary}</p>
+                </div>
+
+                <div className="relative mt-6 border-t border-border pt-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary/70">What's included</p>
+                  <ul className="mt-4 space-y-3 text-sm">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2.5 text-foreground">
+                        <BadgeCheck className={`mt-0.5 h-5 w-5 shrink-0 ${p.featured ? "text-accent" : "text-primary"}`} />
+                        <span>{b}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
-            <Link to="/host-packages" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-              View packages <ArrowRight className="h-4 w-4" />
-            </Link>
+
+                <div className="relative mt-7 flex flex-wrap gap-2.5">
+                  <WhatsAppButton className="flex-1" label="Get this package" />
+                  <Link
+                    to="/host-packages"
+                    className="inline-flex h-11 items-center justify-center gap-1 rounded-full border-2 border-border px-4 text-sm font-semibold text-primary transition-colors hover:border-primary"
+                  >
+                    Details <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+
+                <p className="relative mt-4 text-[11px] font-medium text-muted-foreground">
+                  Custom quote based on units, location, and recurrence.
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Compare strip */}
+          <div className="mt-10 grid gap-4 rounded-2xl border border-border bg-card p-6 sm:grid-cols-3 sm:p-7">
+            {[
+              { icon: Repeat2, t: "Recurring scheduling", d: "Lock in regular turnovers." },
+              { icon: Zap, t: "Priority response", d: "Faster slots when it matters." },
+              { icon: FileCheck2, t: "Documented service", d: "Photo proof on every visit." },
+            ].map((it) => (
+              <div key={it.t} className="flex items-start gap-3">
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
+                  <it.icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-primary">{it.t}</p>
+                  <p className="text-xs text-muted-foreground">{it.d}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
