@@ -12,11 +12,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
-import beforeAfterImg from "@/assets/before-after.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 import logoFull from "@/assets/logo-full.png";
+import illustHostSupport from "@/assets/illust-host-support.png";
+import illustGuestReady from "@/assets/illust-guest-ready.png";
+import illustMattressCare from "@/assets/illust-mattress-care.png";
+import IllustrationFrame from "@/components/IllustrationFrame";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
@@ -117,44 +121,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Host support highlight card */}
-      <section className="container-tight py-5 sm:py-10">
-        <div className="mx-auto w-full max-w-xl rounded-xl border border-primary/40 bg-card p-3.5 shadow-sm sm:p-5">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
-                Host Support
-              </p>
-              <h3 className="mt-1 truncate text-[13px] font-semibold leading-tight text-foreground sm:text-base">
-                Dedicated turnaround coordination for Airbnb hosts
-              </h3>
-              <p className="mt-1 line-clamp-2 text-xs leading-snug text-muted-foreground sm:text-sm">
-                Documented reports, guest-ready scheduling and direct WhatsApp updates between bookings.
-              </p>
+      {/* Host support feature — illustrated */}
+      <section className="section">
+        <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
+          <IllustrationFrame
+            src={illustHostSupport}
+            alt="WhatsApp host support illustration"
+            tone="accent"
+            badge="Direct host line"
+          />
+          <div>
+            <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Host support</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              A specialist on WhatsApp — not a call center.
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Send a photo, your unit and your check-in time. You get a real person, a realistic
+              quote, and an available slot — with documented before/after on every job.
+            </p>
+            <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
+              {[
+                { i: MessageSquareText, t: "Real WhatsApp replies" },
+                { i: Camera, t: "Photo proof on every job" },
+                { i: Clock4, t: "Same-day where possible" },
+                { i: ShieldCheck, t: "Honest assessments" },
+              ].map((it) => (
+                <li key={it.t} className="flex items-center gap-2 rounded-xl border border-border bg-card p-3 shadow-soft">
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-soft text-accent">
+                    <it.i className="h-4 w-4" />
+                  </span>
+                  <span className="font-medium text-primary">{it.t}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <WhatsAppButton />
+              <Link to="/host-packages" className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft">
+                Host packages <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-            <span
-              aria-label="Verified host service"
-              className="shrink-0 rounded-md bg-accent-soft p-1.5 text-accent"
-            >
-              <BadgeCheck className="h-4 w-4" />
-            </span>
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
-            <Link
-              to="/host-packages"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-2.5 py-2 text-center text-[12px] font-semibold leading-tight text-primary-foreground transition-colors hover:bg-primary/90 sm:px-4 sm:text-sm"
-            >
-              Host packages
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-semibold leading-tight text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
-            >
-              Talk to a host advisor
-            </Link>
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       {/* Trust highlights */}
       <section className="border-y border-border bg-surface">
@@ -225,11 +235,32 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <Link key={s.slug} to="/services" className="card-soft group flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
-                  <s.icon className="h-5 w-5" />
+              <Link key={s.slug} to="/services" className="card-soft group relative flex flex-col overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <div className="relative -mx-6 -mt-6 mb-4 h-32 overflow-hidden bg-gradient-to-br from-primary-soft via-accent-soft to-primary-soft">
+                  <div
+                    className="absolute inset-0 opacity-30"
+                    aria-hidden="true"
+                    style={{
+                      backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
+                      backgroundSize: "14px 14px",
+                    }}
+                  />
+                  <img
+                    src={s.illustration}
+                    alt=""
+                    aria-hidden="true"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="relative mx-auto h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-semibold text-primary">{s.title}</h3>
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-semibold text-primary">{s.title}</h3>
+                </div>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.short}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">
                   Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -327,14 +358,12 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div>
-            <img
-              src={beforeAfterImg}
-              alt="Before and after documented mattress service"
-              width={1200} height={800} loading="lazy"
-              className="rounded-2xl border border-border object-cover shadow-card"
-            />
-          </div>
+          <IllustrationFrame
+            src={illustGuestReady}
+            alt="Guest-ready bedroom illustration"
+            tone="primary"
+            badge="Documented"
+          />
         </div>
       </section>
 
