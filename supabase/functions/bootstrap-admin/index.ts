@@ -47,27 +47,80 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Create user (auto-confirmed so login works immediately)
+    // Try to create user (auto-confirmed). If already exists, look them up and update password.
+    let userId: string | null = null;
+    let createdNow = false;
+
     const { data: created, error: createErr } = await supabase.auth.admin.createUser({
       email,
       password,
       email_confirm: true,
     });
-    if (createErr || !created.user) {
-      return new Response(
-        JSON.stringify({ error: createErr?.message ?? "Konnte User nicht erstellen." }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 400 },
-      );
+
+    if (created?.user) {
+      userId = created.user.id;
+      createdNow = true;
+    } else if (createErr) {
+      const msg = createErr.message?.toLowerCase() ?? "";
+      const alreadyExists =
+        msg.includes("already been registered") ||
+        msg.includes("already registered") ||
+        msg.includes("already exists");
+
+      if (!alreadyExists) {
+        return new Response(JSON.stringify({ error: createErr.message }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 400,
+        });
+      }
+
+      // User already exists from a previous attempt — find them and reset password
+      let foundId: string | null = null;
+      for (let page = 1; page <= 10 && !foundId; page++) {
+        const { data: list, error: listErr } = await supabase.auth.admin.listUsers({
+          page,
+          perPage: 200,
+        });
+        if (listErr) break;
+        const match = list.users.find((u) => u.email?.toLowerCase() === email.toLowerCase());
+        if (match) foundId = match.id;
+        if (list.users.length < 200) break;
+      }
+
+      if (!foundId) {
+        return new Response(
+          JSON.stringify({ error: "User existiert bereits, konnte aber nicht gefunden werden." }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 500 },
+        );
+      }
+
+      const { error: updErr } = await supabase.auth.admin.updateUserById(foundId, {
+        password,
+        email_confirm: true,
+      });
+      if (updErr) {
+        return new Response(JSON.stringify({ error: updErr.message }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          status: 400,
+        });
+      }
+      userId = foundId;
+    }
+
+    if (!userId) {
+      return new Response(JSON.stringify({ error: "Konnte User nicht erstellen." }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 500,
+      });
     }
 
     // Assign admin role
     const { error: roleErr } = await supabase
       .from("user_roles")
-      .insert({ user_id: created.user.id, role: "admin" });
+      .insert({ user_id: userId, role: "admin" });
 
     if (roleErr) {
-      // Roll back user creation if role assignment fails
-      await supabase.auth.admin.deleteUser(created.user.id);
+      if (createdNow) await supabase.auth.admin.deleteUser(userId);
       return new Response(JSON.stringify({ error: roleErr.message }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
