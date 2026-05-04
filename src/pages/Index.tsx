@@ -117,6 +117,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Highlight card — bordered like reference */}
+      <section className="container-tight py-10">
+        <div className="mx-auto max-w-xl rounded-xl border border-primary/40 bg-card p-5 shadow-sm">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-base font-semibold text-foreground">Footer-Layout optimiert</h3>
+            <button
+              type="button"
+              aria-label="Save"
+              className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <BadgeCheck className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <Link
+              to="/services"
+              className="rounded-lg border border-border bg-background px-4 py-2 text-center text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              Details
+            </Link>
+            <Link
+              to="/"
+              className="rounded-lg border border-border bg-background px-4 py-2 text-center text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              Back to latest
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trust highlights */}
       <section className="border-y border-border bg-surface">
         <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
