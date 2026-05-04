@@ -67,8 +67,8 @@ export default function Header() {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary",
-                  isActive && "bg-primary-soft text-primary",
+                  "rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
+                  isActive && "bg-accent-soft text-accent",
                 )
               }
             >
