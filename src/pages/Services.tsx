@@ -8,6 +8,7 @@ import { CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
+import illustBeforeAfter from "@/assets/illust-before-after.png";
 
 export default function Services() {
   return (
@@ -94,6 +95,30 @@ export default function Services() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Visible results illustration band */}
+      <section className="section">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <IllustrationFrame
+              src={illustBeforeAfter}
+              alt="Before and after mattress illustration"
+              tone="primary"
+              badge="Visible results"
+            />
+          </div>
+          <div className="lg:col-span-7">
+            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Visible results</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              Before, after, and an honest update.
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Every job ends the same way: clear photo proof, a short summary of what was treated,
+              and a realistic note on what to expect on the next check-in. No hype, no guesswork.
+            </p>
+          </div>
         </div>
       </section>
 
