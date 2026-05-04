@@ -401,11 +401,12 @@ export default function Home() {
       <section className="section">
         <div className="container-tight">
           <div className="relative overflow-hidden rounded-2xl bg-primary p-10 text-primary-foreground shadow-lift sm:p-12">
-            <img src={logoMark} alt="" aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 opacity-[0.07]" />
+            <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
+            <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-primary-foreground/5 blur-3xl" aria-hidden="true" />
             <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider ring-1 ring-primary-foreground/20">
-                  <img src={logoMark} alt="" className="h-4 w-4 object-contain" /> {site.shortName}
+                <div className="inline-flex items-center gap-2 rounded-2xl bg-primary-foreground px-4 py-2.5 shadow-soft">
+                  <img src={logoFull} alt={site.name} className="h-8 w-auto object-contain" />
                 </div>
                 <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Keep every bed fresh, clean, and guest-ready.</h2>
                 <p className="mt-3 max-w-2xl text-primary-foreground/80">
