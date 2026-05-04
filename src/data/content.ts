@@ -20,6 +20,7 @@ export interface ServiceDef {
 export const services: ServiceDef[] = [
   {
     slug: "turnover",
+    illustration: illustGuestReady,
     title: "Turnover Freshen-Up",
     short: "Routine refresh between guests — quick, low-moisture, photo-documented.",
     bestFor: "Routine Airbnb turnovers and quick refreshes before the next guest.",
@@ -39,6 +40,7 @@ export const services: ServiceDef[] = [
   },
   {
     slug: "deep-clean",
+    illustration: illustDeepClean,
     title: "Deep Mattress Clean",
     short: "For visible stains, sweat buildup and heavier use over time.",
     bestFor: "Mattresses with visible stains, sweat buildup, body oils, or heavier use over time.",
@@ -58,6 +60,7 @@ export const services: ServiceDef[] = [
   },
   {
     slug: "urine-odor",
+    illustration: illustMattressCare,
     title: "Urine & Odor Recovery",
     short: "Targeted treatment for guest accidents and stronger odor concerns.",
     bestFor: "Guest accidents, urine concerns, and stronger odor issues.",
@@ -77,6 +80,7 @@ export const services: ServiceDef[] = [
   },
   {
     slug: "emergency",
+    illustration: illustHostSupport,
     title: "Emergency Host Service",
     short: "Urgent support before the next guest check-in.",
     bestFor: "Last-minute stains, odor complaints, urgent guest incidents, and unexpected turnover problems.",
@@ -96,6 +100,7 @@ export const services: ServiceDef[] = [
   },
   {
     slug: "upholstery",
+    illustration: illustUpholstery,
     title: "Upholstery & Sofa Cleaning",
     short: "Sofas, cushions and upholstered chairs in short-stay properties.",
     bestFor: "Sofas, cushions, upholstered chairs, and selected soft furnishings in short-stay properties.",
