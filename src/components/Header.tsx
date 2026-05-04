@@ -33,28 +33,39 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full border-b border-transparent bg-background/80 backdrop-blur transition-all",
+        "sticky top-0 z-40 w-full border-b border-transparent bg-background/85 backdrop-blur-md transition-all",
         scrolled && "border-border bg-background/95 shadow-soft",
       )}
     >
-      <div className="container-tight flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2" aria-label={site.name}>
+      <div
+        className={cn(
+          "container-tight flex items-center justify-between gap-4 transition-all",
+          scrolled ? "h-16" : "h-20",
+        )}
+      >
+        <Link to="/" className="flex items-center gap-2.5" aria-label={site.name}>
           {/* Mark on mobile, horizontal lockup on larger screens */}
-          <img
-            src={logoMark}
-            alt={site.name}
-            width={48}
-            height={48}
-            className="h-10 w-10 object-contain sm:hidden"
-          />
+          <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-foreground p-1 shadow-soft ring-1 ring-border sm:hidden">
+            <img
+              src={logoMark}
+              alt={site.name}
+              width={44}
+              height={44}
+              className="h-full w-full object-contain"
+            />
+          </span>
           <img
             src={logoHorizontal}
             alt={site.name}
             width={1200}
             height={400}
-            className="hidden h-12 w-auto object-contain sm:block lg:h-14"
+            className={cn(
+              "hidden w-auto object-contain transition-all sm:block",
+              scrolled ? "h-11 lg:h-12" : "h-14 lg:h-16",
+            )}
           />
         </Link>
+
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {nav.map((item) => (
