@@ -35,7 +35,7 @@ export default function Home() {
       title="FreshDream Mattress Care — Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi"
       description="Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay properties in Nairobi. Documented service, fast WhatsApp booking, guest-ready turnaround. Based in Roysambu."
     >
-      {/* Hero — full-width branded banner */}
+      {/* Hero — full-width branded banner + real text/CTA */}
       <section className="w-full bg-gradient-to-b from-sky-50 to-background py-8 sm:py-12 lg:py-16">
         <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8">
           <img
@@ -45,18 +45,48 @@ export default function Home() {
             height={960}
             className="mx-auto block h-auto w-full rounded-2xl object-contain shadow-lift"
           />
-          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
-            <a
-              href="https://wa.me/4915756233913"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Book via WhatsApp"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-7 text-base font-semibold text-whatsapp-foreground shadow-lift transition-all hover:bg-whatsapp-hover active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden />
-              Book via WhatsApp
-            </a>
-            <p className="text-sm text-muted-foreground">Roysambu Based · Same-day support where possible</p>
+
+          {/* Real, accessible hero content for SEO + responsiveness */}
+          <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
+            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
+              <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
+            </p>
+            <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
+              Professional Mattress Cleaning in Nairobi
+            </h1>
+            <p className="mt-3 text-lg font-semibold text-accent sm:text-xl">
+              Sleep Better. Live Fresher.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+              Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay
+              properties. Documented before/after, honest assessments and same-day support
+              where possible.
+            </p>
+
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="https://wa.me/4915756233913"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book via WhatsApp"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-7 text-base font-semibold text-whatsapp-foreground shadow-lift transition-all hover:bg-whatsapp-hover active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp sm:w-auto"
+              >
+                <MessageCircle className="h-5 w-5" aria-hidden />
+                Book via WhatsApp
+              </a>
+              <Link
+                to="/services"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
+              >
+                Explore services <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <li className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> Documented service</li>
+              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
+              <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
+            </ul>
           </div>
         </div>
       </section>
