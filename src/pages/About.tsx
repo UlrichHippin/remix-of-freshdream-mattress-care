@@ -67,12 +67,18 @@ export default function About() {
       <SectionDivider />
 
       <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="max-w-2xl">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
             <p className="eyebrow">Our standards</p>
             <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Four things we never cut corners on.</h2>
+            <p className="mt-3 max-w-xl text-muted-foreground">A small set of non-negotiables that keep every visit calm, documented and guest-ready.</p>
           </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-4">
+          <div className="lg:col-span-5">
+            <IllustrationFrame src={illustTrustBadges} alt="Trust badges illustration" tone="primary" badge="Our standards" />
+          </div>
+        </div>
+        <div className="container-tight mt-10">
+          <div className="grid gap-5 md:grid-cols-4">
             {[
               { i: MapPin, t: "Roysambu base", d: "Quick coverage across north Nairobi and surrounding hubs." },
               { i: Droplets, t: "Controlled-moisture", d: "Process designed to help reduce drying time on tight turnovers." },
