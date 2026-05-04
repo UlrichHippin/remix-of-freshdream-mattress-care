@@ -4,7 +4,19 @@ import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 
+const pageLabels: Record<string, string> = {
+  "/": "Home",
+  "/services": "Services",
+  "/pricing": "Pricing",
+  "/host-packages": "Host Packages",
+  "/about": "About",
+  "/faq": "FAQ",
+  "/contact": "Book Now",
+};
+
 export default function Footer() {
+  const { pathname } = useLocation();
+  const currentPage = pageLabels[pathname] ?? "This page";
   return (
     <footer className="mt-12 border-t border-border bg-surface">
       <div className="container-tight grid gap-10 py-14 md:grid-cols-4">
