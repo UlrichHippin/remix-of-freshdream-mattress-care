@@ -6,6 +6,7 @@ import { hostPackages } from "@/data/content";
 import { ClipboardCheck, Repeat, ShieldCheck, Building2, AlarmClock, FileText, Star } from "lucide-react";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
+import hospitalitySuite from "@/assets/hospitality-suite.jpg";
 
 export default function HostPackages() {
   return (
@@ -62,7 +63,19 @@ export default function HostPackages() {
       {/* Visual story block */}
       <section className="section bg-surface">
         <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
-          <IllustrationFrame src={illustHostSupport} alt="WhatsApp host support" tone="accent" badge="Direct line" />
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalitySuite}
+              alt="Premium serviced apartment bedroom, calm and guest-ready"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] h-full w-full object-cover"
+            />
+            <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
+              <Repeat className="h-3.5 w-3.5 text-accent" /> Portfolio standard
+            </figcaption>
+          </figure>
           <div>
             <p className="eyebrow"><Repeat className="h-3.5 w-3.5" /> How packages help</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">

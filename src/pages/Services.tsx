@@ -7,6 +7,7 @@ import { site } from "@/config/site";
 import { CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import illustHostSupport from "@/assets/illust-host-support.png";
+import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 
 export default function Services() {
   return (
@@ -93,6 +94,31 @@ export default function Services() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      {/* Hospitality visual band */}
+      <section className="relative">
+        <div className="container-tight">
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityBedroom}
+              alt="Neatly made bed in a sunlit short-stay apartment"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="aspect-[16/7] h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" aria-hidden="true" />
+            <figcaption className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-2 p-8 text-primary-foreground sm:p-12">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
+                <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
+              </p>
+              <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
+                A clean mattress is the difference between a 4-star and 5-star review.
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
