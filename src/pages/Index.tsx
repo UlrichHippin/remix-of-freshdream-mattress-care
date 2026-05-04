@@ -14,6 +14,7 @@ import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
+import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
@@ -432,6 +433,26 @@ export default function Home() {
             </ol>
           </div>
 
+          {/* Hospitality process visual */}
+          <figure className="relative mt-12 overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityApartment}
+              alt="Bright short-stay apartment bedroom prepared to a guest-ready standard"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="aspect-[16/9] h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" aria-hidden="true" />
+            <figcaption className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 text-primary-foreground sm:p-8">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
+                <ShieldCheck className="h-3.5 w-3.5" /> From request to guest-ready
+              </p>
+              <p className="text-balance text-lg font-bold leading-tight sm:text-xl">
+                A documented process — so every check-in starts calm and on time.
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
