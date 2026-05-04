@@ -12,6 +12,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
+import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
+import hospitalityLiving from "@/assets/hospitality-living.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
@@ -124,12 +126,19 @@ export default function Home() {
       {/* Host support feature — illustrated */}
       <section className="section">
         <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
-          <IllustrationFrame
-            src={illustHostSupport}
-            alt="WhatsApp host support illustration"
-            tone="accent"
-            badge="Direct host line"
-          />
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityBedroom}
+              alt="Neatly made bed in a sunlit short-stay apartment"
+              width={1600}
+              height={1200}
+              loading="lazy"
+              className="aspect-[4/3] h-full w-full object-cover"
+            />
+            <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
+              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Guest-ready standard
+            </figcaption>
+          </figure>
           <div>
             <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Host support</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
@@ -218,6 +227,31 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Hospitality visual band */}
+      <section className="relative">
+        <div className="container-tight">
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityLiving}
+              alt="Tidy modern short-stay apartment living area, calm and inviting"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="aspect-[16/7] h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" aria-hidden="true" />
+            <figcaption className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-2 p-8 text-primary-foreground sm:p-12">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
+                <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
+              </p>
+              <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
+                Every unit deserves to feel guest-ready before the door opens.
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
