@@ -40,28 +40,20 @@ export default function Header() {
       <div
         className={cn(
           "container-tight flex items-center justify-between gap-4 transition-all",
-          scrolled ? "h-16" : "h-20",
+          scrolled ? "h-16 sm:h-16" : "h-16 sm:h-20",
         )}
       >
-        <Link to="/" className="flex items-center gap-2.5" aria-label={site.name}>
-          {/* Mark on mobile, horizontal lockup on larger screens */}
-          <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary-foreground p-1 shadow-soft ring-1 ring-border sm:hidden">
-            <img
-              src={logoMark}
-              alt={site.name}
-              width={44}
-              height={44}
-              className="h-full w-full object-contain"
-            />
-          </span>
+        <Link to="/" className="flex items-center" aria-label={site.name}>
           <img
             src={logoHorizontal}
             alt={site.name}
             width={1200}
             height={400}
             className={cn(
-              "hidden w-auto object-contain transition-all sm:block",
-              scrolled ? "h-11 lg:h-12" : "h-14 lg:h-16",
+              "w-auto max-w-[60vw] object-contain transition-all",
+              scrolled
+                ? "h-10 sm:h-11 lg:h-12"
+                : "h-11 sm:h-14 lg:h-16",
             )}
           />
         </Link>
