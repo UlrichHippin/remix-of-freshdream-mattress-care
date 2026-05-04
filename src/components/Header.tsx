@@ -68,8 +68,8 @@ export default function Header() {
               className={({ isActive }) =>
                 cn(
                   "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
-                  "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:transition-all hover:after:w-6",
-                  isActive && "bg-accent-soft font-semibold text-accent after:w-6",
+                  "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-[width,opacity] after:duration-200 after:ease-out hover:after:w-6 hover:after:opacity-70",
+                  isActive && "bg-accent-soft font-semibold text-accent after:w-8 after:opacity-100 after:animate-fade-in",
                 )
               }
             >
