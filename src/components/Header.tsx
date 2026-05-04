@@ -67,8 +67,9 @@ export default function Header() {
               end={item.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
-                  isActive && "bg-accent-soft text-accent",
+                  "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
+                  "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:transition-all hover:after:w-6",
+                  isActive && "bg-accent-soft font-semibold text-accent after:w-6",
                 )
               }
             >
@@ -103,7 +104,7 @@ export default function Header() {
                 className={({ isActive }) =>
                   cn(
                     "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
-                    isActive && "bg-primary-soft text-primary",
+                    isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
                   )
                 }
               >
