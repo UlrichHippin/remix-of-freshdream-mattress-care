@@ -48,15 +48,10 @@ export default function Home() {
                 <img src={logoMark} alt={site.name} width={96} height={96} className="h-full w-full object-contain" />
               </div>
               <div className="flex flex-col">
-                <img
-                  src={logoHorizontal}
-                  alt={site.name}
-                  width={1200}
-                  height={400}
-                  className="hidden h-12 w-auto object-contain brightness-0 invert sm:block lg:h-14"
-                />
-                <span className="text-2xl font-bold tracking-tight text-primary-foreground sm:hidden">{site.name}</span>
-                <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-primary-foreground/80">
+                <span className="text-3xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-4xl">
+                  {site.name}
+                </span>
+                <span className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/80 sm:text-xs">
                   Sleep better · Live fresher
                 </span>
               </div>
