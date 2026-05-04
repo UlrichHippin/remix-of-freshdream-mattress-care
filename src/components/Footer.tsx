@@ -52,13 +52,31 @@ export default function Footer() {
           <h3 className="text-sm font-semibold text-primary">Service areas</h3>
           <ul className="mt-4 flex flex-wrap gap-1.5 text-xs text-muted-foreground">
             {site.serviceAreas.slice(0, 8).map((area) => (
-              <li key={area} className="rounded-full bg-muted px-2.5 py-1">{area}</li>
+              <li
+                key={area}
+                className="inline-flex max-w-full items-center whitespace-nowrap rounded-full bg-muted px-2.5 py-1 leading-tight"
+              >
+                {area}
+              </li>
             ))}
-            <li className="rounded-full bg-muted px-2.5 py-1 italic">+ more on request</li>
+            <li className="inline-flex max-w-full items-center whitespace-nowrap rounded-full bg-muted px-2.5 py-1 italic leading-tight">
+              + more on request
+            </li>
           </ul>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> <span className="break-words">{site.base}</span></li>
-            <li className="flex items-start gap-2"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> <a href={`mailto:${site.email}`} className="break-words hover:text-primary">{site.email}</a></li>
+            <li className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+              <span className="min-w-0 break-words">{site.base}</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+              <a
+                href={`mailto:${site.email}`}
+                className="min-w-0 break-all hover:text-primary sm:break-words"
+              >
+                {site.email}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
