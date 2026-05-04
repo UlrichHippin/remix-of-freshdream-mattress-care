@@ -12,11 +12,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
-import beforeAfterImg from "@/assets/before-after.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 import logoFull from "@/assets/logo-full.png";
+import illustHostSupport from "@/assets/illust-host-support.png";
+import illustGuestReady from "@/assets/illust-guest-ready.png";
+import illustMattressCare from "@/assets/illust-mattress-care.png";
+import IllustrationFrame from "@/components/IllustrationFrame";
+import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
