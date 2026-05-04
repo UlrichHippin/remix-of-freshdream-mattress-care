@@ -471,7 +471,7 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-2xl bg-primary p-10 text-primary-foreground shadow-lift sm:p-12">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
             <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-primary-foreground/5 blur-3xl" aria-hidden="true" />
-            <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="relative grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-2xl bg-primary-foreground px-4 py-2.5 shadow-soft">
                   <img src={logoFull} alt={site.name} className="h-8 w-auto object-contain" />
