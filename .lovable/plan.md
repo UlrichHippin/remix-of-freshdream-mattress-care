@@ -1,47 +1,29 @@
-## Ziel
-Auf `/admin/login` einen einmaligen Setup-Flow hinzufügen, mit dem du den **ersten Admin-Account** selbst erstellen kannst — ohne SQL, ohne Migration, direkt über die Website.
+## Was bereits fertig ist
+- Edge Function `bootstrap-admin` (erstellt Auth-User + Admin-Rolle, server-seitig gegen Mehrfach-Setup gesperrt)
+- Edge Function `check-admin-exists` (prüft, ob bereits ein Admin existiert)
 
-## So funktioniert es für dich
+## Was noch fehlt
+**`src/pages/AdminLogin.tsx` erweitern** mit einem einmaligen Setup-Bereich:
 
-1. Du gehst auf `/admin/login`
-2. Solange noch **kein Admin** existiert, siehst du unter dem Login-Formular einen Bereich **"Erste Einrichtung"** mit einem Button **"Ersten Admin-Account erstellen"**
-3. Du gibst E-Mail + Passwort ein → Klick → Account wird erstellt + Admin-Rolle zugewiesen → automatisch eingeloggt → weitergeleitet zu `/admin`
-4. Sobald ein Admin existiert, **verschwindet** der Setup-Bereich automatisch (Sicherheit: niemand sonst kann sich später Admin-Rechte geben)
+1. Beim Laden der Seite ruft das Frontend `check-admin-exists` auf
+2. Wenn **noch kein Admin** existiert, erscheint unter dem normalen Login-Formular ein Bereich **"Erste Einrichtung"** mit:
+   - E-Mail-Feld
+   - Passwort-Feld (mind. 8 Zeichen)
+   - Passwort-Bestätigung
+   - Button **"Ersten Admin-Account erstellen"**
+3. Beim Klick:
+   - Aufruf von `bootstrap-admin` mit E-Mail + Passwort
+   - Bei Erfolg: automatisches `signInWithPassword` → Weiterleitung zu `/admin`
+   - Bei Fehler: Toast-Meldung
+4. Wenn bereits ein Admin existiert, wird der Setup-Bereich **nicht** angezeigt — nur das normale Login
 
-## Technische Umsetzung
+## Du gibst nur ein
+- E-Mail
+- Passwort
 
-### 1. Edge Function `bootstrap-admin` (neu)
-Eine sichere Server-Funktion, die:
-- Prüft, ob bereits ein User mit Rolle `admin` in `user_roles` existiert
-- Falls **ja** → Fehler "Admin existiert bereits, Setup gesperrt"
-- Falls **nein**:
-  - Legt neuen Auth-User an (mit `service_role`, E-Mail bereits bestätigt)
-  - Fügt Eintrag in `user_roles` mit `role = 'admin'` hinzu
-  - Gibt Erfolg zurück
+Keine UUIDs. Die werden automatisch von Lovable Cloud generiert und im Hintergrund verknüpft.
 
-Wird mit `verify_jwt = false` deployed, da der Aufrufer noch nicht eingeloggt ist.
-
-### 2. Edge Function `check-admin-exists` (neu)
-Liefert nur `{ exists: boolean }` zurück, damit das Frontend weiß, ob der Setup-Bereich angezeigt werden soll.
-
-### 3. `src/pages/AdminLogin.tsx` erweitern
-- Beim Mount: `check-admin-exists` aufrufen
-- Wenn `exists === false`: zusätzlichen Bereich **"Erste Einrichtung"** anzeigen
-  - Felder: E-Mail, Passwort (min. 8 Zeichen), Passwort bestätigen
-  - Button: "Ersten Admin erstellen"
-  - On submit → `bootstrap-admin` aufrufen → bei Erfolg automatisch `signInWithPassword` → redirect zu `/admin`
-- Wenn `exists === true`: nur das normale Login-Formular zeigen
-
-### 4. Sicherheit
-- Bootstrap funktioniert **nur einmal** (server-seitig geprüft, nicht im Client)
-- Service-Role-Key bleibt server-seitig (Edge Function), nie im Browser
-- Nach erfolgreicher Einrichtung ist der Endpoint praktisch gesperrt
-
-## Dateien
-- **Neu:** `supabase/functions/bootstrap-admin/index.ts`
-- **Neu:** `supabase/functions/check-admin-exists/index.ts`
-- **Neu:** `supabase/config.toml` Einträge für beide Functions (`verify_jwt = false`)
-- **Bearbeitet:** `src/pages/AdminLogin.tsx` (Setup-Bereich + Logik)
-
-## Nach der Einrichtung
-Du kannst dich ab dann normal über das Login-Formular einloggen und im Admin-Bereich Buchungen + blockierte Zeiten verwalten. Wenn du später weitere Admins brauchst, sag mir Bescheid — dann bauen wir eine "Admin einladen"-Funktion direkt im Admin-Dashboard.
+## Sicherheit
+- Setup geht **nur einmal** — danach blockiert der Server jede weitere Anfrage (403)
+- Service-Role-Key bleibt server-seitig in der Edge Function
+- Nach erfolgreicher Einrichtung loggst du dich nur noch über das normale Login-Formular ein
