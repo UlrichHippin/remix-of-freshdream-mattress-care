@@ -12,6 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
+import heroBanner from "@/assets/hero-banner.png";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
 import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
@@ -34,95 +35,28 @@ export default function Home() {
       title="FreshDream Mattress Care — Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi"
       description="Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay properties in Nairobi. Documented service, fast WhatsApp booking, guest-ready turnaround. Based in Roysambu."
     >
-      {/* Hero — branded, hospitality-style with full real logo */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/85">
-        <img
-          src={heroImg}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1280}
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary via-primary/90 to-primary/55" />
-        <div className="absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full bg-accent/20 blur-3xl" aria-hidden="true" />
-        <div className="absolute -right-24 bottom-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-primary-foreground/5 blur-3xl" aria-hidden="true" />
-
-        <div className="container-tight grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-24">
-          {/* Left — copy + CTAs */}
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-primary-foreground ring-1 ring-primary-foreground/25 backdrop-blur-sm">
-              <MapPin className="h-3.5 w-3.5" /> Based in Roysambu, Nairobi
-            </p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-[3.5rem]">
-              Mattress &amp; Upholstery Cleaning for Airbnb Hosts in Nairobi.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg text-primary-foreground/90">
-              Fast, professional stain and odor treatment with documented service and guest-ready turnaround.
-            </p>
-            <p className="mt-3 max-w-xl text-base text-primary-foreground/75">
-              We help Airbnb hosts, serviced apartments, and short-stay property managers keep mattresses
-              and upholstered furniture clean, fresh, and ready for the next guest.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <WhatsAppButton size="lg" />
-              <Link
-                to="/host-packages"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-lift transition-colors hover:bg-primary-foreground/90"
-              >
-                View Host Packages
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-              >
-                Request a Quote <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:max-w-xl">
-              {[
-                { icon: MessageSquareText, t: "Fast WhatsApp response" },
-                { icon: Camera, t: "Before/after photo proof" },
-                { icon: Clock4, t: "Same-day or next-day support" },
-                { icon: ShieldCheck, t: "Built for Airbnb turnovers" },
-              ].map((it) => (
-                <div key={it.t} className="flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-2 ring-1 ring-primary-foreground/15 backdrop-blur-sm">
-                  <it.icon className="h-4 w-4" style={{ color: "hsl(158 70% 75%)" }} />
-                  <span className="text-xs font-semibold text-primary-foreground/95">{it.t}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right — Real brand logo plate */}
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto w-full max-w-[420px] sm:max-w-md">
-              <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-accent/25 blur-3xl" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-[1.75rem] bg-primary-foreground p-6 shadow-lift ring-1 ring-primary-foreground/40 sm:rounded-[2rem] sm:p-8 lg:p-10">
-                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/5" aria-hidden="true" />
-                <div className="pointer-events-none absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-accent/10" aria-hidden="true" />
-
-                <img
-                  src={logoFull}
-                  alt={`${site.name} — Sleep Better. Live Fresher.`}
-                  width={1024}
-                  height={1024}
-                  className="relative mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] lg:max-w-[340px]"
-                />
-
-                <div className="relative mt-6 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-primary/70">
-                  <span className="h-px w-8 bg-primary/20" />
-                  Specialist host support
-                  <span className="h-px w-8 bg-primary/20" />
-                </div>
-
-                <div className="relative mt-5">
-                  <WhatsAppButton className="w-full" />
-                </div>
-              </div>
-            </div>
+      {/* Hero — full-width branded banner */}
+      <section className="w-full bg-gradient-to-b from-sky-50 to-background py-8 sm:py-12 lg:py-16">
+        <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8">
+          <img
+            src={heroBanner}
+            alt="FreshDream Mattress Care — Professional Mattress Cleaning in Nairobi. Sleep Better. Live Fresher."
+            width={1920}
+            height={960}
+            className="mx-auto block h-auto w-full rounded-2xl object-contain shadow-lift"
+          />
+          <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8">
+            <a
+              href="https://wa.me/4915756233913"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book via WhatsApp"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-7 text-base font-semibold text-whatsapp-foreground shadow-lift transition-all hover:bg-whatsapp-hover active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp"
+            >
+              <MessageCircle className="h-5 w-5" aria-hidden />
+              Book via WhatsApp
+            </a>
+            <p className="text-sm text-muted-foreground">Roysambu Based · Same-day support where possible</p>
           </div>
         </div>
       </section>
