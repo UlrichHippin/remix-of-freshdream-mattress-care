@@ -118,28 +118,30 @@ export default function Home() {
       </section>
 
       {/* Highlight card — bordered like reference */}
-      <section className="container-tight py-10">
-        <div className="mx-auto max-w-xl rounded-xl border border-primary/40 bg-card p-5 shadow-sm">
-          <div className="flex items-center justify-between gap-3">
-            <h3 className="text-base font-semibold text-foreground">Footer-Layout optimiert</h3>
+      <section className="container-tight px-4 py-6 sm:py-10">
+        <div className="mx-auto w-full max-w-xl rounded-xl border border-primary/40 bg-card p-4 shadow-sm sm:p-5">
+          <div className="flex items-center justify-between gap-2 sm:gap-3">
+            <h3 className="min-w-0 truncate text-sm font-semibold text-foreground sm:text-base">
+              Footer-Layout optimiert
+            </h3>
             <button
               type="button"
               aria-label="Save"
-              className="rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <BadgeCheck className="h-4 w-4" />
             </button>
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="mt-3 grid grid-cols-1 gap-2 sm:mt-4 sm:grid-cols-2 sm:gap-3">
             <Link
               to="/services"
-              className="rounded-lg border border-border bg-background px-4 py-2 text-center text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-center text-xs font-medium text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
             >
               Details
             </Link>
             <Link
               to="/"
-              className="rounded-lg border border-border bg-background px-4 py-2 text-center text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              className="rounded-lg border border-border bg-background px-3 py-2 text-center text-xs font-medium text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
             >
               Back to latest
             </Link>
