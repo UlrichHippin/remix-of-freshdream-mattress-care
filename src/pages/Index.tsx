@@ -12,7 +12,7 @@ import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
-import hostPortfolioImg from "@/assets/host-portfolio.jpg";
+
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 import logoFull from "@/assets/logo-full.png";
