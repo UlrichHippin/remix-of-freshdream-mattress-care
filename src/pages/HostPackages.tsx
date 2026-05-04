@@ -6,6 +6,7 @@ import { hostPackages } from "@/data/content";
 import { ClipboardCheck, Repeat, ShieldCheck, Building2, AlarmClock, FileText, Star } from "lucide-react";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
+import hospitalitySuite from "@/assets/hospitality-suite.jpg";
 
 export default function HostPackages() {
   return (
