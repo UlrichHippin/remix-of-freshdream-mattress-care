@@ -1,38 +1,58 @@
 ## Goal
 
-The site already has Home, Services, Host Packages, About, FAQ, and Contact pages with sticky header, mobile menu, WhatsApp CTAs, footer, and Roysambu service-area logic. The main gap vs. the new spec is a dedicated **Pricing** page (in nav and as a standalone route) and a **Starting Prices preview** block on the homepage. A few smaller content gaps on Home and Contact also need filling.
+Replace generic photos and text-heavy blocks with a cohesive set of **modern, branded vector-style illustrations** that feel premium, hospitality-focused, and consistent across the site.
 
-## Changes
+## Visual direction
 
-### 1. New page: `src/pages/Pricing.tsx`
-Mobile-first, matches existing premium card style (`card-soft`, primary/accent tokens, container-tight, section paddings). Sections:
+- **Style:** flat / semi-flat vector illustrations with soft gradients in brand colors (primary navy + accent), rounded geometry, subtle shadows, no photo-realism, no clip-art, no people/cleaning crew.
+- **Subjects:** beds with linens, pillows, sofas, suitcases, WhatsApp chat bubbles, sparkles, before/after panels, calendars/timeline, small apartment scenes, shield/checkmark badges.
+- **Format:** PNG (1024×1024 transparent or soft background) generated via Lovable AI image gateway (`google/gemini-3.1-flash-image-preview`) for pro quality + speed, matching the existing `illust-*.png` look but more refined.
 
-- **Hero** — "Clear Pricing for Hosts, Serviced Apartments, and Short-Stay Properties" + intro paragraph.
-- **Mattress Cleaning** — 3 cards (Single / Double-Queen / King) each with Freshen-Up and Deep Clean KES ranges.
-- **Special Treatment Add-Ons** — Heavy stain, Urine/odor, Same-day call-out, Extra drying support.
-- **Upholstery / Add-Ons** — Pillows, sofa seats, dining chairs, small rug spot cleaning.
-- **Host Package Pricing** — Custom-quote messaging (no rigid public prices).
-- **Pricing Notes** — size/condition/location/urgency, multi-unit discounts, same-day subject to availability, host packages quoted individually.
-- **CTA strip** — Book on WhatsApp / Ask About Host Packages / Request a Quote.
+## New illustrations to generate (6)
 
-### 2. Wire Pricing into routing & nav
-- `src/App.tsx`: add `<Route path="/pricing" element={<Pricing />} />` and import.
-- `src/components/Header.tsx`: insert `{ to: "/pricing", label: "Pricing" }` in `nav` between Services and Host Packages (desktop + mobile).
-- `src/components/Footer.tsx`: add Pricing to quick links.
+1. `illust-process-flow.png` — 4-step vector journey (chat → calendar → vacuum/wand → camera) on a soft brand-gradient background.
+2. `illust-whatsapp-quote.png` — Stylized phone with WhatsApp bubble, mattress thumbnail, sparkle badge.
+3. `illust-emergency-response.png` — Vector alarm-clock + bed + accent burst, conveying urgent guest-ready turnaround.
+4. `illust-before-after.png` — Side-by-side mattress panels (stained → clean) with sparkle and check badge — replaces the photo `before-after.jpg` usage.
+5. `illust-portfolio.png` — Three small apartment-building/door tiles representing multi-unit, replaces `host-portfolio.jpg` in any text-only block.
+6. `illust-trust-badges.png` — Composition of shield, camera, droplet, clipboard icons clustered into a branded badge graphic.
 
-### 3. Centralize pricing data
-Add a `pricing` export to `src/data/content.ts` (mattress sizes, add-ons, upholstery items, notes) so Home preview and Pricing page share one source.
+All generated via a small Node script using `LOVABLE_API_KEY` against `ai.gateway.lovable.dev`, decoded from base64 and written to `src/assets/`.
 
-### 4. Homepage additions (`src/pages/Index.tsx`)
-- **Starting Prices preview section** (new, placed after Services preview): compact 3-column card grid for Single / Double-Queen / King with Freshen-Up + Deep Clean ranges; small note ("Final pricing depends on size, condition, location, and urgency"); CTAs **View Full Pricing** (→ `/pricing`) and **Book on WhatsApp**.
+## Placements
 
-### 5. Minor content tightening
-- **Contact page** (`src/pages/Contact.tsx`): verify the "What to Send", "What Happens Next", "Quick Booking Template", repeat-properties note, and local service note all exist; add any missing blocks.
-- **About page**: confirm sections match spec (What We Do, Who We Serve, Approach, Why It Matters, Local Roots, Brand Positioning) and patch any missing block.
-- **Services page**: confirm the comparison/summary block ("which service is right for…") exists; add if missing.
+**`src/pages/Index.tsx`**
+- "How it works" steps: add `illust-process-flow.png` inside `IllustrationFrame` next to or replacing the current apartment photo caption block (keep one hospitality photo, swap the second visual to the illustration for variety).
+- WhatsApp/contact band near top or final CTA: add small `illust-whatsapp-quote.png` thumbnail in a `IllustrationFrame`.
+- Emergency block: add `illust-emergency-response.png` as a side visual.
+- Trust/standards strip: replace plain icon row's intro visual with `illust-trust-badges.png`.
 
-No design-token, schema, auth, or booking-calendar changes — those already match the spec.
+**`src/pages/Services.tsx`**
+- Keep existing per-service illustrations; add `illust-before-after.png` in a new compact "Visible results" strip above the hospitality band, replacing reliance on the plain photo.
+
+**`src/pages/HostPackages.tsx`**
+- Replace one `IllustrationFrame` (currently `illustHostSupport` unused / `illustMultiUnit`) with `illust-portfolio.png` for the "How packages help" intro side, keeping the suite photo on the other side.
+
+**`src/pages/About.tsx`**
+- Add a small `illust-trust-badges.png` `IllustrationFrame` inside the "Four things we never cut corners on" section header, anchoring the standards visually.
+
+**`src/pages/Contact.tsx` / `FAQ.tsx`**
+- Add `illust-whatsapp-quote.png` as a hero side visual via `IllustrationFrame` so these pages stop being text-only.
+
+## Consistency rules
+
+- All new illustrations placed inside the existing `IllustrationFrame` component → automatic brand gradient, dotted texture, badge, rounded-3xl, shadow.
+- Use existing tone variants (`primary` / `accent`) alternated for rhythm.
+- No layout overhauls; only swap/insert visuals into existing grid slots.
+- Hospitality photos remain where they reinforce realism (hero, About story, Services band, HostPackages story); illustrations take over explainer/CTA/process areas.
+
+## Technical steps
+
+1. Write `/tmp/gen-illustrations.ts`, loop through 6 prompts, POST to Lovable AI gateway, save base64 PNGs to `src/assets/`.
+2. Run with `bun /tmp/gen-illustrations.ts`.
+3. Edit the 6 page files to import and place the new illustrations inside `IllustrationFrame` blocks at the locations listed above.
+4. Spot-check the preview routes (`/`, `/services`, `/host-packages`, `/about`, `/contact`, `/faq`) for spacing.
 
 ## Out of scope
-- No image regeneration (existing hero/before-after/upholstery assets are reused).
-- No backend or migration changes.
+
+- No new pages, no copy rewrites, no design-token changes, no removal of existing hospitality photos that still serve a purpose.
