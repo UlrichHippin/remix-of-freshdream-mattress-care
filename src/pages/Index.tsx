@@ -87,9 +87,9 @@ export default function Home() {
 
           {/* Right — Real brand logo plate */}
           <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md">
+            <div className="relative mx-auto w-full max-w-[420px] sm:max-w-md">
               <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-accent/25 blur-3xl" aria-hidden="true" />
-              <div className="relative overflow-hidden rounded-[2rem] bg-primary-foreground p-8 shadow-lift ring-1 ring-primary-foreground/40 sm:p-10">
+              <div className="relative overflow-hidden rounded-[1.75rem] bg-primary-foreground p-6 shadow-lift ring-1 ring-primary-foreground/40 sm:rounded-[2rem] sm:p-8 lg:p-10">
                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/5" aria-hidden="true" />
                 <div className="pointer-events-none absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-accent/10" aria-hidden="true" />
 
@@ -98,7 +98,7 @@ export default function Home() {
                   alt={`${site.name} — Sleep Better. Live Fresher.`}
                   width={1024}
                   height={1024}
-                  className="relative mx-auto h-auto w-full max-w-[320px] object-contain"
+                  className="relative mx-auto h-auto w-full max-w-[240px] object-contain sm:max-w-[300px] lg:max-w-[340px]"
                 />
 
                 <div className="relative mt-6 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-primary/70">
