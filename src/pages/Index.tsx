@@ -408,7 +408,10 @@ export default function Home() {
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
             </p>
-            <h2 className="mt-4 text-balance text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">A guest just checked out and something's wrong?</h2>
+            <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
+              A guest just checked out<br className="sm:hidden" />
+              {" "}and something&rsquo;s wrong?
+            </h2>
             <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
               Send us photos and your next check-in time. We'll tell you honestly what's possible and
               prioritize you for same-day or next-day support where we can.
@@ -476,7 +479,10 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 rounded-2xl bg-primary-foreground px-4 py-2.5 shadow-soft">
                   <img src={logoFull} alt={site.name} className="h-8 w-auto object-contain" />
                 </div>
-                <h2 className="mt-4 text-balance text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">Keep every bed fresh, clean, and guest-ready.</h2>
+                <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
+                  Keep every bed fresh,<br className="sm:hidden" />
+                  {" "}clean, and guest-ready.
+                </h2>
                 <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
                   Specialist mattress and upholstery cleaning, documented and on schedule.
                   Send photos and your next check-in time — we'll take it from there.
