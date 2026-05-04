@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
+import Breadcrumbs from "./Breadcrumbs";
 
 interface Props {
   title: string;
