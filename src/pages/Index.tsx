@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
+  CalendarClock, FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
+  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
