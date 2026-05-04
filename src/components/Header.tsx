@@ -10,6 +10,7 @@ import logoMark from "@/assets/logo-mark.png";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/host-packages", label: "Host Packages" },
   { to: "/about", label: "About" },
   { to: "/faq", label: "FAQ" },
