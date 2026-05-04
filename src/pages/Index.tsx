@@ -405,10 +405,14 @@ export default function Home() {
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
-          <div className="card-soft overflow-hidden bg-primary text-primary-foreground">
-            <div className="grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center">
+          <div className="relative overflow-hidden rounded-2xl bg-primary p-10 text-primary-foreground shadow-lift sm:p-12">
+            <img src={logoMark} alt="" aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 opacity-[0.07]" />
+            <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <h2 className="text-3xl font-bold sm:text-4xl">Get your property guest-ready.</h2>
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider ring-1 ring-primary-foreground/20">
+                  <img src={logoMark} alt="" className="h-4 w-4 object-contain" /> {site.shortName}
+                </div>
+                <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Keep every bed fresh, clean, and guest-ready.</h2>
                 <p className="mt-3 max-w-2xl text-primary-foreground/80">
                   Specialist mattress and upholstery cleaning, documented and on schedule.
                   Send photos and your next check-in time — we'll take it from there.
@@ -417,7 +421,10 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <WhatsAppButton size="lg" />
                 <Link to="/contact" className="inline-flex h-12 items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90">
-                  Book a slot
+                  Request a Quote
+                </Link>
+                <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10">
+                  Host Packages
                 </Link>
               </div>
             </div>
