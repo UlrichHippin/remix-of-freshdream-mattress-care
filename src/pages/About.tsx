@@ -4,7 +4,7 @@ import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 import { MapPin, ShieldCheck, Camera, Droplets, Heart } from "lucide-react";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
-import illustGuestReady from "@/assets/illust-guest-ready.png";
+import hospitalityLinens from "@/assets/hospitality-linens.jpg";
 
 export default function About() {
   return (
