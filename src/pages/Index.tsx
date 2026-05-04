@@ -234,37 +234,47 @@ export default function Home() {
       </section>
 
       {/* Host Packages preview */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="grid items-end justify-between gap-4 md:flex">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Host Packages</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Structured support for repeat properties.</h2>
-              <p className="mt-3 text-muted-foreground">
-                Recurring turnovers, urgent guest incidents, multi-unit coordination — bundled into a
-                package so you stop hunting for cleaners every week.
-              </p>
+      <section className="section bg-surface">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <div className="relative">
+              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary-soft blur-2xl" />
+              <img
+                src={hostPortfolioImg}
+                alt="Two well-presented short-stay apartment bedrooms suggesting multi-unit hospitality support"
+                width={1400}
+                height={900}
+                loading="lazy"
+                className="rounded-2xl border border-border object-cover shadow-card"
+              />
             </div>
-            <Link to="/host-packages" className="text-sm font-semibold text-primary hover:underline">
-              View packages →
-            </Link>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {hostPackages.map((p) => (
-              <div key={p.name} className={`card-soft p-7 ${p.featured ? "ring-2 ring-accent" : ""}`}>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-primary">{p.name}</h3>
-                  {p.featured && <span className="rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">Most popular</span>}
+          <div className="lg:col-span-7">
+            <p className="eyebrow">Host Packages</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Structured support for repeat properties.</h2>
+            <p className="mt-3 text-muted-foreground">
+              Recurring turnovers, urgent guest incidents, multi-unit coordination — bundled into a
+              package so you stop hunting for cleaners every week.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {hostPackages.map((p) => (
+                <div key={p.name} className={`card-soft p-6 ${p.featured ? "ring-2 ring-accent" : ""}`}>
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-lg font-bold text-primary">{p.name}</h3>
+                    {p.featured && <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent-foreground">Popular</span>}
+                  </div>
+                  <p className="mt-1 text-xs font-semibold text-accent">{p.units}</p>
+                  <ul className="mt-4 space-y-2 text-sm">
+                    {p.bullets.slice(0, 3).map((b) => (
+                      <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-1 text-sm font-medium text-accent">{p.units}</p>
-                <p className="mt-3 text-sm text-muted-foreground">{p.summary}</p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {p.bullets.slice(0, 3).map((b) => (
-                    <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
+            <Link to="/host-packages" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+              View packages <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
