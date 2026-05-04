@@ -299,16 +299,27 @@ export default function Home() {
               package so you stop hunting for cleaners every week.
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              {hostPackages.map((p) => (
-                <div key={p.name} className={`card-soft p-6 ${p.featured ? "ring-2 ring-accent" : ""}`}>
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-bold text-primary">{p.name}</h3>
-                    {p.featured && <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent-foreground">Popular</span>}
+              {hostPackages.map((p, i) => (
+                <div
+                  key={p.name}
+                  className={`card-soft relative overflow-hidden p-6 ${p.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
+                >
+                  <div className={`absolute -right-8 -top-8 h-28 w-28 rounded-full ${p.featured ? "bg-accent/15" : "bg-primary-soft"}`} aria-hidden="true" />
+                  <div className="relative flex items-start justify-between gap-2">
+                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                      {i % 2 === 0 ? <BedDouble className="h-5 w-5" /> : <Sofa className="h-5 w-5" />}
+                    </div>
+                    {p.featured && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                        <Star className="h-3 w-3" /> Popular
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-1 text-xs font-semibold text-accent">{p.units}</p>
-                  <ul className="mt-4 space-y-2 text-sm">
+                  <h3 className="relative mt-4 text-lg font-bold text-primary">{p.name}</h3>
+                  <p className="relative mt-1 text-xs font-semibold uppercase tracking-wider text-accent">{p.units}</p>
+                  <ul className="relative mt-4 space-y-2 text-sm">
                     {p.bullets.slice(0, 3).map((b) => (
-                      <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                      <li key={b} className="flex items-start gap-2"><BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{b}</li>
                     ))}
                   </ul>
                 </div>
