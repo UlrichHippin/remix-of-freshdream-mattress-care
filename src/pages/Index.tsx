@@ -476,8 +476,8 @@ export default function Home() {
 
       {/* Emergency band */}
       <section className="section bg-gradient-band text-primary-foreground">
-        <div className="container-tight grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
               <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
             </p>
@@ -489,15 +489,28 @@ export default function Home() {
               Send us photos and your next check-in time. We'll tell you honestly what's possible and
               prioritize you for same-day or next-day support where we can.
             </p>
+            <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
+              <WhatsAppButton size="lg" label="WhatsApp now" className="w-full" />
+              <a
+                href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50"
+              >
+                <PhoneCall className="h-4 w-4" /> Call us
+              </a>
+            </div>
           </div>
-          <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:w-auto lg:flex-wrap lg:justify-end">
-            <WhatsAppButton size="lg" label="WhatsApp now" className="w-full lg:w-auto" />
-            <a
-              href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto"
-            >
-              <PhoneCall className="h-4 w-4" /> Call us
-            </a>
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-3xl bg-primary-foreground/5 p-6 ring-1 ring-primary-foreground/15 backdrop-blur-sm">
+              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/30 blur-3xl" aria-hidden="true" />
+              <img
+                src={illustEmergencyResponse}
+                alt="Emergency response illustration: bed with alarm clock"
+                width={1024}
+                height={1024}
+                loading="lazy"
+                className="relative mx-auto h-auto w-full max-w-[380px] object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>
