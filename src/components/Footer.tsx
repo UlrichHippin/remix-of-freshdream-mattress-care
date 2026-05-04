@@ -2,16 +2,15 @@ import { Link } from "react-router-dom";
 import { Mail, MapPin } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
-import logoMark from "@/assets/logo-mark.png";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 export default function Footer() {
   return (
     <footer className="mt-12 border-t border-border bg-surface">
       <div className="container-tight grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Link to="/" aria-label={site.name} className="inline-flex items-center gap-3">
-            <img src={logoMark} alt={site.name} width={512} height={512} loading="lazy" className="h-12 w-12 object-contain" />
-            <span className="text-lg font-bold text-primary">{site.name}</span>
+          <Link to="/" aria-label={site.name} className="inline-flex items-center">
+            <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-20 w-auto object-contain" />
           </Link>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
             Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments, and
