@@ -47,7 +47,19 @@ export default function About() {
               communication. No exaggerated promises. No generic "all-in-one" pitch.
             </p>
           </div>
-          <IllustrationFrame src={illustGuestReady} alt="Guest-ready bed" tone="accent" badge="Guest-ready" />
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityLinens}
+              alt="Crisp white hotel-quality bedding on a freshly made bed"
+              width={1600}
+              height={1200}
+              loading="lazy"
+              className="aspect-[4/3] h-full w-full object-cover"
+            />
+            <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
+              <Camera className="h-3.5 w-3.5 text-accent" /> Documented standard
+            </figcaption>
+          </figure>
         </div>
       </section>
 
