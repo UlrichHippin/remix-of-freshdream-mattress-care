@@ -12,6 +12,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
+import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
+import hospitalityLiving from "@/assets/hospitality-living.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
