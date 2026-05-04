@@ -117,33 +117,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlight card — bordered like reference */}
+      {/* Host support highlight card */}
       <section className="container-tight py-5 sm:py-10">
         <div className="mx-auto w-full max-w-xl rounded-xl border border-primary/40 bg-card p-3.5 shadow-sm sm:p-5">
-          <div className="flex items-center justify-between gap-2 sm:gap-3">
-            <h3 className="min-w-0 truncate text-[13px] font-semibold leading-tight text-foreground sm:text-base">
-              Footer-Layout optimiert
-            </h3>
-            <button
-              type="button"
-              aria-label="Save"
-              className="shrink-0 rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                Host Support
+              </p>
+              <h3 className="mt-1 truncate text-[13px] font-semibold leading-tight text-foreground sm:text-base">
+                Dedicated turnaround coordination for Airbnb hosts
+              </h3>
+              <p className="mt-1 line-clamp-2 text-xs leading-snug text-muted-foreground sm:text-sm">
+                Documented reports, guest-ready scheduling and direct WhatsApp updates between bookings.
+              </p>
+            </div>
+            <span
+              aria-label="Verified host service"
+              className="shrink-0 rounded-md bg-accent-soft p-1.5 text-accent"
             >
               <BadgeCheck className="h-4 w-4" />
-            </button>
+            </span>
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
             <Link
-              to="/services"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
+              to="/host-packages"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-2.5 py-2 text-center text-[12px] font-semibold leading-tight text-primary-foreground transition-colors hover:bg-primary/90 sm:px-4 sm:text-sm"
             >
-              Details
+              Host packages
             </Link>
             <Link
-              to="/"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-semibold leading-tight text-foreground transition-colors hover:bg-muted sm:px-4 sm:text-sm"
             >
-              Back to latest
+              Talk to a host advisor
             </Link>
           </div>
         </div>
