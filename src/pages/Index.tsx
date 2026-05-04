@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
+  CalendarClock, FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
+  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -163,16 +165,20 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
-              { t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
-              { t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
-              { t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
-              { t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
+              { icon: Sparkles, t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
+              { icon: FileCheck2, t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
+              { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
+              { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
+              { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
+              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-6">
-                <h3 className="font-semibold text-primary">{it.t}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{it.d}</p>
+              <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
+                <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <it.icon className="h-5 w-5" />
+                </div>
+                <h3 className="relative mt-4 font-semibold text-primary">{it.t}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground">{it.d}</p>
               </div>
             ))}
           </div>
@@ -225,18 +231,38 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {pricingMattress.map((m) => (
-              <div key={m.size} className={`card-soft p-6 ${m.featured ? "ring-2 ring-accent" : ""}`}>
-                <h3 className="text-base font-bold text-primary">{m.size}</h3>
-                <dl className="mt-4 space-y-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
-                    <dd className="text-sm font-bold text-primary">{m.freshen}</dd>
+              <div
+                key={m.size}
+                className={`card-soft relative overflow-hidden p-6 ${m.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
+              >
+                {m.featured && (
+                  <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                    <Star className="h-3 w-3" /> Popular
+                  </span>
+                )}
+                <div className="flex items-center gap-3">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <BedDouble className="h-5 w-5" />
                   </div>
-                  <div className="flex items-baseline justify-between gap-3 border-t border-border pt-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Deep Clean</dt>
-                    <dd className="text-sm font-bold text-primary">{m.deep}</dd>
+                  <h3 className="text-base font-bold text-primary">{m.size}</h3>
+                </div>
+                <dl className="mt-5 space-y-3">
+                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-surface px-4 py-3">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
+                    <dd className="text-base font-bold text-primary">{m.freshen}</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-gradient-to-br from-primary to-primary/80 px-4 py-3 text-primary-foreground">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/80">Deep Clean</dt>
+                    <dd className="text-base font-bold">{m.deep}</dd>
                   </div>
                 </dl>
+                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                  {["Stain & odor treatment", "Before/after photos", "Drying guidance"].map((f) => (
+                    <li key={f} className="flex items-center gap-2">
+                      <BadgeCheck className="h-4 w-4 text-accent" /> {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -273,16 +299,27 @@ export default function Home() {
               package so you stop hunting for cleaners every week.
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              {hostPackages.map((p) => (
-                <div key={p.name} className={`card-soft p-6 ${p.featured ? "ring-2 ring-accent" : ""}`}>
-                  <div className="flex items-center justify-between gap-2">
-                    <h3 className="text-lg font-bold text-primary">{p.name}</h3>
-                    {p.featured && <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent-foreground">Popular</span>}
+              {hostPackages.map((p, i) => (
+                <div
+                  key={p.name}
+                  className={`card-soft relative overflow-hidden p-6 ${p.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
+                >
+                  <div className={`absolute -right-8 -top-8 h-28 w-28 rounded-full ${p.featured ? "bg-accent/15" : "bg-primary-soft"}`} aria-hidden="true" />
+                  <div className="relative flex items-start justify-between gap-2">
+                    <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                      {i % 2 === 0 ? <BedDouble className="h-5 w-5" /> : <Sofa className="h-5 w-5" />}
+                    </div>
+                    {p.featured && (
+                      <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                        <Star className="h-3 w-3" /> Popular
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-1 text-xs font-semibold text-accent">{p.units}</p>
-                  <ul className="mt-4 space-y-2 text-sm">
+                  <h3 className="relative mt-4 text-lg font-bold text-primary">{p.name}</h3>
+                  <p className="relative mt-1 text-xs font-semibold uppercase tracking-wider text-accent">{p.units}</p>
+                  <ul className="relative mt-4 space-y-2 text-sm">
                     {p.bullets.slice(0, 3).map((b) => (
-                      <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                      <li key={b} className="flex items-start gap-2"><BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />{b}</li>
                     ))}
                   </ul>
                 </div>
@@ -337,20 +374,30 @@ export default function Home() {
             <p className="eyebrow">How it works</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Four simple steps.</h2>
           </div>
-          <ol className="mt-10 grid gap-5 md:grid-cols-4">
-            {[
-              { t: "Send details on WhatsApp", d: "Location, mattress size or furniture, photos, next check-in time." },
-              { t: "Quote &amp; time slot", d: "We confirm a realistic price, an available slot and what to expect." },
-              { t: "On-site service", d: "Inspection, treatment and cleaning with controlled-moisture process." },
-              { t: "Photo proof &amp; drying guidance", d: "After-service documentation and clear next steps." },
-            ].map((s, i) => (
-              <li key={s.t} className="card-soft relative p-6">
-                <span className="absolute -top-3 left-6 grid h-7 w-7 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{i + 1}</span>
-                <h3 className="mt-2 font-semibold text-primary" dangerouslySetInnerHTML={{ __html: s.t }} />
-                <p className="mt-2 text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: s.d }} />
-              </li>
-            ))}
-          </ol>
+          <div className="relative mt-12">
+            {/* Connecting line */}
+            <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent md:block" aria-hidden="true" />
+            <ol className="relative grid gap-6 md:grid-cols-4">
+              {[
+                { icon: Send, t: "Send details on WhatsApp", d: "Location, mattress size or furniture, photos, next check-in time." },
+                { icon: MessageCircle, t: "Quote & time slot", d: "We confirm a realistic price, an available slot and what to expect." },
+                { icon: Wand2, t: "On-site service", d: "Inspection, treatment and cleaning with controlled-moisture process." },
+                { icon: ImageDown, t: "Photo proof & drying guidance", d: "After-service documentation and clear next steps." },
+              ].map((s, i) => (
+                <li key={s.t} className="relative flex flex-col items-center text-center">
+                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lift ring-4 ring-background">
+                    <s.icon className="h-6 w-6" />
+                    <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground ring-2 ring-background">
+                      {i + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-semibold text-primary">{s.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
         </div>
       </section>
 
