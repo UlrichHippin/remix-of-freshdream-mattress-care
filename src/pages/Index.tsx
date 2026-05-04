@@ -6,6 +6,7 @@ import {
   Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import HostPackagesPreview from "@/components/HostPackagesPreview";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
