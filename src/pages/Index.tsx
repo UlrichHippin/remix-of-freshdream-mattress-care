@@ -235,11 +235,32 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <Link key={s.slug} to="/services" className="card-soft group flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
-                  <s.icon className="h-5 w-5" />
+              <Link key={s.slug} to="/services" className="card-soft group relative flex flex-col overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <div className="relative -mx-6 -mt-6 mb-4 h-32 overflow-hidden bg-gradient-to-br from-primary-soft via-accent-soft to-primary-soft">
+                  <div
+                    className="absolute inset-0 opacity-30"
+                    aria-hidden="true"
+                    style={{
+                      backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
+                      backgroundSize: "14px 14px",
+                    }}
+                  />
+                  <img
+                    src={s.illustration}
+                    alt=""
+                    aria-hidden="true"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    className="relative mx-auto h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="mt-4 font-semibold text-primary">{s.title}</h3>
+                <div className="flex items-center gap-3">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-semibold text-primary">{s.title}</h3>
+                </div>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.short}</p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">
                   Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
