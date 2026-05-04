@@ -6,7 +6,7 @@ import {
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { services, faqs, hostPackages } from "@/data/content";
+import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
