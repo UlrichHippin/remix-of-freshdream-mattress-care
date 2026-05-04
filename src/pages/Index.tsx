@@ -10,6 +10,9 @@ import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
+import hostPortfolioImg from "@/assets/host-portfolio.jpg";
+import logoMark from "@/assets/logo-mark.png";
+import logoHorizontal from "@/assets/logo-horizontal.png";
 
 export default function Home() {
   return (
@@ -17,18 +20,37 @@ export default function Home() {
       title="FreshDream Mattress Care — Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi"
       description="Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay properties in Nairobi. Documented service, fast WhatsApp booking, guest-ready turnaround. Based in Roysambu."
     >
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="container-tight grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:py-24">
-          <div className="lg:col-span-7">
-            <p className="eyebrow"><MapPin className="h-3.5 w-3.5" /> Based in Roysambu, Nairobi</p>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.1] text-primary sm:text-5xl lg:text-6xl">
+      {/* Hero — full-bleed image with branded overlay */}
+      <section className="relative isolate overflow-hidden">
+        <img
+          src={heroImg}
+          alt="Freshly made guest-ready bed in a modern Nairobi short-stay apartment"
+          width={1920}
+          height={1280}
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
+
+        <div className="container-tight grid gap-10 py-20 sm:py-24 lg:grid-cols-12 lg:gap-12 lg:py-32">
+          <div className="lg:col-span-8">
+            {/* Brand lockup */}
+            <div className="inline-flex items-center gap-3 rounded-2xl bg-primary-foreground/10 px-3 py-2 backdrop-blur-sm ring-1 ring-primary-foreground/20">
+              <img src={logoMark} alt="" width={48} height={48} className="h-10 w-10 object-contain" />
+              <img src={logoHorizontal} alt={site.name} width={1200} height={400} className="hidden h-8 w-auto object-contain sm:block" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-foreground/80 sm:hidden">{site.shortName}</span>
+            </div>
+
+            <p className="eyebrow mt-6 bg-primary-foreground/10 text-primary-foreground/90 ring-1 ring-primary-foreground/20">
+              <MapPin className="h-3.5 w-3.5" /> Based in Roysambu, Nairobi
+            </p>
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-6xl">
               Mattress &amp; Upholstery Cleaning for Airbnb Hosts in Nairobi.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-foreground/80">
+            <p className="mt-5 max-w-2xl text-lg text-primary-foreground/90">
               Fast, professional stain and odor treatment with documented service and guest-ready turnaround.
             </p>
-            <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-base text-primary-foreground/75">
               We help Airbnb hosts, serviced apartments, and short-stay property managers keep mattresses
               and upholstered furniture clean, fresh, and ready for the next guest.
             </p>
@@ -36,28 +58,55 @@ export default function Home() {
               <WhatsAppButton size="lg" />
               <Link
                 to="/host-packages"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-colors hover:bg-primary-foreground/90"
               >
                 View Host Packages
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary transition-colors hover:bg-primary-soft"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 Request a Quote <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+
+            {/* Inline trust chips */}
+            <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:max-w-xl">
+              {[
+                { icon: MessageSquareText, t: "Fast WhatsApp response" },
+                { icon: Camera, t: "Before/after photo proof" },
+                { icon: Clock4, t: "Same-day or next-day support" },
+                { icon: ShieldCheck, t: "Built for Airbnb turnovers" },
+              ].map((it) => (
+                <div key={it.t} className="flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-2 ring-1 ring-primary-foreground/15 backdrop-blur-sm">
+                  <it.icon className="h-4 w-4 text-accent-foreground" style={{ color: "hsl(158 70% 75%)" }} />
+                  <span className="text-xs font-semibold text-primary-foreground/95">{it.t}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="lg:col-span-5">
+
+          {/* Floating brand card */}
+          <div className="hidden lg:col-span-4 lg:block">
             <div className="relative">
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent-soft blur-2xl" />
-              <img
-                src={heroImg}
-                alt="Clean, freshly made bed in a short-stay apartment"
-                width={1600}
-                height={1100}
-                className="rounded-[1.5rem] border border-border object-cover shadow-lift"
-              />
+              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent/30 blur-2xl" />
+              <div className="rounded-[1.5rem] bg-card p-7 shadow-lift ring-1 ring-border">
+                <img src={logoMark} alt="" width={64} height={64} className="h-14 w-14 object-contain" />
+                <p className="mt-4 text-sm font-bold uppercase tracking-wider text-accent">Sleep better. Live fresher.</p>
+                <h2 className="mt-2 text-2xl font-bold leading-tight text-primary">Specialist host support, not generic cleaning.</h2>
+                <ul className="mt-5 space-y-3 text-sm">
+                  {[
+                    "Documented before/after on every job",
+                    "Controlled-moisture process — faster drying",
+                    "Priority response for repeat hosts",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-foreground"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                  ))}
+                </ul>
+                <div className="mt-5 border-t border-border pt-4">
+                  <WhatsAppButton className="w-full" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -185,37 +234,47 @@ export default function Home() {
       </section>
 
       {/* Host Packages preview */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="grid items-end justify-between gap-4 md:flex">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Host Packages</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Structured support for repeat properties.</h2>
-              <p className="mt-3 text-muted-foreground">
-                Recurring turnovers, urgent guest incidents, multi-unit coordination — bundled into a
-                package so you stop hunting for cleaners every week.
-              </p>
+      <section className="section bg-surface">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <div className="relative">
+              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary-soft blur-2xl" />
+              <img
+                src={hostPortfolioImg}
+                alt="Two well-presented short-stay apartment bedrooms suggesting multi-unit hospitality support"
+                width={1400}
+                height={900}
+                loading="lazy"
+                className="rounded-2xl border border-border object-cover shadow-card"
+              />
             </div>
-            <Link to="/host-packages" className="text-sm font-semibold text-primary hover:underline">
-              View packages →
-            </Link>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {hostPackages.map((p) => (
-              <div key={p.name} className={`card-soft p-7 ${p.featured ? "ring-2 ring-accent" : ""}`}>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-primary">{p.name}</h3>
-                  {p.featured && <span className="rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">Most popular</span>}
+          <div className="lg:col-span-7">
+            <p className="eyebrow">Host Packages</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Structured support for repeat properties.</h2>
+            <p className="mt-3 text-muted-foreground">
+              Recurring turnovers, urgent guest incidents, multi-unit coordination — bundled into a
+              package so you stop hunting for cleaners every week.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              {hostPackages.map((p) => (
+                <div key={p.name} className={`card-soft p-6 ${p.featured ? "ring-2 ring-accent" : ""}`}>
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="text-lg font-bold text-primary">{p.name}</h3>
+                    {p.featured && <span className="rounded-full bg-accent px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-accent-foreground">Popular</span>}
+                  </div>
+                  <p className="mt-1 text-xs font-semibold text-accent">{p.units}</p>
+                  <ul className="mt-4 space-y-2 text-sm">
+                    {p.bullets.slice(0, 3).map((b) => (
+                      <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="mt-1 text-sm font-medium text-accent">{p.units}</p>
-                <p className="mt-3 text-sm text-muted-foreground">{p.summary}</p>
-                <ul className="mt-5 space-y-2 text-sm">
-                  {p.bullets.slice(0, 3).map((b) => (
-                    <li key={b} className="flex items-start gap-2"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
+            <Link to="/host-packages" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+              View packages <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -346,10 +405,14 @@ export default function Home() {
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
-          <div className="card-soft overflow-hidden bg-primary text-primary-foreground">
-            <div className="grid gap-6 p-10 md:grid-cols-[1fr_auto] md:items-center">
+          <div className="relative overflow-hidden rounded-2xl bg-primary p-10 text-primary-foreground shadow-lift sm:p-12">
+            <img src={logoMark} alt="" aria-hidden="true" className="pointer-events-none absolute -right-10 -top-10 h-64 w-64 opacity-[0.07]" />
+            <div className="relative grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <h2 className="text-3xl font-bold sm:text-4xl">Get your property guest-ready.</h2>
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider ring-1 ring-primary-foreground/20">
+                  <img src={logoMark} alt="" className="h-4 w-4 object-contain" /> {site.shortName}
+                </div>
+                <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Keep every bed fresh, clean, and guest-ready.</h2>
                 <p className="mt-3 max-w-2xl text-primary-foreground/80">
                   Specialist mattress and upholstery cleaning, documented and on schedule.
                   Send photos and your next check-in time — we'll take it from there.
@@ -358,7 +421,10 @@ export default function Home() {
               <div className="flex flex-wrap gap-3">
                 <WhatsAppButton size="lg" />
                 <Link to="/contact" className="inline-flex h-12 items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90">
-                  Book a slot
+                  Request a Quote
+                </Link>
+                <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10">
+                  Host Packages
                 </Link>
               </div>
             </div>
