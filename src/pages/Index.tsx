@@ -118,10 +118,10 @@ export default function Home() {
       </section>
 
       {/* Highlight card — bordered like reference */}
-      <section className="container-tight py-5 xs:py-6 sm:py-10">
-        <div className="mx-auto w-full max-w-xl rounded-xl border border-primary/40 bg-card p-3.5 shadow-sm xs:p-4 sm:p-5">
+      <section className="container-tight py-5 sm:py-6 sm:py-10">
+        <div className="mx-auto w-full max-w-xl rounded-xl border border-primary/40 bg-card p-3.5 shadow-sm sm:p-4 sm:p-5">
           <div className="flex items-center justify-between gap-2 sm:gap-3">
-            <h3 className="min-w-0 truncate text-[13px] font-semibold leading-tight text-foreground xs:text-sm sm:text-base">
+            <h3 className="min-w-0 truncate text-[13px] font-semibold leading-tight text-foreground sm:text-sm sm:text-base">
               Footer-Layout optimiert
             </h3>
             <button
@@ -135,13 +135,13 @@ export default function Home() {
           <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
             <Link
               to="/services"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted xs:px-3 xs:text-xs sm:px-4 sm:text-sm"
+              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted sm:px-3 sm:text-xs sm:px-4 sm:text-sm"
             >
               Details
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted xs:px-3 xs:text-xs sm:px-4 sm:text-sm"
+              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-2.5 py-2 text-center text-[12px] font-medium leading-tight text-foreground transition-colors hover:bg-muted sm:px-3 sm:text-xs sm:px-4 sm:text-sm"
             >
               Back to latest
             </Link>
