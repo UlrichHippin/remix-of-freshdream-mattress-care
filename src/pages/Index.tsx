@@ -14,6 +14,7 @@ import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
+import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
