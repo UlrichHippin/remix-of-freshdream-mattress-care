@@ -479,7 +479,10 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 rounded-2xl bg-primary-foreground px-4 py-2.5 shadow-soft">
                   <img src={logoFull} alt={site.name} className="h-8 w-auto object-contain" />
                 </div>
-                <h2 className="mt-4 text-balance text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">Keep every bed fresh, clean, and guest-ready.</h2>
+                <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
+                  Keep every bed fresh,<br className="sm:hidden" />
+                  {" "}clean, and guest-ready.
+                </h2>
                 <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
                   Specialist mattress and upholstery cleaning, documented and on schedule.
                   Send photos and your next check-in time — we'll take it from there.
