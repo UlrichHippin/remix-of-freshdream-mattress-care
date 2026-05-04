@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Mail, MapPin, MapPinned } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 
+const pageLabels: Record<string, string> = {
+  "/": "Home",
+  "/services": "Services",
+  "/pricing": "Pricing",
+  "/host-packages": "Host Packages",
+  "/about": "About",
+  "/faq": "FAQ",
+  "/contact": "Book Now",
+};
+
 export default function Footer() {
+  const { pathname } = useLocation();
+  const currentPage = pageLabels[pathname] ?? "This page";
   return (
     <footer className="mt-12 border-t border-border bg-surface">
       <div className="container-tight grid gap-10 py-14 md:grid-cols-4">
@@ -50,7 +62,12 @@ export default function Footer() {
 
       <div className="border-t border-border">
         <div className="container-tight flex flex-col gap-3 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-semibold text-accent">
+              <MapPinned className="h-3.5 w-3.5" /> You are on: {currentPage}
+            </span>
+          </div>
           <p className="max-w-xl md:text-right">{site.disclaimer}</p>
         </div>
       </div>

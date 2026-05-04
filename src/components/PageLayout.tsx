@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
+import Breadcrumbs from "./Breadcrumbs";
 
 interface Props {
   title: string;
@@ -33,6 +34,7 @@ export default function PageLayout({ title, description, children }: Props) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
+      <Breadcrumbs />
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingWhatsApp />
