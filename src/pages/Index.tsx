@@ -15,6 +15,7 @@ import beforeAfterImg from "@/assets/before-after.jpg";
 import hostPortfolioImg from "@/assets/host-portfolio.jpg";
 import logoMark from "@/assets/logo-mark.png";
 import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoFull from "@/assets/logo-full.png";
 
 export default function Home() {
   return (
