@@ -414,10 +414,10 @@ export default function Home() {
             <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent md:block" aria-hidden="true" />
             <ol className="relative grid gap-6 md:grid-cols-4">
               {[
-                { icon: Send, t: "Send details on WhatsApp", d: "Location, mattress size or furniture, photos, next check-in time." },
-                { icon: MessageCircle, t: "Quote & time slot", d: "We confirm a realistic price, an available slot and what to expect." },
-                { icon: Wand2, t: "On-site service", d: "Inspection, treatment and cleaning with controlled-moisture process." },
-                { icon: ImageDown, t: "Photo proof & drying guidance", d: "After-service documentation and clear next steps." },
+                { icon: Send, t: "Share the details", d: "WhatsApp us your location, mattress or furniture, photos and the next check-in time." },
+                { icon: MessageCircle, t: "Honest quote & slot", d: "You get a realistic price, an available time slot and a clear view of what to expect." },
+                { icon: Wand2, t: "Calm on-site service", d: "Inspection and treatment with a controlled-moisture process — quiet, tidy, guest-ready." },
+                { icon: ImageDown, t: "Proof & drying guidance", d: "Before/after photos and clear drying steps so the room is ready for the next guest." },
               ].map((s, i) => (
                 <li key={s.t} className="relative flex flex-col items-center text-center">
                   <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lift ring-4 ring-background">
