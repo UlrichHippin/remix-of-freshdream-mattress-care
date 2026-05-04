@@ -104,7 +104,7 @@ export default function Header() {
                 className={({ isActive }) =>
                   cn(
                     "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
-                    isActive && "bg-primary-soft text-primary",
+                    isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
                   )
                 }
               >
