@@ -22,6 +22,9 @@ import logoFull from "@/assets/logo-full.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
+import illustProcessFlow from "@/assets/illust-process-flow.png";
+import illustEmergencyResponse from "@/assets/illust-emergency-response.png";
+import illustTrustBadges from "@/assets/illust-trust-badges.png";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 
