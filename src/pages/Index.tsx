@@ -231,18 +231,38 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {pricingMattress.map((m) => (
-              <div key={m.size} className={`card-soft p-6 ${m.featured ? "ring-2 ring-accent" : ""}`}>
-                <h3 className="text-base font-bold text-primary">{m.size}</h3>
-                <dl className="mt-4 space-y-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
-                    <dd className="text-sm font-bold text-primary">{m.freshen}</dd>
+              <div
+                key={m.size}
+                className={`card-soft relative overflow-hidden p-6 ${m.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
+              >
+                {m.featured && (
+                  <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                    <Star className="h-3 w-3" /> Popular
+                  </span>
+                )}
+                <div className="flex items-center gap-3">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
+                    <BedDouble className="h-5 w-5" />
                   </div>
-                  <div className="flex items-baseline justify-between gap-3 border-t border-border pt-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Deep Clean</dt>
-                    <dd className="text-sm font-bold text-primary">{m.deep}</dd>
+                  <h3 className="text-base font-bold text-primary">{m.size}</h3>
+                </div>
+                <dl className="mt-5 space-y-3">
+                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-surface px-4 py-3">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
+                    <dd className="text-base font-bold text-primary">{m.freshen}</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-gradient-to-br from-primary to-primary/80 px-4 py-3 text-primary-foreground">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/80">Deep Clean</dt>
+                    <dd className="text-base font-bold">{m.deep}</dd>
                   </div>
                 </dl>
+                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                  {["Stain & odor treatment", "Before/after photos", "Drying guidance"].map((f) => (
+                    <li key={f} className="flex items-center gap-2">
+                      <BadgeCheck className="h-4 w-4 text-accent" /> {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
