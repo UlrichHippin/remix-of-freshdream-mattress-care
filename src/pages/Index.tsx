@@ -337,14 +337,12 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div>
-            <img
-              src={beforeAfterImg}
-              alt="Before and after documented mattress service"
-              width={1200} height={800} loading="lazy"
-              className="rounded-2xl border border-border object-cover shadow-card"
-            />
-          </div>
+          <IllustrationFrame
+            src={illustGuestReady}
+            alt="Guest-ready bedroom illustration"
+            tone="primary"
+            badge="Documented"
+          />
         </div>
       </section>
 
