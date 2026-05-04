@@ -7,6 +7,7 @@ import { site } from "@/config/site";
 import { CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import illustHostSupport from "@/assets/illust-host-support.png";
+import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 
 export default function Services() {
   return (
