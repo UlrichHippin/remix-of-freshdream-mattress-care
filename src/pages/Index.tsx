@@ -201,16 +201,21 @@ export default function Home() {
       {/* Why hosts choose us */}
       <section className="section">
         <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Specialist support for short-stay properties — not generic cleaning.
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-              for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
-              to help reduce drying time.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+                Specialist support for short-stay properties — not generic cleaning.
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                We work the way hosts actually operate: tight check-ins, recurring units, and zero room
+                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
+                to help reduce drying time.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <IllustrationFrame src={illustTrustBadges} alt="Trust and quality badges illustration" tone="primary" badge="What hosts get" />
+            </div>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
