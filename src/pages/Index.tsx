@@ -418,7 +418,7 @@ export default function Home() {
             <WhatsAppButton size="lg" label="WhatsApp now" className="w-full lg:w-auto" />
             <a
               href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90 lg:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto"
             >
               <PhoneCall className="h-4 w-4" /> Call us
             </a>
