@@ -185,3 +185,43 @@ export const hostPackages = [
     featured: true,
   },
 ];
+
+export const pricingMattress = [
+  {
+    size: "Single Mattress",
+    freshen: "KES 2,000–2,500",
+    deep: "KES 3,000–4,000",
+  },
+  {
+    size: "Double / Queen Mattress",
+    freshen: "KES 2,500–3,500",
+    deep: "KES 4,000–5,500",
+    featured: true,
+  },
+  {
+    size: "King Mattress",
+    freshen: "KES 3,500–4,500",
+    deep: "KES 5,500–7,000",
+  },
+];
+
+export const pricingAddOns = [
+  { t: "Heavy stain treatment", p: "+ KES 500–1,500" },
+  { t: "Urine / strong odor treatment", p: "+ KES 1,000–2,500" },
+  { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
+  { t: "Extra drying support / return check", p: "+ KES 500–1,000" },
+];
+
+export const pricingUpholstery = [
+  { t: "Pillow cleaning", p: "KES 300–700 each" },
+  { t: "Sofa seat / cushion cleaning", p: "KES 500–1,500 per seat" },
+  { t: "Dining chair upholstery cleaning", p: "KES 300–800 each" },
+  { t: "Small rug / carpet spot cleaning", p: "from KES 1,000" },
+];
+
+export const pricingNotes = [
+  "Final pricing depends on mattress size, condition, location, and urgency.",
+  "Multi-unit discounts may be available.",
+  "Same-day support is subject to availability.",
+  "Host packages and repeat-property support are quoted individually.",
+];

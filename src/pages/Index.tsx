@@ -6,7 +6,7 @@ import {
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { services, faqs, hostPackages } from "@/data/content";
+import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import beforeAfterImg from "@/assets/before-after.jpg";
@@ -139,6 +139,47 @@ export default function Home() {
                 </span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Starting prices preview */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Starting prices</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent pricing in KES.</h2>
+              <p className="mt-3 text-muted-foreground">
+                A quick reference for mattress cleaning. Final pricing depends on size, condition, location, and urgency.
+              </p>
+            </div>
+            <Link to="/pricing" className="text-sm font-semibold text-primary hover:underline">
+              View full pricing →
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {pricingMattress.map((m) => (
+              <div key={m.size} className={`card-soft p-6 ${m.featured ? "ring-2 ring-accent" : ""}`}>
+                <h3 className="text-base font-bold text-primary">{m.size}</h3>
+                <dl className="mt-4 space-y-3">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
+                    <dd className="text-sm font-bold text-primary">{m.freshen}</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-3 border-t border-border pt-3">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Deep Clean</dt>
+                    <dd className="text-sm font-bold text-primary">{m.deep}</dd>
+                  </div>
+                </dl>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/pricing" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
+              View full pricing
+            </Link>
+            <WhatsAppButton size="lg" />
           </div>
         </div>
       </section>
