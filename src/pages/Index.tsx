@@ -50,30 +50,45 @@ export default function Home() {
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5" /> Launch Offer
             </p>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-[3.25rem]">
-              Mattress Cleaning Nairobi for Airbnb Hosts &amp; Homes
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+              Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
             </h1>
             <p className="mt-3 text-lg font-semibold text-primary">
               Freshen Up from KES 1,999
             </p>
-            <p className="mt-2 max-w-xl text-base text-muted-foreground">
+            <p className="mt-2 max-w-md text-base leading-relaxed text-muted-foreground">
               First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
             </p>
+
+            {/* Trust bullets — cohesive row, wraps cleanly on mobile */}
+            <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-primary/90">
+              {[
+                { i: BadgeCheck, t: "M-PESA accepted" },
+                { i: MessageSquareText, t: "WhatsApp booking" },
+                { i: Clock4, t: "Same-day" },
+                { i: Camera, t: "Before/after" },
+                { i: MapPin, t: "Roysambu" },
+              ].map((it) => (
+                <li key={it.t} className="inline-flex items-center gap-1.5 font-medium">
+                  <it.i className="h-4 w-4 text-accent" aria-hidden /> {it.t}
+                </li>
+              ))}
+            </ul>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappLink(openingOffer.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Book Opening Offer
+                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
               <Link
-                to="/pricing"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft"
+                to="/services"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
               >
-                View Prices <ArrowRight className="h-4 w-4" />
+                Explore services <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
