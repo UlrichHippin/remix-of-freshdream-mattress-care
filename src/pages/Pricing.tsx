@@ -206,6 +206,12 @@ export default function Pricing() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container-tight max-w-3xl">
+          <EquipmentBadge variant="card" />
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
