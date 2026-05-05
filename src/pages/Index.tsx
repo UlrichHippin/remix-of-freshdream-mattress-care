@@ -597,6 +597,50 @@ export default function Home() {
 
       <BookingSection />
 
+      {/* Best for — customer types */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="max-w-2xl">
+            <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Best for</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Built for hospitality and homes.</h2>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              { i: BedDouble, t: "Airbnb hosts" },
+              { i: Sofa, t: "Serviced apartments" },
+              { i: Package, t: "Guest houses" },
+              { i: ShieldCheck, t: "Families & homes" },
+              { i: Repeat2, t: "Property managers" },
+            ].map((c) => (
+              <div key={c.t} className="card-soft flex flex-col items-center p-5 text-center">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
+                  <c.i className="h-6 w-6" />
+                </span>
+                <p className="mt-3 text-sm font-semibold text-primary">{c.t}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Real photos coming soon */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="card-soft flex flex-col items-center gap-3 p-8 text-center sm:p-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
+              <Camera className="h-3.5 w-3.5" /> Coming soon
+            </span>
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Real before/after photos coming soon</h2>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              We share honest, recent service photos directly with hosts on WhatsApp. Ask us for the
+              latest examples relevant to your unit.
+            </p>
+            <WhatsAppButton label="Ask us on WhatsApp for recent photos" />
+          </div>
+        </div>
+      </section>
+
+
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
