@@ -442,12 +442,19 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <IllustrationFrame
-            src={illustGuestReady}
-            alt="Guest-ready bedroom illustration"
-            tone="primary"
-            badge="Documented"
-          />
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={heroImg}
+              alt="FreshDream mattress care in Roysambu Nairobi"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] h-full w-full object-cover"
+            />
+            <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
+              Documented
+            </figcaption>
+          </figure>
         </div>
       </section>
 
