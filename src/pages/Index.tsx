@@ -78,9 +78,11 @@ export default function Home() {
             </div>
 
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              <li className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> Documented service</li>
-              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
+              <li className="inline-flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 text-accent" /> M-PESA accepted</li>
+              <li className="inline-flex items-center gap-1.5"><MessageSquareText className="h-4 w-4 text-accent" /> WhatsApp booking</li>
               <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
+              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
+              <li className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4 text-accent" /> Roysambu, Nairobi</li>
             </ul>
 
             <div className="mt-6 flex justify-center">
