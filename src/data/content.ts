@@ -4,6 +4,11 @@ import illustDeepClean from "@/assets/illust-deep-clean.png";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
+import photoMattressDetail from "@/assets/mattress-detail.jpg";
+import photoHeroBed from "@/assets/hero-bed.jpg";
+import photoHospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
+import photoUpholstery from "@/assets/upholstery.jpg";
+import photoHospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
 export interface ServiceDef {
   slug: string;
@@ -14,6 +19,8 @@ export interface ServiceDef {
   expectations: string;
   icon: LucideIcon;
   illustration: string;
+  photo: string;
+  photoAlt: string;
   whatsappTemplate: string;
 }
 
@@ -21,6 +28,8 @@ export const services: ServiceDef[] = [
   {
     slug: "turnover",
     illustration: illustGuestReady,
+    photo: photoHospitalityBedroom,
+    photoAlt: "Dry mattress refresh for serviced apartments in Nairobi",
     title: "Turnover Freshen-Up",
     short: "Quick refresh between guests — low-moisture, fast re-use, photo-documented.",
     bestFor: "Routine Airbnb turnovers and quick refreshes when the mattress needs to be back in service fast.",
@@ -41,6 +50,8 @@ export const services: ServiceDef[] = [
   {
     slug: "deep-clean",
     illustration: illustDeepClean,
+    photo: photoMattressDetail,
+    photoAlt: "Mattress cleaning Nairobi for Airbnb hosts — detail view",
     title: "Deep Mattress Clean",
     short: "For visible stains, sweat buildup and heavier use over time.",
     bestFor: "Mattresses with visible stains, sweat buildup, body oils, or heavier use over time.",
@@ -61,6 +72,8 @@ export const services: ServiceDef[] = [
   {
     slug: "urine-odor",
     illustration: illustMattressCare,
+    photo: photoMattressDetail,
+    photoAlt: "Neutral mattress detail — odor and stain treatment service in Nairobi",
     title: "Urine & Odor Reduction Treatment",
     short: "Targeted treatment for guest accidents and stronger odor concerns.",
     bestFor: "Guest accidents, urine concerns, and stronger odor issues.",
@@ -81,6 +94,8 @@ export const services: ServiceDef[] = [
   {
     slug: "emergency",
     illustration: illustHostSupport,
+    photo: photoHospitalityApartment,
+    photoAlt: "Airbnb mattress cleaning service Nairobi — emergency host support",
     title: "Emergency Host Service",
     short: "Urgent support before the next guest check-in.",
     bestFor: "Last-minute stains, odor complaints, urgent guest incidents, and unexpected turnover problems.",
@@ -101,6 +116,8 @@ export const services: ServiceDef[] = [
   {
     slug: "upholstery",
     illustration: illustUpholstery,
+    photo: photoUpholstery,
+    photoAlt: "Sofa upholstery cleaning Nairobi",
     title: "Upholstery & Sofa Cleaning",
     short: "Sofas, cushions and upholstered chairs in short-stay properties.",
     bestFor: "Sofas, cushions, upholstered chairs, and selected soft furnishings in short-stay properties.",

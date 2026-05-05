@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { hostPackages } from "@/data/content";
+import hostPortfolio from "@/assets/host-portfolio.jpg";
 
 type NeedKey = "turnovers" | "incidents" | "multiunit";
 
@@ -55,14 +56,41 @@ export default function HostPackagesPreview() {
 
       <div className="container-tight">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow mx-auto"><Sparkles className="h-3.5 w-3.5" /> Host Packages</p>
+          <p className="eyebrow mx-auto"><Sparkles className="h-3.5 w-3.5" /> Airbnb Host Packages</p>
           <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-            Choose the right package for your hosting setup.
+            Built for Airbnb Hosts &amp; Serviced Apartments
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Tell us what you need most and we'll highlight the best-matching package.
+            Fresh mattresses help your guests feel comfortable from the first minute. We support
+            hosts with fast dry mattress refresh, WhatsApp service photos and recurring care plans.
           </p>
         </div>
+
+        <figure className="mt-8 relative overflow-hidden rounded-3xl border border-border shadow-lift">
+          <img
+            src={hostPortfolio}
+            alt="Airbnb mattress cleaning service Nairobi — host portfolio"
+            width={1600}
+            height={700}
+            loading="lazy"
+            className="aspect-[16/7] h-full w-full object-cover"
+          />
+        </figure>
+
+        <ul className="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {[
+            "Better guest impression",
+            "Fewer odor complaints",
+            "Guest-ready beds",
+            "WhatsApp documentation",
+            "Recurring host plans",
+          ].map((b) => (
+            <li key={b} className="card-soft flex items-center gap-2 p-3 text-sm font-semibold text-primary">
+              <BadgeCheck className="h-4 w-4 shrink-0 text-accent" />
+              {b}
+            </li>
+          ))}
+        </ul>
 
         {/* Inclusions filter */}
         <div className="mx-auto mt-8 max-w-3xl rounded-2xl border border-border bg-card p-5 shadow-soft sm:p-6">

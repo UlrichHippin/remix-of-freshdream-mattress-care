@@ -442,12 +442,19 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <IllustrationFrame
-            src={illustGuestReady}
-            alt="Guest-ready bedroom illustration"
-            tone="primary"
-            badge="Documented"
-          />
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={heroImg}
+              alt="FreshDream mattress care in Roysambu Nairobi"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] h-full w-full object-cover"
+            />
+            <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
+              Documented
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -623,18 +630,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Real photos coming soon */}
+      {/* Real Service Photos Coming Soon */}
       <section className="section">
         <div className="container-tight">
-          <div className="card-soft flex flex-col items-center gap-3 p-8 text-center sm:p-10">
+          <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
               <Camera className="h-3.5 w-3.5" /> Coming soon
             </span>
-            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Real before/after photos coming soon</h2>
-            <p className="max-w-2xl text-sm text-muted-foreground">
-              We share honest, recent service photos directly with hosts on WhatsApp. Ask us for the
-              latest examples relevant to your unit.
+            <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Real Service Photos Coming Soon</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+              We are adding real photos from FreshDream mattress cleaning jobs in Nairobi. For
+              privacy, we never show customer addresses or personal details.
             </p>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              "Cleaner using equipment on mattress",
+              "Mattress before cleaning",
+              "Mattress after cleaning",
+              "Airbnb room ready for guests",
+              "Sofa upholstery refresh",
+            ].map((label) => (
+              <li
+                key={label}
+                className="flex aspect-[4/5] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-4 text-center shadow-soft"
+              >
+                <Camera className="h-6 w-6 text-accent" />
+                <p className="text-xs font-semibold text-primary">{label}</p>
+                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Photo coming soon</p>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex justify-center">
             <WhatsAppButton label="Ask us on WhatsApp for recent photos" />
           </div>
         </div>
