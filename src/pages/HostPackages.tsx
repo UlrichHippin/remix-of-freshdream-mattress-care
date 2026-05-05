@@ -6,7 +6,7 @@ import {
   ClipboardCheck, Repeat, ShieldCheck, Building2, AlarmClock, FileText,
   Star, ArrowRight, Camera, CalendarClock, Sparkles, MessageCircle, Bed, Sofa, Droplets,
 } from "lucide-react";
-import illustPortfolio from "@/assets/illust-portfolio.png";
+import illustPortfolio from "@/assets/host-portfolio.jpg";
 import EquipmentBadge from "@/components/EquipmentBadge";
 
 const benefits = [
