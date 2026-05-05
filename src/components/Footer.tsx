@@ -1,39 +1,35 @@
-import { Link, useLocation } from "react-router-dom";
-import { Mail, MapPin, MapPinned } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Mail, MapPin, BadgeCheck } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 
-const pageLabels: Record<string, string> = {
-  "/": "Home",
-  "/services": "Services",
-  "/pricing": "Prices",
-  "/host-packages": "Hosts",
-  "/about": "About",
-  "/faq": "FAQ",
-  "/contact": "Contact",
-};
-
 export default function Footer() {
-  const { pathname } = useLocation();
-  const currentPage = pageLabels[pathname] ?? "This page";
   return (
-    <footer className="mt-12 border-t border-border bg-surface">
-      <div className="container-tight grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12">
+    <footer className="mt-16 border-t border-border bg-surface">
+      <div className="container-tight grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Link to="/" aria-label={site.name} className="inline-flex items-center">
-            <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-14 w-auto object-contain sm:h-16" />
+            <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-12 w-auto object-contain sm:h-14" />
           </Link>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments, and
-            short-stay property managers in Nairobi. Based in {site.base}.
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+            Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments and homes in Nairobi.
           </p>
+          <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+            <li className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 shrink-0 text-accent" /> Based in {site.base}
+            </li>
+            <li className="flex items-center gap-2">
+              <BadgeCheck className="h-4 w-4 shrink-0 text-accent" /> M-PESA accepted
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 shrink-0 text-accent" />
+              <a href={`mailto:${site.email}`} className="break-all hover:text-primary sm:break-words">{site.email}</a>
+            </li>
+          </ul>
           <div className="mt-5">
             <WhatsAppButton />
           </div>
-          <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
-            Documented service · Honest assessment · Built for hosts
-          </p>
         </div>
 
         <div className="lg:col-span-3">
@@ -50,57 +46,27 @@ export default function Footer() {
 
         <div className="sm:col-span-2 lg:col-span-4">
           <h3 className="text-sm font-semibold text-primary">Service areas</h3>
-          <ul className="mt-4 flex flex-wrap gap-1.5 text-xs text-muted-foreground">
-            {site.serviceAreas.slice(0, 16).map((area) => (
-              <li
-                key={area}
-                className="inline-flex max-w-full items-center whitespace-nowrap rounded-full bg-muted px-2.5 py-1 leading-tight"
-              >
-                {area}
-              </li>
-            ))}
-            <li className="inline-flex max-w-full items-center whitespace-nowrap rounded-full bg-muted px-2.5 py-1 italic leading-tight">
-              + more on request
-            </li>
-          </ul>
-          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <span className="min-w-0 break-words">{site.base}</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <a
-                href={`mailto:${site.email}`}
-                className="min-w-0 break-all hover:text-primary sm:break-words"
-              >
-                {site.email}
-              </a>
-            </li>
-          </ul>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            {site.serviceAreas.slice(0, 14).join(" · ")} · + more on request
+          </p>
+          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
+            Documented service · Honest assessment · Built for hosts
+          </p>
         </div>
       </div>
 
       <div className="border-t border-border">
-        <div className="container-tight flex flex-col gap-4 py-6 text-xs text-muted-foreground">
-          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-start">
-            <li><Link to="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
+        <div className="container-tight flex flex-col gap-3 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+            <li><Link to="/privacy" className="hover:text-primary">Privacy</Link></li>
             <li aria-hidden="true">·</li>
-            <li><Link to="/terms" className="hover:text-primary">Terms of Service</Link></li>
+            <li><Link to="/terms" className="hover:text-primary">Terms</Link></li>
             <li aria-hidden="true">·</li>
-            <li><Link to="/disclaimer" className="hover:text-primary">Cleaning Disclaimer</Link></li>
+            <li><Link to="/disclaimer" className="hover:text-primary">Disclaimer</Link></li>
             <li aria-hidden="true">·</li>
-            <li><Link to="/cancellation" className="hover:text-primary">Cancellation Policy</Link></li>
+            <li><Link to="/cancellation" className="hover:text-primary">Cancellation</Link></li>
           </ul>
-          <div className="flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
-            <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-              <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-semibold text-accent">
-                <MapPinned className="h-3.5 w-3.5" /> You are on: {currentPage}
-              </span>
-            </div>
-            <p className="max-w-xl md:text-right">{site.disclaimer}</p>
-          </div>
+          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
         </div>
       </div>
     </footer>

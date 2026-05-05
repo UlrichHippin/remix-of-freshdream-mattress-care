@@ -124,40 +124,48 @@ export default function Pricing() {
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {mainPackages.map((p, i) => (
-              <div
-                key={p.slug}
-                className={`card-soft relative overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${i === 1 ? "ring-2 ring-accent" : ""}`}
-              >
-                <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
-                <div className="relative flex items-start justify-between gap-3">
-                  <div>
+            {mainPackages.map((p, i) => {
+              const isPopular = i === 1;
+              return (
+                <div
+                  key={p.slug}
+                  className={`card-soft relative flex flex-col overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${isPopular ? "ring-2 ring-accent shadow-lift" : ""}`}
+                >
+                  {isPopular && (
+                    <div className="absolute inset-x-0 top-0 flex justify-center">
+                      <span className="rounded-b-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
+                  <div className={`relative ${isPopular ? "mt-4" : ""}`}>
                     <h3 className="text-lg font-bold text-primary">{p.title}</h3>
                     <p className="mt-1 text-xs text-muted-foreground">{p.hours}</p>
+                    {isPopular && (
+                      <p className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-accent">
+                        <BadgeCheck className="h-3.5 w-3.5" /> Recommended for Airbnb hosts
+                      </p>
+                    )}
                   </div>
-                  {i === 1 && (
-                    <span className="rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
-                      Recommended
-                    </span>
-                  )}
+                  <p className="relative mt-3 text-sm text-muted-foreground">{p.summary}</p>
+                  <dl className="relative mt-5 space-y-2">
+                    {p.sizes.map((s, idx) => (
+                      <div
+                        key={s.label}
+                        className={`flex items-baseline justify-between gap-3 rounded-xl px-4 py-2.5 ${
+                          idx === 0 ? "bg-gradient-to-br from-primary to-primary/80 text-primary-foreground" : "bg-surface"
+                        }`}
+                      >
+                        <dt className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{s.label}</dt>
+                        <dd className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{s.price}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="relative mt-4 text-xs italic text-muted-foreground">{p.note}</p>
                 </div>
-                <p className="relative mt-3 text-sm text-muted-foreground">{p.summary}</p>
-                <dl className="relative mt-5 space-y-2">
-                  {p.sizes.map((s, idx) => (
-                    <div
-                      key={s.label}
-                      className={`flex items-baseline justify-between gap-3 rounded-xl px-4 py-2.5 ${
-                        idx === 0 ? "bg-gradient-to-br from-primary to-primary/80 text-primary-foreground" : "bg-surface"
-                      }`}
-                    >
-                      <dt className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{s.label}</dt>
-                      <dd className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{s.price}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="relative mt-4 text-xs italic text-muted-foreground">{p.note}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -214,7 +222,12 @@ export default function Pricing() {
           <div className="card-soft relative overflow-hidden p-7 md:p-10">
             <div className="grid gap-6 md:grid-cols-12 md:items-start">
               <div className="md:col-span-8">
-                <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Quoted treatment</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Quoted treatment</p>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary-soft px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">
+                    Quoted after photos
+                  </span>
+                </div>
                 <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">{urinePkg.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{urinePkg.description}</p>
                 <p className="mt-4 text-base font-bold text-primary">{urinePkg.startingPrice}</p>
