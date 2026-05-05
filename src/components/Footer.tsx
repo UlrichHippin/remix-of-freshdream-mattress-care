@@ -1,22 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Mail, MapPin, BadgeCheck } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
 
-const pageLabels: Record<string, string> = {
-  "/": "Home",
-  "/services": "Services",
-  "/pricing": "Prices",
-  "/host-packages": "Hosts",
-  "/about": "About",
-  "/faq": "FAQ",
-  "/contact": "Contact",
-};
-
 export default function Footer() {
-  const { pathname } = useLocation();
-  const currentPage = pageLabels[pathname] ?? "This page";
   return (
     <footer className="mt-16 border-t border-border bg-surface">
       <div className="container-tight grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-12">
