@@ -124,7 +124,7 @@ export default function BookingSection() {
             </div>
             <h3 className="mt-4 text-xl font-bold text-primary">Request a Booking</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use the booking form to send your cleaning request for mattresses, sofas, or rugs.
+              Use the booking form to send your cleaning request for mattresses, sofas, or small rug refresh / spot support.
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
@@ -157,7 +157,7 @@ export default function BookingSection() {
                 <div>
                   <Label>Item Type *</Label>
                   <Select value={form.item} onValueChange={(v) => update("item", v)}>
-                    <SelectTrigger aria-invalid={!!errors.item}><SelectValue placeholder="Mattress / Sofa / Rug" /></SelectTrigger>
+                    <SelectTrigger aria-invalid={!!errors.item}><SelectValue placeholder="Mattress / Sofa / Small rug refresh" /></SelectTrigger>
                     <SelectContent>
                       {ITEM_TYPES.map((p) => <SelectItem key={p} value={p}>{p}</SelectItem>)}
                     </SelectContent>

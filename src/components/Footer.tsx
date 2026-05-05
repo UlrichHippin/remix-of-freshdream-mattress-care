@@ -47,10 +47,7 @@ export default function Footer() {
         <div className="sm:col-span-2 lg:col-span-4">
           <h3 className="text-sm font-semibold text-primary">Service areas</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            {site.serviceAreas.slice(0, 14).join(" · ")} · + more on request
-          </p>
-          <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
-            Documented service · Honest assessment · Built for hosts
+            {site.serviceAreas.slice(0, 12).join(" · ")} · + more on request
           </p>
         </div>
       </div>
