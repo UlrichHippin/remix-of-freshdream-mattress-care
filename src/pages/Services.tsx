@@ -35,12 +35,19 @@ export default function Services() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame
-              src={illustHostSupport}
-              alt="Host support illustration"
-              tone="accent"
-              badge="Built for hosts"
-            />
+            <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+              <img
+                src={hospitalityBedroom}
+                alt="Mattress cleaning Nairobi for Airbnb hosts"
+                width={1200}
+                height={900}
+                loading="eager"
+                className="aspect-[4/3] h-full w-full object-cover"
+              />
+              <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
+                Built for hosts
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
