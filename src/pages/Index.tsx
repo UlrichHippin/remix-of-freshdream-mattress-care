@@ -14,7 +14,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
 import { services, faqs, hostPackages, openingOffer } from "@/data/content";
-import { whatsappLink } from "@/config/site";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBanner from "@/assets/hero-banner.png";
