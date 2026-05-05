@@ -194,8 +194,8 @@ export default function Home() {
                   </span>
                 )}
                 <h3 className="text-lg font-bold text-primary">{p.title}</h3>
-                <p className="mt-2 text-2xl font-bold text-primary">{p.price}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{p.startingNote}</p>
+                <p className="mt-2 text-2xl font-bold text-primary">{p.startingPrice}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{STARTING_NOTE}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {p.hours}
                 </span>
@@ -227,7 +227,7 @@ export default function Home() {
               <DialogHeader>
                 <div className="flex flex-wrap items-baseline gap-3">
                   <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
-                  <span className="text-xl font-bold text-primary">{activePkg.price}</span>
+                  <span className="text-xl font-bold text-primary">{activePkg.startingPrice}</span>
                 </div>
                 <span className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {activePkg.hours}
