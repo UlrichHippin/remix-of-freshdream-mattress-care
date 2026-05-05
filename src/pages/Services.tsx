@@ -1,6 +1,7 @@
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
+import EquipmentBadge from "@/components/EquipmentBadge";
 import SectionDivider from "@/components/SectionDivider";
 import { services } from "@/data/content";
 import { site } from "@/config/site";
