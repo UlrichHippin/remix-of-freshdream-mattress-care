@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { hostPackages } from "@/data/content";
+import hostPortfolio from "@/assets/host-portfolio.jpg";
 
 type NeedKey = "turnovers" | "incidents" | "multiunit";
 
