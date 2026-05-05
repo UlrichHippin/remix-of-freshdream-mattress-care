@@ -28,6 +28,7 @@ import illustEmergencyResponse from "@/assets/illust-emergency-response.png";
 import illustTrustBadges from "@/assets/illust-trust-badges.png";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
+import EquipmentBadge from "@/components/EquipmentBadge";
 
 export default function Home() {
   return (
