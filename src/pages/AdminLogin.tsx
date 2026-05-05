@@ -19,6 +19,7 @@ export default function AdminLogin() {
   const [setupEmail, setSetupEmail] = useState("");
   const [setupPassword, setSetupPassword] = useState("");
   const [setupConfirm, setSetupConfirm] = useState("");
+  const [setupCode, setSetupCode] = useState("");
   const [setupLoading, setSetupLoading] = useState(false);
 
   useEffect(() => {
@@ -59,9 +60,13 @@ export default function AdminLogin() {
       toast.error("Passwörter stimmen nicht überein.");
       return;
     }
+    if (!setupCode.trim()) {
+      toast.error("Setup-Code ist erforderlich.");
+      return;
+    }
     setSetupLoading(true);
     const { data, error } = await supabase.functions.invoke("bootstrap-admin", {
-      body: { email: setupEmail, password: setupPassword },
+      body: { email: setupEmail, password: setupPassword, setupCode },
     });
     if (error || (data && (data as any).error)) {
       setSetupLoading(false);
@@ -124,6 +129,10 @@ export default function AdminLogin() {
               <div>
                 <Label htmlFor="spw2">Passwort bestätigen</Label>
                 <Input id="spw2" type="password" required minLength={8} value={setupConfirm} onChange={(e) => setSetupConfirm(e.target.value)} className="mt-1.5" />
+              </div>
+              <div>
+                <Label htmlFor="scode">Setup-Code</Label>
+                <Input id="scode" type="password" required value={setupCode} onChange={(e) => setSetupCode(e.target.value)} className="mt-1.5" placeholder="Vom Server-Admin bereitgestellt" />
               </div>
               <Button type="submit" disabled={setupLoading} className="w-full">
                 {setupLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Ersten Admin-Account erstellen

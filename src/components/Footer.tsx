@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="sm:col-span-2 lg:col-span-4">
           <h3 className="text-sm font-semibold text-primary">Service areas</h3>
           <ul className="mt-4 flex flex-wrap gap-1.5 text-xs text-muted-foreground">
-            {site.serviceAreas.slice(0, 8).map((area) => (
+            {site.serviceAreas.slice(0, 16).map((area) => (
               <li
                 key={area}
                 className="inline-flex max-w-full items-center whitespace-nowrap rounded-full bg-muted px-2.5 py-1 leading-tight"

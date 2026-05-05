@@ -5,16 +5,12 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
-import { pricingMattress, pricingAddOns, pricingUpholstery, pricingNotes } from "@/data/content";
+import { pricingAddOns, pricingUpholstery, pricingNotes } from "@/data/content";
+import { packages } from "@/data/packages";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
 
-const sizeIcons: Record<string, string> = {
-  "Single Mattress": "S",
-  "Double / Queen Mattress": "Q",
-  "King Mattress": "K",
-};
 
 export default function Pricing() {
   return (
@@ -64,97 +60,55 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Mattress cleaning */}
+      {/* Service packages — single source of truth */}
       <section className="section">
         <div className="container-tight">
           <div className="max-w-2xl">
-            <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Mattress cleaning</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Per-mattress pricing.</h2>
+            <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Service packages</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent per-package pricing.</h2>
             <p className="mt-3 text-base text-muted-foreground">
-              Freshen-Up is for light use and routine maintenance. Deep Clean is for stains, heavier
-              buildup and full guest-ready treatment.
+              All four packages are dry-treatment based and priced by mattress size. Sofas and rugs
+              quoted on request.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {pricingMattress.map((m) => (
+
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {packages.map((p, i) => (
               <div
-                key={m.size}
-                className={`card-soft relative overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${m.featured ? "ring-2 ring-accent" : ""}`}
+                key={p.slug}
+                className={`card-soft relative overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${i === 1 ? "ring-2 ring-accent" : ""}`}
               >
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
-                <div className="relative flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-xl font-bold text-primary-foreground shadow-soft">
-                      {sizeIcons[m.size]}
-                    </div>
-                    <h3 className="text-lg font-bold text-primary">{m.size}</h3>
+                <div className="relative flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-lg font-bold text-primary">{p.title}</h3>
+                    <p className="mt-1 text-xs text-muted-foreground">{p.hours}</p>
                   </div>
-                  {m.featured && (
+                  {i === 1 && (
                     <span className="rounded-full bg-accent px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
                       Most common
                     </span>
                   )}
                 </div>
-                <dl className="relative mt-5 space-y-2.5">
-                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-surface px-4 py-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
-                    <dd className="text-base font-bold text-primary">{m.freshen}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-gradient-to-br from-primary to-primary/80 px-4 py-3 text-primary-foreground">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/80">Deep Clean</dt>
-                    <dd className="text-base font-bold">{m.deep}</dd>
-                  </div>
+                <p className="relative mt-3 text-sm text-muted-foreground">{p.summary}</p>
+                <dl className="relative mt-5 space-y-2">
+                  {p.sizes.map((s, idx) => (
+                    <div
+                      key={s.label}
+                      className={`flex items-baseline justify-between gap-3 rounded-xl px-4 py-2.5 ${
+                        idx === 0
+                          ? "bg-gradient-to-br from-primary to-primary/80 text-primary-foreground"
+                          : "bg-surface"
+                      }`}
+                    >
+                      <dt className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{s.label}</dt>
+                      <dd className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{s.price}</dd>
+                    </div>
+                  ))}
                 </dl>
+                <p className="relative mt-4 text-xs italic text-muted-foreground">{p.note}</p>
               </div>
             ))}
-          </div>
-
-          {/* Freshen-Up vs Deep Clean */}
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <div className="card-soft p-6">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <h3 className="text-base font-bold text-primary">Freshen-Up · Quick refresh, fast re-use</h3>
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                A low-moisture refresh designed so the mattress can be put back into service
-                faster — no long waiting before the bed can be used again.
-              </p>
-              <ul className="mt-4 space-y-2 text-sm text-foreground">
-                {[
-                  "Best for quick turnaround",
-                  "Faster mattress re-use",
-                  "Minimal downtime between bookings",
-                  "Ideal for tight Airbnb / serviced apartment turnovers",
-                ].map((b) => (
-                  <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="card-soft p-6">
-              <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
-                  <Bed className="h-5 w-5" />
-                </div>
-                <h3 className="text-base font-bold text-primary">Deep Clean · For stains and heavier use</h3>
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">
-                A deeper extraction process for visible stains, sweat buildup or odors. Needs
-                longer drying time — best scheduled when there is more room before the next guest.
-              </p>
-              <ul className="mt-4 space-y-2 text-sm text-foreground">
-                {[
-                  "Targeted stain & odor treatment",
-                  "Deeper extraction cleaning",
-                  "Honest assessment before treatment",
-                  "Plan extra drying time before check-in",
-                ].map((b) => (
-                  <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
       </section>

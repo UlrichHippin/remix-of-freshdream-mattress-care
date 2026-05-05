@@ -16,6 +16,17 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
+    const expectedCode = Deno.env.get("ADMIN_SETUP_CODE");
+    const body = await req.json().catch(() => ({}));
+    const setupCode = typeof body.setupCode === "string" ? body.setupCode : "";
+
+    if (!expectedCode || setupCode !== expectedCode) {
+      return new Response(
+        JSON.stringify({ error: "Ungültiger oder fehlender Setup-Code." }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 403 },
+      );
+    }
+
     // Server-side gate: only allow if no admin exists yet
     const { count, error: countErr } = await supabase
       .from("user_roles")
@@ -30,7 +41,6 @@ Deno.serve(async (req) => {
       );
     }
 
-    const body = await req.json().catch(() => ({}));
     const email = typeof body.email === "string" ? body.email.trim() : "";
     const password = typeof body.password === "string" ? body.password : "";
 
