@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
+import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
