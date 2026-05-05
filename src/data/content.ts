@@ -48,7 +48,7 @@ export const services: ServiceDef[] = [
       "Full mattress inspection",
       "Dry soil removal",
       "Targeted pre-treatment",
-      "Deeper extraction cleaning",
+      "Deeper dry vacuuming and targeted fabric treatment",
       "Odor-reduction support",
       "After-service photo documentation",
     ],
