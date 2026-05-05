@@ -19,6 +19,7 @@ export default function AdminLogin() {
   const [setupEmail, setSetupEmail] = useState("");
   const [setupPassword, setSetupPassword] = useState("");
   const [setupConfirm, setSetupConfirm] = useState("");
+  const [setupCode, setSetupCode] = useState("");
   const [setupLoading, setSetupLoading] = useState(false);
 
   useEffect(() => {
