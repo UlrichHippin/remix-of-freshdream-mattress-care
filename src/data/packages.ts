@@ -114,12 +114,12 @@ export const packages: PackageDef[] = [
   {
     slug: "urine-odor",
     title: "Urine & Odor Reduction Treatment",
-    startingPrice: "Starting from 6,000 KES",
+    startingPrice: "From KES 4,500 — quoted by photo",
     hours: "Ready in about 8 hours",
-    summary: "Deep odor-focused dry treatment for urine accidents.",
+    summary: "Dry odor-focused treatment for urine accidents and strong odor cases.",
     tagline: "Advanced dry treatment for urine odor and contamination.",
     description:
-      "Our Urine & Odor Reduction Treatment is intended for urine accidents on mattresses, sofas, and selected fabric surfaces. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment, and hot air refresh to reduce odor and restore freshness as much as possible.",
+      "For urine, strong odor or deep contamination cases on mattresses, sofas and selected fabric surfaces. Price depends on severity, mattress size, age of contamination and whether a second treatment is needed. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment and hot air refresh to reduce odor and restore freshness as much as possible.",
     included: [
       "Urine-focused dry pre-treatment",
       "Odor absorption process",
@@ -135,14 +135,11 @@ export const packages: PackageDef[] = [
       "Mattress and upholstery urine cases",
     ],
     readyIn: "About 8 hours",
-    note: "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper urine contamination may improve but not disappear completely.",
+    note: "Older or deep urine contamination may improve but may not disappear completely. Severe cases may require follow-up treatment or replacement advice.",
     sizes: [
-      { label: "Single (3x6 ft)", price: "KES 6,000" },
-      { label: "Double (4x6 ft)", price: "KES 7,000" },
-      { label: "Queen (5x6 ft)", price: "KES 8,000" },
-      { label: "King (6x6 ft)", price: "KES 9,000" },
+      { label: "All sizes", price: "From KES 4,500 (quoted)" },
     ],
-    whatsappMessage: "Hello, I would like to book the Urine & Odor Reduction Treatment (from KES 6,000).",
+    whatsappMessage: "Hello, I would like a quote for the Urine & Odor Reduction Treatment. I will share photos and mattress size.",
   },
 ];
 
