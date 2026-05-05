@@ -340,118 +340,122 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services preview */}
+      {/* Professional Dry Cleaning Packages — unified offers */}
       <section className="section bg-surface">
         <div className="container-tight">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-2xl">
-              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Services</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Built around the host workflow.</h2>
-            </div>
-            <Link to="/services" className="text-sm font-semibold text-primary hover:underline">
-              See all services →
-            </Link>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              Professional Dry Cleaning Packages
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Safe, dry, and hygiene-focused cleaning for mattresses, sofas, and rugs in Nairobi.
+            </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <Link key={s.slug} to="/services" className="card-soft group relative flex flex-col overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                <div className="relative -mx-6 -mt-6 mb-4 h-32 overflow-hidden bg-gradient-to-br from-primary-soft via-accent-soft to-primary-soft">
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    aria-hidden="true"
-                    style={{
-                      backgroundImage: "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
-                      backgroundSize: "14px 14px",
-                    }}
-                  />
-                  <img
-                    src={s.illustration}
-                    alt=""
-                    aria-hidden="true"
-                    width={1024}
-                    height={1024}
-                    loading="lazy"
-                    className="relative mx-auto h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
-                    <s.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-semibold text-primary">{s.title}</h3>
-                </div>
-                <p className="mt-2 flex-1 text-sm text-muted-foreground">{s.short}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">
-                  Learn more <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Starting prices preview */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Starting prices</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent pricing in KES.</h2>
-              <p className="mt-3 text-muted-foreground">
-                A quick reference for mattress cleaning. Final pricing depends on size, condition, location, and urgency.
-              </p>
-            </div>
-            <Link to="/pricing" className="text-sm font-semibold text-primary hover:underline">
-              View full pricing →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {pricingMattress.map((m) => (
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {packages.map((p, i) => (
               <div
-                key={m.size}
-                className={`card-soft relative overflow-hidden p-6 ${m.featured ? "ring-2 ring-accent shadow-lift" : ""}`}
+                key={p.title}
+                className={`card-soft relative flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift ${
+                  i === 1 ? "ring-2 ring-accent shadow-lift" : ""
+                }`}
               >
-                {m.featured && (
+                {i === 1 && (
                   <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                     <Star className="h-3 w-3" /> Popular
                   </span>
                 )}
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary-soft text-primary">
-                    <BedDouble className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-base font-bold text-primary">{m.size}</h3>
-                </div>
-                <dl className="mt-5 space-y-3">
-                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-surface px-4 py-3">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
-                    <dd className="text-base font-bold text-primary">{m.freshen}</dd>
-                  </div>
-                  <div className="flex items-baseline justify-between gap-3 rounded-xl bg-gradient-to-br from-primary to-primary/80 px-4 py-3 text-primary-foreground">
-                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/80">Deep Clean</dt>
-                    <dd className="text-base font-bold">{m.deep}</dd>
-                  </div>
-                </dl>
-                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                  {["Stain & odor treatment", "Before/after photos", "Drying guidance"].map((f) => (
-                    <li key={f} className="flex items-center gap-2">
-                      <BadgeCheck className="h-4 w-4 text-accent" /> {f}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-lg font-bold text-primary">{p.title}</h3>
+                <p className="mt-2 text-2xl font-bold text-primary">{p.price}</p>
+                <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
+                  <Clock4 className="h-3.5 w-3.5" /> {p.hours}
+                </span>
+                <p className="mt-4 flex-1 text-sm text-muted-foreground">{p.summary}</p>
+                <button
+                  type="button"
+                  onClick={() => setActivePkg(p)}
+                  className="mt-5 inline-flex h-10 items-center justify-center gap-1 rounded-full border-2 border-primary px-4 text-sm font-semibold text-primary transition-colors hover:bg-primary-soft"
+                >
+                  More info <ArrowRight className="h-4 w-4" />
+                </button>
               </div>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/pricing" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90">
-              View full pricing
-            </Link>
-            <WhatsAppButton size="lg" />
+
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <WhatsAppButton size="lg" label="Book a Cleaning" />
+            <p className="text-center text-sm text-muted-foreground">
+              Dry process. No soaking. Nairobi and surrounding areas.
+            </p>
           </div>
         </div>
       </section>
 
-      <HostPackagesPreview />
+      <Dialog open={!!activePkg} onOpenChange={(open) => !open && setActivePkg(null)}>
+        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+          {activePkg && (
+            <>
+              <DialogHeader>
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
+                  <span className="text-xl font-bold text-primary">{activePkg.price}</span>
+                </div>
+                <span className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
+                  <Clock4 className="h-3.5 w-3.5" /> {activePkg.hours}
+                </span>
+                <DialogDescription className="mt-3 text-sm italic text-muted-foreground">
+                  {activePkg.tagline}
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-5">
+                <p className="text-sm text-foreground">{activePkg.description}</p>
+
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">Included</h4>
+                  <ul className="mt-2 space-y-1.5 text-sm">
+                    {activePkg.included.map((it) => (
+                      <li key={it} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">Best for</h4>
+                  <ul className="mt-2 grid gap-1.5 text-sm sm:grid-cols-2">
+                    {activePkg.bestFor.map((it) => (
+                      <li key={it} className="flex items-start gap-2">
+                        <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-xl bg-surface p-4 text-sm">
+                  <p><span className="font-semibold text-primary">Ready to use again:</span> {activePkg.readyIn}</p>
+                  <p className="mt-2 italic text-muted-foreground">{activePkg.note}</p>
+                </div>
+
+                <a
+                  href={whatsappLink(activePkg.whatsappMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp text-base font-semibold text-whatsapp-foreground shadow-soft transition-all hover:bg-whatsapp-hover hover:shadow-card"
+                >
+                  <MessageCircle className="h-4 w-4" /> Book this package on WhatsApp
+                </a>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+
 
       {/* Documented service */}
       <section className="section bg-surface">
