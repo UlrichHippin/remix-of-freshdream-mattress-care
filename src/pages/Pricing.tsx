@@ -119,7 +119,7 @@ export default function Pricing() {
             <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Main service packages</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent per-package pricing.</h2>
             <p className="mt-3 text-base text-muted-foreground">
-              All packages are dry-treatment based and priced by mattress size. Sofas and rugs quoted on request.
+              All packages are dry-treatment based and priced by mattress size. Sofas quoted on request.
             </p>
           </div>
 
