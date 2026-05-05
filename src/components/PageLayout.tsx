@@ -12,7 +12,7 @@ interface Props {
 
 export default function PageLayout({ title, description, children }: Props) {
   useEffect(() => {
-    document.title = title.length > 60 ? title.slice(0, 57) + "…" : title;
+    document.title = title;
     if (description) {
       let m = document.querySelector('meta[name="description"]');
       if (!m) {

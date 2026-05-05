@@ -200,25 +200,25 @@ export const hostPackages = [
 export const pricingMattress = [
   {
     size: "Single Mattress",
-    freshen: "KES 2,000–2,500",
-    deep: "KES 3,000–4,000",
+    freshen: "KES 2,500",
+    deep: "KES 3,500–4,500",
   },
   {
     size: "Double / Queen Mattress",
-    freshen: "KES 2,500–3,500",
+    freshen: "KES 3,000–3,500",
     deep: "KES 4,000–5,500",
     featured: true,
   },
   {
     size: "King Mattress",
-    freshen: "KES 3,500–4,500",
-    deep: "KES 5,500–7,000",
+    freshen: "KES 4,000",
+    deep: "KES 5,000–6,500",
   },
 ];
 
 export const pricingAddOns = [
-  { t: "Heavy stain treatment", p: "+ KES 500–1,500" },
-  { t: "Urine / strong odor treatment", p: "+ KES 1,000–2,500" },
+  { t: "Intensive stain treatment", p: "from KES 4,500" },
+  { t: "Urine & odor reduction treatment", p: "from KES 6,000" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
   { t: "Extra drying support / return check", p: "+ KES 500–1,000" },
 ];
@@ -231,9 +231,11 @@ export const pricingUpholstery = [
 ];
 
 export const pricingNotes = [
+  "M-PESA accepted. Cash also welcome.",
   "Final price depends on size, condition, location and urgency.",
   "Photos help us quote more accurately before arrival.",
   "Multiple items can be bundled for better value.",
   "Host package pricing is custom.",
   "Same-day slots depend on route and availability.",
+  "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
 ];

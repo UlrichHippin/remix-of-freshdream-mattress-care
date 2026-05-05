@@ -14,14 +14,10 @@ import {
 } from "@/components/ui/select";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { whatsappLink } from "@/config/site";
+import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
 
-const PACKAGES = [
-  "Freshen Up — 3,000 KES",
-  "Standard Cleaning — 4,500 KES",
-  "Intensive Stain Removal — 5,500 KES",
-  "Urine Removal — 7,500 KES",
-] as const;
+const PACKAGES = packageBookingLabels as readonly string[];
 
 const ITEM_TYPES = ["Mattress", "Sofa", "Rug"] as const;
 const SIZES = [
@@ -34,7 +30,7 @@ const SIZES = [
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(80),
   phone: z.string().trim().min(7, "Please enter a valid phone number").max(25),
-  pkg: z.enum(PACKAGES, { errorMap: () => ({ message: "Choose a package" }) }),
+  pkg: z.string().refine((v) => PACKAGES.includes(v), { message: "Choose a package" }),
   item: z.enum(ITEM_TYPES, { errorMap: () => ({ message: "Choose an item type" }) }),
   size: z.enum(SIZES, { errorMap: () => ({ message: "Choose a size" }) }),
   location: z.string().trim().min(2, "Please share your location/area").max(120),

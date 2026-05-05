@@ -34,153 +34,14 @@ import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
 
-interface PkgSize { label: string; price: string; }
-interface Pkg {
-  title: string;
-  price: string;
-  startingNote: string;
-  hours: string;
-  summary: string;
-  tagline: string;
-  description: string;
-  included: string[];
-  bestFor: string[];
-  readyIn: string;
-  note: string;
-  sizes: PkgSize[];
-  whatsappMessage: string;
-}
-
-const STARTING_NOTE = "Single mattress (3x6 ft)";
-
-const packages: Pkg[] = [
-  {
-    title: "Freshen Up",
-    price: "Starting from 3,000 KES",
-    startingNote: STARTING_NOTE,
-    hours: "Ready in about 2 hours",
-    summary: "A quick dry refresh for mattresses, sofas, and rugs.",
-    tagline: "Instant fresh care with no soaking.",
-    description:
-      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the Jimmy BX7 Pro Max to remove dust, hair, dander, and surface debris, while UV-C light and hot air help improve hygiene and freshness.",
-    included: [
-      "Dry vacuum treatment",
-      "Dust, hair, and dander removal",
-      "UV-C hygiene treatment",
-      "Hot air freshness treatment",
-      "Suitable for mattresses, sofas, and rugs",
-    ],
-    bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
-    readyIn: "About 2 hours",
-    note: "Dry process only. No soaking.",
-    sizes: [
-      { label: "Single (3x6 ft)", price: "3,000 KES" },
-      { label: "Double (4x6 ft)", price: "3,500 KES" },
-      { label: "Queen (5x6 ft)", price: "4,000 KES" },
-      { label: "King (6x6 ft)", price: "4,500 KES" },
-    ],
-    whatsappMessage: "Hello, I would like to book the Freshen Up package (from 3,000 KES).",
-  },
-  {
-    title: "Standard Cleaning",
-    price: "Starting from 4,500 KES",
-    startingNote: STARTING_NOTE,
-    hours: "Ready in about 4 hours",
-    summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
-    tagline: "Deeper freshness for everyday use.",
-    description:
-      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses, sofas, and rugs with sweat buildup, trapped dust, and moderate odor. We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and hot air refresh.",
-    included: [
-      "Pre-treatment with baking soda",
-      "Deep dry vacuuming",
-      "Dust and odor reduction",
-      "UV-C hygiene treatment",
-      "Hot air refresh treatment",
-    ],
-    bestFor: [
-      "Sweat and body odor",
-      "Dust and dander buildup",
-      "General household use",
-      "Regular care for frequently used items",
-    ],
-    readyIn: "About 4 hours",
-    note: "Dry treatment. No water extraction.",
-    sizes: [
-      { label: "Single (3x6 ft)", price: "4,500 KES" },
-      { label: "Double (4x6 ft)", price: "5,000 KES" },
-      { label: "Queen (5x6 ft)", price: "5,500 KES" },
-      { label: "King (6x6 ft)", price: "6,000 KES" },
-    ],
-    whatsappMessage: "Hello, I would like to book the Standard Cleaning package (from 4,500 KES).",
-  },
-  {
-    title: "Intensive Stain Removal",
-    price: "Starting from 5,500 KES",
-    startingNote: STARTING_NOTE,
-    hours: "Ready in about 6 hours",
-    summary: "Focused treatment for visible stains and stronger dirt buildup.",
-    tagline: "Targeted care for visible problem areas.",
-    description:
-      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses, sofas, or rugs. We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep Jimmy BX7 Pro Max vacuuming and hygiene treatment.",
-    included: [
-      "Targeted stain pre-treatment",
-      "Brushing of affected areas",
-      "Deep vacuum treatment",
-      "UV-C hygiene support",
-      "Hot air freshness treatment",
-    ],
-    bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
-    readyIn: "About 6 hours",
-    note: "Best for surface to moderate stains. Very deep old stains may require a different treatment process.",
-    sizes: [
-      { label: "Single (3x6 ft)", price: "5,500 KES" },
-      { label: "Double (4x6 ft)", price: "6,000 KES" },
-      { label: "Queen (5x6 ft)", price: "6,500 KES" },
-      { label: "King (6x6 ft)", price: "7,000 KES" },
-    ],
-    whatsappMessage: "Hello, I would like to book the Intensive Stain Removal package (from 5,500 KES).",
-  },
-  {
-    title: "Urine Removal",
-    price: "Starting from 7,500 KES",
-    startingNote: STARTING_NOTE,
-    hours: "Ready in about 8 hours",
-    summary: "Deep odor-focused dry treatment for urine accidents.",
-    tagline: "Advanced dry treatment for urine odor and contamination.",
-    description:
-      "Our Urine Removal package is intended for urine accidents on mattresses, sofas, and selected fabric surfaces. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment, and hot air refresh to reduce odor and restore freshness as much as possible.",
-    included: [
-      "Urine-focused dry pre-treatment",
-      "Odor absorption process",
-      "Deep vacuum treatment",
-      "UV-C hygiene support",
-      "Hot air refresh treatment",
-      "Final inspection",
-    ],
-    bestFor: [
-      "Children's accidents",
-      "Pet urine incidents",
-      "Strong odor areas",
-      "Mattress and upholstery urine cases",
-    ],
-    readyIn: "About 8 hours",
-    note: "Results depend on how old and how deep the urine contamination is.",
-    sizes: [
-      { label: "Single (3x6 ft)", price: "7,500 KES" },
-      { label: "Double (4x6 ft)", price: "8,000 KES" },
-      { label: "Queen (5x6 ft)", price: "8,500 KES" },
-      { label: "King (6x6 ft)", price: "9,000 KES" },
-    ],
-    whatsappMessage: "Hello, I would like to book the Urine Removal package (from 7,500 KES).",
-  },
-];
+import { packages, STARTING_NOTE, type PackageDef as Pkg } from "@/data/packages";
 
 export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
   return (
     <PageLayout
-      title="FreshDream Mattress Care — Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi"
-      description="Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay properties in Nairobi. Documented service, fast WhatsApp booking, guest-ready turnaround. Based in Roysambu."
+      title="Mattress Cleaning Nairobi | Airbnb & Upholstery Cleaning | FreshDream"
+      description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
     >
       {/* Hero — full-width branded banner + real text/CTA */}
       <section className="w-full bg-gradient-to-b from-sky-50 to-background py-8 sm:py-12 lg:py-16">
@@ -199,7 +60,7 @@ export default function Home() {
               <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-              Professional Dry Mattress, Sofa & Rug Cleaning in Nairobi
+              Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
               Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
@@ -217,9 +78,11 @@ export default function Home() {
             </div>
 
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              <li className="inline-flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> Documented service</li>
-              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
+              <li className="inline-flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 text-accent" /> M-PESA accepted</li>
+              <li className="inline-flex items-center gap-1.5"><MessageSquareText className="h-4 w-4 text-accent" /> WhatsApp booking</li>
               <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
+              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
+              <li className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4 text-accent" /> Roysambu, Nairobi</li>
             </ul>
 
             <div className="mt-6 flex justify-center">
@@ -333,8 +196,8 @@ export default function Home() {
                   </span>
                 )}
                 <h3 className="text-lg font-bold text-primary">{p.title}</h3>
-                <p className="mt-2 text-2xl font-bold text-primary">{p.price}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{p.startingNote}</p>
+                <p className="mt-2 text-2xl font-bold text-primary">{p.startingPrice}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{STARTING_NOTE}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {p.hours}
                 </span>
@@ -366,7 +229,7 @@ export default function Home() {
               <DialogHeader>
                 <div className="flex flex-wrap items-baseline gap-3">
                   <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
-                  <span className="text-xl font-bold text-primary">{activePkg.price}</span>
+                  <span className="text-xl font-bold text-primary">{activePkg.startingPrice}</span>
                 </div>
                 <span className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {activePkg.hours}
