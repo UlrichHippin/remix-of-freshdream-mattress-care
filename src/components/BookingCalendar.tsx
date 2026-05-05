@@ -22,6 +22,8 @@ type Settings = { slot_minutes: number; buffer_minutes: number; min_lead_hours: 
 
 const ServiceEnum = z.enum(["turnover", "deep_clean", "urine_odor", "emergency", "upholstery", "other"]);
 
+const MATTRESS_SIZES = ["Single (3x6)", "Double (4x6)", "Queen (5x6)", "King (6x6)", "Other / not sure"] as const;
+
 const formSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   phone: z.string().trim().min(7, "Enter a valid phone").max(30),
@@ -30,6 +32,9 @@ const formSchema = z.object({
   area: z.string().trim().min(2, "Please enter the area").max(80),
   property_type: z.string().trim().max(60).optional().or(z.literal("")),
   service: ServiceEnum,
+  mattress_size: z.enum(MATTRESS_SIZES, { errorMap: () => ({ message: "Choose a mattress size" }) }),
+  mattress_count: z.coerce.number().int().min(1, "At least 1").max(50),
+  issue: z.string().trim().max(300).optional().or(z.literal("")),
   details: z.string().trim().max(800).optional().or(z.literal("")),
 });
 type FormValues = z.infer<typeof formSchema>;
@@ -63,7 +68,7 @@ export default function BookingCalendar() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", phone: "", whatsapp: "", email: "", area: "", property_type: "", service: "turnover", details: "" },
+    defaultValues: { name: "", phone: "", whatsapp: "", email: "", area: "", property_type: "", service: "turnover", mattress_size: "Queen (5x6)", mattress_count: 1, issue: "", details: "" },
   });
 
   useEffect(() => {
@@ -133,6 +138,12 @@ export default function BookingCalendar() {
       return;
     }
     setSubmitting(true);
+    const composedDetails = [
+      `Mattress size: ${values.mattress_size}`,
+      `Number of mattresses: ${values.mattress_count}`,
+      values.issue ? `Stain/odor issue: ${values.issue}` : null,
+      values.details ? `Notes: ${values.details}` : null,
+    ].filter(Boolean).join("\n");
     const { error } = await supabase.from("bookings").insert({
       name: values.name,
       phone: values.phone,
@@ -141,7 +152,7 @@ export default function BookingCalendar() {
       area: values.area,
       property_type: values.property_type || null,
       service: values.service,
-      details: values.details || null,
+      details: composedDetails,
       starts_at: slot.startsAt.toISOString(),
       ends_at: slot.endsAt.toISOString(),
     });
@@ -177,8 +188,9 @@ export default function BookingCalendar() {
         </div>
         <h3 className="mt-4 text-xl font-semibold text-primary">Request received</h3>
         <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-          Your slot is treated as a <strong>requested appointment</strong> until we confirm it via WhatsApp.
-          Continue the conversation to share photos and confirm details.
+          We will confirm your slot, price and payment details via WhatsApp.
+          Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
+          you can send them on WhatsApp after submitting your request.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
@@ -309,14 +321,47 @@ export default function BookingCalendar() {
             <Label htmlFor="bk-email">Email (optional)</Label>
             <Input id="bk-email" type="email" {...form.register("email")} className="mt-1.5" maxLength={160} />
           </div>
+          <div>
+            <Label>Mattress size</Label>
+            <Select value={form.watch("mattress_size")} onValueChange={(v) => form.setValue("mattress_size", v as typeof MATTRESS_SIZES[number])}>
+              <SelectTrigger className="mt-1.5"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {MATTRESS_SIZES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            {form.formState.errors.mattress_size && <p className="mt-1 text-xs text-destructive">{form.formState.errors.mattress_size.message}</p>}
+          </div>
+          <div>
+            <Label htmlFor="bk-count">Number of mattresses</Label>
+            <Input id="bk-count" type="number" min={1} max={50} {...form.register("mattress_count")} className="mt-1.5" />
+            {form.formState.errors.mattress_count && <p className="mt-1 text-xs text-destructive">{form.formState.errors.mattress_count.message}</p>}
+          </div>
         </div>
         <div>
-          <Label htmlFor="bk-details">Details (mattress size, issue, etc.)</Label>
-          <Textarea id="bk-details" {...form.register("details")} className="mt-1.5" rows={3} maxLength={800} />
+          <Label htmlFor="bk-issue">Stain or odor issue (optional)</Label>
+          <Input id="bk-issue" {...form.register("issue")} className="mt-1.5" placeholder="e.g. urine spot, coffee stain, musty smell" maxLength={300} />
+        </div>
+        <div>
+          <Label htmlFor="bk-details">Optional notes</Label>
+          <Textarea id="bk-details" {...form.register("details")} className="mt-1.5" rows={3} maxLength={800} placeholder="Access, parking, timing…" />
+        </div>
+
+        <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
+          <strong className="text-primary">Photos help us quote accurately.</strong> You can send photos directly on WhatsApp after submitting your request.
         </div>
 
         <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-          A selected time slot is treated as a <strong>requested appointment</strong> until confirmed by us via WhatsApp.
+          Your booking is a <strong>request until confirmed via WhatsApp</strong>. We will reply with your slot, price and payment details.
+        </div>
+
+        <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
+          <p className="font-semibold text-primary">Payment</p>
+          <ul className="mt-1.5 list-disc space-y-1 pl-4">
+            <li>M-PESA and cash accepted.</li>
+            <li>Payment is made after service unless a deposit is requested for same-day, urgent or multi-unit bookings.</li>
+            <li>Deposit may be requested for emergency or larger host bookings.</li>
+          </ul>
+          <p className="mt-2 font-medium text-destructive">Do not send payment until your booking and price are confirmed by FreshDream via WhatsApp.</p>
         </div>
 
         <Button type="submit" disabled={submitting || !slot} size="lg" className="w-full rounded-full sm:w-auto">

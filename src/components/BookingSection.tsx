@@ -218,6 +218,23 @@ export default function BookingSection() {
               <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
                 {submitting ? "Sending…" : "Request a Booking"}
               </Button>
+
+              <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
+                <strong className="text-primary">Photos help us quote accurately.</strong> You can send photos directly on WhatsApp after submitting your request.
+              </div>
+
+              <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
+                Your booking is a <strong>request until confirmed via WhatsApp</strong>. We will reply with your slot, price and payment details.
+              </div>
+
+              <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
+                <p className="font-semibold text-primary">Payment</p>
+                <ul className="mt-1.5 list-disc space-y-1 pl-4">
+                  <li>M-PESA and cash accepted.</li>
+                  <li>Payment is made after service unless a deposit is requested for same-day, urgent or multi-unit bookings.</li>
+                </ul>
+                <p className="mt-2 font-medium text-destructive">Do not send payment until your booking and price are confirmed by FreshDream via WhatsApp.</p>
+              </div>
             </form>
           </div>
         </div>
