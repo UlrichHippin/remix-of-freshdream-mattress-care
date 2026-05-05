@@ -22,6 +22,8 @@ type Settings = { slot_minutes: number; buffer_minutes: number; min_lead_hours: 
 
 const ServiceEnum = z.enum(["turnover", "deep_clean", "urine_odor", "emergency", "upholstery", "other"]);
 
+const MATTRESS_SIZES = ["Single (3x6)", "Double (4x6)", "Queen (5x6)", "King (6x6)", "Other / not sure"] as const;
+
 const formSchema = z.object({
   name: z.string().trim().min(2, "Please enter your name").max(100),
   phone: z.string().trim().min(7, "Enter a valid phone").max(30),
@@ -30,6 +32,9 @@ const formSchema = z.object({
   area: z.string().trim().min(2, "Please enter the area").max(80),
   property_type: z.string().trim().max(60).optional().or(z.literal("")),
   service: ServiceEnum,
+  mattress_size: z.enum(MATTRESS_SIZES, { errorMap: () => ({ message: "Choose a mattress size" }) }),
+  mattress_count: z.coerce.number().int().min(1, "At least 1").max(50),
+  issue: z.string().trim().max(300).optional().or(z.literal("")),
   details: z.string().trim().max(800).optional().or(z.literal("")),
 });
 type FormValues = z.infer<typeof formSchema>;
