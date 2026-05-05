@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bed, Sofa, Sparkles, Info, Check, ArrowRight, ShieldCheck } from "lucide-react";
+import { Bed, Sofa, Sparkles, Info, Check, ArrowRight, ShieldCheck, MessageCircle } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
@@ -19,23 +19,43 @@ export default function Pricing() {
   return (
     <PageLayout
       title="Pricing — FreshDream Mattress Care"
-      description="Transparent mattress and upholstery cleaning prices in KES for Airbnb hosts and short-stay properties in Nairobi. Add-ons, host package quotes and emergency call-out pricing."
+      description="Transparent KES pricing for mattress and upholstery cleaning in Nairobi. Built for Airbnb hosts, serviced apartments and short-stay properties."
     >
-      {/* Hero with illustration */}
+      {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
-        <div className="container-tight grid gap-10 py-16 sm:py-20 lg:grid-cols-12 lg:items-center">
+        <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <p className="eyebrow">Pricing</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-bold text-primary sm:text-5xl">
-              Clear pricing for hosts, serviced apartments, and short-stay properties.
+              Clear pricing for mattresses, sofas and host turnover support.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-              Practical, transparent and easy to understand. Final quotes may vary depending on mattress
-              size, condition, location, urgency, and whether the booking includes multiple items or units.
+              Transparent KES pricing for homes, Airbnb hosts and serviced apartments in Nairobi.
+              Final quotes depend on size, condition, location and urgency.
             </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <Link
+                to="/contact"
+                className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
+              >
+                Request a quote
+              </Link>
+              <Link
+                to="/host-packages"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
+              >
+                View host packages <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame src={illustGuestReady} alt="Guest-ready bedroom" tone="primary" badge="KES · transparent" />
+            <IllustrationFrame
+              src={illustGuestReady}
+              alt="Guest-ready bedroom"
+              tone="primary"
+              badge="Pricing · Nairobi · Roysambu"
+            />
           </div>
         </div>
       </section>
@@ -46,17 +66,21 @@ export default function Pricing() {
           <div className="max-w-2xl">
             <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Mattress cleaning</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Per-mattress pricing.</h2>
+            <p className="mt-3 text-base text-muted-foreground">
+              Freshen-Up is for light use and routine maintenance. Deep Clean is for stains, heavier
+              buildup and full guest-ready treatment.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {pricingMattress.map((m) => (
               <div
                 key={m.size}
-                className={`card-soft relative overflow-hidden p-7 transition-all hover:-translate-y-1 hover:shadow-lift ${m.featured ? "ring-2 ring-accent" : ""}`}
+                className={`card-soft relative overflow-hidden p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${m.featured ? "ring-2 ring-accent" : ""}`}
               >
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
                 <div className="relative flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-2xl font-bold text-primary-foreground shadow-soft">
+                    <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-xl font-bold text-primary-foreground shadow-soft">
                       {sizeIcons[m.size]}
                     </div>
                     <h3 className="text-lg font-bold text-primary">{m.size}</h3>
@@ -67,7 +91,7 @@ export default function Pricing() {
                     </span>
                   )}
                 </div>
-                <dl className="relative mt-6 space-y-3">
+                <dl className="relative mt-5 space-y-2.5">
                   <div className="flex items-baseline justify-between gap-3 rounded-xl bg-surface px-4 py-3">
                     <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Freshen-Up</dt>
                     <dd className="text-base font-bold text-primary">{m.freshen}</dd>
@@ -91,6 +115,9 @@ export default function Pricing() {
           <div>
             <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Special treatment add-ons</p>
             <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Stain, odor and urgency add-ons.</h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Need extra treatment or faster turnaround? Add these only when needed.
+            </p>
             <ul className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
               {pricingAddOns.map((a) => (
                 <li key={a.t} className="flex items-center justify-between gap-4 p-4">
@@ -111,6 +138,9 @@ export default function Pricing() {
             </div>
             <p className="eyebrow"><Sofa className="h-3.5 w-3.5" /> Upholstery / add-ons</p>
             <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Sofas, pillows and chairs.</h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Add upholstery cleaning to a mattress booking or request it as a standalone service.
+            </p>
             <ul className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
               {pricingUpholstery.map((a) => (
                 <li key={a.t} className="flex items-center justify-between gap-4 p-4">
@@ -128,7 +158,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Host package pricing — illustrated */}
+      {/* Host package pricing */}
       <section className="section">
         <div className="container-tight">
           <div className="card-soft grid gap-8 overflow-hidden p-6 md:grid-cols-12 md:p-8">
@@ -140,9 +170,9 @@ export default function Pricing() {
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Quoted individually for your portfolio.</h2>
               <ul className="mt-5 space-y-2 text-sm text-foreground">
                 {[
-                  "Custom pricing available for repeat properties",
-                  "Multi-unit rates available on request",
-                  "Host packages tailored to number of units, frequency, and service needs",
+                  "Repeat-property rates available on request.",
+                  "Multi-unit quotes for apartments, guesthouses and serviced homes.",
+                  "Tailored pricing by frequency, unit count and service depth.",
                 ].map((b) => (
                   <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
                 ))}
@@ -181,11 +211,11 @@ export default function Pricing() {
             <div className="relative">
               <h2 className="text-3xl font-bold sm:text-4xl">Ready for a quote?</h2>
               <p className="mt-3 max-w-2xl text-primary-foreground/80">
-                Send your location, mattress size, photos and next check-in time. We'll come back with a
-                realistic price and an available time slot.
+                Send your location, mattress size, photos and next check-in time. We'll reply with a
+                realistic price and an available slot.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <WhatsAppButton size="lg" />
+                <WhatsAppButton size="lg" label="WhatsApp now" />
                 <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90">
                   Ask about host packages
                 </Link>
