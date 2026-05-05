@@ -60,9 +60,13 @@ export default function AdminLogin() {
       toast.error("Passwörter stimmen nicht überein.");
       return;
     }
+    if (!setupCode.trim()) {
+      toast.error("Setup-Code ist erforderlich.");
+      return;
+    }
     setSetupLoading(true);
     const { data, error } = await supabase.functions.invoke("bootstrap-admin", {
-      body: { email: setupEmail, password: setupPassword },
+      body: { email: setupEmail, password: setupPassword, setupCode },
     });
     if (error || (data && (data as any).error)) {
       setSetupLoading(false);
