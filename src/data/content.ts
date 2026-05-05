@@ -116,6 +116,8 @@ export const services: ServiceDef[] = [
   {
     slug: "upholstery",
     illustration: illustUpholstery,
+    photo: photoUpholstery,
+    photoAlt: "Sofa upholstery cleaning Nairobi",
     title: "Upholstery & Sofa Cleaning",
     short: "Sofas, cushions and upholstered chairs in short-stay properties.",
     bestFor: "Sofas, cushions, upholstered chairs, and selected soft furnishings in short-stay properties.",
