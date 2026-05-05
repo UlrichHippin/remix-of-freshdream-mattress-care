@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
+import MobileStickyCTA from "./MobileStickyCTA";
 import Breadcrumbs from "./Breadcrumbs";
 
 interface Props {
@@ -38,6 +39,7 @@ export default function PageLayout({ title, description, children }: Props) {
       <main className="flex-1">{children}</main>
       <Footer />
       <FloatingWhatsApp />
+      <MobileStickyCTA />
     </div>
   );
 }
