@@ -11,11 +11,6 @@ import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
 
-const sizeIcons: Record<string, string> = {
-  "Single Mattress": "S",
-  "Double / Queen Mattress": "Q",
-  "King Mattress": "K",
-};
 
 export default function Pricing() {
   return (
