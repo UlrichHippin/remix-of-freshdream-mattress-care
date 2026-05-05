@@ -334,6 +334,7 @@ export default function Home() {
                 )}
                 <h3 className="text-lg font-bold text-primary">{p.title}</h3>
                 <p className="mt-2 text-2xl font-bold text-primary">{p.price}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{p.startingNote}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {p.hours}
                 </span>
