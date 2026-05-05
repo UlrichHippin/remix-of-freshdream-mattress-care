@@ -10,11 +10,10 @@ import logoMark from "@/assets/logo-mark.png";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/host-packages", label: "Host Packages" },
-  { to: "/about", label: "About" },
+  { to: "/pricing", label: "Prices" },
+  { to: "/host-packages", label: "Hosts" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Book Now" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -79,7 +78,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <WhatsAppButton size="sm" />
+          <WhatsAppButton size="sm" label="Book on WhatsApp" />
         </div>
 
         <button

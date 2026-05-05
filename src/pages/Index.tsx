@@ -56,24 +56,30 @@ export default function Home() {
 
           {/* Real, accessible hero content for SEO + responsiveness */}
           <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
-              <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+              <Sparkles className="h-3.5 w-3.5" /> Opening Offer: Freshen Up from KES 1,999
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
               Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
-              Trusted by homes, Airbnb hosts and serviced apartments across Nairobi.
+              First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Book via WhatsApp" className="w-full sm:w-auto" />
+              <a
+                href={whatsappLink(openingOffer.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
+              >
+                <MessageCircle className="h-5 w-5" /> Book Opening Offer
+              </a>
               <Link
-                to="/services"
+                to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
               >
-                Explore services <ArrowRight className="h-4 w-4" />
+                View Prices <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -88,12 +94,6 @@ export default function Home() {
             <div className="mt-6 flex justify-center">
               <EquipmentBadge variant="inline" />
             </div>
-
-            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-              <span className="font-semibold text-primary">Freshen-Up</span> helps you get the
-              mattress back in use faster — ideal for busy turnovers and short-stay properties
-              with minimal downtime between bookings.
-            </p>
           </div>
         </div>
       </section>
@@ -205,7 +205,7 @@ export default function Home() {
         <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { icon: Droplets, t: "Dry process — no soaking" },
-            { icon: ShieldCheck, t: "Safe for mattresses, sofas & rugs" },
+            { icon: ShieldCheck, t: "Safe for mattresses & sofas" },
             { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
             { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
@@ -228,7 +228,7 @@ export default function Home() {
               Professional Dry Cleaning Packages
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Safe, dry, and hygiene-focused cleaning for mattresses, sofas, and rugs in Nairobi.
+              Safe, dry, and hygiene-focused cleaning for mattresses and sofas in Nairobi.
             </p>
           </div>
 
@@ -596,6 +596,50 @@ export default function Home() {
       </section>
 
       <BookingSection />
+
+      {/* Best for — customer types */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="max-w-2xl">
+            <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Best for</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Built for hospitality and homes.</h2>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              { i: BedDouble, t: "Airbnb hosts" },
+              { i: Sofa, t: "Serviced apartments" },
+              { i: Package, t: "Guest houses" },
+              { i: ShieldCheck, t: "Families & homes" },
+              { i: Repeat2, t: "Property managers" },
+            ].map((c) => (
+              <div key={c.t} className="card-soft flex flex-col items-center p-5 text-center">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
+                  <c.i className="h-6 w-6" />
+                </span>
+                <p className="mt-3 text-sm font-semibold text-primary">{c.t}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Real photos coming soon */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="card-soft flex flex-col items-center gap-3 p-8 text-center sm:p-10">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
+              <Camera className="h-3.5 w-3.5" /> Coming soon
+            </span>
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Real before/after photos coming soon</h2>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              We share honest, recent service photos directly with hosts on WhatsApp. Ask us for the
+              latest examples relevant to your unit.
+            </p>
+            <WhatsAppButton label="Ask us on WhatsApp for recent photos" />
+          </div>
+        </div>
+      </section>
+
 
       {/* Final CTA */}
       <section className="section">

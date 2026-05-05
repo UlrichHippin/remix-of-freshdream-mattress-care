@@ -298,7 +298,7 @@ export default function BookingCalendar() {
               <SelectContent>
                 <SelectItem value="turnover">Turnover Freshen-Up</SelectItem>
                 <SelectItem value="deep_clean">Deep Mattress Clean</SelectItem>
-                <SelectItem value="urine_odor">Urine & Odor Recovery</SelectItem>
+                <SelectItem value="urine_odor">Urine & Odor Reduction Treatment</SelectItem>
                 <SelectItem value="emergency">Emergency Host Service</SelectItem>
                 <SelectItem value="upholstery">Upholstery & Sofa Cleaning</SelectItem>
                 <SelectItem value="other">Other</SelectItem>

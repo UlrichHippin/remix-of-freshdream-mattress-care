@@ -61,7 +61,7 @@ export const services: ServiceDef[] = [
   {
     slug: "urine-odor",
     illustration: illustMattressCare,
-    title: "Urine & Odor Recovery",
+    title: "Urine & Odor Reduction Treatment",
     short: "Targeted treatment for guest accidents and stronger odor concerns.",
     bestFor: "Guest accidents, urine concerns, and stronger odor issues.",
     includes: [
@@ -76,7 +76,7 @@ export const services: ServiceDef[] = [
       "We use honest wording: some older or deeper stains may improve significantly without disappearing completely. Heavily soaked mattresses sometimes need replacement — we will tell you straight.",
     icon: Droplets,
     whatsappTemplate:
-      "Hello, I need urgent Urine & Odor Recovery.\nLocation:\nMattress size:\nPhotos:\nWhen did the incident happen:\nNext guest check-in time:",
+      "Hello, I need urgent Urine & Odor Reduction Treatment.\nLocation:\nMattress size:\nPhotos:\nWhen did the incident happen:\nNext guest check-in time:",
   },
   {
     slug: "emergency",
@@ -208,7 +208,7 @@ export const pricingUpholstery = [
   { t: "Pillow cleaning", p: "KES 300–700 each" },
   { t: "Sofa seat / cushion cleaning", p: "KES 500–1,500 per seat" },
   { t: "Dining chair upholstery cleaning", p: "KES 300–800 each" },
-  { t: "Small rug / carpet spot cleaning", p: "from KES 1,000" },
+  { t: "Small rug refresh and spot support", p: "from KES 1,000" },
 ];
 
 export const pricingNotes = [
@@ -234,7 +234,7 @@ export const openingOffer = {
     { label: "King Mattress", price: "KES 3,499" },
   ],
   smallPrint:
-    "Limited launch offer for first-time customers only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
+    "Limited launch offer for first-time customers only. Available for the first 30 customers or during our launch period only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
   cta: "Book Opening Offer on WhatsApp",
@@ -247,20 +247,23 @@ export const hostStarter = {
   text:
     "Keep your guest rooms fresh, hygienic and review-ready between bookings. Ideal for Airbnb hosts, serviced apartments and short-stay property managers in Nairobi.",
   options: [
-    { label: "2 mattresses Freshen Up", price: "from KES 5,500" },
-    { label: "3 mattresses Freshen Up", price: "from KES 7,500" },
+    { label: "2 mattresses Freshen Up", price: "from KES 4,999" },
+    { label: "3 mattresses Freshen Up", price: "from KES 7,499" },
     { label: "Additional mattress", price: "quoted by size" },
     { label: "Same-day or urgent turnover", price: "subject to availability" },
   ],
   included: [
-    "Dry mattress refresh",
+    "Guest-ready dry refresh",
     "Dust and hair removal",
     "Odor check",
     "UV-C hygiene support where suitable",
     "Hot air refresh",
     "WhatsApp service photos",
     "M-PESA accepted",
+    "Same-day support where available",
   ],
+  smallPrint:
+    "Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:",
   cta: "Book Host Package on WhatsApp",
