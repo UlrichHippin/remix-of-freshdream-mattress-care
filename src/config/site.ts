@@ -3,7 +3,7 @@
 export const site = {
   name: "FreshDream Mattress Care",
   shortName: "FreshDream",
-  tagline: "Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi",
+  tagline: "Mattress Cleaning Nairobi for Airbnb Hosts, Homes & Serviced Apartments",
   base: "Roysambu, Nairobi",
   // Use international format without leading + for wa.me
   whatsappNumber: "254700000000",
@@ -13,9 +13,13 @@ export const site = {
     "Roysambu", "Kasarani", "Thome", "Mirema", "Garden Estate",
     "Zimmerman", "Kahawa West", "Kahawa Sukari", "TRM Drive",
     "Ridgeways", "Ruaraka", "Parklands", "Westlands",
+    "Kilimani", "Kileleshwa", "Lavington", "Karen", "Runda",
+    "South B", "South C", "CBD", "Upper Hill", "Ngong Road",
+    "Kiambu Road", "Thika Road", "Gigiri",
   ],
+  paymentMethods: ["M-PESA", "Cash"],
   disclaimer:
-    "Results may vary depending on stain age, depth, mattress material, and room drying conditions.",
+    "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
 };
 
 export const defaultWhatsAppMessage = `Hello, I would like to request a mattress cleaning quote.
