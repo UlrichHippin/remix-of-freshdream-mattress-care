@@ -94,6 +94,8 @@ export const services: ServiceDef[] = [
   {
     slug: "emergency",
     illustration: illustHostSupport,
+    photo: photoHospitalityApartment,
+    photoAlt: "Airbnb mattress cleaning service Nairobi — emergency host support",
     title: "Emergency Host Service",
     short: "Urgent support before the next guest check-in.",
     bestFor: "Last-minute stains, odor complaints, urgent guest incidents, and unexpected turnover problems.",
