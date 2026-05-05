@@ -130,6 +130,10 @@ export default function AdminLogin() {
                 <Label htmlFor="spw2">Passwort bestätigen</Label>
                 <Input id="spw2" type="password" required minLength={8} value={setupConfirm} onChange={(e) => setSetupConfirm(e.target.value)} className="mt-1.5" />
               </div>
+              <div>
+                <Label htmlFor="scode">Setup-Code</Label>
+                <Input id="scode" type="password" required value={setupCode} onChange={(e) => setSetupCode(e.target.value)} className="mt-1.5" placeholder="Vom Server-Admin bereitgestellt" />
+              </div>
               <Button type="submit" disabled={setupLoading} className="w-full">
                 {setupLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Ersten Admin-Account erstellen
               </Button>
