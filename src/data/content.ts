@@ -231,8 +231,9 @@ export const pricingUpholstery = [
 ];
 
 export const pricingNotes = [
-  "Final pricing depends on mattress size, condition, location, and urgency.",
-  "Multi-unit discounts may be available.",
-  "Same-day support is subject to availability.",
-  "Host packages and repeat-property support are quoted individually.",
+  "Final price depends on size, condition, location and urgency.",
+  "Photos help us quote more accurately before arrival.",
+  "Multiple items can be bundled for better value.",
+  "Host package pricing is custom.",
+  "Same-day slots depend on route and availability.",
 ];
