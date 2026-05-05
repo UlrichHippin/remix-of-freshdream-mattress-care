@@ -119,21 +119,29 @@ export default function Services() {
       <section className="section">
         <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
-            <IllustrationFrame
-              src={illustBeforeAfter}
-              alt="Before and after mattress illustration"
-              tone="primary"
-              badge="Visible results"
-            />
+            <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+              <img
+                src={illustBeforeAfter}
+                alt="Example visual of before/after mattress documentation"
+                width={1200}
+                height={900}
+                loading="lazy"
+                className="aspect-[4/3] h-full w-full object-cover"
+              />
+              <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
+                Example visual — real service photos coming soon
+              </figcaption>
+            </figure>
           </div>
           <div className="lg:col-span-7">
-            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Visible results</p>
+            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Documented service</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
               Before, after, and an honest update.
             </h2>
             <p className="mt-3 text-muted-foreground">
               Every job ends the same way: clear photo proof, a short summary of what was treated,
-              and a realistic note on what to expect on the next check-in. No hype, no guesswork.
+              and a realistic note on what to expect on the next check-in. Real before/after photos
+              from FreshDream jobs are coming soon — ask us on WhatsApp for current examples.
             </p>
           </div>
         </div>
