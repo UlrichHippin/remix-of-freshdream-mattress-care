@@ -121,10 +121,10 @@ export default function Contact() {
 
   const trustNotes = [
     { i: MapPin, t: "Based in Roysambu" },
+    { i: CheckCircle2, t: "M-PESA accepted" },
     { i: Camera, t: "Before / after photos" },
     { i: ShieldCheck, t: "Honest assessments" },
     { i: Clock4, t: "Same-day where possible" },
-    { i: CheckCircle2, t: "Guest-ready standard" },
   ];
 
   return (
