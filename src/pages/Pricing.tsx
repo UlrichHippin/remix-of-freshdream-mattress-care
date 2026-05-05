@@ -19,9 +19,9 @@ import {
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
 import illustMultiUnit from "@/assets/illust-multi-unit.png";
+import heroBed from "@/assets/hero-bed.jpg";
 
 export default function Pricing() {
   const urinePkg = packages.find((p) => p.slug === "urine-odor")!;
@@ -58,12 +58,19 @@ export default function Pricing() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <IllustrationFrame
-              src={illustGuestReady}
-              alt="Guest-ready bedroom"
-              tone="primary"
-              badge="Pricing · Nairobi · Roysambu"
-            />
+            <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+              <img
+                src={heroBed}
+                alt="Freshly cleaned mattress in a Nairobi short-stay bedroom"
+                width={1200}
+                height={900}
+                loading="eager"
+                className="aspect-[4/3] h-full w-full object-cover"
+              />
+              <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ring-1 ring-border backdrop-blur">
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Pricing · Nairobi · Roysambu
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
