@@ -118,6 +118,9 @@ export default function HostPackages() {
               </Link>
               <WhatsAppButton size="lg" label="Book on WhatsApp" message={portfolioMessage} />
             </div>
+            <div className="mt-5">
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
           <div className="lg:col-span-5">
             <IllustrationFrame
