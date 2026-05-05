@@ -72,6 +72,8 @@ export const services: ServiceDef[] = [
   {
     slug: "urine-odor",
     illustration: illustMattressCare,
+    photo: photoMattressDetail,
+    photoAlt: "Neutral mattress detail — odor and stain treatment service in Nairobi",
     title: "Urine & Odor Reduction Treatment",
     short: "Targeted treatment for guest accidents and stronger odor concerns.",
     bestFor: "Guest accidents, urine concerns, and stronger odor issues.",
