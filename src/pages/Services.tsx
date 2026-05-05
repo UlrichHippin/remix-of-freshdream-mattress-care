@@ -29,7 +29,10 @@ export default function Services() {
               Choose the service that fits your situation. Not sure? WhatsApp us with photos and we'll
               recommend the right one — honestly.
             </p>
-            <div className="mt-6"><WhatsAppButton /></div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <WhatsAppButton />
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
           <div className="lg:col-span-5">
             <IllustrationFrame
