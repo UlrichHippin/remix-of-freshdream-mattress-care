@@ -4,6 +4,7 @@ import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
+import EquipmentBadge from "@/components/EquipmentBadge";
 import { pricingMattress, pricingAddOns, pricingUpholstery, pricingNotes } from "@/data/content";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
