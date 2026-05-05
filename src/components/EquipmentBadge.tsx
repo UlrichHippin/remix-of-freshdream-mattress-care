@@ -37,10 +37,15 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             <h3 className="text-base font-bold text-primary">JIMMY BX7 Pro Max</h3>
           </div>
         </div>
-        <p className="mt-3 text-sm text-muted-foreground">
-          We use a specialized mattress-cleaning system designed for mattress
-          hygiene and deep cleaning — not a generic home cleaner.
-        </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            We use a specialized mattress-cleaning system designed for mattress
+            hygiene and deep cleaning — not a generic home cleaner.
+          </p>
+          <p className="mt-2 text-xs text-muted-foreground">
+            <span className="font-semibold text-primary">Coming soon:</span> a BISSELL
+            portable deep cleaner — soon part of our inventory for heavy stains
+            and upholstery support.
+          </p>
         <ul className="mt-4 grid gap-2 text-sm text-foreground sm:grid-cols-2">
           {[
             { i: ShieldCheck, t: "UV-C hygiene support" },
@@ -73,6 +78,14 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             We invest in equipment built for mattress hygiene, not generic surface cleaning.
             That means better dust and allergen pickup, UV-C hygiene support and hot-air
             drying support — so your beds get back in service faster and cleaner.
+          </p>
+          <p className="mt-3 inline-flex items-start gap-2 rounded-xl border border-dashed border-border bg-card/60 px-3 py-2 text-sm text-muted-foreground">
+            <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+            <span>
+              <span className="font-semibold text-primary">Soon part of our inventory:</span>{" "}
+              a BISSELL portable deep cleaner for heavy stain cases, upholstery
+              support and more intensive spot treatment.
+            </span>
           </p>
           <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
             {[
