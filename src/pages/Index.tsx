@@ -13,7 +13,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
-import { services, faqs, hostPackages } from "@/data/content";
+import { services, faqs, hostPackages, openingOffer } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBanner from "@/assets/hero-banner.png";
@@ -98,7 +98,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Host support feature — illustrated */}
+      {/* Opening Offer teaser */}
+      <section className="border-b border-border bg-accent-soft/40">
+        <div className="container-tight py-10 sm:py-12">
+          <div className="card-soft relative overflow-hidden border-2 border-accent/40 p-6 sm:p-8">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent-soft/70" aria-hidden="true" />
+            <div className="relative grid gap-6 md:grid-cols-12 md:items-center">
+              <div className="md:col-span-8">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                  Launch Offer · First-Time Customers
+                </span>
+                <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
+                  Opening Offer: Freshen Up from KES 1,999
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+                  Limited launch offer for first-time customers in selected Nairobi areas. Ideal for
+                  Airbnb hosts, guest rooms and homes that need a fast dry mattress refresh.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <a
+                    href={whatsappLink(openingOffer.whatsappMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                  >
+                    <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+                  </a>
+                  <Link
+                    to="/pricing"
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft"
+                  >
+                    View Prices <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+              <ul className="md:col-span-4 grid gap-1.5 text-sm">
+                {openingOffer.prices.map((p, idx) => (
+                  <li
+                    key={p.label}
+                    className={`flex items-center justify-between rounded-lg px-3 py-2 ${
+                      idx === 0 ? "bg-primary text-primary-foreground" : "bg-surface"
+                    }`}
+                  >
+                    <span className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.label}</span>
+                    <span className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section">
         <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
           <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">

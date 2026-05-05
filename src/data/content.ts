@@ -199,7 +199,7 @@ export const hostPackages = [
 
 export const pricingAddOns = [
   { t: "Intensive stain treatment", p: "from KES 4,500" },
-  { t: "Urine & odor reduction treatment", p: "from KES 6,000" },
+  { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
   { t: "Extra drying support / return check", p: "+ KES 500–1,000" },
 ];
@@ -219,4 +219,107 @@ export const pricingNotes = [
   "Host package pricing is custom.",
   "Same-day slots depend on route and availability.",
   "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
+];
+
+// Opening / launch offer for first-time customers
+export const openingOffer = {
+  badge: "Launch Offer",
+  headline: "Opening Offer for First-Time Customers",
+  text:
+    "Start fresh with FreshDream Mattress Care. For a limited time, first-time customers in selected Nairobi areas can book our Freshen Up mattress service at a special launch price.",
+  prices: [
+    { label: "Single Mattress", price: "KES 1,999" },
+    { label: "Double Mattress", price: "KES 2,499" },
+    { label: "Queen Mattress", price: "KES 2,999" },
+    { label: "King Mattress", price: "KES 3,499" },
+  ],
+  smallPrint:
+    "Limited launch offer for first-time customers only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
+  whatsappMessage:
+    "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
+  cta: "Book Opening Offer on WhatsApp",
+};
+
+// Airbnb Host Starter Package
+export const hostStarter = {
+  badge: "Airbnb Host Package",
+  headline: "Airbnb Host Starter Package",
+  text:
+    "Keep your guest rooms fresh, hygienic and review-ready between bookings. Ideal for Airbnb hosts, serviced apartments and short-stay property managers in Nairobi.",
+  options: [
+    { label: "2 mattresses Freshen Up", price: "from KES 5,500" },
+    { label: "3 mattresses Freshen Up", price: "from KES 7,500" },
+    { label: "Additional mattress", price: "quoted by size" },
+    { label: "Same-day or urgent turnover", price: "subject to availability" },
+  ],
+  included: [
+    "Dry mattress refresh",
+    "Dust and hair removal",
+    "Odor check",
+    "UV-C hygiene support where suitable",
+    "Hot air refresh",
+    "WhatsApp service photos",
+    "M-PESA accepted",
+  ],
+  whatsappMessage:
+    "Hello, I would like to book the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:",
+  cta: "Book Host Package on WhatsApp",
+};
+
+// Recurring Host Plans
+export const recurringHostPlans = {
+  headline: "Recurring Host Plans",
+  text:
+    "For Airbnb hosts and serviced apartment operators who need regular mattress care, we offer weekly, bi-weekly and monthly service plans.",
+  options: [
+    "Weekly mattress refresh",
+    "Bi-weekly guest-room hygiene service",
+    "Monthly deep dry mattress care",
+    "Multi-unit pricing available",
+  ],
+  note:
+    "Custom pricing depends on number of units, frequency, mattress sizes and location.",
+  whatsappMessage:
+    "Hello, I would like a quote for a Recurring Host Plan.\nNumber of units:\nLocation:\nPreferred frequency:",
+  cta: "Request Host Plan Quote",
+};
+
+// Review & Referral
+export const reviewReferral = {
+  headline: "Review & Referral Bonus",
+  reviewText:
+    "Leave an honest review after your first service and receive 10% off your next booking.",
+  referralText:
+    "Refer another Airbnb host or property owner and both receive KES 500 off the next service.",
+};
+
+// Trust points to display near pricing
+export const pricingTrustPoints = [
+  "WhatsApp booking",
+  "M-PESA accepted",
+  "Based in Roysambu, Nairobi",
+  "Airbnb-ready service",
+  "Same-day service where available",
+  "Photos help us quote accurately",
+  "Final price depends on mattress size, condition, stains, location and urgency",
+];
+
+// Pricing FAQ
+export const pricingFaqs: { q: string; a: string }[] = [
+  {
+    q: "Why is urine or strong odor treatment quoted separately?",
+    a: "Urine and strong odor cases vary depending on depth, age of contamination, mattress material and previous cleaning attempts. Photos help us give a fair quote before arrival.",
+  },
+  {
+    q: "Can you guarantee stain removal?",
+    a: "No. We provide professional stain treatment and improvement, but final results depend on stain age, fabric, depth and previous cleaning attempts.",
+  },
+  {
+    q: "Do you accept M-PESA?",
+    a: "Yes, M-PESA and cash are accepted.",
+  },
+  {
+    q: "Is the Opening Offer permanent?",
+    a: "No. The Opening Offer is a limited launch promotion for first-time customers in selected Nairobi areas.",
+  },
 ];
