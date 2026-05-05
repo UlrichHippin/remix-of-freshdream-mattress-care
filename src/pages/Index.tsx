@@ -257,10 +257,10 @@ export default function Home() {
       <section className="border-y border-border bg-surface">
         <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: MessageSquareText, t: "Fast WhatsApp response" },
-            { icon: Camera, t: "Before/after photo proof" },
-            { icon: Clock4, t: "Same-day or next-day support" },
-            { icon: ShieldCheck, t: "Built for Airbnb turnovers" },
+            { icon: Droplets, t: "Dry process — no soaking" },
+            { icon: ShieldCheck, t: "Safe for mattresses, sofas & rugs" },
+            { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
+            { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
             <div key={it.t} className="flex items-center gap-3">
               <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
