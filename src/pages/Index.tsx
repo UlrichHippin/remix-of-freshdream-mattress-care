@@ -403,6 +403,18 @@ export default function Home() {
                   </ul>
                 </div>
 
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">Size-based pricing</h4>
+                  <ul className="mt-2 divide-y divide-border rounded-xl border border-border bg-surface text-sm">
+                    {activePkg.sizes.map((s) => (
+                      <li key={s.label} className="flex items-center justify-between px-4 py-2.5">
+                        <span className="text-foreground">{s.label}</span>
+                        <span className="font-semibold text-primary">{s.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <div className="rounded-xl bg-surface p-4 text-sm">
                   <p><span className="font-semibold text-primary">Ready to use again:</span> {activePkg.readyIn}</p>
                   <p className="mt-2 italic text-muted-foreground">{activePkg.note}</p>
