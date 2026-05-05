@@ -160,6 +160,9 @@ export default function Contact() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 flex justify-center">
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
         </div>
       </section>
