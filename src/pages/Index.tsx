@@ -527,7 +527,7 @@ export default function Home() {
         <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-              <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Service
+              <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Support
             </p>
             <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
               A guest just checked out<br className="sm:hidden" />

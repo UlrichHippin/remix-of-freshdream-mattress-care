@@ -296,11 +296,11 @@ export default function BookingCalendar() {
             <Select value={form.watch("service")} onValueChange={(v) => form.setValue("service", v as FormValues["service"])}>
               <SelectTrigger className="mt-1.5"><SelectValue /></SelectTrigger>
               <SelectContent>
-                <SelectItem value="turnover">Turnover Freshen-Up</SelectItem>
-                <SelectItem value="deep_clean">Deep Mattress Clean</SelectItem>
+                <SelectItem value="turnover">Freshen Up</SelectItem>
+                <SelectItem value="deep_clean">Standard Cleaning</SelectItem>
                 <SelectItem value="urine_odor">Urine & Odor Reduction Treatment</SelectItem>
-                <SelectItem value="emergency">Emergency Host Service</SelectItem>
-                <SelectItem value="upholstery">Upholstery & Sofa Cleaning</SelectItem>
+                <SelectItem value="emergency">Emergency Host Support</SelectItem>
+                <SelectItem value="upholstery">Upholstery & Sofa Refresh</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>

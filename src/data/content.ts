@@ -30,7 +30,7 @@ export const services: ServiceDef[] = [
     illustration: illustGuestReady,
     photo: photoHospitalityBedroom,
     photoAlt: "Dry mattress refresh for serviced apartments in Nairobi",
-    title: "Turnover Freshen-Up",
+    title: "Freshen Up",
     short: "Quick refresh between guests — low-moisture, fast re-use, photo-documented.",
     bestFor: "Routine Airbnb turnovers and quick refreshes when the mattress needs to be back in service fast.",
     includes: [
@@ -45,14 +45,14 @@ export const services: ServiceDef[] = [
       "Designed for properties already in good condition. Because it uses a low-moisture process, the mattress can typically be put back into service faster than after a deep wet clean — ideal for tight turnovers with minimal downtime.",
     icon: Sparkles,
     whatsappTemplate:
-      "Hello, I would like to book a Turnover Freshen-Up.\nLocation:\nMattress size:\nNext guest check-in time:",
+      "Hello, I would like to book a Freshen Up.\nLocation:\nMattress size:\nNext guest check-in time:",
   },
   {
     slug: "deep-clean",
     illustration: illustDeepClean,
     photo: photoMattressDetail,
     photoAlt: "Mattress cleaning Nairobi for Airbnb hosts — detail view",
-    title: "Deep Mattress Clean",
+    title: "Standard Cleaning",
     short: "For visible stains, sweat buildup and heavier use over time.",
     bestFor: "Mattresses with visible stains, sweat buildup, body oils, or heavier use over time.",
     includes: [
@@ -67,7 +67,7 @@ export const services: ServiceDef[] = [
       "Older or deeper stains may improve significantly without disappearing fully. We share an honest assessment before treatment.",
     icon: Bed,
     whatsappTemplate:
-      "Hello, I would like to request a Deep Mattress Clean.\nLocation:\nMattress size:\nPhotos of stains:\nNext guest check-in time:",
+      "Hello, I would like to request a Standard Cleaning (with optional Intensive Stain Treatment).\nLocation:\nMattress size:\nPhotos of stains:\nNext guest check-in time:",
   },
   {
     slug: "urine-odor",
@@ -96,7 +96,7 @@ export const services: ServiceDef[] = [
     illustration: illustHostSupport,
     photo: photoHospitalityApartment,
     photoAlt: "Airbnb mattress cleaning service Nairobi — emergency host support",
-    title: "Emergency Host Service",
+    title: "Emergency Host Support",
     short: "Urgent support before the next guest check-in.",
     bestFor: "Last-minute stains, odor complaints, urgent guest incidents, and unexpected turnover problems.",
     includes: [
@@ -111,14 +111,14 @@ export const services: ServiceDef[] = [
       "Availability depends on the day's schedule. Send photos and your check-in time and we will tell you honestly what is possible.",
     icon: AlarmClock,
     whatsappTemplate:
-      "URGENT — I need Emergency Host Service before my next check-in.\nLocation:\nProperty / unit:\nNext guest check-in time:\nIssue:\nPhotos:",
+      "URGENT — I need Emergency Host Support before my next check-in.\nLocation:\nProperty / unit:\nNext guest check-in time:\nIssue:\nPhotos:",
   },
   {
     slug: "upholstery",
     illustration: illustUpholstery,
     photo: photoUpholstery,
     photoAlt: "Sofa upholstery cleaning Nairobi",
-    title: "Upholstery & Sofa Cleaning",
+    title: "Upholstery & Sofa Refresh",
     short: "Sofas, cushions and upholstered chairs in short-stay properties.",
     bestFor: "Sofas, cushions, upholstered chairs, and selected soft furnishings in short-stay properties.",
     includes: [
@@ -133,7 +133,7 @@ export const services: ServiceDef[] = [
       "Some delicate or aged fabrics may have permanent marks. We confirm what is realistic before starting.",
     icon: Sofa,
     whatsappTemplate:
-      "Hello, I would like a quote for Upholstery & Sofa Cleaning.\nLocation:\nFurniture type & count:\nPhotos:\nNext guest check-in time:",
+      "Hello, I would like a quote for Upholstery & Sofa Refresh.\nLocation:\nFurniture type & count:\nPhotos:\nNext guest check-in time:",
   },
 ];
 
@@ -160,7 +160,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Can you also clean sofas and upholstered chairs?",
-    a: "Yes — Upholstery & Sofa Cleaning is one of our core services. We handle sofas, cushions, upholstered chairs and selected soft furnishings.",
+    a: "Yes — Upholstery & Sofa Refresh is one of our core services. We handle sofas, cushions, upholstered chairs and selected soft furnishings.",
   },
   {
     q: "Do you provide before/after photo proof?",
