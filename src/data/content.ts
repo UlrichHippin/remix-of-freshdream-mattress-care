@@ -50,6 +50,8 @@ export const services: ServiceDef[] = [
   {
     slug: "deep-clean",
     illustration: illustDeepClean,
+    photo: photoMattressDetail,
+    photoAlt: "Mattress cleaning Nairobi for Airbnb hosts — detail view",
     title: "Deep Mattress Clean",
     short: "For visible stains, sweat buildup and heavier use over time.",
     bestFor: "Mattresses with visible stains, sweat buildup, body oils, or heavier use over time.",
