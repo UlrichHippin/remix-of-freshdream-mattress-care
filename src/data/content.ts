@@ -140,7 +140,7 @@ export const services: ServiceDef[] = [
 export const faqs: { q: string; a: string }[] = [
   {
     q: "How long does mattress cleaning take?",
-    a: "Most single-mattress jobs take about 45–90 minutes depending on the service and the condition. Deeper cleans and urine recovery take longer. We confirm a time estimate when you send photos.",
+    a: "Most single-mattress jobs take about 45–90 minutes depending on the service and the condition. Deeper cleans and urine and odor treatment take longer. We confirm a time estimate when you send photos.",
   },
   {
     q: "How long does drying take?",
