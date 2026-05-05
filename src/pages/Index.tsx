@@ -262,21 +262,21 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-5 min-[420px]:grid-cols-2 lg:grid-cols-4">
             {packages.map((p, i) => (
               <div
                 key={p.title}
-                className={`card-soft relative flex flex-col p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift ${
+                className={`card-soft relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift ${
                   i === 1 ? "ring-2 ring-accent shadow-lift" : ""
                 }`}
               >
                 {i === 1 && (
-                  <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                    <Star className="h-3 w-3" /> Popular
+                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+                    <Star className="h-2.5 w-2.5" /> Popular
                   </span>
                 )}
-                <h3 className="text-lg font-bold text-primary">{p.title}</h3>
-                <p className="mt-2 text-2xl font-bold text-primary">{p.startingPrice}</p>
+                <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-20" : ""}`}>{p.title}</h3>
+                <p className="mt-2 text-2xl font-bold text-primary max-[380px]:text-xl">{p.startingPrice}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{STARTING_NOTE}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {p.hours}
@@ -294,7 +294,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <WhatsAppButton size="lg" label="Book a Cleaning" />
+            <WhatsAppButton size="lg" label="Book a Cleaning" className="w-full sm:w-auto" />
             <p className="text-center text-sm text-muted-foreground">
               Dry process. No soaking. Nairobi and surrounding areas.
             </p>
