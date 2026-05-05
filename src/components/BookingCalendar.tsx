@@ -138,6 +138,12 @@ export default function BookingCalendar() {
       return;
     }
     setSubmitting(true);
+    const composedDetails = [
+      `Mattress size: ${values.mattress_size}`,
+      `Number of mattresses: ${values.mattress_count}`,
+      values.issue ? `Stain/odor issue: ${values.issue}` : null,
+      values.details ? `Notes: ${values.details}` : null,
+    ].filter(Boolean).join("\n");
     const { error } = await supabase.from("bookings").insert({
       name: values.name,
       phone: values.phone,
@@ -146,7 +152,7 @@ export default function BookingCalendar() {
       area: values.area,
       property_type: values.property_type || null,
       service: values.service,
-      details: values.details || null,
+      details: composedDetails,
       starts_at: slot.startsAt.toISOString(),
       ends_at: slot.endsAt.toISOString(),
     });
