@@ -6,9 +6,9 @@ export const site = {
   tagline: "Mattress Cleaning Nairobi for Airbnb Hosts, Homes & Serviced Apartments",
   base: "Roysambu, Nairobi",
   // Use international format without leading + for wa.me
-  whatsappNumber: "254700000000",
-  phoneDisplay: "+254 700 000 000",
-  email: "hello@freshdream.co.ke",
+  whatsappNumber: "254720286682",
+  phoneDisplay: "+254 720 286 682",
+  email: "info@hippin.net",
   serviceAreas: [
     "Roysambu", "Kasarani", "Thome", "Mirema", "Garden Estate",
     "Zimmerman", "Kahawa West", "Kahawa Sukari", "TRM Drive",
