@@ -4,6 +4,11 @@ import illustDeepClean from "@/assets/illust-deep-clean.png";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
+import photoMattressDetail from "@/assets/mattress-detail.jpg";
+import photoHeroBed from "@/assets/hero-bed.jpg";
+import photoHospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
+import photoUpholstery from "@/assets/upholstery.jpg";
+import photoHospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
 export interface ServiceDef {
   slug: string;
@@ -14,6 +19,8 @@ export interface ServiceDef {
   expectations: string;
   icon: LucideIcon;
   illustration: string;
+  photo: string;
+  photoAlt: string;
   whatsappTemplate: string;
 }
 
