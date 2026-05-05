@@ -82,14 +82,25 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="container-tight flex flex-col items-center gap-3 py-6 text-center text-xs text-muted-foreground md:flex-row md:items-center md:justify-between md:text-left">
-          <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-            <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-semibold text-accent">
-              <MapPinned className="h-3.5 w-3.5" /> You are on: {currentPage}
-            </span>
+        <div className="container-tight flex flex-col gap-4 py-6 text-xs text-muted-foreground">
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:justify-start">
+            <li><Link to="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
+            <li aria-hidden="true">·</li>
+            <li><Link to="/terms" className="hover:text-primary">Terms of Service</Link></li>
+            <li aria-hidden="true">·</li>
+            <li><Link to="/disclaimer" className="hover:text-primary">Cleaning Disclaimer</Link></li>
+            <li aria-hidden="true">·</li>
+            <li><Link to="/cancellation" className="hover:text-primary">Cancellation Policy</Link></li>
+          </ul>
+          <div className="flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left">
+            <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
+              <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-[11px] font-semibold text-accent">
+                <MapPinned className="h-3.5 w-3.5" /> You are on: {currentPage}
+              </span>
+            </div>
+            <p className="max-w-xl md:text-right">{site.disclaimer}</p>
           </div>
-          <p className="max-w-xl md:text-right">{site.disclaimer}</p>
         </div>
       </div>
     </footer>
