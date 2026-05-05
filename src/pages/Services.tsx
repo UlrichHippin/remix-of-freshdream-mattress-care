@@ -1,6 +1,7 @@
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
+import EquipmentBadge from "@/components/EquipmentBadge";
 import SectionDivider from "@/components/SectionDivider";
 import { services } from "@/data/content";
 import { site } from "@/config/site";
@@ -28,7 +29,10 @@ export default function Services() {
               Choose the service that fits your situation. Not sure? WhatsApp us with photos and we'll
               recommend the right one — honestly.
             </p>
-            <div className="mt-6"><WhatsAppButton /></div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <WhatsAppButton />
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
           <div className="lg:col-span-5">
             <IllustrationFrame
@@ -122,7 +126,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Hospitality visual band */}
+      <EquipmentBadge variant="band" />
+
+
       <section className="relative">
         <div className="container-tight">
           <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">

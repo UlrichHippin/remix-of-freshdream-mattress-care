@@ -4,6 +4,7 @@ import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
+import EquipmentBadge from "@/components/EquipmentBadge";
 import { pricingMattress, pricingAddOns, pricingUpholstery, pricingNotes } from "@/data/content";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustUpholstery from "@/assets/illust-upholstery.png";
@@ -47,6 +48,9 @@ export default function Pricing() {
               >
                 View host packages <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+            <div className="mt-5">
+              <EquipmentBadge variant="inline" />
             </div>
           </div>
           <div className="lg:col-span-5">
@@ -199,6 +203,12 @@ export default function Pricing() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container-tight max-w-3xl">
+          <EquipmentBadge variant="card" />
         </div>
       </section>
 

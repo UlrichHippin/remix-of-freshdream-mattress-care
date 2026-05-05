@@ -28,6 +28,7 @@ import illustEmergencyResponse from "@/assets/illust-emergency-response.png";
 import illustTrustBadges from "@/assets/illust-trust-badges.png";
 import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
+import EquipmentBadge from "@/components/EquipmentBadge";
 
 export default function Home() {
   return (
@@ -74,6 +75,10 @@ export default function Home() {
               <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
               <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
             </ul>
+
+            <div className="mt-6 flex justify-center">
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
         </div>
       </section>
@@ -190,7 +195,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hospitality visual band */}
+      <EquipmentBadge variant="band" />
+
+
       <section className="relative">
         <div className="container-tight">
           <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">

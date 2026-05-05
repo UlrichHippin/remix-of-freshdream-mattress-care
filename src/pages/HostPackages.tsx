@@ -7,6 +7,7 @@ import {
   Star, ArrowRight, Camera, CalendarClock, Sparkles, MessageCircle, Bed, Sofa, Droplets,
 } from "lucide-react";
 import illustPortfolio from "@/assets/illust-portfolio.png";
+import EquipmentBadge from "@/components/EquipmentBadge";
 
 const benefits = [
   { i: CalendarClock, t: "Predictable turnaround", d: "Booked-in slots that match your check-in rhythm." },
@@ -116,6 +117,9 @@ export default function HostPackages() {
                 Request a portfolio quote <ArrowRight className="h-4 w-4" />
               </Link>
               <WhatsAppButton size="lg" label="Book on WhatsApp" message={portfolioMessage} />
+            </div>
+            <div className="mt-5">
+              <EquipmentBadge variant="inline" />
             </div>
           </div>
           <div className="lg:col-span-5">
@@ -274,6 +278,8 @@ export default function HostPackages() {
           </div>
         </div>
       </section>
+
+      <EquipmentBadge variant="band" />
 
       {/* Final CTA */}
       <section className="section">
