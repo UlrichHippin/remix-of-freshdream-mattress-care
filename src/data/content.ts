@@ -197,25 +197,6 @@ export const hostPackages = [
   },
 ];
 
-export const pricingMattress = [
-  {
-    size: "Single Mattress",
-    freshen: "KES 2,500",
-    deep: "KES 3,500–4,500",
-  },
-  {
-    size: "Double / Queen Mattress",
-    freshen: "KES 3,000–3,500",
-    deep: "KES 4,000–5,500",
-    featured: true,
-  },
-  {
-    size: "King Mattress",
-    freshen: "KES 4,000",
-    deep: "KES 5,000–6,500",
-  },
-];
-
 export const pricingAddOns = [
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 6,000" },
