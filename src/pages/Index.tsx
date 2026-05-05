@@ -165,11 +165,11 @@ export default function Home() {
               <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-              Professional Mattress Cleaning in Nairobi
+              Professional Dry Mattress, Sofa & Rug Cleaning in Nairobi
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              For Airbnb hosts and serviced apartments in Roysambu & Nairobi. Documented service,
-              honest assessments and guest-ready turnaround.
+              Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
+              Trusted by homes, Airbnb hosts and serviced apartments across Nairobi.
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
