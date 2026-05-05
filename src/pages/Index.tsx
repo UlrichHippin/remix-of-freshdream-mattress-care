@@ -455,6 +455,7 @@ export default function Home() {
         </DialogContent>
       </Dialog>
 
+      <HostPackagesPreview />
 
 
       {/* Documented service */}
