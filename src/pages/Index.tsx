@@ -56,24 +56,30 @@ export default function Home() {
 
           {/* Real, accessible hero content for SEO + responsiveness */}
           <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
-            <p className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
-              <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+              <Sparkles className="h-3.5 w-3.5" /> Opening Offer: Freshen Up from KES 1,999
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
               Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
-              Trusted by homes, Airbnb hosts and serviced apartments across Nairobi.
+              First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Book via WhatsApp" className="w-full sm:w-auto" />
+              <a
+                href={whatsappLink(openingOffer.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
+              >
+                <MessageCircle className="h-5 w-5" /> Book Opening Offer
+              </a>
               <Link
-                to="/services"
+                to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
               >
-                Explore services <ArrowRight className="h-4 w-4" />
+                View Prices <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
 
@@ -88,12 +94,6 @@ export default function Home() {
             <div className="mt-6 flex justify-center">
               <EquipmentBadge variant="inline" />
             </div>
-
-            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-              <span className="font-semibold text-primary">Freshen-Up</span> helps you get the
-              mattress back in use faster — ideal for busy turnovers and short-stay properties
-              with minimal downtime between bookings.
-            </p>
           </div>
         </div>
       </section>
