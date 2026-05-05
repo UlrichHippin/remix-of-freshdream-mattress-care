@@ -54,13 +54,19 @@ export default function Services() {
               className="card-soft grid gap-8 overflow-hidden p-6 md:grid-cols-12 md:p-8"
             >
               <div className={`md:col-span-4 ${idx % 2 === 1 ? "md:order-last" : ""}`}>
-                <IllustrationFrame
-                  src={s.illustration}
-                  alt={`${s.title} illustration`}
-                  tone={idx % 2 === 0 ? "primary" : "accent"}
-                  badge={`Service 0${idx + 1}`}
-                  className="h-full"
-                />
+                <figure className="relative h-full overflow-hidden rounded-3xl border border-border shadow-soft">
+                  <img
+                    src={s.photo}
+                    alt={s.photoAlt}
+                    width={1200}
+                    height={900}
+                    loading="lazy"
+                    className="aspect-[4/3] h-full w-full object-cover"
+                  />
+                  <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
+                    {`Service 0${idx + 1}`}
+                  </figcaption>
+                </figure>
               </div>
               <div className="md:col-span-8">
                 <div className="flex items-center gap-3">
