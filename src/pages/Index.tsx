@@ -54,26 +54,13 @@ export default function Home() {
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
               Professional Mattress Cleaning in Nairobi
             </h1>
-            <p className="mt-3 text-lg font-semibold text-accent sm:text-xl">
-              Sleep Better. Live Fresher.
-            </p>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay
-              properties. Documented before/after, honest assessments and same-day support
-              where possible.
+              For Airbnb hosts and serviced apartments in Roysambu & Nairobi. Documented service,
+              honest assessments and guest-ready turnaround.
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <a
-                href="https://wa.me/4915756233913"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Book via WhatsApp"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-7 text-base font-semibold text-whatsapp-foreground shadow-lift transition-all hover:bg-whatsapp-hover active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp sm:w-auto"
-              >
-                <MessageCircle className="h-5 w-5" aria-hidden />
-                Book via WhatsApp
-              </a>
+              <WhatsAppButton size="lg" label="Book via WhatsApp" className="w-full sm:w-auto" />
               <Link
                 to="/services"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
