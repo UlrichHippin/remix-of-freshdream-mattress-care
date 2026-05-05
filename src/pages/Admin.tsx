@@ -109,6 +109,18 @@ export default function Admin() {
       <main className="container-tight space-y-8 py-8">
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Bookings</h2>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Each booking is a <strong>request</strong> until confirmed via WhatsApp. Reply to the customer to confirm slot, price and payment details.
+          </p>
+          <div className="mt-3 rounded-lg border border-dashed border-border bg-surface p-3 text-xs text-muted-foreground">
+            <p className="font-semibold text-primary">Planned admin enhancements</p>
+            <ul className="mt-1 list-disc pl-4">
+              <li>Estimated price &amp; final price</li>
+              <li>Payment method (M-PESA / Cash)</li>
+              <li>M-PESA transaction code</li>
+              <li>Payment status: unpaid / deposit paid / paid / cancelled</li>
+            </ul>
+          </div>
           {loading ? <Loader2 className="mt-4 h-5 w-5 animate-spin" /> : (
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
