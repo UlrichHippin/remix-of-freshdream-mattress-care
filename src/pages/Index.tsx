@@ -34,9 +34,11 @@ import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
 
+interface PkgSize { label: string; price: string; }
 interface Pkg {
   title: string;
   price: string;
+  startingNote: string;
   hours: string;
   summary: string;
   tagline: string;
@@ -45,13 +47,17 @@ interface Pkg {
   bestFor: string[];
   readyIn: string;
   note: string;
+  sizes: PkgSize[];
   whatsappMessage: string;
 }
+
+const STARTING_NOTE = "Single mattress (3x6 ft)";
 
 const packages: Pkg[] = [
   {
     title: "Freshen Up",
-    price: "3,000 KES",
+    price: "Starting from 3,000 KES",
+    startingNote: STARTING_NOTE,
     hours: "Ready in about 2 hours",
     summary: "A quick dry refresh for mattresses, sofas, and rugs.",
     tagline: "Instant fresh care with no soaking.",
@@ -67,11 +73,18 @@ const packages: Pkg[] = [
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
     readyIn: "About 2 hours",
     note: "Dry process only. No soaking.",
-    whatsappMessage: "Hello, I would like to book the Freshen Up package (3,000 KES).",
+    sizes: [
+      { label: "Single (3x6 ft)", price: "3,000 KES" },
+      { label: "Double (4x6 ft)", price: "3,500 KES" },
+      { label: "Queen (5x6 ft)", price: "4,000 KES" },
+      { label: "King (6x6 ft)", price: "4,500 KES" },
+    ],
+    whatsappMessage: "Hello, I would like to book the Freshen Up package (from 3,000 KES).",
   },
   {
     title: "Standard Cleaning",
-    price: "4,500 KES",
+    price: "Starting from 4,500 KES",
+    startingNote: STARTING_NOTE,
     hours: "Ready in about 4 hours",
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
@@ -92,11 +105,18 @@ const packages: Pkg[] = [
     ],
     readyIn: "About 4 hours",
     note: "Dry treatment. No water extraction.",
-    whatsappMessage: "Hello, I would like to book the Standard Cleaning package (4,500 KES).",
+    sizes: [
+      { label: "Single (3x6 ft)", price: "4,500 KES" },
+      { label: "Double (4x6 ft)", price: "5,000 KES" },
+      { label: "Queen (5x6 ft)", price: "5,500 KES" },
+      { label: "King (6x6 ft)", price: "6,000 KES" },
+    ],
+    whatsappMessage: "Hello, I would like to book the Standard Cleaning package (from 4,500 KES).",
   },
   {
     title: "Intensive Stain Removal",
-    price: "5,500 KES",
+    price: "Starting from 5,500 KES",
+    startingNote: STARTING_NOTE,
     hours: "Ready in about 6 hours",
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
@@ -112,11 +132,18 @@ const packages: Pkg[] = [
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
     readyIn: "About 6 hours",
     note: "Best for surface to moderate stains. Very deep old stains may require a different treatment process.",
-    whatsappMessage: "Hello, I would like to book the Intensive Stain Removal package (5,500 KES).",
+    sizes: [
+      { label: "Single (3x6 ft)", price: "5,500 KES" },
+      { label: "Double (4x6 ft)", price: "6,000 KES" },
+      { label: "Queen (5x6 ft)", price: "6,500 KES" },
+      { label: "King (6x6 ft)", price: "7,000 KES" },
+    ],
+    whatsappMessage: "Hello, I would like to book the Intensive Stain Removal package (from 5,500 KES).",
   },
   {
     title: "Urine Removal",
-    price: "7,500 KES",
+    price: "Starting from 7,500 KES",
+    startingNote: STARTING_NOTE,
     hours: "Ready in about 8 hours",
     summary: "Deep odor-focused dry treatment for urine accidents.",
     tagline: "Advanced dry treatment for urine odor and contamination.",
@@ -138,7 +165,13 @@ const packages: Pkg[] = [
     ],
     readyIn: "About 8 hours",
     note: "Results depend on how old and how deep the urine contamination is.",
-    whatsappMessage: "Hello, I would like to book the Urine Removal package (7,500 KES).",
+    sizes: [
+      { label: "Single (3x6 ft)", price: "7,500 KES" },
+      { label: "Double (4x6 ft)", price: "8,000 KES" },
+      { label: "Queen (5x6 ft)", price: "8,500 KES" },
+      { label: "King (6x6 ft)", price: "9,000 KES" },
+    ],
+    whatsappMessage: "Hello, I would like to book the Urine Removal package (from 7,500 KES).",
   },
 ];
 
@@ -301,6 +334,7 @@ export default function Home() {
                 )}
                 <h3 className="text-lg font-bold text-primary">{p.title}</h3>
                 <p className="mt-2 text-2xl font-bold text-primary">{p.price}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{p.startingNote}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   <Clock4 className="h-3.5 w-3.5" /> {p.hours}
                 </span>
@@ -364,6 +398,18 @@ export default function Home() {
                       <li key={it} className="flex items-start gap-2">
                         <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                         <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary">Size-based pricing</h4>
+                  <ul className="mt-2 divide-y divide-border rounded-xl border border-border bg-surface text-sm">
+                    {activePkg.sizes.map((s) => (
+                      <li key={s.label} className="flex items-center justify-between px-4 py-2.5">
+                        <span className="text-foreground">{s.label}</span>
+                        <span className="font-semibold text-primary">{s.price}</span>
                       </li>
                     ))}
                   </ul>

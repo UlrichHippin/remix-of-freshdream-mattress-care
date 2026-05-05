@@ -24,19 +24,26 @@ const PACKAGES = [
 ] as const;
 
 const ITEM_TYPES = ["Mattress", "Sofa", "Rug"] as const;
+const SIZES = [
+  "Single (3x6 ft)",
+  "Double (4x6 ft)",
+  "Queen (5x6 ft)",
+  "King (6x6 ft)",
+] as const;
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(80),
   phone: z.string().trim().min(7, "Please enter a valid phone number").max(25),
   pkg: z.enum(PACKAGES, { errorMap: () => ({ message: "Choose a package" }) }),
   item: z.enum(ITEM_TYPES, { errorMap: () => ({ message: "Choose an item type" }) }),
+  size: z.enum(SIZES, { errorMap: () => ({ message: "Choose a size" }) }),
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
 });
 
 type FormState = {
-  name: string; phone: string; pkg: string; item: string;
+  name: string; phone: string; pkg: string; item: string; size: string;
   location: string; date?: Date; notes: string;
 };
 
@@ -49,7 +56,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", location: "", date: undefined, notes: "",
+    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -76,6 +83,7 @@ export default function BookingSection() {
       `Phone: ${d.phone}\n` +
       `Package: ${d.pkg}\n` +
       `Item: ${d.item}\n` +
+      `Size: ${d.size}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
       (d.notes ? `Notes: ${d.notes}\n` : "");
@@ -85,7 +93,7 @@ export default function BookingSection() {
   };
 
   const quickWaMessage =
-    "Hello, I would like to book a cleaning service.\n\nPackage:\nItem:\nLocation:\nPreferred date:";
+    "Hello, I would like to book a cleaning service.\n\nPackage:\nItem:\nSize:\nLocation:\nPreferred date:";
 
   return (
     <section id="book" className="section bg-surface">
@@ -159,6 +167,19 @@ export default function BookingSection() {
                     </SelectContent>
                   </Select>
                   {errors.item && <p className="mt-1 text-xs text-destructive">{errors.item}</p>}
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <Label>Size *</Label>
+                  <Select value={form.size} onValueChange={(v) => update("size", v)}>
+                    <SelectTrigger aria-invalid={!!errors.size}><SelectValue placeholder="Choose a size" /></SelectTrigger>
+                    <SelectContent>
+                      {SIZES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                  {errors.size && <p className="mt-1 text-xs text-destructive">{errors.size}</p>}
                 </div>
               </div>
 
