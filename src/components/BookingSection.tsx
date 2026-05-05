@@ -172,6 +172,19 @@ export default function BookingSection() {
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
+                  <Label>Size *</Label>
+                  <Select value={form.size} onValueChange={(v) => update("size", v)}>
+                    <SelectTrigger aria-invalid={!!errors.size}><SelectValue placeholder="Choose a size" /></SelectTrigger>
+                    <SelectContent>
+                      {SIZES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+                    </SelectContent>
+                  </Select>
+                  {errors.size && <p className="mt-1 text-xs text-destructive">{errors.size}</p>}
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
                   <Label htmlFor="bk-loc">Location *</Label>
                   <Input id="bk-loc" placeholder="Area / estate in Nairobi" value={form.location} maxLength={120}
                     onChange={(e) => update("location", e.target.value)} aria-invalid={!!errors.location} />
