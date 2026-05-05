@@ -51,7 +51,7 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5" /> Launch Offer
             </p>
             <h1 className="mt-4 text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-[3.25rem]">
-              Mattress Cleaning in Nairobi for Airbnb Hosts &amp; Homes
+              Mattress Cleaning Nairobi for Airbnb Hosts &amp; Homes
             </h1>
             <p className="mt-3 text-lg font-semibold text-primary">
               Freshen Up from KES 1,999

@@ -19,8 +19,8 @@ import {
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import illustUpholstery from "@/assets/illust-upholstery.png";
-import illustMultiUnit from "@/assets/illust-multi-unit.png";
+import upholsteryPhoto from "@/assets/upholstery.jpg";
+import hostPortfolio from "@/assets/host-portfolio.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
 
 export default function Pricing() {
@@ -217,7 +217,7 @@ export default function Pricing() {
               </div>
             </div>
             <div className="md:col-span-5">
-              <IllustrationFrame src={illustMultiUnit} alt="Airbnb host package" tone="primary" badge="Airbnb Host Package" />
+              <IllustrationFrame src={hostPortfolio} alt="Airbnb host package" tone="primary" badge="Airbnb Host Package" />
             </div>
           </div>
         </div>
@@ -287,7 +287,7 @@ export default function Pricing() {
           </div>
           <div>
             <div className="mb-4">
-              <IllustrationFrame src={illustUpholstery} alt="Upholstered sofa" tone="accent" className="!p-3" />
+              <IllustrationFrame src={upholsteryPhoto} alt="Upholstered sofa" tone="accent" className="!p-3" />
             </div>
             <p className="eyebrow"><Sofa className="h-3.5 w-3.5" /> Upholstery / add-ons</p>
             <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Sofas, pillows and chairs.</h2>
