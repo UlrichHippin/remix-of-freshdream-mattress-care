@@ -321,14 +321,47 @@ export default function BookingCalendar() {
             <Label htmlFor="bk-email">Email (optional)</Label>
             <Input id="bk-email" type="email" {...form.register("email")} className="mt-1.5" maxLength={160} />
           </div>
+          <div>
+            <Label>Mattress size</Label>
+            <Select value={form.watch("mattress_size")} onValueChange={(v) => form.setValue("mattress_size", v as typeof MATTRESS_SIZES[number])}>
+              <SelectTrigger className="mt-1.5"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {MATTRESS_SIZES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            {form.formState.errors.mattress_size && <p className="mt-1 text-xs text-destructive">{form.formState.errors.mattress_size.message}</p>}
+          </div>
+          <div>
+            <Label htmlFor="bk-count">Number of mattresses</Label>
+            <Input id="bk-count" type="number" min={1} max={50} {...form.register("mattress_count")} className="mt-1.5" />
+            {form.formState.errors.mattress_count && <p className="mt-1 text-xs text-destructive">{form.formState.errors.mattress_count.message}</p>}
+          </div>
         </div>
         <div>
-          <Label htmlFor="bk-details">Details (mattress size, issue, etc.)</Label>
-          <Textarea id="bk-details" {...form.register("details")} className="mt-1.5" rows={3} maxLength={800} />
+          <Label htmlFor="bk-issue">Stain or odor issue (optional)</Label>
+          <Input id="bk-issue" {...form.register("issue")} className="mt-1.5" placeholder="e.g. urine spot, coffee stain, musty smell" maxLength={300} />
+        </div>
+        <div>
+          <Label htmlFor="bk-details">Optional notes</Label>
+          <Textarea id="bk-details" {...form.register("details")} className="mt-1.5" rows={3} maxLength={800} placeholder="Access, parking, timing…" />
+        </div>
+
+        <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
+          <strong className="text-primary">Photos help us quote accurately.</strong> You can send photos directly on WhatsApp after submitting your request.
         </div>
 
         <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-          A selected time slot is treated as a <strong>requested appointment</strong> until confirmed by us via WhatsApp.
+          Your booking is a <strong>request until confirmed via WhatsApp</strong>. We will reply with your slot, price and payment details.
+        </div>
+
+        <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
+          <p className="font-semibold text-primary">Payment</p>
+          <ul className="mt-1.5 list-disc space-y-1 pl-4">
+            <li>M-PESA and cash accepted.</li>
+            <li>Payment is made after service unless a deposit is requested for same-day, urgent or multi-unit bookings.</li>
+            <li>Deposit may be requested for emergency or larger host bookings.</li>
+          </ul>
+          <p className="mt-2 font-medium text-destructive">Do not send payment until your booking and price are confirmed by FreshDream via WhatsApp.</p>
         </div>
 
         <Button type="submit" disabled={submitting || !slot} size="lg" className="w-full rounded-full sm:w-auto">
