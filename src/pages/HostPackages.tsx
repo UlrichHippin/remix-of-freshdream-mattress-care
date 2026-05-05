@@ -7,6 +7,7 @@ import {
   Star, ArrowRight, Camera, CalendarClock, Sparkles, MessageCircle, Bed, Sofa, Droplets,
 } from "lucide-react";
 import illustPortfolio from "@/assets/illust-portfolio.png";
+import EquipmentBadge from "@/components/EquipmentBadge";
 
 const benefits = [
   { i: CalendarClock, t: "Predictable turnaround", d: "Booked-in slots that match your check-in rhythm." },
