@@ -61,7 +61,7 @@ export const services: ServiceDef[] = [
   {
     slug: "urine-odor",
     illustration: illustMattressCare,
-    title: "Urine & Odor Recovery",
+    title: "Urine & Odor Reduction Treatment",
     short: "Targeted treatment for guest accidents and stronger odor concerns.",
     bestFor: "Guest accidents, urine concerns, and stronger odor issues.",
     includes: [
@@ -76,7 +76,7 @@ export const services: ServiceDef[] = [
       "We use honest wording: some older or deeper stains may improve significantly without disappearing completely. Heavily soaked mattresses sometimes need replacement — we will tell you straight.",
     icon: Droplets,
     whatsappTemplate:
-      "Hello, I need urgent Urine & Odor Recovery.\nLocation:\nMattress size:\nPhotos:\nWhen did the incident happen:\nNext guest check-in time:",
+      "Hello, I need urgent Urine & Odor Reduction Treatment.\nLocation:\nMattress size:\nPhotos:\nWhen did the incident happen:\nNext guest check-in time:",
   },
   {
     slug: "emergency",
@@ -208,7 +208,7 @@ export const pricingUpholstery = [
   { t: "Pillow cleaning", p: "KES 300–700 each" },
   { t: "Sofa seat / cushion cleaning", p: "KES 500–1,500 per seat" },
   { t: "Dining chair upholstery cleaning", p: "KES 300–800 each" },
-  { t: "Small rug / carpet spot cleaning", p: "from KES 1,000" },
+  { t: "Small rug refresh and spot support", p: "from KES 1,000" },
 ];
 
 export const pricingNotes = [
