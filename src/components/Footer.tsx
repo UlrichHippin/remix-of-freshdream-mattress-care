@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Mail, MapPin, MapPinned } from "lucide-react";
+import { Mail, MapPin, BadgeCheck } from "lucide-react";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
