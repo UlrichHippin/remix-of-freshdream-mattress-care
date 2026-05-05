@@ -49,6 +49,9 @@ export default function Pricing() {
                 View host packages <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
+            <div className="mt-5">
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
           <div className="lg:col-span-5">
             <IllustrationFrame
