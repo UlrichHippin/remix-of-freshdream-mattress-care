@@ -8,7 +8,7 @@ export const site = {
   // Use international format without leading + for wa.me
   whatsappNumber: "254720286682",
   phoneDisplay: "+254 720 286 682",
-  email: "info@hippin.net",
+  email: "info@freshdream.co.ke",
   serviceAreas: [
     "Westlands", "Kilimani", "Kileleshwa", "Lavington", "Parklands",
     "Karen", "Runda", "Gigiri", "Roysambu", "Kasarani",
