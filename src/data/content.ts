@@ -28,6 +28,8 @@ export const services: ServiceDef[] = [
   {
     slug: "turnover",
     illustration: illustGuestReady,
+    photo: photoHospitalityBedroom,
+    photoAlt: "Dry mattress refresh for serviced apartments in Nairobi",
     title: "Turnover Freshen-Up",
     short: "Quick refresh between guests — low-moisture, fast re-use, photo-documented.",
     bestFor: "Routine Airbnb turnovers and quick refreshes when the mattress needs to be back in service fast.",
