@@ -43,58 +43,73 @@ export default function Home() {
       title="Mattress Cleaning Nairobi | Airbnb & Upholstery Cleaning | FreshDream"
       description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
     >
-      {/* Hero — full-width branded banner + real text/CTA */}
-      <section className="w-full bg-gradient-to-b from-sky-50 to-background py-8 sm:py-12 lg:py-16">
-        <div className="mx-auto w-full max-w-[1920px] px-4 sm:px-6 lg:px-8">
-          <img
-            src={heroBanner}
-            alt="FreshDream Mattress Care — Professional Mattress Cleaning in Nairobi. Sleep Better. Live Fresher."
-            width={1920}
-            height={960}
-            className="mx-auto block h-auto w-full rounded-2xl object-contain shadow-lift"
-          />
-
-          {/* Real, accessible hero content for SEO + responsiveness */}
-          <div className="mx-auto mt-8 max-w-3xl text-center sm:mt-10">
-            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Sparkles className="h-3.5 w-3.5" /> Opening Offer: Freshen Up from KES 1,999
+      {/* Hero — clean two-column layout */}
+      <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
+        <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
+          <div className="lg:col-span-7">
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+              <Sparkles className="h-3.5 w-3.5" /> Launch Offer
             </p>
-            <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-              Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-primary sm:text-5xl lg:text-[3.25rem]">
+              Mattress Cleaning in Nairobi for Airbnb Hosts &amp; Homes
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+            <p className="mt-3 text-lg font-semibold text-primary">
+              Freshen Up from KES 1,999
+            </p>
+            <p className="mt-2 max-w-xl text-base text-muted-foreground">
               First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
             </p>
 
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappLink(openingOffer.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
               >
                 <MessageCircle className="h-5 w-5" /> Book Opening Offer
               </a>
               <Link
                 to="/pricing"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft"
               >
                 View Prices <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-
-            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
-              <li className="inline-flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 text-accent" /> M-PESA accepted</li>
-              <li className="inline-flex items-center gap-1.5"><MessageSquareText className="h-4 w-4 text-accent" /> WhatsApp booking</li>
-              <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
-              <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
-              <li className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4 text-accent" /> Roysambu, Nairobi</li>
-            </ul>
-
-            <div className="mt-6 flex justify-center">
-              <EquipmentBadge variant="inline" />
-            </div>
           </div>
+
+          <div className="lg:col-span-5">
+            <figure className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lift">
+              <img
+                src={heroImg}
+                alt="Professional mattress cleaning in Nairobi for Airbnb hosts"
+                width={1200}
+                height={900}
+                loading="eager"
+                className="aspect-[4/3] h-full w-full object-cover"
+              />
+              <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ring-1 ring-border backdrop-blur">
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Built for hosts · Roysambu, Nairobi
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      {/* Compact trust row */}
+      <section className="border-b border-border bg-background">
+        <div className="container-tight flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 text-sm text-primary">
+          {[
+            { i: MessageSquareText, t: "WhatsApp booking" },
+            { i: BadgeCheck, t: "M-PESA accepted" },
+            { i: MapPin, t: "Based in Roysambu" },
+            { i: Sparkles, t: "Airbnb-ready service" },
+            { i: ShieldCheck, t: "Honest stain assessment" },
+          ].map((it) => (
+            <span key={it.t} className="inline-flex items-center gap-1.5 font-medium">
+              <it.i className="h-4 w-4 text-accent" /> {it.t}
+            </span>
+          ))}
         </div>
       </section>
 
