@@ -279,6 +279,8 @@ export default function HostPackages() {
         </div>
       </section>
 
+      <EquipmentBadge variant="band" />
+
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
