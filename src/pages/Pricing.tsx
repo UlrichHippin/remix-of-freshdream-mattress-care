@@ -108,6 +108,54 @@ export default function Pricing() {
               </div>
             ))}
           </div>
+
+          {/* Freshen-Up vs Deep Clean */}
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <div className="card-soft p-6">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-accent">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-primary">Freshen-Up · Quick refresh, fast re-use</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                A low-moisture refresh designed so the mattress can be put back into service
+                faster — no long waiting before the bed can be used again.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-foreground">
+                {[
+                  "Best for quick turnaround",
+                  "Faster mattress re-use",
+                  "Minimal downtime between bookings",
+                  "Ideal for tight Airbnb / serviced apartment turnovers",
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card-soft p-6">
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary">
+                  <Bed className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-primary">Deep Clean · For stains and heavier use</h3>
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                A deeper extraction process for visible stains, sweat buildup or odors. Needs
+                longer drying time — best scheduled when there is more room before the next guest.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-foreground">
+                {[
+                  "Targeted stain & odor treatment",
+                  "Deeper extraction cleaning",
+                  "Honest assessment before treatment",
+                  "Plan extra drying time before check-in",
+                ].map((b) => (
+                  <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -79,6 +79,12 @@ export default function Home() {
             <div className="mt-6 flex justify-center">
               <EquipmentBadge variant="inline" />
             </div>
+
+            <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+              <span className="font-semibold text-primary">Freshen-Up</span> helps you get the
+              mattress back in use faster — ideal for busy turnovers and short-stay properties
+              with minimal downtime between bookings.
+            </p>
           </div>
         </div>
       </section>

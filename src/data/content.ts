@@ -22,18 +22,18 @@ export const services: ServiceDef[] = [
     slug: "turnover",
     illustration: illustGuestReady,
     title: "Turnover Freshen-Up",
-    short: "Routine refresh between guests — quick, low-moisture, photo-documented.",
-    bestFor: "Routine Airbnb turnovers and quick refreshes before the next guest.",
+    short: "Quick refresh between guests — low-moisture, fast re-use, photo-documented.",
+    bestFor: "Routine Airbnb turnovers and quick refreshes when the mattress needs to be back in service fast.",
     includes: [
       "Mattress inspection",
       "Dry vacuuming",
       "Light spot treatment",
       "Odor-neutralizing treatment",
-      "Low-moisture refresh",
+      "Low-moisture refresh for faster re-use",
       "After-service photo documentation",
     ],
     expectations:
-      "Designed for properties already in good condition. Best results when scheduled regularly between bookings.",
+      "Designed for properties already in good condition. Because it uses a low-moisture process, the mattress can typically be put back into service faster than after a deep wet clean — ideal for tight turnovers with minimal downtime.",
     icon: Sparkles,
     whatsappTemplate:
       "Hello, I would like to book a Turnover Freshen-Up.\nLocation:\nMattress size:\nNext guest check-in time:",
