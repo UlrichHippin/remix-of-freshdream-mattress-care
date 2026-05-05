@@ -10,12 +10,12 @@ export const site = {
   phoneDisplay: "+254 720 286 682",
   email: "info@hippin.net",
   serviceAreas: [
-    "Roysambu", "Kasarani", "Thome", "Mirema", "Garden Estate",
-    "Zimmerman", "Kahawa West", "Kahawa Sukari", "TRM Drive",
-    "Ridgeways", "Ruaraka", "Parklands", "Westlands",
-    "Kilimani", "Kileleshwa", "Lavington", "Karen", "Runda",
-    "South B", "South C", "CBD", "Upper Hill", "Ngong Road",
-    "Kiambu Road", "Thika Road", "Gigiri",
+    "Westlands", "Kilimani", "Kileleshwa", "Lavington", "Parklands",
+    "Karen", "Runda", "Gigiri", "Roysambu", "Kasarani",
+    "Thika Road", "Kiambu Road", "Garden Estate", "Ridgeways",
+    "Ruaraka", "Thome", "Mirema", "Zimmerman", "Kahawa West",
+    "Kahawa Sukari", "TRM Drive", "South B", "South C", "CBD",
+    "Upper Hill", "Ngong Road",
   ],
   paymentMethods: ["M-PESA", "Cash"],
   disclaimer:
