@@ -29,6 +29,9 @@ export default function Services() {
               Choose the service that fits your situation. Not sure? WhatsApp us with photos and we'll
               recommend the right one — honestly.
             </p>
+            <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+              <span className="font-semibold text-primary">Recommended package:</span> Freshen Up · Standard Cleaning · Intensive Stain Treatment — see the <Link to="/pricing" className="font-semibold text-primary underline-offset-4 hover:underline">Prices</Link> page for sizes and rates.
+            </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <WhatsAppButton />
               <EquipmentBadge variant="inline" />
@@ -167,7 +170,7 @@ export default function Services() {
                 <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
               </p>
               <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
-                A clean mattress is the difference between a 4-star and 5-star review.
+                A fresh mattress can help guests feel more comfortable — and support better reviews.
               </p>
             </figcaption>
           </figure>

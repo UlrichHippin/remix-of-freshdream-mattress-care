@@ -158,6 +158,9 @@ export default function Admin() {
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Blocked periods</h2>
           <p className="text-sm text-muted-foreground">Mark days or specific hours as unavailable.</p>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Note: the reason field may be visible to other admins. Do not enter private details — use neutral labels like <em>Unavailable</em> or <em>Internal block</em>.
+          </p>
           <div className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto]">
             <div><Label>Start</Label><Input type="datetime-local" value={blockStart} onChange={(e) => setBlockStart(e.target.value)} className="mt-1.5" /></div>
             <div><Label>End</Label><Input type="datetime-local" value={blockEnd} onChange={(e) => setBlockEnd(e.target.value)} className="mt-1.5" /></div>

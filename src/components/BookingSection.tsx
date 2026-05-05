@@ -19,7 +19,7 @@ import { toast } from "sonner";
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
-const ITEM_TYPES = ["Mattress", "Sofa", "Rug"] as const;
+const ITEM_TYPES = ["Mattress", "Sofa", "Small rug refresh / spot support"] as const;
 const SIZES = [
   "Single (3x6 ft)",
   "Double (4x6 ft)",
