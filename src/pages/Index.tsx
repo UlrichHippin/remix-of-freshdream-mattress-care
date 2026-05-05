@@ -1,14 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
   CalendarClock, FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
-  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star,
+  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star, Check, Package,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { whatsappLink } from "@/config/site";
 import { services, faqs, hostPackages, pricingMattress } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
