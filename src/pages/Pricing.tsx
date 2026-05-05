@@ -222,7 +222,12 @@ export default function Pricing() {
           <div className="card-soft relative overflow-hidden p-7 md:p-10">
             <div className="grid gap-6 md:grid-cols-12 md:items-start">
               <div className="md:col-span-8">
-                <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Quoted treatment</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Quoted treatment</p>
+                  <span className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary-soft px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">
+                    Quoted after photos
+                  </span>
+                </div>
                 <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">{urinePkg.title}</h2>
                 <p className="mt-3 text-sm text-muted-foreground">{urinePkg.description}</p>
                 <p className="mt-4 text-base font-bold text-primary">{urinePkg.startingPrice}</p>
