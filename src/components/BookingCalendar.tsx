@@ -68,7 +68,7 @@ export default function BookingCalendar() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", phone: "", whatsapp: "", email: "", area: "", property_type: "", service: "turnover", details: "" },
+    defaultValues: { name: "", phone: "", whatsapp: "", email: "", area: "", property_type: "", service: "turnover", mattress_size: "Queen (5x6)", mattress_count: 1, issue: "", details: "" },
   });
 
   useEffect(() => {
