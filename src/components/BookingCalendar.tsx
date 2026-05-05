@@ -188,8 +188,9 @@ export default function BookingCalendar() {
         </div>
         <h3 className="mt-4 text-xl font-semibold text-primary">Request received</h3>
         <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-          Your slot is treated as a <strong>requested appointment</strong> until we confirm it via WhatsApp.
-          Continue the conversation to share photos and confirm details.
+          We will confirm your slot, price and payment details via WhatsApp.
+          Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
+          you can send them on WhatsApp after submitting your request.
         </p>
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
