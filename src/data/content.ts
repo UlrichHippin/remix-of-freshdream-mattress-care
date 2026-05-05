@@ -234,7 +234,7 @@ export const openingOffer = {
     { label: "King Mattress", price: "KES 3,499" },
   ],
   smallPrint:
-    "Limited launch offer for first-time customers only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
+    "Limited launch offer for first-time customers only. Available for the first 30 customers or during our launch period only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
   cta: "Book Opening Offer on WhatsApp",
@@ -247,20 +247,23 @@ export const hostStarter = {
   text:
     "Keep your guest rooms fresh, hygienic and review-ready between bookings. Ideal for Airbnb hosts, serviced apartments and short-stay property managers in Nairobi.",
   options: [
-    { label: "2 mattresses Freshen Up", price: "from KES 5,500" },
-    { label: "3 mattresses Freshen Up", price: "from KES 7,500" },
+    { label: "2 mattresses Freshen Up", price: "from KES 4,999" },
+    { label: "3 mattresses Freshen Up", price: "from KES 7,499" },
     { label: "Additional mattress", price: "quoted by size" },
     { label: "Same-day or urgent turnover", price: "subject to availability" },
   ],
   included: [
-    "Dry mattress refresh",
+    "Guest-ready dry refresh",
     "Dust and hair removal",
     "Odor check",
     "UV-C hygiene support where suitable",
     "Hot air refresh",
     "WhatsApp service photos",
     "M-PESA accepted",
+    "Same-day support where available",
   ],
+  smallPrint:
+    "Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:",
   cta: "Book Host Package on WhatsApp",
