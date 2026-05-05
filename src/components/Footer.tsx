@@ -7,11 +7,11 @@ import logoHorizontal from "@/assets/logo-horizontal.png";
 const pageLabels: Record<string, string> = {
   "/": "Home",
   "/services": "Services",
-  "/pricing": "Pricing",
-  "/host-packages": "Host Packages",
+  "/pricing": "Prices",
+  "/host-packages": "Hosts",
   "/about": "About",
   "/faq": "FAQ",
-  "/contact": "Book Now",
+  "/contact": "Contact",
 };
 
 export default function Footer() {
@@ -40,11 +40,11 @@ export default function Footer() {
           <h3 className="text-sm font-semibold text-primary">Quick links</h3>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li><Link to="/services" className="hover:text-primary">Services</Link></li>
-            <li><Link to="/pricing" className="hover:text-primary">Pricing</Link></li>
-            <li><Link to="/host-packages" className="hover:text-primary">Host Packages</Link></li>
+            <li><Link to="/pricing" className="hover:text-primary">Prices</Link></li>
+            <li><Link to="/host-packages" className="hover:text-primary">Hosts</Link></li>
             <li><Link to="/about" className="hover:text-primary">About</Link></li>
             <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
-            <li><Link to="/contact" className="hover:text-primary">Book Now</Link></li>
+            <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
           </ul>
         </div>
 
