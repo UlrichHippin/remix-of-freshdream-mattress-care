@@ -654,24 +654,21 @@ export default function Home() {
             </span>
             <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Real Service Photos Coming Soon</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-              We are adding real photos from FreshDream mattress cleaning jobs in Nairobi. For
-              privacy, we never show customer addresses or personal details.
+              Real FreshDream service photos are coming soon. We only publish real job photos with privacy protection — no addresses, no personal details.
             </p>
           </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
             {[
-              "Cleaner using equipment on mattress",
-              "Mattress before cleaning",
-              "Mattress after cleaning",
-              "Airbnb room ready for guests",
-              "Sofa upholstery refresh",
+              "Equipment in action",
+              "Before / after examples",
+              "Guest-ready Airbnb rooms",
             ].map((label) => (
               <li
                 key={label}
-                className="flex aspect-[4/5] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-4 text-center shadow-soft"
+                className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-5 text-center shadow-soft"
               >
-                <Camera className="h-6 w-6 text-accent" />
-                <p className="text-xs font-semibold text-primary">{label}</p>
+                <Camera className="h-7 w-7 text-accent" />
+                <p className="text-sm font-semibold text-primary">{label}</p>
                 <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Photo coming soon</p>
               </li>
             ))}
