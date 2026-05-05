@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, BadgeCheck } from "lucide-react";
+import { Mail, MapPin, BadgeCheck, MessageCircle, Phone } from "lucide-react";
+import { whatsappLink } from "@/config/site";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
 import logoHorizontal from "@/assets/logo-horizontal.png";
@@ -13,14 +14,20 @@ export default function Footer() {
             <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-12 w-auto object-contain sm:h-14" />
           </Link>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments and homes in Nairobi.
+            Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments and homes — based in Roysambu, Nairobi.
           </p>
-          <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 shrink-0 text-accent" /> Based in {site.base}
+              <MessageCircle className="h-4 w-4 shrink-0 text-accent" />
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+                WhatsApp {site.phoneDisplay}
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <BadgeCheck className="h-4 w-4 shrink-0 text-accent" /> M-PESA accepted
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 shrink-0 text-accent" /> Based in {site.base}
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 shrink-0 text-accent" />
