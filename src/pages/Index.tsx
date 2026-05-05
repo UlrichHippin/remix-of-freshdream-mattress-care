@@ -40,8 +40,8 @@ export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
   return (
     <PageLayout
-      title="FreshDream Mattress Care — Mattress & Upholstery Cleaning for Airbnb Hosts in Nairobi"
-      description="Specialist mattress and upholstery cleaning for Airbnb hosts and short-stay properties in Nairobi. Documented service, fast WhatsApp booking, guest-ready turnaround. Based in Roysambu."
+      title="Mattress Cleaning Nairobi | Airbnb & Upholstery Cleaning | FreshDream"
+      description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
     >
       {/* Hero — full-width branded banner + real text/CTA */}
       <section className="w-full bg-gradient-to-b from-sky-50 to-background py-8 sm:py-12 lg:py-16">
@@ -60,7 +60,7 @@ export default function Home() {
               <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-              Professional Dry Mattress, Sofa & Rug Cleaning in Nairobi
+              Mattress Cleaning Nairobi for Airbnb Hosts, Homes &amp; Serviced Apartments
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
               Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
