@@ -155,7 +155,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Which areas do you serve?",
-    a: "We are based in Roysambu and primarily serve Roysambu, Kasarani, Thome, Mirema, Garden Estate, Zimmerman, Kahawa West, Kahawa Sukari, TRM Drive area, Ridgeways, Ruaraka, Parklands and Westlands. Other Nairobi areas on request.",
+    a: "We are based in Roysambu and serve Roysambu, Kasarani, Thika Road, Garden Estate, Parklands, Westlands, Kilimani, Kileleshwa, Lavington, Karen, Runda, Gigiri, South B, South C, CBD, Upper Hill, Ngong Road, Kiambu Road and nearby Nairobi areas.",
   },
   {
     q: "How do I request a quote?",
