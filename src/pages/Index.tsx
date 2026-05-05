@@ -165,11 +165,11 @@ export default function Home() {
               <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu Based · Nairobi
             </p>
             <h1 className="mt-4 text-3xl font-bold leading-tight text-primary sm:text-4xl lg:text-5xl">
-              Professional Mattress Cleaning in Nairobi
+              Professional Dry Mattress, Sofa & Rug Cleaning in Nairobi
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-              For Airbnb hosts and serviced apartments in Roysambu & Nairobi. Documented service,
-              honest assessments and guest-ready turnaround.
+              Safe, dry, and hygiene-focused cleaning — no soaking, no long drying times.
+              Trusted by homes, Airbnb hosts and serviced apartments across Nairobi.
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -257,10 +257,10 @@ export default function Home() {
       <section className="border-y border-border bg-surface">
         <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { icon: MessageSquareText, t: "Fast WhatsApp response" },
-            { icon: Camera, t: "Before/after photo proof" },
-            { icon: Clock4, t: "Same-day or next-day support" },
-            { icon: ShieldCheck, t: "Built for Airbnb turnovers" },
+            { icon: Droplets, t: "Dry process — no soaking" },
+            { icon: ShieldCheck, t: "Safe for mattresses, sofas & rugs" },
+            { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
+            { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
             <div key={it.t} className="flex items-center gap-3">
               <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
@@ -272,76 +272,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why hosts choose us */}
+      {/* Professional Dry Cleaning Packages — main offers */}
       <section className="section">
-        <div className="container-tight">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Specialist support for short-stay properties — not generic cleaning.
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
-                to help reduce drying time.
-              </p>
-            </div>
-            <div className="lg:col-span-5">
-              <IllustrationFrame src={illustTrustBadges} alt="Trust and quality badges illustration" tone="primary" badge="What hosts get" />
-            </div>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              { icon: Sparkles, t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
-              { icon: FileCheck2, t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
-              { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
-              { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
-              { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
-            ].map((it) => (
-              <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
-                <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                  <it.icon className="h-5 w-5" />
-                </div>
-                <h3 className="relative mt-4 font-semibold text-primary">{it.t}</h3>
-                <p className="relative mt-2 text-sm text-muted-foreground">{it.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <EquipmentBadge variant="band" />
-
-
-      <section className="relative">
-        <div className="container-tight">
-          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={hospitalityLiving}
-              alt="Tidy modern short-stay apartment living area, calm and inviting"
-              width={1600}
-              height={900}
-              loading="lazy"
-              className="aspect-[16/7] h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" aria-hidden="true" />
-            <figcaption className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-2 p-8 text-primary-foreground sm:p-12">
-              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
-              </p>
-              <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
-                Every unit deserves to feel guest-ready before the door opens.
-              </p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* Professional Dry Cleaning Packages — unified offers */}
-      <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
@@ -454,6 +386,74 @@ export default function Home() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Why hosts choose us */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+                Specialist support for short-stay properties — not generic cleaning.
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+                We work the way hosts actually operate: tight check-ins, recurring units, and zero room
+                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
+                to help reduce drying time.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <IllustrationFrame src={illustTrustBadges} alt="Trust and quality badges illustration" tone="primary" badge="What hosts get" />
+            </div>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              { icon: Sparkles, t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
+              { icon: FileCheck2, t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
+              { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
+              { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
+              { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
+              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
+            ].map((it) => (
+              <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
+                <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <it.icon className="h-5 w-5" />
+                </div>
+                <h3 className="relative mt-4 font-semibold text-primary">{it.t}</h3>
+                <p className="relative mt-2 text-sm text-muted-foreground">{it.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <EquipmentBadge variant="band" />
+
+
+      <section className="relative">
+        <div className="container-tight">
+          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
+            <img
+              src={hospitalityLiving}
+              alt="Tidy modern short-stay apartment living area, calm and inviting"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="aspect-[16/7] h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" aria-hidden="true" />
+            <figcaption className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-2 p-8 text-primary-foreground sm:p-12">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
+                <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
+              </p>
+              <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
+                Every unit deserves to feel guest-ready before the door opens.
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
       <HostPackagesPreview />
 
