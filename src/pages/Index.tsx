@@ -34,9 +34,11 @@ import IllustrationFrame from "@/components/IllustrationFrame";
 import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
 
+interface PkgSize { label: string; price: string; }
 interface Pkg {
   title: string;
   price: string;
+  startingNote: string;
   hours: string;
   summary: string;
   tagline: string;
@@ -45,8 +47,11 @@ interface Pkg {
   bestFor: string[];
   readyIn: string;
   note: string;
+  sizes: PkgSize[];
   whatsappMessage: string;
 }
+
+const STARTING_NOTE = "Single mattress (3x6 ft)";
 
 const packages: Pkg[] = [
   {
