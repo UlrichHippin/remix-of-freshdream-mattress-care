@@ -56,7 +56,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", location: "", date: undefined, notes: "",
+    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -83,6 +83,7 @@ export default function BookingSection() {
       `Phone: ${d.phone}\n` +
       `Package: ${d.pkg}\n` +
       `Item: ${d.item}\n` +
+      `Size: ${d.size}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
       (d.notes ? `Notes: ${d.notes}\n` : "");
@@ -92,7 +93,7 @@ export default function BookingSection() {
   };
 
   const quickWaMessage =
-    "Hello, I would like to book a cleaning service.\n\nPackage:\nItem:\nLocation:\nPreferred date:";
+    "Hello, I would like to book a cleaning service.\n\nPackage:\nItem:\nSize:\nLocation:\nPreferred date:";
 
   return (
     <section id="book" className="section bg-surface">
