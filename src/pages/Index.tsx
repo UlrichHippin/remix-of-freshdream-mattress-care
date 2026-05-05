@@ -75,6 +75,10 @@ export default function Home() {
               <li className="inline-flex items-center gap-1.5"><Camera className="h-4 w-4 text-accent" /> Before / after photos</li>
               <li className="inline-flex items-center gap-1.5"><Clock4 className="h-4 w-4 text-accent" /> Same-day where possible</li>
             </ul>
+
+            <div className="mt-6 flex justify-center">
+              <EquipmentBadge variant="inline" />
+            </div>
           </div>
         </div>
       </section>
