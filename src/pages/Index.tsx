@@ -635,6 +635,8 @@ export default function Home() {
         </div>
       </section>
 
+      <BookingSection />
+
       {/* Final CTA */}
       <section className="section">
         <div className="container-tight">
