@@ -126,7 +126,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Hospitality visual band */}
+      <EquipmentBadge variant="band" />
+
+
       <section className="relative">
         <div className="container-tight">
           <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
