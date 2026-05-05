@@ -68,7 +68,7 @@ export const services: ServiceDef[] = [
       "Affected-area inspection",
       "Targeted urine and odor treatment",
       "Stain-focused cleaning process",
-      "Extraction support",
+      "Targeted dry stain and odor treatment support",
       "Drying guidance",
       "After-service documentation",
     ],
