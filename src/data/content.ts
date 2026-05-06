@@ -125,7 +125,7 @@ export const services: ServiceDef[] = [
       "Inspection of upholstery and seams",
       "Dry soil and debris removal",
       "Targeted spot treatment",
-      "Controlled low-moisture treatment where suitable",
+      "Targeted spot support where suitable (no soaking, no water extraction)",
       "Drying guidance",
       "Photo documentation",
     ],
@@ -144,7 +144,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "How long does drying take?",
-    a: "We use a controlled-moisture approach to help reduce drying time. In a well-ventilated room, mattresses are usually touch-dry within a few hours and ready for fresh sheets the same day. Hot, humid or closed rooms take longer — we share specific drying guidance after every job.",
+    a: "We use a dry mattress hygiene treatment with targeted spot support where suitable — no soaking, no water extraction. In a well-ventilated room, mattresses are usually ready for fresh sheets the same day. Hot, humid or closed rooms take longer — we share specific drying guidance after every job.",
   },
   {
     q: "Do all stains come out completely?",
@@ -187,72 +187,62 @@ export const faqs: { q: string; a: string }[] = [
     a: "No. It is a quick hygiene add-on around the sleeping area only. It includes vacuuming around the bed, reachable under-bed areas, floor edges near the bed, and light dust removal from the bed frame/headboard. It does not include mopping, full room cleaning, bathroom cleaning, laundry, carpet deep cleaning, stain removal, or moving heavy furniture.",
   },
   {
-    q: "Do you charge a transport or location fee?",
-    a: "Yes. FreshDream Mattress Care is based in Roysambu, Nairobi. A small location fee may apply depending on your area, distance, traffic, parking and access. The fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies. Nearby areas may qualify for reduced or free location fee depending on the order value. The final fee is always confirmed before booking after receiving your WhatsApp location pin.",
+    q: "Do you charge a location fee?",
+    a: "Yes. FreshDream Mattress Care is based in Roysambu, Nairobi. We call it a Location Fee because it depends on your area, distance, traffic, parking and access. The fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies. Nearby areas may qualify for reduced or free location fee depending on the order value. The final fee is always confirmed before booking after receiving your WhatsApp location pin.",
   },
 ];
 
-// Location Fee — area-based transport fee, confirmed before booking
+// Location Fee — area-based fee, confirmed before booking
 export const locationFee = {
   title: "Location Fee",
   intro:
-    "FreshDream Mattress Care is based in Roysambu, Nairobi. A location fee may apply depending on your area, distance, traffic, parking and access. The final location fee is always confirmed before booking after receiving your WhatsApp location pin.",
+    "FreshDream Mattress Care is based in Roysambu, Nairobi. We call it a Location Fee because it depends on your area, distance, traffic, parking and access. The final location fee is always confirmed before booking after receiving your WhatsApp location pin.",
   fairness:
     "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
   zones: [
     {
       area: "Nearby Roysambu Area",
       examples: "Roysambu, Zimmerman, Kasarani, Mirema, TRM",
-      fee: "KES 300 or free from qualifying order value",
+      fee: "KES 300",
+      free: "Free from KES 2,500 order value",
     },
     {
       area: "North Nairobi",
       examples: "Garden Estate, Ruaraka, Muthaiga North, Kahawa areas",
       fee: "KES 500–800",
+      free: "Free from KES 5,000 order value",
     },
     {
       area: "Central Nairobi",
       examples: "CBD, Parklands, Ngara, Pangani, Eastleigh",
       fee: "KES 800",
+      free: "Free or reduced from KES 8,000 order value",
     },
     {
       area: "West / Premium Areas",
       examples: "Westlands, Kilimani, Kileleshwa, Lavington, Gigiri, Runda",
       fee: "KES 1,200",
+      free: "Discount possible from KES 12,000 order value",
     },
     {
       area: "South / East Nairobi",
       examples: "South B, South C, Donholm, Umoja, Embakasi, Pipeline",
       fee: "KES 1,500",
+      free: "Discount possible from KES 12,000 order value",
     },
     {
       area: "Far Nairobi / Outside Nairobi",
       examples: "Karen, Langata, Ruaka, Syokimau, JKIA, Ruiru, Kiambu",
       fee: "Confirmed before booking",
+      free: "Custom quote",
     },
   ],
   note:
-    "Nearby locations may qualify for reduced or free location fee depending on order value. Parking fees, estate entry fees, tolls or special access costs may be added at actual cost.",
+    "Parking fees, estate entry fees, tolls or special access costs may be added at actual cost.",
   bookingHint:
     "Send your location pin on WhatsApp so we can confirm the exact location fee before booking.",
 };
 
-// Free or Reduced Location Fee — order-value based rules
-export const locationFeeDiscount = {
-  title: "Free or Reduced Location Fee",
-  intro:
-    "Location fee may be reduced or waived depending on the order value and service area. The final location fee is always confirmed before booking after receiving the customer's WhatsApp location pin.",
-  rules: [
-    { value: "Below KES 2,500", rule: "Location fee applies." },
-    { value: "From KES 2,500", rule: "Zone A / Nearby Roysambu areas may qualify for free location fee." },
-    { value: "From KES 5,000", rule: "Zone A and Zone B / North Nairobi areas may qualify for free location fee." },
-    { value: "From KES 8,000", rule: "Zone A, Zone B and selected Central Nairobi areas may qualify for free or reduced location fee." },
-    { value: "From KES 12,000", rule: "Custom location fee discount possible depending on distance, traffic, parking and access." },
-    { value: "Far Nairobi / Outside Nairobi", rule: "Always confirmed before booking." },
-  ],
-  fairnessNote:
-    "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
-};
 
 export const hostPackages = [
   {
@@ -379,7 +369,7 @@ export const hostStarter = {
     "Dust and hair removal",
     "Odor check",
     "UV-C hygiene support where suitable",
-    "Hot air refresh",
+    "Warm-air freshness",
     "WhatsApp service photos",
     "M-PESA accepted",
     "Same-day support where available",

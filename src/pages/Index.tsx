@@ -247,7 +247,7 @@ export default function Home() {
           {[
             { icon: Droplets, t: "Dry process — no soaking" },
             { icon: ShieldCheck, t: "Safe for mattress hygiene care" },
-            { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
+            { icon: Sparkles, t: "UV-C hygiene & warm-air freshness" },
             { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
             <div key={it.t} className="flex items-center gap-3">
@@ -462,8 +462,8 @@ export default function Home() {
               </h2>
               <p className="mt-3 text-muted-foreground">
                 We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
-                to help reduce drying time.
+                for guesswork. Honest assessments, photo documentation, and a dry mattress hygiene
+                treatment with targeted spot support where suitable — no soaking, no water extraction.
               </p>
             </div>
             <div className="lg:col-span-5">
@@ -477,7 +477,7 @@ export default function Home() {
               { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
               { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
               { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
+              { icon: Droplets, t: "Dry hygiene treatment", d: "No soaking. No water extraction. Targeted spot support where suitable." },
             ].map((it) => (
               <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
@@ -576,7 +576,7 @@ export default function Home() {
               {[
                 { icon: Send, t: "Share the details", d: "WhatsApp us your location, mattress or furniture, photos and the next check-in time." },
                 { icon: MessageCircle, t: "Honest quote & slot", d: "You get a realistic price, an available time slot and a clear view of what to expect." },
-                { icon: Wand2, t: "Calm on-site service", d: "Inspection and treatment with a controlled-moisture process — quiet, tidy, guest-ready." },
+                { icon: Wand2, t: "Calm on-site service", d: "Inspection and dry hygiene treatment — no soaking, quiet, tidy, guest-ready." },
                 { icon: ImageDown, t: "Proof & drying guidance", d: "Before/after photos and clear drying steps so the room is ready for the next guest." },
               ].map((s, i) => (
                 <li key={s.t} className="relative flex flex-col items-center text-center">

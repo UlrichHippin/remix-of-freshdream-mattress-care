@@ -33,12 +33,12 @@ export const packages: PackageDef[] = [
     summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
-      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro to remove dust, hair, dander, and surface debris, while UV-C light and hot air help improve hygiene and freshness.",
+      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro to remove dust, hair, dander, and surface debris, while UV-C light and warm-air freshness help improve hygiene and freshness.",
     included: [
       "Dry vacuum treatment",
       "Dust, hair, and dander removal",
       "UV-C hygiene treatment",
-      "Hot air freshness treatment",
+      "Warm-air freshness treatment",
       "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
@@ -60,13 +60,13 @@ export const packages: PackageDef[] = [
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
-      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and hot air refresh.",
+      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and warm-air freshness.",
     included: [
       "Pre-treatment with baking soda",
       "Deep dry vacuuming",
       "Dust and odor reduction",
       "UV-C hygiene treatment",
-      "Hot air refresh treatment",
+      "Warm-air freshness treatment",
     ],
     bestFor: [
       "Sweat and body odor",
@@ -98,7 +98,7 @@ export const packages: PackageDef[] = [
       "Brushing of affected areas",
       "Deep vacuum treatment",
       "UV-C hygiene support",
-      "Hot air freshness treatment",
+      "Warm-air freshness treatment",
     ],
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
     readyIn: "About 6 hours",
@@ -119,13 +119,13 @@ export const packages: PackageDef[] = [
     summary: "Dry odor-focused treatment for urine accidents and strong odor cases.",
     tagline: "Advanced dry treatment for urine odor and contamination.",
     description:
-      "For urine, strong odor or deep contamination cases on mattresses (sofa and selected fabric surfaces available on request). Price depends on severity, mattress size, age of contamination and whether a second treatment is needed. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment and hot air refresh to reduce odor and restore freshness as much as possible.",
+      "For urine, strong odor or deep contamination cases on mattresses (sofa and selected fabric surfaces available on request). Price depends on severity, mattress size, age of contamination and whether a second treatment is needed. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment and warm-air freshness to reduce odor and restore freshness as much as possible.",
     included: [
       "Urine-focused dry pre-treatment",
       "Odor absorption process",
       "Deep vacuum treatment",
       "UV-C hygiene support",
-      "Hot air refresh treatment",
+      "Warm-air freshness treatment",
       "Final inspection",
     ],
     bestFor: [

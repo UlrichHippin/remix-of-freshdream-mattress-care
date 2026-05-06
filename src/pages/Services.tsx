@@ -15,7 +15,7 @@ export default function Services() {
   return (
     <PageLayout
       title="Services — FreshDream Mattress Care"
-      description="Freshen Up, Standard Cleaning, Intensive Stain Treatment, Urine & Odor Reduction Treatment, Emergency Host Support, and Upholstery & Sofa Refresh for Airbnb hosts in Nairobi."
+      description="Mattress hygiene cleaning services in Nairobi for Airbnb hosts, homes and serviced apartments, including Freshen Up, Standard Cleaning, Intensive Stain Treatment, Urine & Odor Reduction and Emergency Host Support."
     >
       {/* Hero with illustration */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">

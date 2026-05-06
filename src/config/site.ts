@@ -19,8 +19,8 @@ export const site = {
   ],
   paymentMethods: ["M-PESA", "Cash"],
   mpesa: {
-    // TODO: replace with your real M-PESA Till or Paybill before launch
-    tillNumber: "TBD",
+    // M-PESA Till/Paybill not yet live — details are confirmed on WhatsApp
+    tillNumber: "",
     paybill: "",
     accountName: "FreshDream Mattress Care",
   },
