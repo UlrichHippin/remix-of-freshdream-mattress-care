@@ -3,7 +3,7 @@ import { Mail, MapPin, BadgeCheck, MessageCircle, Phone } from "lucide-react";
 import { whatsappLink } from "@/config/site";
 import { site } from "@/config/site";
 import { WhatsAppButton } from "./WhatsAppButton";
-import logoHorizontal from "@/assets/logo-horizontal.png";
+import logoHorizontal from "@/assets/brand/logo-footer.png";
 
 export default function Footer() {
   return (
