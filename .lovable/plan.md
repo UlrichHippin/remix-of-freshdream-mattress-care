@@ -1,52 +1,76 @@
 ## Goal
 
-Merge the existing homepage "Services preview" and "Starting prices preview" sections into a single, refined offers section presenting the 4 new service packages. Avoid creating a disconnected second sales block.
+Persist an estimated and final confirmed price on each booking, let admins enter them, and surface the **final** confirmed price plus M-PESA payment instructions to the customer once the booking is confirmed.
 
-## Changes (only `src/pages/Index.tsx`)
+## 1. Database (migration)
 
-### Remove
-- The "Services preview" section (the cards rendered from `services`).
-- The "Starting prices preview" section (the `pricingMattress` cards).
+Add two nullable columns to `public.bookings`:
 
-These overlap with the new packages and would duplicate information.
+- `estimated_price_kes` — `integer`, nullable (admin's initial quote).
+- `final_price_kes` — `integer`, nullable (price after confirmation; what customer pays).
 
-### Add — single new section in their place: "Professional Dry Cleaning Packages"
+No RLS changes needed — existing admin UPDATE policy and public INSERT policy (which only allows `status = 'requested'`) already prevent customers from injecting prices, since the INSERT policy doesn't restrict columns but the form simply won't send these.
 
-Layout, compact and on-brand (uses existing `card-soft`, `eyebrow`, `container-tight`, `section bg-surface`, primary/accent colors — no new design tokens):
+Optional safety: keep the public INSERT contract by *not* exposing these in the form — the schema permits null which becomes the default.
 
-- Section header: eyebrow "Packages" + title "Professional Dry Cleaning Packages" + subtitle "Safe, dry, and hygiene-focused cleaning for mattresses, sofas, and rugs in Nairobi."
-- Grid of 4 package cards (1 col mobile, 2 cols sm, 4 cols lg). Each card shows:
-  - Title
-  - Price in KES (large, primary color)
-  - "Ready in ~X hours" badge (small pill, accent-soft)
-  - One-line summary
-  - "More info" button (outline, opens Dialog)
-- One primary CTA button below grid: "Book a Cleaning" → opens WhatsApp via existing `WhatsAppButton`.
-- Trust note line: "Dry process. No soaking. Nairobi and surrounding areas."
+## 2. Booking confirmation UI (`src/components/BookingCalendar.tsx`)
 
-### Modal (Dialog) for "More info"
+After a successful insert, fetch the inserted row's `id` (use `.select().single()` on the insert) and store it in `success` state. Then poll / subscribe so the customer sees the price once admin confirms.
 
-Use existing `@/components/ui/dialog`. One controlled Dialog with state for the active package; clicking any card's "More info" sets the active package and opens it. Modal content per package:
-- Title + tagline
-- Description paragraph
-- "Included" list (check icons)
-- "Best for" list
-- "Ready to use again" line
-- Note line (muted/italic)
-- Footer CTA: WhatsApp "Book this package" with prefilled message (e.g. "Hello, I'd like to book the [Package name] package.")
+- Use Supabase Realtime on the `bookings` row filtered by id, OR a lightweight refetch on tab focus + every 30s while the success view is open.
+- Realtime is cleaner: subscribe to `postgres_changes` on `public.bookings` filtered by `id=eq.<id>`.
 
-### Data
+Update the success view:
 
-Define a local `const packages = [...]` array at top of the file with the 4 packages (title, price, hours, summary, tagline, description, included[], bestFor[], readyIn, note, whatsappMessage). Keeps changes self-contained; no edits to `src/data/content.ts`.
+- While `status = 'requested'` and no `final_price_kes`: show current message (request received, will confirm via WhatsApp).
+- Once `status = 'confirmed'` and `final_price_kes` is set: show a confirmed card with:
+  - "Booking confirmed" headline.
+  - **Final price: KES {final_price_kes}**.
+  - Payment instructions block:
+    - "Pay via M-PESA after service (or cash on completion)."
+    - "M-PESA Till / Paybill: <from `src/config/site.ts`>" — if not present, add a `mpesa` field there with a placeholder the user can fill in.
+    - "Reference: your name + booking date."
+    - Reminder: "Only pay after the technician completes the job, unless a deposit was agreed on WhatsApp."
+  - "Continue on WhatsApp" button (existing).
 
-### Imports to add
-- `useState` from react
-- `Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription` from `@/components/ui/dialog`
-- `Check, Clock` icons from lucide-react (Clock4 already imported)
+Realtime requires enabling the publication:
 
-### Untouched
-- Hero, host support feature, trust highlights, "Why hosts choose us", `EquipmentBadge band`, hospitality banner, host packages preview, FAQ, final CTA, footer.
-- Navigation, global styles, brand colors, all other pages.
+```sql
+alter publication supabase_realtime add table public.bookings;
+```
 
-## Result
-One cohesive offers area replaces two overlapping sections. Mobile-friendly, scannable cards with full details one tap away, single strong CTA, consistent with existing card/typography system.
+## 3. Admin UI (`src/pages/Admin.tsx`)
+
+In the bookings table row, add two compact inline number inputs:
+
+- "Est. KES" → writes `estimated_price_kes`.
+- "Final KES" → writes `final_price_kes`.
+
+Each input saves on blur (or via a small Save button next to them) by calling `supabase.from('bookings').update({...}).eq('id', b.id)`. Show the saved value persistently.
+
+Workflow guidance shown in the existing helper text:
+
+1. Enter estimated price after first WhatsApp reply.
+2. Enter final price + click **Confirm** when slot and price are agreed.
+3. Customer's confirmation page (still open or revisited) updates live with the final price and payment instructions.
+
+Update the `Booking` TypeScript interface to include the two new optional number fields.
+
+Remove the "Estimated price & final price" line from the "Planned admin enhancements" list since it's now implemented (keep the rest: payment method, M-PESA code, payment status — still planned).
+
+## 4. Site config (`src/config/site.ts`)
+
+Add (if missing) an `mpesa` object with `tillNumber` / `paybill` / `accountName` placeholders, used by the confirmation UI. If the user already has a payment number elsewhere, reuse it; otherwise leave a clearly marked TODO placeholder for them to fill in.
+
+## Out of scope
+
+- Payment method, M-PESA code, payment status fields (remain in "planned enhancements").
+- Automated online payments / STK push.
+- Email notifications.
+
+## Files touched
+
+- New migration adding two columns to `bookings` and enabling realtime.
+- `src/components/BookingCalendar.tsx` — capture booking id, subscribe to updates, render confirmed-price view with payment instructions.
+- `src/pages/Admin.tsx` — inline price inputs + save, updated interface and helper text.
+- `src/config/site.ts` — M-PESA payment details (placeholder if not provided).
