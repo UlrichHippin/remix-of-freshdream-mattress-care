@@ -275,7 +275,7 @@ export default function BookingSection() {
                   onChange={(e) => update("notes", e.target.value)} />
               </div>
 
-              <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
+              <Button type="submit" size="lg" disabled={submitting} className="sheen w-full sm:w-auto">
                 {submitting ? "Sending…" : "Request a Booking"}
               </Button>
 
