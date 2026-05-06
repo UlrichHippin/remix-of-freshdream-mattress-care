@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <PageLayout
-      title="Professional Mattress Cleaning in Nairobi | FreshDream Mattress Care"
+      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
       description="Professional mattress cleaning in Nairobi from KES 1,999. Sleep Area Dust Refresh add-on KES 300. Fast WhatsApp booking, M-PESA accepted, JIMMY BX7 Pro equipment."
     >
       {/* 1. HERO */}
