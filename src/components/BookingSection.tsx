@@ -12,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
@@ -36,11 +37,12 @@ const schema = z.object({
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
+  sleepAreaAddOn: z.boolean().optional(),
 });
 
 type FormState = {
   name: string; phone: string; pkg: string; item: string; size: string;
-  location: string; date?: Date; notes: string;
+  location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
 };
 
 const TRUST = [
@@ -52,7 +54,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "",
+    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "", sleepAreaAddOn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
