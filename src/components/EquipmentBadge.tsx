@@ -49,7 +49,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         <ul className="mt-4 grid gap-2 text-sm text-foreground sm:grid-cols-2">
           {[
             { i: ShieldCheck, t: "UV-C hygiene support" },
-            { i: Wind, t: "Hot-air drying support" },
+            { i: Wind, t: "Warm-air freshness support" },
             { i: Sparkles, t: "Deep dust & allergen pickup" },
             { i: Sun, t: "Built for mattress care" },
           ].map((it) => (
