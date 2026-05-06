@@ -87,6 +87,14 @@ export default function Home() {
               >
                 <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
+              <a
+                href={whatsappLink("Hello FreshDream, please send me a price for mattress cleaning. Mattress size: , Location: ")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-whatsapp bg-transparent px-6 text-base font-semibold text-whatsapp transition-colors hover:bg-whatsapp hover:text-whatsapp-foreground sm:w-auto"
+              >
+                <MessageCircle className="h-5 w-5" /> Get Price on WhatsApp
+              </a>
               <Link
                 to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
@@ -687,14 +695,14 @@ export default function Home() {
               See all FAQs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <Accordion type="single" collapsible className="card-soft px-6">
+          <div className="card-soft divide-y divide-border px-6">
             {faqs.slice(0, 5).map((f, i) => (
-              <AccordionItem key={i} value={`q${i}`} className="border-border">
-                <AccordionTrigger className="text-left text-base font-semibold text-primary">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
-              </AccordionItem>
+              <div key={i} className="py-5">
+                <h3 className="text-base font-semibold text-primary">{f.q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
 
