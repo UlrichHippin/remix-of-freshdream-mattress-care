@@ -46,12 +46,12 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
         {/* Animated mesh blobs */}
         <div
-          className="pointer-events-none absolute -left-32 top-10 -z-10 h-[480px] w-[480px] rounded-full bg-accent/25 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-10 -z-10 h-[420px] w-[420px] rounded-full bg-accent/15 blur-3xl"
           style={{ animation: "mesh-drift 14s ease-in-out infinite" }}
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-primary/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-[380px] w-[380px] rounded-full bg-primary/10 blur-3xl"
           style={{ animation: "mesh-drift 18s ease-in-out infinite reverse" }}
           aria-hidden="true"
         />
