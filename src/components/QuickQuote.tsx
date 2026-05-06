@@ -136,7 +136,7 @@ export default function QuickQuote() {
     `Package: ${pkgLabel || "-"}\n` +
     `Mattress size: ${sizeLabel || "-"}\n` +
     `Number of mattresses: ${qtyObj.label}\n` +
-    `Cleaning subtotal: ${cleaningLine}\n` +
+    `Cleaning (order value): ${cleaningLine}\n` +
     `Sleep Area Dust Refresh: ${addonLine}\n` +
     `Location zone: ${zoneObj?.label || "-"}\n` +
     `Location fee: ${feeLine}\n` +
