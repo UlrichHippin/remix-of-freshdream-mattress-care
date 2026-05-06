@@ -15,6 +15,7 @@ interface Booking {
   name: string; phone: string; whatsapp: string | null; email: string | null;
   area: string; property_type: string | null; service: string;
   details: string | null; starts_at: string; ends_at: string; status: string;
+  estimated_price_kes: number | null; final_price_kes: number | null;
 }
 interface Block { id: string; starts_at: string; ends_at: string; reason: string | null; }
 
@@ -57,6 +58,15 @@ export default function Admin() {
     if (error) return toast.error(error.message);
     toast.success("Updated");
     load();
+  }
+  async function savePrice(id: string, field: "estimated_price_kes" | "final_price_kes", raw: string) {
+    const value = raw.trim() === "" ? null : Number(raw);
+    if (value !== null && (!Number.isFinite(value) || value < 0)) return toast.error("Invalid amount");
+    const patch: Record<string, number | null> = field === "estimated_price_kes" ? { estimated_price_kes: value } : { final_price_kes: value };
+    const { error } = await supabase.from("bookings").update(patch as never).eq("id", id);
+    if (error) return toast.error(error.message);
+    toast.success("Price saved");
+    setBookings((prev) => prev.map((b) => b.id === id ? { ...b, [field]: value } as Booking : b));
   }
   async function removeBlock(id: string) {
     const { error } = await supabase.from("blocked_periods").delete().eq("id", id);
@@ -113,9 +123,14 @@ export default function Admin() {
             Each booking is a <strong>request</strong> until confirmed via WhatsApp. Reply to the customer to confirm slot, price and payment details.
           </p>
           <div className="mt-3 rounded-lg border border-dashed border-border bg-surface p-3 text-xs text-muted-foreground">
-            <p className="font-semibold text-primary">Planned admin enhancements</p>
+            <p className="font-semibold text-primary">Workflow</p>
+            <ol className="mt-1 list-decimal pl-4">
+              <li>Enter an <strong>estimated price</strong> after your first WhatsApp reply.</li>
+              <li>Enter the <strong>final price</strong> and click <strong>Confirm</strong> when slot and price are agreed.</li>
+              <li>The customer's confirmation page updates live with the final price and payment instructions.</li>
+            </ol>
+            <p className="mt-2 font-semibold text-primary">Planned enhancements</p>
             <ul className="mt-1 list-disc pl-4">
-              <li>Estimated price &amp; final price</li>
               <li>Payment method (M-PESA / Cash)</li>
               <li>M-PESA transaction code</li>
               <li>Payment status: unpaid / deposit paid / paid / cancelled</li>
@@ -125,7 +140,7 @@ export default function Admin() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="text-left text-xs uppercase text-muted-foreground">
-                  <tr><th className="py-2 pr-3">When</th><th className="py-2 pr-3">Client</th><th className="py-2 pr-3">Service</th><th className="py-2 pr-3">Area</th><th className="py-2 pr-3">Status</th><th className="py-2 pr-3">Actions</th></tr>
+                  <tr><th className="py-2 pr-3">When</th><th className="py-2 pr-3">Client</th><th className="py-2 pr-3">Service</th><th className="py-2 pr-3">Area</th><th className="py-2 pr-3">Price (KES)</th><th className="py-2 pr-3">Status</th><th className="py-2 pr-3">Actions</th></tr>
                 </thead>
                 <tbody>
                   {upcoming.map((b) => (
@@ -141,6 +156,42 @@ export default function Admin() {
                       </td>
                       <td className="py-3 pr-3">{b.service}</td>
                       <td className="py-3 pr-3">{b.area}{b.property_type ? ` · ${b.property_type}` : ""}</td>
+                      <td className="py-3 pr-3 whitespace-nowrap">
+                        <div className="flex flex-col gap-1.5">
+                          <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            Est.
+                            <Input
+                              type="number"
+                              min={0}
+                              defaultValue={b.estimated_price_kes ?? ""}
+                              onBlur={(e) => {
+                                const v = e.target.value;
+                                if ((b.estimated_price_kes ?? "") !== v && !(b.estimated_price_kes == null && v === "")) {
+                                  savePrice(b.id, "estimated_price_kes", v);
+                                }
+                              }}
+                              className="h-8 w-24 text-xs"
+                              placeholder="—"
+                            />
+                          </label>
+                          <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            Final
+                            <Input
+                              type="number"
+                              min={0}
+                              defaultValue={b.final_price_kes ?? ""}
+                              onBlur={(e) => {
+                                const v = e.target.value;
+                                if ((b.final_price_kes ?? "") !== v && !(b.final_price_kes == null && v === "")) {
+                                  savePrice(b.id, "final_price_kes", v);
+                                }
+                              }}
+                              className="h-8 w-24 text-xs"
+                              placeholder="—"
+                            />
+                          </label>
+                        </div>
+                      </td>
                       <td className="py-3 pr-3">
                         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${b.status === "confirmed" ? "bg-accent-soft text-accent" : b.status === "declined" || b.status === "cancelled" ? "bg-muted text-muted-foreground" : "bg-primary-soft text-primary"}`}>{b.status}</span>
                       </td>
@@ -160,7 +211,7 @@ export default function Admin() {
                       </td>
                     </tr>
                   ))}
-                  {upcoming.length === 0 && <tr><td colSpan={6} className="py-8 text-center text-muted-foreground">No upcoming bookings.</td></tr>}
+                  {upcoming.length === 0 && <tr><td colSpan={7} className="py-8 text-center text-muted-foreground">No upcoming bookings.</td></tr>}
                 </tbody>
               </table>
             </div>

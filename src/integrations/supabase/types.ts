@@ -93,6 +93,8 @@ export type Database = {
           details: string | null
           email: string | null
           ends_at: string
+          estimated_price_kes: number | null
+          final_price_kes: number | null
           id: string
           name: string
           phone: string
@@ -108,6 +110,8 @@ export type Database = {
           details?: string | null
           email?: string | null
           ends_at: string
+          estimated_price_kes?: number | null
+          final_price_kes?: number | null
           id?: string
           name: string
           phone: string
@@ -123,6 +127,8 @@ export type Database = {
           details?: string | null
           email?: string | null
           ends_at?: string
+          estimated_price_kes?: number | null
+          final_price_kes?: number | null
           id?: string
           name?: string
           phone?: string

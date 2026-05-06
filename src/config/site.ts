@@ -18,6 +18,12 @@ export const site = {
     "Upper Hill", "Ngong Road",
   ],
   paymentMethods: ["M-PESA", "Cash"],
+  mpesa: {
+    // TODO: replace with your real M-PESA Till or Paybill before launch
+    tillNumber: "TBD",
+    paybill: "",
+    accountName: "FreshDream Mattress Care",
+  },
   disclaimer:
     "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
 };

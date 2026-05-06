@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { whatsappLink } from "@/config/site";
+import { whatsappLink, site } from "@/config/site";
 
 type AvRule = { weekday: number; start_minute: number; end_minute: number };
 type Block = { starts_at: string; ends_at: string };
@@ -64,7 +64,7 @@ export default function BookingCalendar() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState<null | { date: Date; slot: Slot; values: FormValues }>(null);
+  const [success, setSuccess] = useState<null | { id: string; date: Date; slot: Slot; values: FormValues; status: string; finalPrice: number | null; estimatedPrice: number | null }>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -144,7 +144,7 @@ export default function BookingCalendar() {
       values.issue ? `Stain/odor issue: ${values.issue}` : null,
       values.details ? `Notes: ${values.details}` : null,
     ].filter(Boolean).join("\n");
-    const { error } = await supabase.from("bookings").insert({
+    const { data: inserted, error } = await supabase.from("bookings").insert({
       name: values.name,
       phone: values.phone,
       whatsapp: values.whatsapp || values.phone,
@@ -155,17 +155,42 @@ export default function BookingCalendar() {
       details: composedDetails,
       starts_at: slot.startsAt.toISOString(),
       ends_at: slot.endsAt.toISOString(),
-    });
+    }).select("id,status,estimated_price_kes,final_price_kes").single();
     setSubmitting(false);
-    if (error) {
+    if (error || !inserted) {
       toast.error("Could not submit your request. Please try WhatsApp.");
       return;
     }
-    setSuccess({ date: date!, slot, values });
+    setSuccess({
+      id: inserted.id,
+      date: date!,
+      slot,
+      values,
+      status: inserted.status,
+      finalPrice: inserted.final_price_kes,
+      estimatedPrice: inserted.estimated_price_kes,
+    });
     setBusy((prev) => [...prev, { starts_at: slot.startsAt.toISOString(), ends_at: slot.endsAt.toISOString() }]);
     setSlot(null);
     form.reset();
   }
+
+  // Live updates: when admin confirms or sets the price, reflect it instantly in the success view.
+  useEffect(() => {
+    if (!success?.id) return;
+    const channel = supabase
+      .channel(`booking-${success.id}`)
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "bookings", filter: `id=eq.${success.id}` },
+        (payload) => {
+          const row = payload.new as { status: string; final_price_kes: number | null; estimated_price_kes: number | null };
+          setSuccess((prev) => prev ? { ...prev, status: row.status, finalPrice: row.final_price_kes, estimatedPrice: row.estimated_price_kes } : prev);
+        },
+      )
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [success?.id]);
 
   if (loading) {
     return (
@@ -176,6 +201,8 @@ export default function BookingCalendar() {
   }
 
   if (success) {
+    const isConfirmed = success.status === "confirmed" && success.finalPrice != null;
+    const priceToShow = success.finalPrice ?? success.estimatedPrice;
     const msg =
       `Hello, I just submitted a booking request on your website.\n` +
       `Name: ${success.values.name}\nArea: ${success.values.area}\n` +
@@ -186,12 +213,48 @@ export default function BookingCalendar() {
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent text-accent-foreground">
           <CheckCircle2 className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 text-xl font-semibold text-primary">Request received</h3>
-        <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-          We will confirm your slot, price and payment details via WhatsApp.
-          Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
-          you can send them on WhatsApp after submitting your request.
-        </p>
+        <h3 className="mt-4 text-xl font-semibold text-primary">
+          {isConfirmed ? "Booking confirmed" : "Request received"}
+        </h3>
+        {!isConfirmed ? (
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
+            We will confirm your slot, price and payment details via WhatsApp.
+            Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
+            you can send them on WhatsApp after submitting your request.
+            {success.estimatedPrice != null && (
+              <span className="mt-3 block text-primary">
+                Estimated price: <strong>KES {success.estimatedPrice.toLocaleString()}</strong> (subject to confirmation)
+              </span>
+            )}
+          </p>
+        ) : (
+          <div className="mx-auto mt-2 max-w-lg space-y-4 text-sm">
+            <p className="text-muted-foreground">
+              Your slot on <strong>{format(success.slot.startsAt, "EEE d MMM, h:mm a")}</strong> is confirmed.
+            </p>
+            <div className="rounded-xl border border-accent/40 bg-background p-4 text-left">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Final price</p>
+              <p className="mt-1 text-2xl font-bold text-primary">KES {priceToShow!.toLocaleString()}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-background p-4 text-left text-xs text-muted-foreground">
+              <p className="text-sm font-semibold text-primary">Payment instructions</p>
+              <ul className="mt-2 list-disc space-y-1 pl-4">
+                <li>Pay via <strong>M-PESA</strong> after the service, or cash on completion.</li>
+                {site.mpesa.tillNumber && site.mpesa.tillNumber !== "TBD" && (
+                  <li>M-PESA Till Number: <strong>{site.mpesa.tillNumber}</strong></li>
+                )}
+                {site.mpesa.paybill && (
+                  <li>M-PESA Paybill: <strong>{site.mpesa.paybill}</strong> — Account: {site.mpesa.accountName}</li>
+                )}
+                {(!site.mpesa.tillNumber || site.mpesa.tillNumber === "TBD") && !site.mpesa.paybill && (
+                  <li>M-PESA payment details will be shared on WhatsApp.</li>
+                )}
+                <li>Reference: your name + booking date.</li>
+                <li>Only pay after the technician completes the job, unless a deposit was agreed on WhatsApp.</li>
+              </ul>
+            </div>
+          </div>
+        )}
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
             href={whatsappLink(msg)}
