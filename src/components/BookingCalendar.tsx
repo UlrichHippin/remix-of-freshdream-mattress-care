@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { whatsappLink } from "@/config/site";
+import { whatsappLink, site } from "@/config/site";
 
 type AvRule = { weekday: number; start_minute: number; end_minute: number };
 type Block = { starts_at: string; ends_at: string };
