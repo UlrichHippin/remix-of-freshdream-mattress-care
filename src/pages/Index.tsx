@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <PageLayout
-      title="FreshDream Mattress Care | Mattress & Upholstery Cleaning in Nairobi"
+      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
       description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
     >
       {/* 1. HERO */}
