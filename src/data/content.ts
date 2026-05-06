@@ -369,7 +369,7 @@ export const hostStarter = {
     "Dust and hair removal",
     "Odor check",
     "UV-C hygiene support where suitable",
-    "Hot air refresh",
+    "Warm-air freshness",
     "WhatsApp service photos",
     "M-PESA accepted",
     "Same-day support where available",
