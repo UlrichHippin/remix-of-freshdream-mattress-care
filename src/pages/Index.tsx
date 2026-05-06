@@ -13,7 +13,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
-import { services, faqs, hostPackages, openingOffer } from "@/data/content";
+import { services, faqs, hostPackages, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBanner from "@/assets/hero-banner.png";
@@ -40,7 +40,7 @@ export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
   return (
     <PageLayout
-      title="Mattress Cleaning Nairobi | Airbnb & Upholstery Cleaning | FreshDream"
+      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
       description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
     >
       {/* Hero — clean two-column layout */}
@@ -58,6 +58,11 @@ export default function Home() {
             </p>
             <p className="mt-2 max-w-md text-base leading-relaxed text-muted-foreground">
               First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
+            </p>
+
+            <p className="mt-4 inline-flex max-w-md items-start gap-2 rounded-xl border border-accent/40 bg-accent-soft/60 px-3 py-2 text-sm font-medium text-primary">
+              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
+              <span><strong>New:</strong> Add Sleep Area Dust Refresh for only KES 300 with your mattress cleaning.</span>
             </p>
 
             {/* Trust bullets — cohesive row, wraps cleanly on mobile */}
