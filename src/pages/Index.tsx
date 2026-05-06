@@ -180,6 +180,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3b. QUICK QUOTE */}
+      <QuickQuote />
+
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
