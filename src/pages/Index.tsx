@@ -34,28 +34,48 @@ export default function Home() {
 
   return (
     <PageLayout
-      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress cleaning in Nairobi from KES 1,999. Sleep Area Dust Refresh add-on KES 300. Fast WhatsApp booking, M-PESA accepted, JIMMY BX7 Pro equipment."
+      title="FreshDream Mattress Care | Mattress & Upholstery Cleaning in Nairobi"
+      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
     >
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-border animate-fade-up">
         <div
           className="absolute inset-0 -z-10 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBackground})` }}
-          aria-hidden="true"
+          role="img"
+          aria-label="Mattress cleaning service in Nairobi"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/20" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
         <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Sparkles className="h-3.5 w-3.5" /> Launch Offer
+              <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
-            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              Professional Mattress Cleaning in Nairobi
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+              Professional Mattress &amp; Upholstery Care in Nairobi
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care delivers specialist mattress hygiene cleaning — dry process, no soaking, documented with before/after photos.
+              Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
+
+            {/* Trust badges in hero */}
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {[
+                "Airbnb Friendly",
+                "Same-Day Requests",
+                "M-PESA Accepted",
+                "Roysambu Based",
+                "Nairobi Service Area",
+                "No Drying Time (Dry Care)",
+              ].map((b) => (
+                <li
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur"
+                >
+                  <BadgeCheck className="h-3.5 w-3.5 text-accent" /> {b}
+                </li>
+              ))}
+            </ul>
 
             {/* Strong price box */}
             <div className="mt-6 max-w-lg rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur">
@@ -72,9 +92,6 @@ export default function Home() {
                 <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
                 Add Sleep Area Dust Refresh for only <span className="text-accent">KES 300</span>
               </p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                For Homes · Airbnb Rooms · Serviced Apartments · Guest Houses
-              </p>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -84,47 +101,29 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
+                <MessageCircle className="h-5 w-5" /> Book via WhatsApp
               </a>
-              <a
-                href={whatsappLink("Hello FreshDream, please send me a price for mattress cleaning. Mattress size: , Location: ")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-whatsapp bg-transparent px-6 text-base font-semibold text-whatsapp transition-colors hover:bg-whatsapp hover:text-whatsapp-foreground sm:w-auto"
+              <Link
+                to="/services"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Get Price on WhatsApp
-              </a>
+                View Services <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
-              {/* Glow halo */}
+            <div className="relative mx-auto flex items-center justify-center">
               <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
               <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
 
-              {/* Big logo */}
               <img
                 src={logoMark}
-                alt={site.name}
-                width={520}
-                height={520}
-                className="relative h-full w-full max-h-[420px] max-w-[420px] animate-float object-contain drop-shadow-2xl"
+                alt="FreshDream Mattress Care logo"
+                width={920}
+                height={920}
+                className="relative w-[220px] animate-float object-contain drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
               />
-
-              {/* Floating trust badges */}
-              <span className="absolute left-0 top-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.4s" }}>
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro
-              </span>
-              <span className="absolute right-0 top-1/4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "1.2s" }}>
-                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> M-PESA
-              </span>
-              <span className="absolute -bottom-2 left-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "2s" }}>
-                <Star className="h-3.5 w-3.5 text-accent" /> 4.9★ Hosts
-              </span>
-              <span className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.8s" }}>
-                <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu
-              </span>
             </div>
           </div>
         </div>
