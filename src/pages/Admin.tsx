@@ -15,6 +15,7 @@ interface Booking {
   name: string; phone: string; whatsapp: string | null; email: string | null;
   area: string; property_type: string | null; service: string;
   details: string | null; starts_at: string; ends_at: string; status: string;
+  estimated_price_kes: number | null; final_price_kes: number | null;
 }
 interface Block { id: string; starts_at: string; ends_at: string; reason: string | null; }
 
