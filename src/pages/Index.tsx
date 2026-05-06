@@ -3,46 +3,37 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
-  CalendarClock, FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
-  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star, Check, Package,
+  FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
+  Send, MessageCircle, Wand2, ImageDown, BedDouble, Sofa, Star, Check, Package, Wind, Sun,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
-import { services, faqs, hostPackages, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
+import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBackground from "@/assets/brand/hero-background.jpg";
-import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
-import hospitalityLiving from "@/assets/hospitality-living.jpg";
-import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
 import logoFull from "@/assets/brand/logo-footer.png";
-import illustHostSupport from "@/assets/illust-host-support.png";
-import illustGuestReady from "@/assets/illust-guest-ready.png";
-import illustMattressCare from "@/assets/illust-mattress-care.png";
-import illustProcessFlow from "@/assets/illust-process-flow.png";
-import illustEmergencyResponse from "@/assets/illust-emergency-response.png";
-import illustTrustBadges from "@/assets/illust-trust-badges.png";
-import IllustrationFrame from "@/components/IllustrationFrame";
-import SectionDivider from "@/components/SectionDivider";
-import EquipmentBadge from "@/components/EquipmentBadge";
 
 import { packages, STARTING_NOTE, type PackageDef as Pkg } from "@/data/packages";
 
 export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
+
+  const multiMattressMessage =
+    "Hello FreshDream, I have more than one mattress to clean at the same address. Please send me a multi-mattress price.\nNumber of mattresses:\nMattress sizes:\nLocation:";
+
   return (
     <PageLayout
-      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
+      title="Professional Mattress Cleaning in Nairobi | FreshDream Mattress Care"
+      description="Professional mattress cleaning in Nairobi from KES 1,999. Sleep Area Dust Refresh add-on KES 300. Fast WhatsApp booking, M-PESA accepted, JIMMY BX7 Pro equipment."
     >
-      {/* Hero — clean two-column layout */}
-      <section className="relative overflow-hidden border-b border-border">
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden border-b border-border animate-fade-up">
         <div
           className="absolute inset-0 -z-10 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBackground})` }}
@@ -58,36 +49,35 @@ export default function Home() {
               Professional Mattress Cleaning in Nairobi
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care helps homes, Airbnb hosts and serviced apartments create a cleaner, fresher sleeping environment with professional mattress hygiene cleaning.
+              FreshDream Mattress Care delivers specialist mattress hygiene cleaning — dry process, no soaking, documented with before/after photos.
             </p>
 
-            <p className="mt-4 inline-flex max-w-md items-start gap-2 rounded-xl border border-accent/40 bg-accent-soft/60 px-3 py-2 text-sm font-medium text-primary">
-              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-              <span><strong>New Add-On:</strong> Sleep Area Dust Refresh — only KES 300</span>
-            </p>
-
-            {/* Trust bullets — cohesive row, wraps cleanly on mobile */}
-            <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-primary/90">
-              {[
-                { i: MapPin, t: "Nairobi based" },
-                { i: BedDouble, t: "Ideal for Airbnb hosts" },
-                { i: Wrench, t: "JIMMY BX7 Pro equipment" },
-                { i: Sparkles, t: "Sleep Area Dust Refresh add-on" },
-                { i: Camera, t: "Before/after photos" },
-                { i: MessageSquareText, t: "WhatsApp booking" },
-              ].map((it) => (
-                <li key={it.t} className="inline-flex items-center gap-1.5 font-medium">
-                  <it.i className="h-4 w-4 text-accent" aria-hidden /> {it.t}
-                </li>
-              ))}
-            </ul>
+            {/* Strong price box */}
+            <div className="mt-6 max-w-lg rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
+                  <p className="mt-1 text-2xl font-extrabold text-primary sm:text-3xl">from KES 1,999</p>
+                </div>
+                <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                  <Star className="h-3 w-3" /> First-time
+                </span>
+              </div>
+              <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
+                <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
+                Add Sleep Area Dust Refresh for only <span className="text-accent">KES 300</span>
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                For Homes · Airbnb Rooms · Serviced Apartments · Guest Houses
+              </p>
+            </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappLink(openingOffer.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover sm:w-auto"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
@@ -99,12 +89,6 @@ export default function Home() {
               >
                 <MessageCircle className="h-5 w-5" /> Get Price on WhatsApp
               </a>
-              <Link
-                to="/pricing"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
-              >
-                View Prices <ArrowRight className="h-4 w-4" />
-              </Link>
             </div>
           </div>
 
@@ -112,29 +96,30 @@ export default function Home() {
             <figure className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lift">
               <img
                 src={heroImg}
-                alt="Professional mattress cleaning in Nairobi for Airbnb hosts"
+                alt="Professional mattress cleaning in Nairobi"
                 width={1200}
                 height={900}
                 loading="eager"
                 className="aspect-[4/3] h-full w-full object-cover"
               />
               <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ring-1 ring-border backdrop-blur">
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Built for hosts · Roysambu, Nairobi
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Roysambu, Nairobi
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      {/* Compact trust row */}
+      {/* 2. TRUST BADGES */}
       <section className="border-b border-border bg-background">
         <div className="container-tight flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 text-sm text-primary">
           {[
             { i: MessageSquareText, t: "WhatsApp booking" },
             { i: BadgeCheck, t: "M-PESA accepted" },
             { i: MapPin, t: "Based in Roysambu" },
-            { i: Sparkles, t: "Airbnb-ready service" },
+            { i: Droplets, t: "Dry process — no soaking" },
             { i: ShieldCheck, t: "Honest stain assessment" },
+            { i: Camera, t: "Before/after photos" },
           ].map((it) => (
             <span key={it.t} className="inline-flex items-center gap-1.5 font-medium">
               <it.i className="h-4 w-4 text-accent" /> {it.t}
@@ -143,7 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Opening Offer teaser */}
+      {/* 3. OPENING OFFER */}
       <section className="border-b border-border bg-accent-soft/40">
         <div className="container-tight py-10 sm:py-12">
           <div className="card-soft relative overflow-hidden border-2 border-accent/40 p-6 sm:p-8">
@@ -164,7 +149,7 @@ export default function Home() {
                     href={whatsappLink(openingOffer.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
                   >
                     <MessageCircle className="h-4 w-4" /> Book on WhatsApp
                   </a>
@@ -193,83 +178,74 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
-        <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
-          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={hospitalityBedroom}
-              alt="Neatly made bed in a sunlit short-stay apartment"
-              width={1600}
-              height={1200}
-              loading="lazy"
-              className="aspect-[4/3] h-full w-full object-cover"
-            />
-            <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
-              <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Guest-ready standard
-            </figcaption>
-          </figure>
-          <div>
-            <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Host support</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              A specialist on WhatsApp — not a call center.
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Send a photo, your unit and your check-in time. You get a real person, a realistic
-              quote, and an available slot — with documented before/after on every job.
+        <div className="container-tight grid gap-6 lg:grid-cols-2">
+          {/* Most Popular */}
+          <div className="card-soft relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+            <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+              <Star className="h-3 w-3" /> Most Popular
+            </span>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Customer Favorite</p>
+            <h2 className="mt-2 text-2xl font-bold text-primary sm:text-3xl">Standard Mattress Hygiene</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Best for homes, Airbnb rooms and serviced apartments.
             </p>
-            <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
+            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/60 px-3 py-2 text-xs font-semibold text-primary">
+              <Sparkles className="h-3.5 w-3.5 text-accent animate-sparkle" />
+              Recommended with Sleep Area Dust Refresh + KES 300.
+            </p>
+            <a
+              href={whatsappLink("Hello, I'd like to book the Most Popular mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
+            >
+              <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+            </a>
+          </div>
+
+          {/* Fresh Sleep Package */}
+          <div className="card-soft relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+              <BadgeCheck className="h-3 w-3" /> Fresh Sleep
+            </span>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">{freshSleepPackage.name}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Mattress cleaning + Sleep Area Dust Refresh for a cleaner sleeping area and better guest impression.
+            </p>
+            <ul className="mt-4 grid gap-2 text-sm">
               {[
-                { i: MessageSquareText, t: "Real WhatsApp replies" },
-                { i: Camera, t: "Photo proof on every job" },
-                { i: Clock4, t: "Same-day where possible" },
-                { i: ShieldCheck, t: "Honest assessments" },
+                "Mattress hygiene cleaning",
+                "Around-bed dust refresh",
+                "Reachable under-bed dust",
+                "Bed frame/headboard light vacuuming",
               ].map((it) => (
-                <li key={it.t} className="flex items-center gap-2 rounded-xl border border-border bg-card p-3 shadow-soft">
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-soft text-accent">
-                    <it.i className="h-4 w-4" />
-                  </span>
-                  <span className="font-medium text-primary">{it.t}</span>
+                <li key={it} className="flex items-start gap-2 text-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {it}
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <WhatsAppButton />
-              <Link to="/host-packages" className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft">
-                Host packages <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <a
+              href={whatsappLink(freshSleepPackage.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
+            >
+              <MessageCircle className="h-4 w-4" /> Book Fresh Sleep Package on WhatsApp
+            </a>
           </div>
         </div>
       </section>
 
-      <SectionDivider />
-
-      {/* Trust highlights */}
-      <section className="border-y border-border bg-surface">
-        <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { icon: Droplets, t: "Dry process — no soaking" },
-            { icon: ShieldCheck, t: "Safe for mattress hygiene care" },
-            { icon: Sparkles, t: "UV-C hygiene & warm-air freshness" },
-            { icon: MapPin, t: "Nairobi & surrounding areas" },
-          ].map((it) => (
-            <div key={it.t} className="flex items-center gap-3">
-              <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
-                <it.icon className="h-5 w-5" />
-              </div>
-              <p className="text-sm font-semibold text-primary">{it.t}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Professional Dry Cleaning Packages — main offers */}
-      <section className="section">
+      {/* 5. PACKAGES */}
+      <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Professional Dry Cleaning Packages
+              Choose Your Mattress Cleaning Package
             </h2>
             <p className="mt-3 text-muted-foreground">
               Safe, dry, and hygiene-focused mattress cleaning in Nairobi.
@@ -280,16 +256,16 @@ export default function Home() {
             {packages.map((p, i) => (
               <div
                 key={p.title}
-                className={`card-soft relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift ${
+                className={`card-soft relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
                   i === 1 ? "ring-2 ring-accent shadow-lift" : ""
                 }`}
               >
                 {i === 1 && (
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                    <Star className="h-2.5 w-2.5" /> Popular
+                    <Star className="h-2.5 w-2.5" /> Most Popular
                   </span>
                 )}
-                <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-20" : ""}`}>{p.title}</h3>
+                <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-24" : ""}`}>{p.title}</h3>
                 <p className="mt-2 text-2xl font-bold text-primary max-[380px]:text-xl">{p.startingPrice}</p>
                 <p className="mt-1 text-xs text-muted-foreground">{STARTING_NOTE}</p>
                 <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
@@ -308,9 +284,9 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <WhatsAppButton size="lg" label="Book a Cleaning" className="w-full sm:w-auto" />
+            <WhatsAppButton size="lg" label="Book a Cleaning" className="w-full sm:w-auto animate-soft-pulse" />
             <p className="text-center text-sm text-muted-foreground">
-              Dry process. No soaking. Nairobi and surrounding areas.
+              Sofa or rug? Available on request after photos on WhatsApp.
             </p>
           </div>
         </div>
@@ -391,11 +367,11 @@ export default function Home() {
         </DialogContent>
       </Dialog>
 
-      {/* Sleep Area Dust Refresh — optional add-on (real crawlable text for SEO) */}
-      <section id="sleep-area-add-on" className="section bg-surface">
+      {/* 6. SLEEP AREA DUST REFRESH */}
+      <section id="sleep-area-add-on" className="section">
         <div className="container-tight grid gap-8 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-7">
-            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Optional add-on</p>
+            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5 animate-sparkle" /> Optional add-on</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
               {sleepAreaAddOn.name} — {sleepAreaAddOn.price}
             </h2>
@@ -427,154 +403,38 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Multi-mattress eyecatcher */}
           <aside className="lg:col-span-5">
-            <div className="card-soft border-2 border-accent/40 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                <BadgeCheck className="h-3 w-3" /> {freshSleepPackage.badge}
+            <div className="card-soft border-2 border-primary/20 bg-gradient-to-br from-primary-soft to-accent-soft/40 p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                <Repeat2 className="h-3 w-3" /> Multi-Mattress Deal
+              </span>
+              <h3 className="mt-3 text-xl font-bold text-primary">Cleaning more than one mattress?</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Location fee is charged once per visit, not per mattress. Multiple mattresses at the same address can reduce the total cost per mattress.
               </p>
-              <h3 className="mt-3 text-xl font-bold text-primary">{freshSleepPackage.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{freshSleepPackage.summary}</p>
-              <ul className="mt-4 space-y-2 text-sm">
-                {freshSleepPackage.includes.map((it) => (
-                  <li key={it} className="flex items-start gap-2 text-foreground">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden /> {it}
-                  </li>
-                ))}
-              </ul>
               <a
-                href={whatsappLink(freshSleepPackage.whatsappMessage)}
+                href={whatsappLink(multiMattressMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
               >
-                <MessageCircle className="h-4 w-4" /> {freshSleepPackage.cta}
+                <MessageCircle className="h-4 w-4" /> Ask for multi-mattress price on WhatsApp
               </a>
             </div>
           </aside>
         </div>
       </section>
 
-      {/* Why hosts choose us */}
+      {/* 7. HOW TO BOOK */}
       <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Why hosts choose us</p>
-              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Specialist support for short-stay properties — not generic cleaning.
-              </h2>
-              <p className="mt-3 text-muted-foreground">
-                We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-                for guesswork. Honest assessments, photo documentation, and a dry mattress hygiene
-                treatment with targeted spot support where suitable — no soaking, no water extraction.
-              </p>
-            </div>
-            <div className="lg:col-span-5">
-              <IllustrationFrame src={illustTrustBadges} alt="Trust and quality badges illustration" tone="primary" badge="What hosts get" />
-            </div>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              { icon: Sparkles, t: "Hospitality-aware", d: "We schedule around your check-ins and treat every unit like a guest is arriving tonight." },
-              { icon: FileCheck2, t: "Documented service", d: "Before/after photos, what was treated, and clear result communication on every job." },
-              { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
-              { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
-              { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { icon: Droplets, t: "Dry hygiene treatment", d: "No soaking. No water extraction. Targeted spot support where suitable." },
-            ].map((it) => (
-              <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
-                <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                  <it.icon className="h-5 w-5" />
-                </div>
-                <h3 className="relative mt-4 font-semibold text-primary">{it.t}</h3>
-                <p className="relative mt-2 text-sm text-muted-foreground">{it.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <EquipmentBadge variant="band" />
-
-
-      <section className="relative">
-        <div className="container-tight">
-          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={hospitalityLiving}
-              alt="Tidy modern short-stay apartment living area, calm and inviting"
-              width={1600}
-              height={900}
-              loading="lazy"
-              className="aspect-[16/7] h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent" aria-hidden="true" />
-            <figcaption className="absolute inset-y-0 left-0 flex max-w-md flex-col justify-center gap-2 p-8 text-primary-foreground sm:p-12">
-              <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5" /> Calm. Polished. Ready.
-              </p>
-              <p className="text-balance text-xl font-bold leading-tight sm:text-2xl">
-                Every unit deserves to feel guest-ready before the door opens.
-              </p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <HostPackagesPreview />
-
-
-      {/* Documented service */}
-      <section className="section bg-surface">
-        <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="eyebrow"><Camera className="h-3.5 w-3.5" /> Documented service</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Photo proof on every job. Honest results, every time.
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Hosts shouldn't have to take cleaning on faith. After every job we share before/after
-              photos, what was treated, and a realistic result update — plus drying guidance to keep
-              your turnover on schedule.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm">
-              {[
-                "Before/after photos shared on WhatsApp",
-                "Clear summary of what was treated",
-                "Honest result communication — no hype",
-                "Drying guidance for tight turnovers",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 text-foreground"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-              ))}
-            </ul>
-          </div>
-          <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift">
-            <img
-              src={heroImg}
-              alt="FreshDream mattress care in Roysambu Nairobi"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="aspect-[4/3] h-full w-full object-cover"
-            />
-            <figcaption className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-primary shadow-soft ring-1 ring-border backdrop-blur-sm">
-              Documented
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="section">
         <div className="container-tight">
           <div className="max-w-2xl">
             <p className="eyebrow">How to book</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Four simple steps.</h2>
           </div>
           <div className="relative mt-12">
-            {/* Connecting line */}
-            <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent md:block" aria-hidden="true" />
+            <div className="absolute left-0 right-0 top-7 hidden h-0.5 origin-left bg-gradient-to-r from-accent/30 via-accent to-accent/30 md:block animate-progress-line" aria-hidden="true" />
             <ol className="relative grid gap-6 md:grid-cols-4">
               {[
                 { icon: Send, t: "Choose your package", d: "Pick your mattress cleaning package (Freshen Up, Standard, Intensive Stain or Urine & Odor)." },
@@ -598,105 +458,103 @@ export default function Home() {
               Booking is only confirmed after FreshDream replies on WhatsApp.
             </p>
           </div>
-
-          {/* Process flow illustration */}
-          <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-5">
-              <IllustrationFrame
-                src={illustProcessFlow}
-                alt="Four-step process flow illustration: chat, calendar, treatment, photo"
-                tone="accent"
-                badge="Process at a glance"
-              />
-            </div>
-            <figure className="relative overflow-hidden rounded-3xl border border-border shadow-lift lg:col-span-7">
-              <img
-                src={hospitalityApartment}
-                alt="Bright short-stay apartment bedroom prepared to a guest-ready standard"
-                width={1600}
-                height={900}
-                loading="lazy"
-                className="aspect-[16/9] h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" aria-hidden="true" />
-              <figcaption className="absolute bottom-0 left-0 right-0 flex flex-col gap-2 p-6 text-primary-foreground sm:p-8">
-                <p className="inline-flex w-fit items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ring-primary-foreground/25 backdrop-blur">
-                  <ShieldCheck className="h-3.5 w-3.5" /> From request to guest-ready
-                </p>
-                <p className="text-balance text-lg font-bold leading-tight sm:text-xl">
-                  A documented process — so every check-in starts calm and on time.
-                </p>
-              </figcaption>
-            </figure>
-          </div>
         </div>
       </section>
 
-      {/* Emergency band */}
-      <section className="section bg-gradient-band text-primary-foreground">
-        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
-              <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Support
-            </p>
-            <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
-              A guest just checked out<br className="sm:hidden" />
-              {" "}and something&rsquo;s wrong?
-            </h2>
-            <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
-              Send us photos and your next check-in time. We'll tell you honestly what's possible and
-              prioritize you for same-day or next-day support where we can.
-            </p>
-            <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
-              <WhatsAppButton size="lg" label="WhatsApp now" className="w-full" />
-              <a
-                href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50"
-              >
-                <PhoneCall className="h-4 w-4" /> Call us
-              </a>
-            </div>
-          </div>
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl bg-primary-foreground/5 p-6 ring-1 ring-primary-foreground/15 backdrop-blur-sm">
-              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/30 blur-3xl" aria-hidden="true" />
-              <img
-                src={illustEmergencyResponse}
-                alt="Emergency response illustration: bed with alarm clock"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                className="relative mx-auto h-auto w-full max-w-[380px] object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service areas */}
+      {/* 8. LOCATION FEE BADGE */}
       <section className="section">
         <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow"><MapPin className="h-3.5 w-3.5" /> Service areas</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Covering Roysambu and across Nairobi.</h2>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {site.serviceAreas.map((a) => (
-              <span key={a} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-primary shadow-soft">
-                {a}
-              </span>
-            ))}
-            <span className="rounded-full bg-accent-soft px-4 py-2 text-sm font-medium text-accent">+ selected Nairobi areas on request</span>
+          <div className="card-soft mx-auto max-w-3xl border-2 border-accent/40 p-6 text-center sm:p-8">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent-foreground">
+              <MapPin className="h-3.5 w-3.5" /> Fair Location Fee
+            </span>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Charged once per visit — not per mattress.</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Send your location pin on WhatsApp so we can confirm the exact location fee before booking.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ preview */}
+      {/* 9. AIRBNB HOST HYGIENE SUPPORT */}
+      <HostPackagesPreview />
+
+      {/* 10. JIMMY BX7 PRO EQUIPMENT */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Powered by JIMMY BX7 Pro</h2>
+            <p className="mt-3 text-muted-foreground">
+              Dry mattress hygiene treatment with suction, vibration, UV-C support and warm-air freshness. No soaking. No water extraction.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { i: Wind, t: "Powerful Suction", d: "Deep dust and allergen pickup from mattress fibers." },
+              { i: Zap, t: "Vibration", d: "Loosens trapped dust and debris from inside the mattress." },
+              { i: Sun, t: "UV-C Support", d: "Surface hygiene support during the cleaning pass." },
+              { i: Droplets, t: "Warm-Air Freshness", d: "Helps freshen the mattress after the cleaning pass." },
+            ].map((it) => (
+              <div key={it.t} className="card-soft p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lift">
+                <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <it.i className="h-5 w-5" />
+                </div>
+                <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{it.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. DOCUMENTED SERVICE */}
+      <section className="section">
+        <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="eyebrow"><Camera className="h-3.5 w-3.5" /> FreshDream Service Proof</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              FreshDream Service Proof
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              We document every job with before/after photos where suitable. Real service photos will be added with customer privacy protection.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {[
+                "Before/after photos shared on WhatsApp",
+                "Clear summary of what was treated",
+                "Honest result communication — no hype",
+                "Customer privacy protected — no addresses, no personal details",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-2 text-foreground"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
+              ))}
+            </ul>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {[
+              { i: Camera, t: "Equipment in action" },
+              { i: FileCheck2, t: "Before / after examples" },
+              { i: BedDouble, t: "Guest-ready Airbnb rooms" },
+              { i: ShieldCheck, t: "Privacy-protected proof" },
+            ].map((it) => (
+              <li
+                key={it.t}
+                className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-5 text-center shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
+              >
+                <it.i className="h-7 w-7 text-accent" />
+                <p className="text-sm font-semibold text-primary">{it.t}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 12. FAQ */}
       <section className="section bg-surface">
         <div className="container-tight grid gap-10 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="eyebrow">FAQ</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Quick answers for hosts.</h2>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Quick answers.</h2>
             <Link to="/faq" className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
               See all FAQs <ArrowRight className="h-4 w-4" />
             </Link>
@@ -712,70 +570,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 13. BOOKING FORM */}
       <BookingSection />
 
-      {/* Best for — customer types */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Best for</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Built for hospitality and homes.</h2>
-          </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {[
-              { i: BedDouble, t: "Airbnb hosts" },
-              { i: Sofa, t: "Serviced apartments" },
-              { i: Package, t: "Guest houses" },
-              { i: ShieldCheck, t: "Families & homes" },
-              { i: Repeat2, t: "Property managers" },
-            ].map((c) => (
-              <div key={c.t} className="card-soft flex flex-col items-center p-5 text-center">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
-                  <c.i className="h-6 w-6" />
-                </span>
-                <p className="mt-3 text-sm font-semibold text-primary">{c.t}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Real Service Photos Coming Soon */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
-              <Camera className="h-3.5 w-3.5" /> Coming soon
-            </span>
-            <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Real Service Photos Coming Soon</h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-              Real FreshDream service photos are coming soon. We only publish real job photos with privacy protection — no addresses, no personal details.
+      {/* Emergency band — kept as supporting content */}
+      <section className="section bg-gradient-band text-primary-foreground">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-12">
+            <p className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              <AlarmClock className="h-3.5 w-3.5" /> Emergency Host Support
             </p>
-          </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-            {[
-              "Equipment in action",
-              "Before / after examples",
-              "Guest-ready Airbnb rooms",
-            ].map((label) => (
-              <li
-                key={label}
-                className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-5 text-center shadow-soft"
+            <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] sm:text-3xl lg:text-4xl">
+              A guest just checked out and something's wrong?
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
+              Send us photos and your next check-in time. We'll tell you honestly what's possible and prioritize you for same-day or next-day support where we can.
+            </p>
+            <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
+              <WhatsAppButton size="lg" label="WhatsApp now" className="w-full animate-soft-pulse" />
+              <a
+                href={`tel:${site.phoneDisplay.replace(/\s+/g, "")}`}
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90"
               >
-                <Camera className="h-7 w-7 text-accent" />
-                <p className="text-sm font-semibold text-primary">{label}</p>
-                <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Photo coming soon</p>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex justify-center">
-            <WhatsAppButton label="Ask us on WhatsApp for recent photos" />
+                <PhoneCall className="h-4 w-4" /> Call us
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-
-      {/* Final CTA */}
+      {/* 14. FINAL CTA */}
       <section className="section">
         <div className="container-tight">
           <div className="relative overflow-hidden rounded-2xl bg-primary p-10 text-primary-foreground shadow-lift sm:p-12">
@@ -786,22 +610,17 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 rounded-2xl bg-primary-foreground px-4 py-2.5 shadow-soft">
                   <img src={logoFull} alt={site.name} className="h-8 w-auto object-contain" />
                 </div>
-                <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] hyphens-manual sm:text-3xl lg:text-4xl">
-                  Keep every bed fresh,<br className="sm:hidden" />
-                  {" "}clean, and guest-ready.
+                <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.15] sm:text-3xl lg:text-4xl">
+                  Keep every bed fresh, clean, and guest-ready.
                 </h2>
-                <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
-                  Specialist mattress hygiene cleaning, documented and on schedule.
-                  Send photos and your next check-in time — we'll take it from there.
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
+                  Specialist mattress hygiene cleaning in Nairobi from KES 1,999. Send photos and your preferred date — we'll take it from there.
                 </p>
               </div>
-              <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-3 lg:flex lg:w-auto lg:flex-col lg:items-stretch">
-                <WhatsAppButton size="lg" className="w-full lg:w-auto" />
-                <Link to="/contact" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 hover:shadow-card active:scale-[0.98] active:bg-primary-foreground/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto">
+              <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 lg:flex lg:w-auto lg:flex-col lg:items-stretch">
+                <WhatsAppButton size="lg" className="w-full lg:w-auto animate-soft-pulse" />
+                <Link to="/contact" className="inline-flex h-12 w-full items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft transition-all hover:bg-primary-foreground/90 lg:w-auto">
                   Request a Quote
-                </Link>
-                <Link to="/host-packages" className="inline-flex h-12 w-full items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground transition-all hover:border-primary-foreground/60 hover:bg-primary-foreground/10 active:scale-[0.98] active:bg-primary-foreground/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-primary aria-disabled:pointer-events-none aria-disabled:opacity-50 lg:w-auto">
-                  Host Packages
                 </Link>
               </div>
             </div>
