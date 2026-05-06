@@ -99,19 +99,34 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-5">
-            <figure className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lift">
+            <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
+              {/* Glow halo */}
+              <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
+              <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
+
+              {/* Big logo */}
               <img
-                src={heroImg}
-                alt="Professional mattress cleaning in Nairobi"
-                width={1200}
-                height={900}
-                loading="eager"
-                className="aspect-[4/3] h-full w-full object-cover"
+                src={logoMark}
+                alt={site.name}
+                width={520}
+                height={520}
+                className="relative h-full w-full max-h-[420px] max-w-[420px] animate-float object-contain drop-shadow-2xl"
               />
-              <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ring-1 ring-border backdrop-blur">
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Roysambu, Nairobi
-              </figcaption>
-            </figure>
+
+              {/* Floating trust badges */}
+              <span className="absolute left-0 top-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.4s" }}>
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro
+              </span>
+              <span className="absolute right-0 top-1/4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "1.2s" }}>
+                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> M-PESA
+              </span>
+              <span className="absolute -bottom-2 left-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "2s" }}>
+                <Star className="h-3.5 w-3.5 text-accent" /> 4.9★ Hosts
+              </span>
+              <span className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.8s" }}>
+                <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu
+              </span>
+            </div>
           </div>
         </div>
       </section>
