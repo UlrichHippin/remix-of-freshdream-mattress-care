@@ -1,86 +1,66 @@
-# Homepage-Aufwertung: Brand-Präsenz & Eyecatcher
 
-Ziel: Sofortige visuelle Wirkung, klare Markenpräsenz mit großem Logo, mehr Vertrauen durch animierte Trust-Elemente — ohne den cleanen Premium-Look zu verlieren.
+# Optische Optimierungen mit WOW-Effekt
 
-## 1. Großes Brand-Logo (XXL)
+Ziel: Mehr Premium-Feeling und visuelle Wirkung — ohne neue Inhalte oder unbelegte Claims hinzuzufügen.
 
-**Hero-Erweiterung:** Das `logoMark` (Square-Logo) wird im Hero auf Desktop rechts neben Headline + Preisbox als großes visuelles Anker-Element eingebaut (ca. 320–380px), mit:
-- Sanftem Glow-Halo (radial gradient `bg-accent/20` blur)
-- Floating-Animation (subtiles Auf/Ab, 6s ease-in-out infinite)
-- Schwebenden Trust-Badges außen herum (M-PESA · JIMMY BX7 · Roysambu)
+## 1. Hero — mehr Wirkung
+- **Animated Mesh-Gradient** statt statischem Foto-Tint: zwei langsam rotierende Blobs (`accent/30`, `primary/20`) mit Blur, dahinter feines Dot-Pattern.
+- **Logo-Reflexion**: dezenter Spiegel-Glow unter dem Logo + sanfter Konic-Gradient-Ring (rotierend, 20s).
+- **Headline-Akzent**: das Wort *„Mattress & Upholstery Care"* erhält einen animierten Underline-Sweep (Gradient-Linie, die beim Mount einmal durchläuft).
+- **Preisbox-Glow**: weiches `accent`-Glow + dünner Gradient-Border (statt simpler border).
+- **Trust-Badge-Pulse**: erste drei Badges erhalten gestaffelten Fade-Up (Stagger 80ms).
 
-**Mobile:** Logo zentriert über Headline, ca. 200px, gleiche Glow-Behandlung.
+## 2. Section-Übergänge
+- **Wave/Curve-Divider** zwischen Hero → Trust-Strip und Packages → Process (SVG, sehr dezent, in Brand-Farben).
+- **Soft Section-Backgrounds**: alternierende Sections bekommen radiale Akzent-Spots (top-right / bottom-left), nicht ganzflächig.
 
-**Neue Brand-Section** (nach Hero, vor Quick Quote):
-- Volle Breite, dezenter Gradient-Hintergrund (`--gradient-band` invertiert)
-- Logo XXL zentriert (~200px) + Claim „Nairobi's Mattress Hygiene Specialists"
-- Drei Trust-Pillars darunter mit Icons (Shield, Star, MapPin)
+## 3. Karten & Hover (Packages, Fresh Sleep, Most Popular)
+- **Glow-on-Hover**: bei Hover erscheint ein weicher `accent`-Glow hinter der Karte (`::before` mit blur + opacity transition).
+- **Gradient-Border-Highlight** für „Most Popular" + „Fresh Sleep" (Conic-Gradient-Border statt einfarbig).
+- **Icon-Micro-Bounce** beim Hover (scale + rotate auf Lucide-Icons).
 
-## 2. Eyecatcher-Pakete (alle vier)
+## 4. Scroll-Reveals (global)
+- Neue `useInView`-Hook + `.reveal` Utility (`opacity-0 translate-y-4 → 1`), automatisch auf Section-Headlines und Cards angewandt.
+- Sehr dezent (300ms, einmalig) — kein Overload.
 
-**a) Animated Stat-Counter** — neue Section nach Brand-Section
-- 4 Counter mit Count-Up bei Viewport-Eintritt: „500+ Mattresses Cleaned", „4.9★ Rating", „24h WhatsApp Reply", „6 Nairobi Zones"
-- Große Zahlen in `text-primary`, Icons darüber, Hover-Lift
+## 5. Trust-Strip (Section 2)
+- Aktuell statische Inline-Liste → **horizontal scrollende Marquee** (sehr langsam, 40s) auf Mobile, statisch zentriert auf Desktop.
+- Trennstriche zwischen Items als kleine `accent`-Dots.
 
-**b) Process-Timeline** — ersetzt/ergänzt bestehenden „How it works"
-- 4 Schritte horizontal (Desktop) / vertikal (Mobile) mit:
-  - Nummerierte Kreise mit Gradient (`primary → accent`)
-  - Verbindungslinie (gestrichelt, animiert beim Scroll)
-  - Icons: MessageCircle → Calculator → Sparkles → Camera
-  - Hover-Scale + sanfter Pulse auf aktivem Schritt
+## 6. WhatsApp-Floating-Button
+- Glow-Ring intensivieren (zwei Ring-Pulse mit Versatz).
+- Subtle Bounce alle ~6s (auf sich aufmerksam machen, ohne nervig zu werden).
 
-**c) Floating Trust-Badges** im Hero
-- 3–4 Pills die um das Logo „schweben" (absolute positioning, leichte float-Animation mit Delay-Versatz)
-- Inhalte: „M-PESA Accepted", „JIMMY BX7 Pro", „Based in Roysambu", „4.9★ Hosts"
+## 7. Typographie-Feinschliff
+- Headlines: leichter Letter-Tracking + optionaler Gradient-Text auf H2 („Choose Your Mattress Cleaning Package" etc.) — `bg-clip-text` mit `primary → accent`.
+- Preise (`KES 1,999`, `KES 300`) bekommen Tabular-Nums + leichten Glow.
 
-**d) Before/After-Slider** — neue Section vor Testimonials
-- Interaktiver Drag-Slider (vanilla, kein extra package)
-- Platzhalter-Bilder zunächst (Hinweis: User kann später echte Fotos einfügen)
-- Label-Pills „Before" / „After" auf den Bildern
+## 8. Bilder/Frames
+- Bestehende `IllustrationFrame` bekommt zusätzlich einen rotierenden Conic-Ring an der Außenkante (sehr dezent, nur on hover).
+- BeforeAfterSlider-Handle: animierter Pulse-Ring + größerer, runderer Drag-Knopf mit Schatten.
 
-## 3. Visueller Stil: Mittel & lebendig
+## 9. Mikro-Animationen Booking-Section
+- Submit-Button: animierter Sheen (Light-Sweep alle 8s).
+- Form-Inputs: Focus-Ring mit Gradient statt Solid.
 
-Globale Verfeinerungen in `index.css`:
-- Neue Keyframes: `float` (translateY 6s), `glow-pulse` (opacity 4s), `count-up`
-- Subtile Pattern-Overlays (radial dots) hinter Brand- und Stat-Sections
-- Stärkere Gradient-Blobs als Background-Decoration in Hero (zwei große blurred circles in `accent/15` und `primary/10`)
-- Card-Hover: leichter Lift (`hover:-translate-y-1`) + Glow-Border auf Package-Cards
+## Geänderte/neue Dateien
 
-## 4. Technische Umsetzung
-
-**Neue Komponenten:**
-- `src/components/BrandHero.tsx` — Brand-Section mit XXL-Logo
-- `src/components/StatCounter.tsx` — wiederverwendbarer animierter Counter (IntersectionObserver)
-- `src/components/StatsBand.tsx` — Section mit 4 StatCountern
-- `src/components/ProcessTimeline.tsx` — 4-Schritt-Timeline mit Animationen
-- `src/components/BeforeAfterSlider.tsx` — Drag-Vergleichs-Slider
-- `src/components/FloatingBadges.tsx` — Hero-Trust-Pills
-
-**Geänderte Dateien:**
-- `src/pages/Index.tsx` — neue Sections einfügen, Hero-Layout anpassen für großes Logo
-- `tailwind.config.ts` — `float`, `glow-pulse` Keyframes/Animations
-- `src/index.css` — Pattern-Utility, Glow-Halo Helper
-
-**Logo-Asset:** Bestehendes `logoMark` aus `src/assets/brand/` wird verwendet (bereits hochauflösend). Kein neues Asset nötig.
-
-## Reihenfolge der Sections (neu)
-
-```text
-1. Hero (mit XXL-Logo + Floating Badges)
-2. Brand-Section (Logo + Claim + Trust-Pillars)  ← NEU
-3. Stats-Band (4 Counter)                         ← NEU
-4. Opening Offer
-5. Quick Quote
-6. Packages
-7. Process-Timeline                               ← NEU/ersetzt
-8. Equipment
-9. Before/After-Slider                            ← NEU
-10. Testimonials, FAQ, Booking, Footer
+```
+src/index.css                   # neue Keyframes (sweep, conic-spin, glow-ring), .reveal utility, gradient-text helper
+tailwind.config.ts              # neue animations: 'sweep', 'conic-spin', 'reveal'
+src/hooks/use-in-view.ts        # NEU: IntersectionObserver Hook
+src/components/SectionDivider.tsx  # erweitern: Wave-Variante
+src/pages/Index.tsx             # Hero-Mesh, Underline-Sweep, Section-Akzente, Reveal-Klassen
+src/components/FloatingWhatsApp.tsx  # Doppel-Pulse-Ring
+src/components/BeforeAfterSlider.tsx # animierter Handle
+src/components/QuickQuote.tsx / BookingSection.tsx  # Sheen-Button, Gradient-Focus
+src/components/IllustrationFrame.tsx  # optionaler Conic-Ring
 ```
 
-## Was bewusst NICHT gemacht wird
+## Bewusst NICHT
+- Keine erfundenen Stats oder Testimonials.
+- Keine schweren Libraries (Framer Motion etc.) — alles CSS-basiert.
+- Keine Layout-Umstellung, nur Polish.
+- Brand-Name bleibt **FreshDream Mattress Care**.
 
-- Keine Confetti / Glow-Overkill (bleibt premium)
-- Keine echten Before/After-Bilder generiert (Platzhalter, da User echte Kundenfotos hat)
-- Keine Logo-Neugenerierung (bestehendes Asset reicht in XXL)
-- Keine Änderung an Pricing/Logic/Booking-Flow
+Soll ich loslegen?
