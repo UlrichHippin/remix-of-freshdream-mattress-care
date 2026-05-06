@@ -261,7 +261,7 @@ export default function Home() {
           </div>
 
           {/* Fresh Sleep Package */}
-          <div className="card-soft relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+          <div className="card-soft glow-hover relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
               <BadgeCheck className="h-3 w-3" /> Fresh Sleep
             </span>
