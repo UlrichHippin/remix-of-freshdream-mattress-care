@@ -55,21 +55,24 @@ export default function Home() {
           style={{ animation: "mesh-drift 18s ease-in-out infinite reverse" }}
           aria-hidden="true"
         />
-        <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+        <div className="container-tight grid gap-8 py-10 sm:gap-10 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
+          <div className="order-2 lg:order-1 lg:col-span-7">
+            <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft sm:px-3.5 sm:py-1.5 sm:text-[11px]">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
-            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3rem] lg:leading-[1.05]">
-              <span className="relative inline-block">
+            <h1
+              className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-4 sm:text-5xl sm:leading-[1.1] lg:text-[3rem] lg:leading-[1.05]"
+              style={{ textWrap: "balance" as never }}
+            >
+              <span className="relative inline">
                 <span className="text-gradient-brand">Professional Mattress &amp; Upholstery Care</span>
                 <span
-                  className="absolute -bottom-1 left-0 h-[4px] w-full origin-left rounded-full bg-gradient-to-r from-accent via-primary to-accent"
+                  className="absolute -bottom-1 left-0 hidden h-[4px] w-full origin-left rounded-full bg-gradient-to-r from-accent via-primary to-accent sm:block"
                   style={{ animation: "underline-sweep 1.2s ease-out 0.4s both" }}
                   aria-hidden="true"
                 />
-              </span>
-              <span className="block text-primary">in Nairobi</span>
+              </span>{" "}
+              <span className="whitespace-nowrap text-primary">in Nairobi</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Fresh sleep for Airbnb hosts, families and modern homes.
