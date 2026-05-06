@@ -140,7 +140,7 @@ export default function Admin() {
             <div className="mt-4 overflow-x-auto">
               <table className="w-full text-sm">
                 <thead className="text-left text-xs uppercase text-muted-foreground">
-                  <tr><th className="py-2 pr-3">When</th><th className="py-2 pr-3">Client</th><th className="py-2 pr-3">Service</th><th className="py-2 pr-3">Area</th><th className="py-2 pr-3">Status</th><th className="py-2 pr-3">Actions</th></tr>
+                  <tr><th className="py-2 pr-3">When</th><th className="py-2 pr-3">Client</th><th className="py-2 pr-3">Service</th><th className="py-2 pr-3">Area</th><th className="py-2 pr-3">Price (KES)</th><th className="py-2 pr-3">Status</th><th className="py-2 pr-3">Actions</th></tr>
                 </thead>
                 <tbody>
                   {upcoming.map((b) => (
