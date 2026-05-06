@@ -23,7 +23,7 @@ export default function Services() {
           <div className="lg:col-span-7">
             <p className="eyebrow">Services</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-bold text-primary sm:text-5xl">
-              Specialist mattress &amp; upholstery services for short-stay properties.
+              Specialist mattress hygiene services for short-stay properties.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
               Choose the service that fits your situation. Not sure? WhatsApp us with photos and we'll
