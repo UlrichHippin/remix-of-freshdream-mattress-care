@@ -88,10 +88,10 @@ export default function Home() {
                 <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
               <Link
-                to="/services"
+                to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
               >
-                Explore services <ArrowRight className="h-4 w-4" />
+                View Prices <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
