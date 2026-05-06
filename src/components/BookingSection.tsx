@@ -84,6 +84,7 @@ export default function BookingSection() {
       `Size: ${d.size}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
+      (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
     toast.success("Opening WhatsApp to send your booking request…");
