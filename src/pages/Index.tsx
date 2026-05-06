@@ -495,7 +495,7 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: Wind, t: "Powerful Suction", d: "Deep dust and allergen pickup from mattress fibers." },
+              { i: Wind, t: "Powerful Suction", d: "Helps remove dust, hair, dander and fine particles from the mattress surface." },
               { i: Zap, t: "Vibration", d: "Loosens trapped dust and debris from inside the mattress." },
               { i: Sun, t: "UV-C Support", d: "Surface hygiene support during the cleaning pass." },
               { i: Droplets, t: "Warm-Air Freshness", d: "Helps freshen the mattress after the cleaning pass." },
