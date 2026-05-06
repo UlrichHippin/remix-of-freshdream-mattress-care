@@ -153,8 +153,7 @@ export default function Home() {
                   Opening Offer: Freshen Up from KES 1,999
                 </h2>
                 <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-                  Limited launch offer for first-time customers in selected Nairobi areas. Ideal for
-                  Airbnb hosts, guest rooms and homes that need a fast dry mattress refresh.
+                  First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
