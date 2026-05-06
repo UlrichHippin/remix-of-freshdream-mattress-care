@@ -149,8 +149,8 @@ export default function BookingSection() {
                   {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div>
-                  <Label htmlFor="bk-phone">Phone Number *</Label>
-                  <Input id="bk-phone" inputMode="tel" value={form.phone} maxLength={25}
+                  <Label htmlFor="bk-phone">Phone / WhatsApp number *</Label>
+                  <Input id="bk-phone" inputMode="tel" placeholder="e.g. +254 7XX XXX XXX" value={form.phone} maxLength={25}
                     onChange={(e) => update("phone", e.target.value)} aria-invalid={!!errors.phone} />
                   {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
                 </div>
