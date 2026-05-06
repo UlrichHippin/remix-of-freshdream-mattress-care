@@ -425,6 +425,45 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* Location Fee */}
+      <section id="location-fee" className="section">
+        <div className="container-tight max-w-4xl">
+          <p className="eyebrow"><MapPin className="h-3.5 w-3.5" /> Transport</p>
+          <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">{locationFee.title}</h2>
+          <p className="mt-3 text-sm text-muted-foreground">{locationFee.intro}</p>
+          <p className="mt-3 rounded-xl bg-primary-soft p-4 text-sm font-medium text-primary">
+            {locationFee.fairness}
+          </p>
+
+          <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+            <table className="w-full text-left text-sm">
+              <thead className="bg-surface text-xs uppercase tracking-wider text-muted-foreground">
+                <tr>
+                  <th className="p-4 font-semibold">Area</th>
+                  <th className="p-4 font-semibold">Examples</th>
+                  <th className="p-4 font-semibold">Location Fee</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {locationFee.zones.map((z) => (
+                  <tr key={z.area} className="align-top">
+                    <td className="p-4 font-semibold text-primary">{z.area}</td>
+                    <td className="p-4 text-muted-foreground">{z.examples}</td>
+                    <td className="p-4 font-bold text-primary">{z.fee}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="mt-4 text-xs italic text-muted-foreground">{locationFee.note}</p>
+          <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-4 text-sm text-foreground">
+            <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-whatsapp" />
+            <span>{locationFee.bookingHint}</span>
+          </p>
+        </div>
+      </section>
+
       {/* Notes */}
       <section className="section bg-surface">
         <div className="container-tight max-w-3xl">
