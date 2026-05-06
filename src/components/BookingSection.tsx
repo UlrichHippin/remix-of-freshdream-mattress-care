@@ -129,6 +129,10 @@ export default function BookingSection() {
             <p className="mt-2 text-sm text-muted-foreground">
               Use the booking form to send your mattress hygiene cleaning request. Sofa and rug cleaning is available on request — please send photos on WhatsApp.
             </p>
+            <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
+              <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
+              <span>Send your location pin on WhatsApp so we can confirm the exact location fee before booking.</span>
+            </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
               <div className="grid gap-4 sm:grid-cols-2">
