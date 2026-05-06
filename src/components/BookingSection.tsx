@@ -187,6 +187,28 @@ export default function BookingSection() {
                     </SelectContent>
                   </Select>
                   {errors.size && <p className="mt-1 text-xs text-destructive">{errors.size}</p>}
+                  {form.item === "Multiple mattresses" && (
+                    <p className="mt-1.5 text-xs text-muted-foreground">
+                      Different sizes? Choose <strong>Mixed sizes</strong> and list each size in Notes.
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Label htmlFor="bk-qty">Number of mattresses *</Label>
+                  <Input
+                    id="bk-qty"
+                    type="number"
+                    inputMode="numeric"
+                    min={1}
+                    max={20}
+                    value={form.quantity}
+                    onChange={(e) => update("quantity", Math.max(1, Math.min(20, parseInt(e.target.value || "1", 10))))}
+                    aria-invalid={!!errors.quantity}
+                  />
+                  {errors.quantity && <p className="mt-1 text-xs text-destructive">{errors.quantity}</p>}
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    Location fee is charged once per visit — multiple mattresses reduce cost per mattress.
+                  </p>
                 </div>
               </div>
 
