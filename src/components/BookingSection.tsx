@@ -269,7 +269,7 @@ export default function BookingSection() {
               </label>
 
               <div>
-                <Label htmlFor="bk-notes">Notes</Label>
+                <Label htmlFor="bk-notes">Special notes</Label>
                 <Textarea id="bk-notes" rows={3} value={form.notes} maxLength={500}
                   placeholder="Anything we should know? (stains, access, timing…)"
                   onChange={(e) => update("notes", e.target.value)} />
