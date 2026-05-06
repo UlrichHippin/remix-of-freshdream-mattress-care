@@ -281,7 +281,7 @@ export default function QuickQuote() {
               </div>
 
               <p className="mt-3 text-xs text-muted-foreground">
-                Location fee is charged once per visit, not per mattress. This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
+                Location fee is charged once per visit, not per mattress, and may be waived based on your total order value (cleaning + add-ons). This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
               </p>
 
               {ready ? (
