@@ -101,6 +101,7 @@ export default function Pricing() {
                   </a>
                 </div>
                 <p className="mt-4 text-xs italic text-muted-foreground">{openingOffer.smallPrint}</p>
+                <p className="mt-1 text-xs italic text-muted-foreground">Location fee may apply unless waived by order value and service area.</p>
               </div>
               <div className="md:col-span-5">
                 <ul className="grid gap-2">
