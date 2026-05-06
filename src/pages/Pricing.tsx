@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Bed, Sofa, Sparkles, Info, Check, ArrowRight, ShieldCheck, MessageCircle, Tag, Building2, Repeat, Droplets, BadgeCheck } from "lucide-react";
+import { Bed, Sofa, Sparkles, Info, Check, ArrowRight, ShieldCheck, MessageCircle, Tag, Building2, Repeat, Droplets, BadgeCheck, MapPin } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
