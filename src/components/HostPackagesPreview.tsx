@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, BedDouble, Building2, Star, BadgeCheck, Sparkles,
+  ArrowRight, BedDouble, Star, BadgeCheck, Sparkles,
   Repeat2, Zap, FileCheck2, AlertTriangle, Building2, Filter,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
