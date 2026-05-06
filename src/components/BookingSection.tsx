@@ -254,6 +254,8 @@ export default function BookingSection() {
                 </Select>
                 {errors.time && <p className="mt-1 text-xs text-destructive">{errors.time}</p>}
               </div>
+
+              <label className="flex items-start gap-3 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4 cursor-pointer transition-colors hover:bg-accent-soft/60">
                 <Checkbox
                   id="bk-sleeparea"
                   checked={form.sleepAreaAddOn}
