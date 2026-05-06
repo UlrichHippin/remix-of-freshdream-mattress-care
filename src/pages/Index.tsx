@@ -550,6 +550,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 11b. BEFORE / AFTER */}
+      <BeforeAfterSlider />
+
       {/* 12. FAQ */}
       <section className="section bg-surface">
         <div className="container-tight grid gap-10 lg:grid-cols-[1fr_2fr]">
