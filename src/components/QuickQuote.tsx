@@ -6,27 +6,29 @@ import {
 } from "@/components/ui/select";
 import { whatsappLink } from "@/config/site";
 
-type PackageKey = "freshen" | "standard" | "intensive" | "urine";
+type PackageKey = "opening" | "freshen" | "standard" | "intensive" | "urine";
 type SizeKey = "single" | "double" | "queen" | "king";
 type QtyKey = "1" | "2" | "3" | "4+";
 type ZoneKey = "roysambu" | "north" | "central" | "west" | "south" | "far";
 
 const PACKAGES: { key: PackageKey; label: string }[] = [
-  { key: "freshen", label: "Freshen Up" },
-  { key: "standard", label: "Standard Cleaning" },
+  { key: "opening",   label: "Opening Offer / Freshen Up Launch — first-time customers only" },
+  { key: "freshen",   label: "Freshen Up" },
+  { key: "standard",  label: "Standard Cleaning" },
   { key: "intensive", label: "Intensive Stain Treatment" },
-  { key: "urine", label: "Urine & Odor Reduction / quote required" },
+  { key: "urine",     label: "Urine & Odor Reduction / quote required" },
 ];
 
 const SIZES: { key: SizeKey; label: string }[] = [
   { key: "single", label: "Single" },
   { key: "double", label: "Double" },
-  { key: "queen", label: "Queen" },
-  { key: "king", label: "King" },
+  { key: "queen",  label: "Queen" },
+  { key: "king",   label: "King" },
 ];
 
 // Base prices (KES) per package x size — aligned with src/data/packages.ts
 const BASE: Record<PackageKey, Record<SizeKey, number>> = {
+  opening:   { single: 1999, double: 2499, queen: 2999, king: 3499 },
   freshen:   { single: 2500, double: 3000, queen: 3500, king: 4000 },
   standard:  { single: 3500, double: 4000, queen: 4500, king: 5000 },
   intensive: { single: 4500, double: 5000, queen: 5500, king: 6500 },
@@ -34,19 +36,28 @@ const BASE: Record<PackageKey, Record<SizeKey, number>> = {
 };
 
 const QTY_OPTIONS: { key: QtyKey; count: number; label: string }[] = [
-  { key: "1", count: 1, label: "1" },
-  { key: "2", count: 2, label: "2" },
-  { key: "3", count: 3, label: "3" },
+  { key: "1",  count: 1, label: "1" },
+  { key: "2",  count: 2, label: "2" },
+  { key: "3",  count: 3, label: "3" },
   { key: "4+", count: 4, label: "4+" },
 ];
 
-const ZONES: { key: ZoneKey; label: string; fee: number }[] = [
-  { key: "roysambu", label: "Nearby Roysambu Area", fee: 0 },
-  { key: "north",    label: "North Nairobi", fee: 500 },
-  { key: "central",  label: "Central Nairobi", fee: 800 },
-  { key: "west",     label: "West / Premium Areas", fee: 1200 },
-  { key: "south",    label: "South / East Nairobi", fee: 1000 },
-  { key: "far",      label: "Far Nairobi / Outside Nairobi", fee: 1800 },
+type ZoneDef = {
+  key: ZoneKey;
+  label: string;
+  fee: number;            // base location fee (0 if custom)
+  waiveAt?: number;       // subtotal threshold for automatic waive
+  discountAt?: number;    // subtotal threshold where discount possible (no auto waive)
+  custom?: boolean;       // confirmed on WhatsApp
+};
+
+const ZONES: ZoneDef[] = [
+  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2500 },
+  { key: "north",    label: "North Nairobi",                fee: 500,  waiveAt: 5000 },
+  { key: "central",  label: "Central Nairobi",              fee: 800,  waiveAt: 8000 },
+  { key: "west",     label: "West / Premium Areas",         fee: 1200, discountAt: 12000 },
+  { key: "south",    label: "South / East Nairobi",         fee: 1500, discountAt: 12000 },
+  { key: "far",      label: "Far Nairobi / Outside Nairobi", fee: 0,   custom: true },
 ];
 
 const ADDON_PRICE = 300;
@@ -65,25 +76,57 @@ export default function QuickQuote() {
   const zoneObj = ZONES.find((z) => z.key === zone);
   const qtyObj = QTY_OPTIONS.find((q) => q.key === qty)!;
 
-  const { total, ready } = useMemo(() => {
-    if (!pkg || !size || !zone) return { total: 0, ready: false };
-    const base = BASE[pkg][size];
-    const mattresses = base * qtyObj.count;
-    const addonTotal = addon === "yes" ? ADDON_PRICE * qtyObj.count : 0;
-    const fee = zoneObj?.fee ?? 0;
-    return { total: mattresses + addonTotal + fee, ready: true };
-  }, [pkg, size, qty, addon, zone, qtyObj.count, zoneObj?.fee]);
-
+  const ready = !!pkg && !!size && !!zone;
   const isUrine = pkg === "urine";
-  const showEstimate = ready && !isUrine && qty !== "4+";
+  const isCustomQty = qty === "4+";
+  const isCustomZone = !!zoneObj?.custom;
+  const isOpening = pkg === "opening";
+
+  const calc = useMemo(() => {
+    if (!ready || isUrine || isCustomQty) {
+      return { cleaning: 0, addonTotal: 0, fee: 0, feeLabel: "", total: 0, showTotal: false };
+    }
+    const cleaning = BASE[pkg as PackageKey][size as SizeKey] * qtyObj.count;
+    const addonTotal = addon === "yes" ? ADDON_PRICE * qtyObj.count : 0;
+    const subtotal = cleaning + addonTotal;
+
+    let fee = 0;
+    let feeLabel = "";
+    if (zoneObj?.custom) {
+      feeLabel = "confirmed on WhatsApp";
+    } else if (zoneObj?.waiveAt && subtotal >= zoneObj.waiveAt) {
+      fee = 0;
+      feeLabel = "waived";
+    } else {
+      fee = zoneObj?.fee ?? 0;
+      feeLabel = fmt(fee);
+      if (zoneObj?.discountAt && subtotal >= zoneObj.discountAt) {
+        feeLabel = `${fmt(fee)} (discount possible)`;
+      }
+    }
+    const total = cleaning + addonTotal + fee;
+    return { cleaning, addonTotal, fee, feeLabel, total, showTotal: !zoneObj?.custom };
+  }, [ready, isUrine, isCustomQty, pkg, size, qtyObj.count, addon, zoneObj]);
 
   const totalLabel = !ready
     ? "Choose options above"
     : isUrine
       ? "Quote required — confirmed on WhatsApp"
-      : qty === "4+"
+      : isCustomQty
         ? "Custom quote on WhatsApp"
-        : `from ${fmt(total)}`;
+        : isCustomZone
+          ? "Custom quote — confirmed on WhatsApp"
+          : `from ${fmt(calc.total)}`;
+
+  const cleaningLine = ready && !isUrine && !isCustomQty ? fmt(calc.cleaning) : "-";
+  const addonLine = addon === "yes"
+    ? (ready && !isUrine && !isCustomQty ? fmt(calc.addonTotal) : `Yes (+ KES 300 each)`)
+    : "No";
+  const feeLine = !ready
+    ? "-"
+    : isUrine || isCustomQty
+      ? "confirmed on WhatsApp"
+      : calc.feeLabel;
 
   const message =
     `Hello FreshDream Mattress Care,\n\n` +
@@ -91,9 +134,11 @@ export default function QuickQuote() {
     `Package: ${pkgLabel || "-"}\n` +
     `Mattress size: ${sizeLabel || "-"}\n` +
     `Number of mattresses: ${qtyObj.label}\n` +
-    `Sleep Area Dust Refresh: ${addon === "yes" ? "Yes (+ KES 300 each)" : "No"}\n` +
+    `Cleaning subtotal: ${cleaningLine}\n` +
+    `Sleep Area Dust Refresh: ${addonLine}\n` +
     `Location zone: ${zoneObj?.label || "-"}\n` +
-    `Estimated total: ${showEstimate ? `from ${fmt(total)}` : isUrine ? "Quote required" : qty === "4+" ? "Custom quote required" : "-"}\n` +
+    `Location fee: ${feeLine}\n` +
+    `Estimated total: ${ready && !isUrine && !isCustomQty && !isCustomZone ? `from ${fmt(calc.total)}` : totalLabel}\n` +
     `Preferred date:\n` +
     `Location pin:\n` +
     `Photos:\n\n` +
@@ -121,6 +166,11 @@ export default function QuickQuote() {
                     {PACKAGES.map((p) => <SelectItem key={p.key} value={p.key}>{p.label}</SelectItem>)}
                   </SelectContent>
                 </Select>
+                {isOpening && (
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    First-time customers only. Limited launch period. Location fee may apply unless waived by order value and service area.
+                  </p>
+                )}
               </div>
 
               <div>
@@ -183,7 +233,14 @@ export default function QuickQuote() {
                   <SelectContent>
                     {ZONES.map((z) => (
                       <SelectItem key={z.key} value={z.key}>
-                        {z.label}{z.fee > 0 ? ` (+ ${fmt(z.fee)} location fee)` : " (no extra fee)"}
+                        {z.label}
+                        {z.custom
+                          ? " (custom quote)"
+                          : z.waiveAt
+                            ? ` (KES ${z.fee} — waived from ${fmt(z.waiveAt)})`
+                            : z.discountAt
+                              ? ` (KES ${z.fee} — discount possible from ${fmt(z.discountAt)})`
+                              : ` (KES ${z.fee})`}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -193,30 +250,56 @@ export default function QuickQuote() {
 
             {/* Result */}
             <div className="mt-6 rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary-soft to-accent-soft/40 p-5 sm:p-6">
-              <div className="flex flex-wrap items-center justify-between gap-3">
+              {/* Breakdown */}
+              <dl className="grid gap-2 text-sm">
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Cleaning subtotal</dt>
+                  <dd className="font-semibold text-primary">{cleaningLine}</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Sleep Area Dust Refresh</dt>
+                  <dd className="font-semibold text-primary">{addonLine}</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-muted-foreground">Location fee</dt>
+                  <dd className="font-semibold text-primary">{feeLine}</dd>
+                </div>
+              </dl>
+
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-4">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Estimated total</p>
                   <p className="mt-1 text-2xl font-extrabold text-primary sm:text-3xl">
-                    {ready
-                      ? (showEstimate ? `from ${fmt(total)}` : totalLabel)
-                      : "Choose options above"}
+                    {totalLabel}
                   </p>
                 </div>
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
                   <Calculator className="h-3.5 w-3.5 text-accent" /> KES estimate
                 </span>
               </div>
+
               <p className="mt-3 text-xs text-muted-foreground">
-                This is an estimate. Final price, location fee and available slot are confirmed on WhatsApp after receiving your location pin.
+                Location fee is charged once per visit, not per mattress. This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
               </p>
-              <a
-                href={whatsappLink(message)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-all hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
-              >
-                <MessageCircle className="h-5 w-5" /> Continue on WhatsApp
-              </a>
+
+              {ready ? (
+                <a
+                  href={whatsappLink(message)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-all hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
+                >
+                  <MessageCircle className="h-5 w-5" /> Continue on WhatsApp
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="mt-4 inline-flex h-12 w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-muted px-6 text-base font-semibold text-muted-foreground sm:w-auto"
+                >
+                  <MessageCircle className="h-5 w-5" /> Choose options first
+                </button>
+              )}
             </div>
           </div>
         </div>
