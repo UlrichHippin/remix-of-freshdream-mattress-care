@@ -156,6 +156,42 @@ export default function Admin() {
                       </td>
                       <td className="py-3 pr-3">{b.service}</td>
                       <td className="py-3 pr-3">{b.area}{b.property_type ? ` · ${b.property_type}` : ""}</td>
+                      <td className="py-3 pr-3 whitespace-nowrap">
+                        <div className="flex flex-col gap-1.5">
+                          <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            Est.
+                            <Input
+                              type="number"
+                              min={0}
+                              defaultValue={b.estimated_price_kes ?? ""}
+                              onBlur={(e) => {
+                                const v = e.target.value;
+                                if ((b.estimated_price_kes ?? "") !== v && !(b.estimated_price_kes == null && v === "")) {
+                                  savePrice(b.id, "estimated_price_kes", v);
+                                }
+                              }}
+                              className="h-8 w-24 text-xs"
+                              placeholder="—"
+                            />
+                          </label>
+                          <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            Final
+                            <Input
+                              type="number"
+                              min={0}
+                              defaultValue={b.final_price_kes ?? ""}
+                              onBlur={(e) => {
+                                const v = e.target.value;
+                                if ((b.final_price_kes ?? "") !== v && !(b.final_price_kes == null && v === "")) {
+                                  savePrice(b.id, "final_price_kes", v);
+                                }
+                              }}
+                              className="h-8 w-24 text-xs"
+                              placeholder="—"
+                            />
+                          </label>
+                        </div>
+                      </td>
                       <td className="py-3 pr-3">
                         <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${b.status === "confirmed" ? "bg-accent-soft text-accent" : b.status === "declined" || b.status === "cancelled" ? "bg-muted text-muted-foreground" : "bg-primary-soft text-primary"}`}>{b.status}</span>
                       </td>
