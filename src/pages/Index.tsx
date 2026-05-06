@@ -148,6 +148,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2b. BRAND HERO */}
+      <BrandHero />
+
+      {/* 2c. STATS BAND */}
+      <StatsBand />
+
       {/* 3. OPENING OFFER */}
       <section className="border-b border-border bg-accent-soft/40">
         <div className="container-tight py-10 sm:py-12">
