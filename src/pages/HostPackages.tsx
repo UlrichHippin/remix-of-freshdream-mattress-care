@@ -40,7 +40,7 @@ const packages = [
     summary:
       "For growing hosts and small operators who need consistent quality across multiple listings.",
     bullets: [
-      "Recurring mattress + upholstery care",
+      "Recurring mattress hygiene care + optional add-ons",
       "Stain & odor treatment included",
       "Unit-by-unit service history",
       "Same-day support where possible",
@@ -58,7 +58,7 @@ const packages = [
     bullets: [
       "Tailored recurring schedule",
       "Priority emergency response",
-      "Bundled mattress + upholstery + odor",
+      "Bundled mattress hygiene care + optional add-ons",
       "Portfolio-wide reporting & photos",
       "Account contact for the team",
     ],
@@ -69,7 +69,7 @@ const packages = [
 
 const includes = [
   { i: Bed, t: "Mattress cleaning" },
-  { i: Sofa, t: "Upholstery / sofa cleaning" },
+  { i: Sofa, t: "Upholstery / sofa (available on request)" },
   { i: Droplets, t: "Stain & odor treatment" },
   { i: Camera, t: "Before / after photos" },
   { i: CalendarClock, t: "Recurring schedule" },

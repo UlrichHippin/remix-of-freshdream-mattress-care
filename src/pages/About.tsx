@@ -11,7 +11,7 @@ export default function About() {
   return (
     <PageLayout
       title="About — FreshDream Mattress Care"
-      description="A specialist mattress and upholstery cleaning brand in Nairobi, built around Airbnb hosts and short-stay properties. Based in Roysambu."
+      description="A specialist mattress hygiene cleaning brand in Nairobi, built around Airbnb hosts and short-stay properties. Based in Roysambu."
     >
       {/* Hero with illustration */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
@@ -43,7 +43,7 @@ export default function About() {
               workflow. We are.
             </p>
             <p className="mt-3 text-muted-foreground">
-              We focus on mattresses and upholstery — the parts of a property that decide whether a
+              We focus on mattress hygiene cleaning — the part of a property that decides whether a
               guest sleeps well — and back every job with photo documentation and honest result
               communication. No exaggerated promises. No generic "all-in-one" pitch.
             </p>
