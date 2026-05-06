@@ -4,19 +4,23 @@ import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
   FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
-  Send, MessageCircle, Wand2, ImageDown, BedDouble, Star, Check, Package, Wind, Sun,
+  MessageCircle, BedDouble, Star, Check, Package, Wind, Sun,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
+import BrandHero from "@/components/BrandHero";
+import StatsBand from "@/components/StatsBand";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
 import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
-import heroImg from "@/assets/hero-bed.jpg";
 import heroBackground from "@/assets/brand/hero-background.jpg";
+import logoMark from "@/assets/brand/logo-main.png";
 
 import logoFull from "@/assets/brand/logo-footer.png";
 
@@ -94,19 +98,34 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-5">
-            <figure className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-lift">
+            <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
+              {/* Glow halo */}
+              <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
+              <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
+
+              {/* Big logo */}
               <img
-                src={heroImg}
-                alt="Professional mattress cleaning in Nairobi"
-                width={1200}
-                height={900}
-                loading="eager"
-                className="aspect-[4/3] h-full w-full object-cover"
+                src={logoMark}
+                alt={site.name}
+                width={520}
+                height={520}
+                className="relative h-full w-full max-h-[420px] max-w-[420px] animate-float object-contain drop-shadow-2xl"
               />
-              <figcaption className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ring-1 ring-border backdrop-blur">
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> Roysambu, Nairobi
-              </figcaption>
-            </figure>
+
+              {/* Floating trust badges */}
+              <span className="absolute left-0 top-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.4s" }}>
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro
+              </span>
+              <span className="absolute right-0 top-1/4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "1.2s" }}>
+                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> M-PESA
+              </span>
+              <span className="absolute -bottom-2 left-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "2s" }}>
+                <Star className="h-3.5 w-3.5 text-accent" /> 4.9★ Hosts
+              </span>
+              <span className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.8s" }}>
+                <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -128,6 +147,12 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* 2b. BRAND HERO */}
+      <BrandHero />
+
+      {/* 2c. STATS BAND */}
+      <StatsBand />
 
       {/* 3. OPENING OFFER */}
       <section className="border-b border-border bg-accent-soft/40">
@@ -430,40 +455,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. HOW TO BOOK */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow">How to book</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Four simple steps.</h2>
-          </div>
-          <div className="relative mt-12">
-            <div className="absolute left-0 right-0 top-7 hidden h-0.5 origin-left bg-gradient-to-r from-accent/30 via-accent to-accent/30 md:block animate-progress-line" aria-hidden="true" />
-            <ol className="relative grid gap-6 md:grid-cols-4">
-              {[
-                { icon: Send, t: "Choose your package", d: "Pick your mattress cleaning package (Freshen Up, Standard, Intensive Stain or Urine & Odor)." },
-                { icon: MessageCircle, t: "WhatsApp the details", d: "Send your mattress size, location pin and preferred date on WhatsApp." },
-                { icon: Wand2, t: "We confirm price & slot", d: "FreshDream confirms final price, location fee and an available time slot." },
-                { icon: ImageDown, t: "Service & payment", d: "Service is completed. Payment is made after service unless a deposit is requested." },
-              ].map((s, i) => (
-                <li key={s.t} className="relative flex flex-col items-center text-center">
-                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lift ring-4 ring-background">
-                    <s.icon className="h-6 w-6" />
-                    <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground ring-2 ring-background">
-                      {i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-semibold text-primary">{s.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 rounded-xl bg-primary-soft p-4 text-center text-sm font-medium text-primary">
-              Booking is only confirmed after FreshDream replies on WhatsApp.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* 7. PROCESS TIMELINE */}
+      <ProcessTimeline />
+      <p className="container-tight -mt-6 mb-6 rounded-xl bg-primary-soft p-4 text-center text-sm font-medium text-primary">
+        Booking is only confirmed after FreshDream replies on WhatsApp.
+      </p>
 
       {/* 8. LOCATION FEE BADGE */}
       <section className="section">
@@ -553,6 +549,9 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      {/* 11b. BEFORE / AFTER */}
+      <BeforeAfterSlider />
 
       {/* 12. FAQ */}
       <section className="section bg-surface">
