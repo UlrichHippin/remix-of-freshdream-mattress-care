@@ -348,7 +348,7 @@ export const openingOffer = {
     { label: "King Mattress", price: "KES 3,499" },
   ],
   smallPrint:
-    "Limited launch offer for first-time customers only. Available for the first 30 customers or during our launch period only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
+    "First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
   cta: "Book Opening Offer on WhatsApp",
