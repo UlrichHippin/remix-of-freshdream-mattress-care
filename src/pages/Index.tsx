@@ -462,8 +462,8 @@ export default function Home() {
               </h2>
               <p className="mt-3 text-muted-foreground">
                 We work the way hosts actually operate: tight check-ins, recurring units, and zero room
-                for guesswork. Honest assessments, photo documentation, and controlled-moisture cleaning
-                to help reduce drying time.
+                for guesswork. Honest assessments, photo documentation, and a dry mattress hygiene
+                treatment with targeted spot support where suitable — no soaking, no water extraction.
               </p>
             </div>
             <div className="lg:col-span-5">
