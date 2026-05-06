@@ -52,7 +52,7 @@ type ZoneDef = {
 };
 
 const ZONES: ZoneDef[] = [
-  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2500 },
+  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2499 },
   { key: "north",    label: "North Nairobi",                fee: 500,  waiveAt: 5000 },
   { key: "central",  label: "Central Nairobi",              fee: 800,  waiveAt: 8000 },
   { key: "west",     label: "West / Premium Areas",         fee: 1200, discountAt: 12000 },
