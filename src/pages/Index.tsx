@@ -81,12 +81,10 @@ export default function Home() {
             {/* Trust badges in hero */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "Airbnb Friendly",
-                "Same-Day Requests",
-                "M-PESA Accepted",
-                "Roysambu Based",
-                "Nairobi Service Area",
-                "No Drying Time (Dry Care)",
+                "WhatsApp booking",
+                "M-PESA accepted",
+                "Based in Roysambu",
+                "Dry care — no soaking",
               ].map((b, i) => (
                 <li
                   key={b}
