@@ -56,7 +56,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "", sleepAreaAddOn: false,
+    name: "", phone: "", pkg: "", item: "", size: "", quantity: 1, location: "", date: undefined, notes: "", sleepAreaAddOn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
