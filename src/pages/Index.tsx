@@ -81,12 +81,10 @@ export default function Home() {
             {/* Trust badges in hero */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "Airbnb Friendly",
-                "Same-Day Requests",
-                "M-PESA Accepted",
-                "Roysambu Based",
-                "Nairobi Service Area",
-                "No Drying Time (Dry Care)",
+                "WhatsApp booking",
+                "M-PESA accepted",
+                "Based in Roysambu",
+                "Dry care — no soaking",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -151,7 +149,7 @@ export default function Home() {
                 alt="FreshDream Mattress Care logo"
                 width={920}
                 height={920}
-                className="relative w-[150px] animate-float object-contain opacity-95 drop-shadow-2xl xs:w-[180px] sm:w-[240px] lg:w-[320px] xl:w-[340px]"
+                className="relative w-[220px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
               />
               {/* Reflection */}
               <span
@@ -163,67 +161,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. TRUST BADGES */}
-      <section className="border-b border-border bg-background">
-        <div className="container-tight flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 text-sm text-primary">
-          {[
-            { i: MessageSquareText, t: "WhatsApp booking" },
-            { i: BadgeCheck, t: "M-PESA accepted" },
-            { i: MapPin, t: "Based in Roysambu" },
-            { i: Droplets, t: "Dry process — no soaking" },
-            { i: ShieldCheck, t: "Honest stain assessment" },
-            { i: Camera, t: "Before/after photos" },
-          ].map((it) => (
-            <span key={it.t} className="inline-flex items-center gap-1.5 font-medium">
-              <it.i className="h-4 w-4 text-accent" /> {it.t}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. OPENING OFFER — price list reference (CTA already in hero) */}
-      <section className="border-b border-border bg-accent-soft/30">
-        <div className="container-tight py-8 sm:py-10">
-          <div className="card-soft relative overflow-hidden border border-accent/30 p-5 sm:p-6">
-            <div className="grid gap-4 md:grid-cols-12 md:items-center">
-              <div className="md:col-span-5">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                  Launch Offer · By size
-                </span>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  First-time customers, selected Nairobi areas. Location fee may apply.
-                </p>
-              </div>
-              <ul className="md:col-span-7 grid gap-1.5 text-sm sm:grid-cols-2">
-                {openingOffer.prices.map((p, idx) => (
-                  <li
-                    key={p.label}
-                    className={`flex items-center justify-between rounded-lg px-3 py-2 ${
-                      idx === 0 ? "bg-primary text-primary-foreground" : "bg-surface"
-                    }`}
-                  >
-                    <span className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.label}</span>
-                    <span className={`text-sm font-bold nums ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3b. QUICK QUOTE */}
+      {/* QUICK QUOTE — directly after hero */}
       <QuickQuote />
 
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
-          {/* Most Popular */}
+          {/* Recommended */}
           <div className="card-soft glow-hover relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
             <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Star className="h-3 w-3" /> Most Popular
+              <Star className="h-3 w-3" /> Recommended
             </span>
-            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Customer Favorite</p>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recommended starting point</p>
             <h2 className="mt-2 text-2xl font-bold text-primary sm:text-3xl">Standard Mattress Hygiene</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Best for homes, Airbnb rooms and serviced apartments.
@@ -233,7 +182,7 @@ export default function Home() {
               Recommended with Sleep Area Dust Refresh + KES 300.
             </p>
             <a
-              href={whatsappLink("Hello, I'd like to book the Most Popular mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
+              href={whatsappLink("Hello, I'd like to book the Recommended mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
@@ -298,7 +247,7 @@ export default function Home() {
               >
                 {i === 1 && (
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                    <Star className="h-2.5 w-2.5" /> Most Popular
+                    <Star className="h-2.5 w-2.5" /> Recommended
                   </span>
                 )}
                 <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-24" : ""}`}>{p.title}</h3>
@@ -547,7 +496,7 @@ export default function Home() {
           <div className="lg:col-span-7">
             <p className="eyebrow"><BedDouble className="h-3.5 w-3.5" /> For Airbnb Hosts</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Airbnb Mattress Care for Better Guest Reviews
+              Airbnb Mattress Care for Guest-Ready Rooms
             </h2>
             <p className="mt-3 text-muted-foreground">
               FreshDream Mattress Care helps Airbnb hosts keep mattresses, sofas and sleeping areas fresh, hygienic and guest-ready.
@@ -583,7 +532,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recurring plan</p>
               <h3 className="mt-2 text-xl font-bold text-primary">Keep every guest stay fresh</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Set up monthly or quarterly mattress hygiene visits to maintain top-rated guest reviews. Send your unit details on WhatsApp.
+                Set up monthly or quarterly mattress hygiene visits to keep rooms fresher between stays. Send your unit details on WhatsApp.
               </p>
             </div>
           </aside>

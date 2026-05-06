@@ -177,7 +177,7 @@ export default function HostPackages() {
               >
                 {p.featured && (
                   <span className="absolute right-5 top-5 inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                    <Star className="h-3 w-3" /> Most popular
+                    <Star className="h-3 w-3" /> Recommended
                   </span>
                 )}
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary-soft/50" aria-hidden="true" />
