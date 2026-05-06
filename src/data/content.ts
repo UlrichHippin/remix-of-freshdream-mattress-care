@@ -186,7 +186,56 @@ export const faqs: { q: string; a: string }[] = [
     q: "Is the KES 300 Sleep Area Dust Refresh full room cleaning?",
     a: "No. It is a quick hygiene add-on around the sleeping area only. It includes vacuuming around the bed, reachable under-bed areas, floor edges near the bed, and light dust removal from the bed frame/headboard. It does not include mopping, full room cleaning, bathroom cleaning, laundry, carpet deep cleaning, stain removal, or moving heavy furniture.",
   },
+  {
+    q: "Do you charge a transport or location fee?",
+    a: "Yes. FreshDream Mattress Care is based in Roysambu, Nairobi. A small location fee may apply depending on your area, distance, traffic, parking and access. The fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies. Nearby areas may qualify for reduced or free location fee depending on the order value. The final fee is always confirmed before booking after receiving your WhatsApp location pin.",
+  },
 ];
+
+// Location Fee — area-based transport fee, confirmed before booking
+export const locationFee = {
+  title: "Location Fee",
+  intro:
+    "FreshDream Mattress Care is based in Roysambu, Nairobi. A location fee may apply depending on your area, distance, traffic, parking and access. The final location fee is always confirmed before booking after receiving your WhatsApp location pin.",
+  fairness:
+    "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
+  zones: [
+    {
+      area: "Nearby Roysambu Area",
+      examples: "Roysambu, Zimmerman, Kasarani, Mirema, TRM",
+      fee: "KES 300 or free from qualifying order value",
+    },
+    {
+      area: "North Nairobi",
+      examples: "Garden Estate, Ruaraka, Muthaiga North, Kahawa areas",
+      fee: "KES 500–800",
+    },
+    {
+      area: "Central Nairobi",
+      examples: "CBD, Parklands, Ngara, Pangani, Eastleigh",
+      fee: "KES 800",
+    },
+    {
+      area: "West / Premium Areas",
+      examples: "Westlands, Kilimani, Kileleshwa, Lavington, Gigiri, Runda",
+      fee: "KES 1,200",
+    },
+    {
+      area: "South / East Nairobi",
+      examples: "South B, South C, Donholm, Umoja, Embakasi, Pipeline",
+      fee: "KES 1,500",
+    },
+    {
+      area: "Far Nairobi / Outside Nairobi",
+      examples: "Karen, Langata, Ruaka, Syokimau, JKIA, Ruiru, Kiambu",
+      fee: "Confirmed before booking",
+    },
+  ],
+  note:
+    "Nearby locations may qualify for reduced or free location fee depending on order value. Parking fees, estate entry fees, tolls or special access costs may be added at actual cost.",
+  bookingHint:
+    "Send your location pin on WhatsApp so we can confirm the exact location fee before booking.",
+};
 
 export const hostPackages = [
   {
