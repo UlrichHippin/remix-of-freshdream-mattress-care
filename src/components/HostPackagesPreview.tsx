@@ -146,7 +146,7 @@ export default function HostPackagesPreview() {
               >
                 {isRecommended && (
                   <span className="absolute right-6 top-6 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                    <Star className="h-3 w-3" /> {selected.size > 0 ? "Recommended" : "Most popular"}
+                    <Star className="h-3 w-3" /> Recommended
                   </span>
                 )}
                 <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-primary-soft/60" aria-hidden="true" />
