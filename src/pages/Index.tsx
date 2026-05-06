@@ -518,15 +518,15 @@ export default function Home() {
           <div>
             <p className="eyebrow"><Camera className="h-3.5 w-3.5" /> FreshDream Service Proof</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              FreshDream Service Proof
+              What you receive after service
             </h2>
             <p className="mt-3 text-muted-foreground">
-              We document every job with before/after photos where suitable. Real service photos will be added with customer privacy protection.
+              Every job is documented with care. You receive a clear summary on WhatsApp and visual proof of the work — with full customer privacy.
             </p>
             <ul className="mt-6 space-y-3 text-sm">
               {[
-                "Before/after photos shared on WhatsApp",
-                "Clear summary of what was treated",
+                "Before/after photos shared on WhatsApp where suitable",
+                "WhatsApp service summary of what was treated",
                 "Honest result communication — no hype",
                 "Customer privacy protected — no addresses, no personal details",
               ].map((b) => (
@@ -536,17 +536,18 @@ export default function Home() {
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {[
-              { i: Camera, t: "Equipment in action" },
-              { i: FileCheck2, t: "Before / after examples" },
-              { i: BedDouble, t: "Guest-ready Airbnb rooms" },
-              { i: ShieldCheck, t: "Privacy-protected proof" },
+              { i: Camera, t: "Before/after photos where suitable", d: "Visual proof of the cleaning result." },
+              { i: MessageCircle, t: "WhatsApp service summary", d: "Clear written recap of what was treated." },
+              { i: ShieldCheck, t: "Privacy-protected documentation", d: "No addresses or personal details shared." },
+              { i: BedDouble, t: "Guest-ready room impression", d: "A cleaner, fresher sleep area for your guests." },
             ].map((it) => (
               <li
                 key={it.t}
-                className="flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-surface p-5 text-center shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
+                className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-surface p-5 text-center shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
               >
                 <it.i className="h-7 w-7 text-accent" />
                 <p className="text-sm font-semibold text-primary">{it.t}</p>
+                <p className="text-xs text-muted-foreground">{it.d}</p>
               </li>
             ))}
           </ul>
