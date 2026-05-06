@@ -516,7 +516,7 @@ export default function Home() {
               { t: "M-PESA details on booking", d: "Confirmed via WhatsApp once your slot is set." },
               { t: "Receipts on request", d: "Available for Airbnb hosts and business clients." },
             ].map((p) => (
-              <li key={t} className="card-soft flex items-start gap-3 p-4 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+              <li key={p.t} className="card-soft flex items-start gap-3 p-4 transition-all hover:-translate-y-0.5 hover:shadow-lift">
                 <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
                   <BadgeCheck className="h-4 w-4" />
                 </span>
