@@ -8,7 +8,7 @@ interface Props {
 }
 
 /**
- * EquipmentBadge — communicates the JIMMY BX7 Pro Max as a professional
+ * EquipmentBadge — communicates the JIMMY BX7 Pro as a professional
  * mattress-cleaning setup. Honest, no exaggerated claims.
  */
 export default function EquipmentBadge({ variant = "inline", className = "" }: Props) {
@@ -18,7 +18,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         className={`inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ${className}`}
       >
         <Wrench className="h-3.5 w-3.5 text-accent" />
-        Powered by JIMMY BX7 Pro Max
+        Powered by JIMMY BX7 Pro
       </span>
     );
   }
@@ -34,7 +34,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             <p className="text-[11px] font-bold uppercase tracking-wider text-accent">
               Professional setup
             </p>
-            <h3 className="text-base font-bold text-primary">JIMMY BX7 Pro Max</h3>
+            <h3 className="text-base font-bold text-primary">JIMMY BX7 Pro</h3>
           </div>
         </div>
           <p className="mt-3 text-sm text-muted-foreground">
@@ -72,7 +72,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         <div className="lg:col-span-7">
           <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
           <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-            Specialized mattress-cleaning setup — JIMMY BX7 Pro Max.
+            Specialized mattress-cleaning setup — JIMMY BX7 Pro.
           </h2>
           <p className="mt-3 text-muted-foreground">
             We invest in equipment built for mattress hygiene, not generic surface cleaning.
@@ -112,7 +112,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             <p className="relative mt-4 text-[11px] font-bold uppercase tracking-wider text-accent">
               Core equipment
             </p>
-            <h3 className="relative mt-1 text-xl font-bold text-primary">JIMMY BX7 Pro Max</h3>
+            <h3 className="relative mt-1 text-xl font-bold text-primary">JIMMY BX7 Pro</h3>
             <p className="relative mt-2 text-sm text-muted-foreground">
               A modern, mattress-focused cleaning system as part of our standard kit.
             </p>

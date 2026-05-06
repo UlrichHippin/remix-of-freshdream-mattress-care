@@ -67,7 +67,7 @@ export default function Home() {
               {[
                 { i: MapPin, t: "Nairobi based" },
                 { i: BedDouble, t: "Ideal for Airbnb hosts" },
-                { i: Wrench, t: "Jimmy BX7 Pro equipment" },
+                { i: Wrench, t: "JIMMY BX7 Pro equipment" },
                 { i: Sparkles, t: "Sleep Area Dust Refresh add-on" },
                 { i: Camera, t: "Before/after photos" },
                 { i: MessageSquareText, t: "WhatsApp booking" },

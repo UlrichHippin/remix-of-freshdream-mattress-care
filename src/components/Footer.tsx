@@ -14,7 +14,7 @@ export default function Footer() {
             <img src={logoHorizontal} alt={site.name} width={1200} height={400} loading="lazy" className="h-12 w-auto object-contain sm:h-14" />
           </Link>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-            Specialist mattress and upholstery cleaning for Airbnb hosts, serviced apartments and homes — based in Roysambu, Nairobi.
+            Professional mattress hygiene cleaning for Airbnb hosts, serviced apartments and homes — based in Roysambu, Nairobi. Upholstery available on request.
           </p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li className="flex items-center gap-2">

@@ -118,9 +118,9 @@ export const services: ServiceDef[] = [
     illustration: illustUpholstery,
     photo: photoUpholstery,
     photoAlt: "Sofa upholstery cleaning Nairobi",
-    title: "Upholstery & Sofa Refresh",
-    short: "Sofas, cushions and upholstered chairs in short-stay properties.",
-    bestFor: "Sofas, cushions, upholstered chairs, and selected soft furnishings in short-stay properties.",
+    title: "Upholstery & Sofa Refresh (Available on request)",
+    short: "Available on request alongside a mattress booking — sofas, cushions and upholstered chairs.",
+    bestFor: "Available on request — sofas, cushions, upholstered chairs and selected soft furnishings, usually added to a mattress booking.",
     includes: [
       "Inspection of upholstery and seams",
       "Dry soil and debris removal",
@@ -160,7 +160,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Can you also clean sofas and upholstered chairs?",
-    a: "Yes — Upholstery & Sofa Refresh is one of our core services. We handle sofas, cushions, upholstered chairs and selected soft furnishings.",
+    a: "Sofas and upholstery cleaning is available on request alongside a mattress booking. Our main focus is professional mattress hygiene cleaning — WhatsApp us with photos for a custom quote.",
   },
   {
     q: "Do you provide before/after photo proof?",

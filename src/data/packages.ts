@@ -33,7 +33,7 @@ export const packages: PackageDef[] = [
     summary: "A quick dry refresh for mattresses and sofas.",
     tagline: "Instant fresh care with no soaking.",
     description:
-      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the Jimmy BX7 Pro Max to remove dust, hair, dander, and surface debris, while UV-C light and hot air help improve hygiene and freshness.",
+      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro to remove dust, hair, dander, and surface debris, while UV-C light and hot air help improve hygiene and freshness.",
     included: [
       "Dry vacuum treatment",
       "Dust, hair, and dander removal",
@@ -92,7 +92,7 @@ export const packages: PackageDef[] = [
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
     description:
-      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses and sofas. We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep Jimmy BX7 Pro Max vacuuming and hygiene treatment.",
+      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses and sofas. We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro vacuuming and hygiene treatment.",
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",

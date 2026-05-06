@@ -7,7 +7,7 @@ import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
 import {
   pricingAddOns,
-  pricingUpholstery,
+  
   pricingNotes,
   openingOffer,
   hostStarter,
@@ -21,7 +21,7 @@ import {
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import upholsteryPhoto from "@/assets/upholstery.jpg";
+
 import hostPortfolio from "@/assets/host-portfolio.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
 
@@ -32,7 +32,7 @@ export default function Pricing() {
   return (
     <PageLayout
       title="Pricing — FreshDream Mattress Care"
-      description="Transparent KES pricing for mattress and upholstery cleaning in Nairobi. Built for Airbnb hosts, serviced apartments and short-stay properties."
+      description="Transparent KES pricing for professional mattress hygiene cleaning in Nairobi. Built for Airbnb hosts, serviced apartments and homes."
     >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
@@ -40,7 +40,7 @@ export default function Pricing() {
           <div className="lg:col-span-7">
             <p className="eyebrow">Pricing</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-bold text-primary sm:text-5xl">
-              Clear pricing for mattresses, sofas and host turnover support.
+              Clear pricing for professional mattress hygiene cleaning and host turnover support.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
               Transparent KES pricing for homes, Airbnb hosts and serviced apartments in Nairobi.
@@ -128,7 +128,7 @@ export default function Pricing() {
             <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Main service packages</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent per-package pricing.</h2>
             <p className="mt-3 text-base text-muted-foreground">
-              All packages are dry-treatment based and priced by mattress size. Sofas quoted on request.
+              All packages are dry-treatment based and priced by mattress size. Upholstery is available on request.
             </p>
           </div>
 
@@ -334,27 +334,15 @@ export default function Pricing() {
             </ul>
           </div>
           <div>
-            <div className="mb-4">
-              <IllustrationFrame src={upholsteryPhoto} alt="Upholstered sofa" tone="accent" className="!p-3" />
-            </div>
-            <p className="eyebrow"><Sofa className="h-3.5 w-3.5" /> Upholstery / add-ons</p>
-            <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Sofas, pillows and chairs.</h2>
+            <p className="eyebrow"><Sofa className="h-3.5 w-3.5" /> Available on request</p>
+            <h2 className="mt-4 text-2xl font-bold text-primary sm:text-3xl">Sofas, pillows & rugs.</h2>
             <p className="mt-3 text-sm text-muted-foreground">
-              Add upholstery cleaning to a mattress booking or request it as a standalone service.
+              Upholstery, sofa and rug care is <strong>available on request</strong> alongside a mattress booking.
+              Our main focus is mattress hygiene cleaning. WhatsApp us with photos for a custom quote.
             </p>
-            <ul className="mt-6 divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
-              {pricingUpholstery.map((a) => (
-                <li key={a.t} className="flex items-center justify-between gap-4 p-4">
-                  <span className="flex items-center gap-3 text-sm font-medium text-foreground">
-                    <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary-soft text-primary">
-                      <Sofa className="h-4 w-4" />
-                    </span>
-                    {a.t}
-                  </span>
-                  <span className="text-sm font-bold text-primary">{a.p}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-5">
+              <WhatsAppButton size="lg" label="Ask about upholstery on WhatsApp" />
+            </div>
           </div>
         </div>
       </section>

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { z } from "zod";
 import PageLayout from "@/components/PageLayout";
-import BookingCalendar from "@/components/BookingCalendar";
+
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import EquipmentBadge from "@/components/EquipmentBadge";
 import { site, whatsappLink } from "@/config/site";
 import {
   Mail, MapPin, Copy, Check, MessageCircle, Camera, Clock4,
-  ShieldCheck, MessageSquareText, CalendarClock, Loader2, CheckCircle2,
+  ShieldCheck, MessageSquareText, Loader2, CheckCircle2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
@@ -367,22 +367,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Optional: pick a slot */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow"><CalendarClock className="h-3.5 w-3.5" /> Optional</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Or pick a time slot.</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Choose a date and an available window. Your selection is treated as a requested
-              appointment until we confirm via WhatsApp.
-            </p>
-          </div>
-          <div className="mt-8">
-            <BookingCalendar />
-          </div>
-        </div>
-      </section>
+      {/* Time-slot booking temporarily hidden — WhatsApp booking only for now */}
     </PageLayout>
   );
 }
