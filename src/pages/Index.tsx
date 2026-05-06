@@ -44,13 +44,33 @@ export default function Home() {
           aria-label="Mattress cleaning service in Nairobi"
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
+        {/* Animated mesh blobs */}
+        <div
+          className="pointer-events-none absolute -left-32 top-10 -z-10 h-[480px] w-[480px] rounded-full bg-accent/25 blur-3xl"
+          style={{ animation: "mesh-drift 14s ease-in-out infinite" }}
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-primary/15 blur-3xl"
+          style={{ animation: "mesh-drift 18s ease-in-out infinite reverse" }}
+          aria-hidden="true"
+        />
         <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
             <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-              Professional Mattress &amp; Upholstery Care in Nairobi
+              Professional{" "}
+              <span className="relative inline-block">
+                <span className="text-gradient-brand">Mattress &amp; Upholstery Care</span>
+                <span
+                  className="absolute -bottom-1 left-0 h-[4px] w-full origin-left rounded-full bg-gradient-to-r from-accent via-primary to-accent"
+                  style={{ animation: "underline-sweep 1.2s ease-out 0.4s both" }}
+                  aria-hidden="true"
+                />
+              </span>{" "}
+              in Nairobi
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Fresh sleep for Airbnb hosts, families and modern homes.
@@ -65,10 +85,11 @@ export default function Home() {
                 "Roysambu Based",
                 "Nairobi Service Area",
                 "No Drying Time (Dry Care)",
-              ].map((b) => (
+              ].map((b, i) => (
                 <li
                   key={b}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur animate-fade-up"
+                  style={{ animationDelay: `${i * 70}ms` }}
                 >
                   <BadgeCheck className="h-3.5 w-3.5 text-accent" /> {b}
                 </li>
@@ -76,11 +97,11 @@ export default function Home() {
             </ul>
 
             {/* Strong price box */}
-            <div className="mt-6 max-w-lg rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur">
+            <div className="relative mt-6 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur sheen">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
-                  <p className="mt-1 text-2xl font-extrabold text-primary sm:text-3xl">from KES 1,999</p>
+                  <p className="mt-1 text-2xl font-extrabold text-primary nums sm:text-3xl">from KES 1,999</p>
                 </div>
                 <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
@@ -88,7 +109,7 @@ export default function Home() {
               </div>
               <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
                 <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
-                Add Sleep Area Dust Refresh for only <span className="text-accent">KES 300</span>
+                Add Sleep Area Dust Refresh for only <span className="text-accent nums">KES 300</span>
               </p>
             </div>
 
@@ -114,6 +135,14 @@ export default function Home() {
             <div className="relative mx-auto flex items-center justify-center">
               <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
               <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
+              <span
+                className="absolute inset-0 -z-10 rounded-full opacity-40"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(var(--accent) / 0.25), transparent 40%, hsl(var(--primary) / 0.2), transparent 80%)",
+                  animation: "conic-spin 20s linear infinite",
+                }}
+                aria-hidden
+              />
 
               <img
                 src={logoMark}
@@ -121,6 +150,11 @@ export default function Home() {
                 width={920}
                 height={920}
                 className="relative w-[220px] animate-float object-contain drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
+              />
+              {/* Reflection */}
+              <span
+                className="pointer-events-none absolute bottom-0 left-1/2 h-6 w-[60%] -translate-x-1/2 rounded-[50%] bg-primary/20 blur-xl"
+                aria-hidden="true"
               />
             </div>
           </div>
@@ -203,7 +237,7 @@ export default function Home() {
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
           {/* Most Popular */}
-          <div className="card-soft relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+          <div className="card-soft glow-hover relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
             <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Star className="h-3 w-3" /> Most Popular
             </span>
@@ -227,7 +261,7 @@ export default function Home() {
           </div>
 
           {/* Fresh Sleep Package */}
-          <div className="card-soft relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+          <div className="card-soft glow-hover relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
               <BadgeCheck className="h-3 w-3" /> Fresh Sleep
             </span>
@@ -264,8 +298,8 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Choose Your Mattress Cleaning Package
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              <span className="text-gradient-brand">Choose Your Mattress Cleaning Package</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
               Safe, dry, and hygiene-focused mattress cleaning in Nairobi.
@@ -276,7 +310,7 @@ export default function Home() {
             {packages.map((p, i) => (
               <div
                 key={p.title}
-                className={`card-soft relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
+                className={`card-soft glow-hover relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
                   i === 1 ? "ring-2 ring-accent shadow-lift" : ""
                 }`}
               >

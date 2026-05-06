@@ -60,11 +60,12 @@ export default function BeforeAfterSlider({ beforeSrc = placeholderBefore, after
           <span className="pointer-events-none absolute right-3 top-3 rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">After</span>
 
           <div
-            className="pointer-events-none absolute inset-y-0 w-0.5 bg-white shadow-lift"
+            className="pointer-events-none absolute inset-y-0 w-[3px] bg-white/95 shadow-lift"
             style={{ left: `${pos}%` }}
           >
-            <div className="pointer-events-auto absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-10 w-10 cursor-ew-resize place-items-center rounded-full bg-white text-primary shadow-lift ring-2 ring-primary">
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <div className="pointer-events-auto absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-12 w-12 cursor-ew-resize place-items-center rounded-full bg-white text-primary shadow-lift ring-2 ring-accent transition-transform hover:scale-110">
+              <span className="absolute inset-0 rounded-full ring-2 ring-accent/60" style={{ animation: "ring-pulse 2.2s ease-out infinite" }} aria-hidden="true" />
+              <svg viewBox="0 0 24 24" className="relative h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <path d="M9 6L4 12l5 6" /><path d="M15 6l5 6-5 6" />
               </svg>
             </div>
