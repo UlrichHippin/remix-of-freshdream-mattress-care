@@ -11,8 +11,6 @@ import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
-import BrandHero from "@/components/BrandHero";
-import StatsBand from "@/components/StatsBand";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -146,12 +144,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* 2b. BRAND HERO */}
-      <BrandHero />
-
-      {/* 2c. STATS BAND */}
-      <StatsBand />
 
       {/* 3. OPENING OFFER */}
       <section className="border-b border-border bg-accent-soft/40">
