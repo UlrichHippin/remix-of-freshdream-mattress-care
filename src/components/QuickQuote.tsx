@@ -239,9 +239,9 @@ export default function QuickQuote() {
                         {z.custom
                           ? " (custom quote)"
                           : z.waiveAt
-                            ? ` (KES ${z.fee} — waived from ${fmt(z.waiveAt)})`
+                            ? ` (KES ${z.fee} — waived from ${fmt(z.waiveAt)} order value)`
                             : z.discountAt
-                              ? ` (KES ${z.fee} — discount possible from ${fmt(z.discountAt)})`
+                              ? ` (KES ${z.fee} — discount possible from ${fmt(z.discountAt)} order value)`
                               : ` (KES ${z.fee})`}
                       </SelectItem>
                     ))}
