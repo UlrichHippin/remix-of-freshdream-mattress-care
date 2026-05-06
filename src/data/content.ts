@@ -125,7 +125,7 @@ export const services: ServiceDef[] = [
       "Inspection of upholstery and seams",
       "Dry soil and debris removal",
       "Targeted spot treatment",
-      "Controlled low-moisture treatment where suitable",
+      "Targeted spot support where suitable (no soaking, no water extraction)",
       "Drying guidance",
       "Photo documentation",
     ],
