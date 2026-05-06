@@ -7,7 +7,7 @@ import SectionDivider from "@/components/SectionDivider";
 import EquipmentBadge from "@/components/EquipmentBadge";
 import {
   pricingAddOns,
-  pricingUpholstery,
+  
   pricingNotes,
   openingOffer,
   hostStarter,
@@ -21,7 +21,7 @@ import {
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import upholsteryPhoto from "@/assets/upholstery.jpg";
+
 import hostPortfolio from "@/assets/host-portfolio.jpg";
 import heroBed from "@/assets/hero-bed.jpg";
 
