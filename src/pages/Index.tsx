@@ -10,6 +10,7 @@ import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import QuickQuote from "@/components/QuickQuote";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
 import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
@@ -178,6 +179,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* 3b. QUICK QUOTE */}
+      <QuickQuote />
 
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
