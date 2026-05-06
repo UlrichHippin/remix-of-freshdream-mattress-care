@@ -208,6 +208,9 @@ export default function Pricing() {
             </span>
             <h3 className="mt-3 text-2xl font-bold text-primary">{freshSleepPackage.name}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{freshSleepPackage.summary}</p>
+            <p className="mt-3 rounded-xl bg-primary-soft p-3 text-xs font-semibold text-primary">
+              {freshSleepPackage.priceLogic}
+            </p>
             <ul className="mt-4 space-y-2 text-sm">
               {freshSleepPackage.includes.map((it) => (
                 <li key={it} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><span>{it}</span></li>
