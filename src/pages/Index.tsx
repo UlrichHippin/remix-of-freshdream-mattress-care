@@ -247,7 +247,7 @@ export default function Home() {
           {[
             { icon: Droplets, t: "Dry process — no soaking" },
             { icon: ShieldCheck, t: "Safe for mattress hygiene care" },
-            { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
+            { icon: Sparkles, t: "UV-C hygiene & warm-air freshness" },
             { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
             <div key={it.t} className="flex items-center gap-3">
