@@ -310,7 +310,7 @@ export default function Home() {
             {packages.map((p, i) => (
               <div
                 key={p.title}
-                className={`card-soft relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
+                className={`card-soft glow-hover relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
                   i === 1 ? "ring-2 ring-accent shadow-lift" : ""
                 }`}
               >
