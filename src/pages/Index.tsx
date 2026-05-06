@@ -60,17 +60,16 @@ export default function Home() {
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
-            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-              Professional{" "}
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3rem] lg:leading-[1.05]">
               <span className="relative inline-block">
-                <span className="text-gradient-brand">Mattress &amp; Upholstery Care</span>
+                <span className="text-gradient-brand">Professional Mattress &amp; Upholstery Care</span>
                 <span
                   className="absolute -bottom-1 left-0 h-[4px] w-full origin-left rounded-full bg-gradient-to-r from-accent via-primary to-accent"
                   style={{ animation: "underline-sweep 1.2s ease-out 0.4s both" }}
                   aria-hidden="true"
                 />
-              </span>{" "}
-              in Nairobi
+              </span>
+              <span className="block text-primary">in Nairobi</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Fresh sleep for Airbnb hosts, families and modern homes.
