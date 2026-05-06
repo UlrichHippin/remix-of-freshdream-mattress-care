@@ -32,7 +32,7 @@ export default function Pricing() {
   return (
     <PageLayout
       title="Pricing — FreshDream Mattress Care"
-      description="Transparent KES pricing for mattress and upholstery cleaning in Nairobi. Built for Airbnb hosts, serviced apartments and short-stay properties."
+      description="Transparent KES pricing for professional mattress hygiene cleaning in Nairobi. Built for Airbnb hosts, serviced apartments and homes."
     >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
@@ -40,7 +40,7 @@ export default function Pricing() {
           <div className="lg:col-span-7">
             <p className="eyebrow">Pricing</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-bold text-primary sm:text-5xl">
-              Clear pricing for mattresses, sofas and host turnover support.
+              Clear pricing for professional mattress hygiene cleaning and host turnover support.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
               Transparent KES pricing for homes, Airbnb hosts and serviced apartments in Nairobi.
@@ -128,7 +128,7 @@ export default function Pricing() {
             <p className="eyebrow"><Bed className="h-3.5 w-3.5" /> Main service packages</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transparent per-package pricing.</h2>
             <p className="mt-3 text-base text-muted-foreground">
-              All packages are dry-treatment based and priced by mattress size. Sofas quoted on request.
+              All packages are dry-treatment based and priced by mattress size. Upholstery is available on request.
             </p>
           </div>
 
