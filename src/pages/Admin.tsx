@@ -211,7 +211,7 @@ export default function Admin() {
                       </td>
                     </tr>
                   ))}
-                  {upcoming.length === 0 && <tr><td colSpan={6} className="py-8 text-center text-muted-foreground">No upcoming bookings.</td></tr>}
+                  {upcoming.length === 0 && <tr><td colSpan={7} className="py-8 text-center text-muted-foreground">No upcoming bookings.</td></tr>}
                 </tbody>
               </table>
             </div>
