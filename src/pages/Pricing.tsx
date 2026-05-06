@@ -15,6 +15,8 @@ import {
   reviewReferral,
   pricingTrustPoints,
   pricingFaqs,
+  sleepAreaAddOn,
+  freshSleepPackage,
 } from "@/data/content";
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
@@ -173,6 +175,52 @@ export default function Pricing() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Sleep Area Dust Refresh + Fresh Sleep Package */}
+      <section className="section">
+        <div className="container-tight grid gap-6 lg:grid-cols-2">
+          {/* Add-on box */}
+          <div className="card-soft relative overflow-hidden border-2 border-accent/40 p-6 sm:p-8">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+              <Sparkles className="h-3 w-3" /> Optional add-on
+            </span>
+            <h3 className="mt-3 text-2xl font-bold text-primary">{sleepAreaAddOn.name} — {sleepAreaAddOn.price}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">A quick hygiene boost around the sleeping area, added to any mattress cleaning.</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {sleepAreaAddOn.included.map((it) => (
+                <li key={it} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><span>{it}</span></li>
+              ))}
+            </ul>
+            <p className="mt-4 rounded-xl bg-primary-soft p-3 text-xs font-medium text-primary">
+              {sleepAreaAddOn.note}
+            </p>
+          </div>
+
+          {/* Fresh Sleep Package */}
+          <div className="card-soft relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary-soft/40 to-accent-soft/30 p-6 sm:p-8">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+              <BadgeCheck className="h-3 w-3" /> {freshSleepPackage.badge}
+            </span>
+            <h3 className="mt-3 text-2xl font-bold text-primary">{freshSleepPackage.name}</h3>
+            <p className="mt-2 text-sm text-muted-foreground">{freshSleepPackage.summary}</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {freshSleepPackage.includes.map((it) => (
+                <li key={it} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><span>{it}</span></li>
+              ))}
+            </ul>
+            <div className="mt-5">
+              <a
+                href={whatsappLink(freshSleepPackage.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-4 w-4" /> {freshSleepPackage.cta}
+              </a>
+            </div>
           </div>
         </div>
       </section>

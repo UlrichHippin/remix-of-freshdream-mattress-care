@@ -12,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
@@ -36,11 +37,12 @@ const schema = z.object({
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
+  sleepAreaAddOn: z.boolean().optional(),
 });
 
 type FormState = {
   name: string; phone: string; pkg: string; item: string; size: string;
-  location: string; date?: Date; notes: string;
+  location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
 };
 
 const TRUST = [
@@ -52,7 +54,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "",
+    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "", sleepAreaAddOn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -82,6 +84,7 @@ export default function BookingSection() {
       `Size: ${d.size}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
+      (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
     toast.success("Opening WhatsApp to send your booking request…");
@@ -207,6 +210,19 @@ export default function BookingSection() {
                   {errors.date && <p className="mt-1 text-xs text-destructive">{errors.date}</p>}
                 </div>
               </div>
+
+              <label className="flex items-start gap-3 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4 cursor-pointer transition-colors hover:bg-accent-soft/60">
+                <Checkbox
+                  id="bk-sleeparea"
+                  checked={form.sleepAreaAddOn}
+                  onCheckedChange={(v) => update("sleepAreaAddOn", v === true)}
+                  className="mt-0.5"
+                />
+                <span className="flex-1">
+                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning.</span>
+                </span>
+              </label>
 
               <div>
                 <Label htmlFor="bk-notes">Notes</Label>
