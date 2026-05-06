@@ -247,7 +247,7 @@ export default function Home() {
               >
                 {i === 1 && (
                   <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                    <Star className="h-2.5 w-2.5" /> Most Popular
+                    <Star className="h-2.5 w-2.5" /> Recommended
                   </span>
                 )}
                 <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-24" : ""}`}>{p.title}</h3>
