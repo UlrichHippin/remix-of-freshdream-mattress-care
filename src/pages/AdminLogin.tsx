@@ -12,6 +12,7 @@ export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(false);
   const navigate = useNavigate();
 
   // Setup state
@@ -48,6 +49,26 @@ export default function AdminLogin() {
       return;
     }
     navigate("/admin", { replace: true });
+  }
+
+  async function onPasswordReset() {
+    if (!email.trim()) {
+      toast.error("Bitte zuerst deine Admin-E-Mail eingeben.");
+      return;
+    }
+
+    setResetLoading(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    setResetLoading(false);
+
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
+
+    toast.success("Passwort-Reset-Link wurde gesendet. Bitte prüfe dein E-Mail-Postfach.");
   }
 
   async function onSetup(e: React.FormEvent) {
@@ -106,6 +127,15 @@ export default function AdminLogin() {
               {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Sign in
             </Button>
           </form>
+          <Button
+            type="button"
+            variant="link"
+            className="mt-3 h-auto px-0 text-sm"
+            disabled={resetLoading}
+            onClick={onPasswordReset}
+          >
+            {resetLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}Passwort vergessen? Reset-Link senden
+          </Button>
           <p className="mt-6 text-xs text-muted-foreground">
             Admin access is invitation only. Contact the site owner to receive credentials.
           </p>
