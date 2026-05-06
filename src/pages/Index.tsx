@@ -149,7 +149,7 @@ export default function Home() {
                 alt="FreshDream Mattress Care logo"
                 width={920}
                 height={920}
-                className="relative w-[150px] animate-float object-contain opacity-95 drop-shadow-2xl xs:w-[180px] sm:w-[240px] lg:w-[320px] xl:w-[340px]"
+                className="relative w-[220px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
               />
               {/* Reflection */}
               <span
