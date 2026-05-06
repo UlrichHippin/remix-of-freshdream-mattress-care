@@ -144,7 +144,7 @@ export default function BookingCalendar() {
       values.issue ? `Stain/odor issue: ${values.issue}` : null,
       values.details ? `Notes: ${values.details}` : null,
     ].filter(Boolean).join("\n");
-    const { error } = await supabase.from("bookings").insert({
+    const { data: inserted, error } = await supabase.from("bookings").insert({
       name: values.name,
       phone: values.phone,
       whatsapp: values.whatsapp || values.phone,
@@ -155,17 +155,42 @@ export default function BookingCalendar() {
       details: composedDetails,
       starts_at: slot.startsAt.toISOString(),
       ends_at: slot.endsAt.toISOString(),
-    });
+    }).select("id,status,estimated_price_kes,final_price_kes").single();
     setSubmitting(false);
-    if (error) {
+    if (error || !inserted) {
       toast.error("Could not submit your request. Please try WhatsApp.");
       return;
     }
-    setSuccess({ date: date!, slot, values });
+    setSuccess({
+      id: inserted.id,
+      date: date!,
+      slot,
+      values,
+      status: inserted.status,
+      finalPrice: inserted.final_price_kes,
+      estimatedPrice: inserted.estimated_price_kes,
+    });
     setBusy((prev) => [...prev, { starts_at: slot.startsAt.toISOString(), ends_at: slot.endsAt.toISOString() }]);
     setSlot(null);
     form.reset();
   }
+
+  // Live updates: when admin confirms or sets the price, reflect it instantly in the success view.
+  useEffect(() => {
+    if (!success?.id) return;
+    const channel = supabase
+      .channel(`booking-${success.id}`)
+      .on(
+        "postgres_changes",
+        { event: "UPDATE", schema: "public", table: "bookings", filter: `id=eq.${success.id}` },
+        (payload) => {
+          const row = payload.new as { status: string; final_price_kes: number | null; estimated_price_kes: number | null };
+          setSuccess((prev) => prev ? { ...prev, status: row.status, finalPrice: row.final_price_kes, estimatedPrice: row.estimated_price_kes } : prev);
+        },
+      )
+      .subscribe();
+    return () => { supabase.removeChannel(channel); };
+  }, [success?.id]);
 
   if (loading) {
     return (
