@@ -19,7 +19,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { whatsappLink } from "@/config/site";
 import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
-import heroImg from "@/assets/hero-bed.jpg";
 import heroBackground from "@/assets/brand/hero-background.jpg";
 import logoMark from "@/assets/brand/logo-main.png";
 
