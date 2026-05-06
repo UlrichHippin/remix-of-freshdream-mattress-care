@@ -20,7 +20,7 @@ import { toast } from "sonner";
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
-const ITEM_TYPES = ["Mattress", "Multiple mattresses", "Other / request by WhatsApp"] as const;
+const ITEM_TYPES = ["Mattress", "Multiple mattresses", "Sofa / upholstery (request via WhatsApp)", "Other / request by WhatsApp"] as const;
 const SIZES = [
   "Single (3x6 ft)",
   "Double (4x6 ft)",
@@ -28,23 +28,25 @@ const SIZES = [
   "King (6x6 ft)",
   "Mixed sizes (specify in notes)",
 ] as const;
+const TIMES = ["Morning (8:00–11:00)", "Midday (11:00–14:00)", "Afternoon (14:00–17:00)", "Evening (17:00–19:00)", "Flexible"] as const;
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(80),
-  phone: z.string().trim().min(7, "Please enter a valid phone number").max(25),
+  phone: z.string().trim().min(7, "Please enter a valid WhatsApp number").max(25),
   pkg: z.string().refine((v) => PACKAGES.includes(v), { message: "Choose a package" }),
   item: z.enum(ITEM_TYPES, { errorMap: () => ({ message: "Choose an item type" }) }),
   size: z.enum(SIZES, { errorMap: () => ({ message: "Choose a size" }) }),
   quantity: z.coerce.number().int().min(1, "At least 1 mattress").max(20, "Max 20 — contact us on WhatsApp for larger jobs"),
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
+  time: z.enum(TIMES, { errorMap: () => ({ message: "Choose a preferred time" }) }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
   sleepAreaAddOn: z.boolean().optional(),
 });
 
 type FormState = {
   name: string; phone: string; pkg: string; item: string; size: string;
-  quantity: number; location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
+  quantity: number; location: string; date?: Date; time: string; notes: string; sleepAreaAddOn: boolean;
 };
 
 const TRUST = [
@@ -56,7 +58,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", size: "", quantity: 1, location: "", date: undefined, notes: "", sleepAreaAddOn: false,
+    name: "", phone: "", pkg: "", item: "", size: "", quantity: 1, location: "", date: undefined, time: "", notes: "", sleepAreaAddOn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -78,17 +80,18 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
     const message =
-      `Hello, I would like to book a cleaning service.\n\n` +
+      `Hello FreshDream Mattress Care, I would like to book a service.\n\n` +
       `Name: ${d.name}\n` +
-      `Phone: ${d.phone}\n` +
-      `Package: ${d.pkg}\n` +
+      `WhatsApp / Phone: ${d.phone}\n` +
+      `Service / Package: ${d.pkg}\n` +
       `Item: ${d.item}\n` +
       `Size: ${d.size}\n` +
-      `Number of mattresses: ${d.quantity}\n` +
-      `Location: ${d.location}\n` +
+      `Number of items: ${d.quantity}\n` +
+      `Location / estate: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
+      `Preferred time: ${d.time}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
-      (d.notes ? `Notes: ${d.notes}\n` : "");
+      (d.notes ? `Special notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
     toast.success("Opening WhatsApp to send your booking request…");
     setTimeout(() => setSubmitting(false), 800);
@@ -146,8 +149,8 @@ export default function BookingSection() {
                   {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div>
-                  <Label htmlFor="bk-phone">Phone Number *</Label>
-                  <Input id="bk-phone" inputMode="tel" value={form.phone} maxLength={25}
+                  <Label htmlFor="bk-phone">Phone / WhatsApp number *</Label>
+                  <Input id="bk-phone" inputMode="tel" placeholder="e.g. +254 7XX XXX XXX" value={form.phone} maxLength={25}
                     onChange={(e) => update("phone", e.target.value)} aria-invalid={!!errors.phone} />
                   {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
                 </div>
@@ -241,6 +244,17 @@ export default function BookingSection() {
                 </div>
               </div>
 
+              <div>
+                <Label>Preferred Time *</Label>
+                <Select value={form.time} onValueChange={(v) => update("time", v)}>
+                  <SelectTrigger aria-invalid={!!errors.time}><SelectValue placeholder="Choose a time slot" /></SelectTrigger>
+                  <SelectContent>
+                    {TIMES.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+                {errors.time && <p className="mt-1 text-xs text-destructive">{errors.time}</p>}
+              </div>
+
               <label className="flex items-start gap-3 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4 cursor-pointer transition-colors hover:bg-accent-soft/60">
                 <Checkbox
                   id="bk-sleeparea"
@@ -255,7 +269,7 @@ export default function BookingSection() {
               </label>
 
               <div>
-                <Label htmlFor="bk-notes">Notes</Label>
+                <Label htmlFor="bk-notes">Special notes</Label>
                 <Textarea id="bk-notes" rows={3} value={form.notes} maxLength={500}
                   placeholder="Anything we should know? (stains, access, timing…)"
                   onChange={(e) => update("notes", e.target.value)} />

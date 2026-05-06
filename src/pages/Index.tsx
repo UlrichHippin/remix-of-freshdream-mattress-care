@@ -34,28 +34,48 @@ export default function Home() {
 
   return (
     <PageLayout
-      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress cleaning in Nairobi from KES 1,999. Sleep Area Dust Refresh add-on KES 300. Fast WhatsApp booking, M-PESA accepted, JIMMY BX7 Pro equipment."
+      title="FreshDream Mattress Care | Mattress & Upholstery Cleaning in Nairobi"
+      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
     >
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-border animate-fade-up">
         <div
           className="absolute inset-0 -z-10 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBackground})` }}
-          aria-hidden="true"
+          role="img"
+          aria-label="Mattress cleaning service in Nairobi"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/20" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
         <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Sparkles className="h-3.5 w-3.5" /> Launch Offer
+              <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
-            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              Professional Mattress Cleaning in Nairobi
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+              Professional Mattress &amp; Upholstery Care in Nairobi
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care delivers specialist mattress hygiene cleaning — dry process, no soaking, documented with before/after photos.
+              Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
+
+            {/* Trust badges in hero */}
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {[
+                "Airbnb Friendly",
+                "Same-Day Requests",
+                "M-PESA Accepted",
+                "Roysambu Based",
+                "Nairobi Service Area",
+                "No Drying Time (Dry Care)",
+              ].map((b) => (
+                <li
+                  key={b}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur"
+                >
+                  <BadgeCheck className="h-3.5 w-3.5 text-accent" /> {b}
+                </li>
+              ))}
+            </ul>
 
             {/* Strong price box */}
             <div className="mt-6 max-w-lg rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur">
@@ -72,9 +92,6 @@ export default function Home() {
                 <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
                 Add Sleep Area Dust Refresh for only <span className="text-accent">KES 300</span>
               </p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                For Homes · Airbnb Rooms · Serviced Apartments · Guest Houses
-              </p>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -84,47 +101,29 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
+                <MessageCircle className="h-5 w-5" /> Book via WhatsApp
               </a>
-              <a
-                href={whatsappLink("Hello FreshDream, please send me a price for mattress cleaning. Mattress size: , Location: ")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-whatsapp bg-transparent px-6 text-base font-semibold text-whatsapp transition-colors hover:bg-whatsapp hover:text-whatsapp-foreground sm:w-auto"
+              <Link
+                to="/services"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Get Price on WhatsApp
-              </a>
+                View Services <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative mx-auto flex aspect-square max-w-md items-center justify-center">
-              {/* Glow halo */}
+            <div className="relative mx-auto flex items-center justify-center">
               <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
               <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
 
-              {/* Big logo */}
               <img
                 src={logoMark}
-                alt={site.name}
-                width={520}
-                height={520}
-                className="relative h-full w-full max-h-[420px] max-w-[420px] animate-float object-contain drop-shadow-2xl"
+                alt="FreshDream Mattress Care logo"
+                width={920}
+                height={920}
+                className="relative w-[220px] animate-float object-contain drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
               />
-
-              {/* Floating trust badges */}
-              <span className="absolute left-0 top-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.4s" }}>
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro
-              </span>
-              <span className="absolute right-0 top-1/4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "1.2s" }}>
-                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> M-PESA
-              </span>
-              <span className="absolute -bottom-2 left-6 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "2s" }}>
-                <Star className="h-3.5 w-3.5 text-accent" /> 4.9★ Hosts
-              </span>
-              <span className="absolute -bottom-2 right-4 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur animate-float" style={{ animationDelay: "0.8s" }}>
-                <MapPin className="h-3.5 w-3.5 text-accent" /> Roysambu
-              </span>
             </div>
           </div>
         </div>
@@ -461,22 +460,129 @@ export default function Home() {
         Booking is only confirmed after FreshDream replies on WhatsApp.
       </p>
 
-      {/* 8. LOCATION FEE BADGE */}
+      {/* 8. TRANSPORT FEE — TRANSPARENT */}
       <section className="section">
         <div className="container-tight">
-          <div className="card-soft mx-auto max-w-3xl border-2 border-accent/40 p-6 text-center sm:p-8">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent-foreground">
-              <MapPin className="h-3.5 w-3.5" /> Fair Location Fee
-            </span>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Charged once per visit — not per mattress.</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Send your location pin on WhatsApp so we can confirm the exact location fee before booking.
+          <div className="mx-auto max-w-4xl">
+            <div className="text-center">
+              <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transport Fee — Always Confirmed Before Booking</h2>
+              <p className="mt-3 text-muted-foreground">
+                Service Price <span className="font-semibold text-primary">+</span> Transport Fee <span className="font-semibold text-primary">=</span> Final Confirmed Price
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Transport fees depend on customer location and are always confirmed before booking. Charged once per visit — not per mattress.
+              </p>
+            </div>
+
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                { zone: "Roysambu / nearby areas", fee: "Low or no transport fee depending on booking size" },
+                { zone: "Kasarani · Garden Estate · Thome · Mirema", fee: "Small transport fee" },
+                { zone: "Westlands · Kilimani · Kileleshwa · Lavington", fee: "Medium transport fee" },
+                { zone: "Karen · Langata · Runda · Gigiri · Muthaiga", fee: "Higher transport fee depending on distance" },
+                { zone: "Outside Nairobi", fee: "Quote on request" },
+              ].map((z) => (
+                <li key={z.zone} className="card-soft flex items-start gap-3 p-4">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-accent">
+                    <MapPin className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-bold text-primary">{z.zone}</p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">{z.fee}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 rounded-xl bg-primary-soft p-4 text-center text-sm font-medium text-primary">
+              Send your location pin on WhatsApp so we can confirm the exact transport fee before booking.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 9. AIRBNB HOST HYGIENE SUPPORT */}
+      {/* 8b. EASY PAYMENT OPTIONS */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow justify-center"><BadgeCheck className="h-3.5 w-3.5" /> Payment</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Easy Payment Options</h2>
+          </div>
+          <ul className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-2">
+            {[
+              { t: "M-PESA accepted", d: "Quick and secure mobile payment." },
+              { t: "Cash accepted if needed", d: "Pay on completion at your location." },
+              { t: "M-PESA details on booking", d: "Confirmed via WhatsApp once your slot is set." },
+              { t: "Receipts on request", d: "Available for Airbnb hosts and business clients." },
+            ].map((p) => (
+              <li key={p.t} className="card-soft flex items-start gap-3 p-4 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
+                  <BadgeCheck className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold text-primary">{p.t}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{p.d}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-muted-foreground">
+            Do not send payment until your booking and price are confirmed by FreshDream via WhatsApp.
+          </p>
+        </div>
+      </section>
+
+      {/* 9. AIRBNB MATTRESS CARE */}
+      <section className="section">
+        <div className="container-tight grid gap-10 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <p className="eyebrow"><BedDouble className="h-3.5 w-3.5" /> For Airbnb Hosts</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              Airbnb Mattress Care for Better Guest Reviews
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              FreshDream Mattress Care helps Airbnb hosts keep mattresses, sofas and sleeping areas fresh, hygienic and guest-ready.
+            </p>
+            <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2">
+              {[
+                "Better guest experience",
+                "Cleaner sleeping environment",
+                "Helps reduce dust, hair and allergens",
+                "Fast service between bookings",
+                "No drying time for dry mattress care",
+                "Optional recurring cleaning plans",
+                "Photo confirmation after service",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-2 text-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {b}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <a
+                href={whatsappLink("Hello FreshDream, I am an Airbnb host and would like to book Airbnb mattress care.\nNumber of mattresses:\nLocation:\nPreferred date:")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
+              >
+                <MessageCircle className="h-4 w-4" /> Book Airbnb Cleaning via WhatsApp
+              </a>
+            </div>
+          </div>
+          <aside className="lg:col-span-5">
+            <div className="card-soft border-2 border-accent/30 bg-gradient-to-br from-primary-soft to-accent-soft/40 p-6">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recurring plan</p>
+              <h3 className="mt-2 text-xl font-bold text-primary">Keep every guest stay fresh</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Set up monthly or quarterly mattress hygiene visits to maintain top-rated guest reviews. Send your unit details on WhatsApp.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* 9b. HOSTS PREVIEW */}
       <HostPackagesPreview />
 
       {/* 10. JIMMY BX7 PRO EQUIPMENT */}
