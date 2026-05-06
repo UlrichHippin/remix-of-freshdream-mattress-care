@@ -81,7 +81,7 @@ export default function About() {
           <div className="grid gap-5 md:grid-cols-4">
             {[
               { i: MapPin, t: "Roysambu base", d: "Quick coverage across north Nairobi and surrounding hubs." },
-              { i: Droplets, t: "Controlled-moisture", d: "Process designed to help reduce drying time on tight turnovers." },
+              { i: Droplets, t: "Dry hygiene treatment", d: "No soaking. No water extraction. Targeted spot support where suitable." },
               { i: Camera, t: "Documented service", d: "Before/after photos and clear treatment notes on every job." },
               { i: ShieldCheck, t: "Honest assessment", d: "Real expectations, not miracle promises." },
             ].map((it) => (
