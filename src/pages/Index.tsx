@@ -17,7 +17,7 @@ import { services, faqs, hostPackages, openingOffer, sleepAreaAddOn, freshSleepP
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBanner from "@/assets/hero-banner.png";
-import heroBackground from "@/assets/brand/hero-background.webp";
+import heroBackground from "@/assets/brand/hero-background.jpg";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
 import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
