@@ -455,40 +455,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. HOW TO BOOK */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="max-w-2xl">
-            <p className="eyebrow">How to book</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Four simple steps.</h2>
-          </div>
-          <div className="relative mt-12">
-            <div className="absolute left-0 right-0 top-7 hidden h-0.5 origin-left bg-gradient-to-r from-accent/30 via-accent to-accent/30 md:block animate-progress-line" aria-hidden="true" />
-            <ol className="relative grid gap-6 md:grid-cols-4">
-              {[
-                { icon: Send, t: "Choose your package", d: "Pick your mattress cleaning package (Freshen Up, Standard, Intensive Stain or Urine & Odor)." },
-                { icon: MessageCircle, t: "WhatsApp the details", d: "Send your mattress size, location pin and preferred date on WhatsApp." },
-                { icon: Wand2, t: "We confirm price & slot", d: "FreshDream confirms final price, location fee and an available time slot." },
-                { icon: ImageDown, t: "Service & payment", d: "Service is completed. Payment is made after service unless a deposit is requested." },
-              ].map((s, i) => (
-                <li key={s.t} className="relative flex flex-col items-center text-center">
-                  <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-lift ring-4 ring-background">
-                    <s.icon className="h-6 w-6" />
-                    <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground ring-2 ring-background">
-                      {i + 1}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-semibold text-primary">{s.t}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
-                </li>
-              ))}
-            </ol>
-            <p className="mt-6 rounded-xl bg-primary-soft p-4 text-center text-sm font-medium text-primary">
-              Booking is only confirmed after FreshDream replies on WhatsApp.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* 7. PROCESS TIMELINE */}
+      <ProcessTimeline />
+      <p className="container-tight -mt-6 mb-6 rounded-xl bg-primary-soft p-4 text-center text-sm font-medium text-primary">
+        Booking is only confirmed after FreshDream replies on WhatsApp.
+      </p>
 
       {/* 8. LOCATION FEE BADGE */}
       <section className="section">
