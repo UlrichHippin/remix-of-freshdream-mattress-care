@@ -166,6 +166,7 @@ export default function BookingSection() {
                     </SelectContent>
                   </Select>
                   {errors.item && <p className="mt-1 text-xs text-destructive">{errors.item}</p>}
+                  <p className="mt-1.5 text-xs text-muted-foreground">Sofa or rug? Available on request — send photos on WhatsApp.</p>
                 </div>
               </div>
 
