@@ -18,7 +18,6 @@ import {
   sleepAreaAddOn,
   freshSleepPackage,
   locationFee,
-  locationFeeDiscount,
 } from "@/data/content";
 import { packages } from "@/data/packages";
 import { whatsappLink } from "@/config/site";
