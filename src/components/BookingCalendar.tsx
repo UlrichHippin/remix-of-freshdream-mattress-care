@@ -64,7 +64,7 @@ export default function BookingCalendar() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState<null | { date: Date; slot: Slot; values: FormValues }>(null);
+  const [success, setSuccess] = useState<null | { id: string; date: Date; slot: Slot; values: FormValues; status: string; finalPrice: number | null; estimatedPrice: number | null }>(null);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
