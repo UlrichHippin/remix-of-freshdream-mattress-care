@@ -61,6 +61,7 @@ export default function Admin() {
   }
   async function savePrice(id: string, field: "estimated_price_kes" | "final_price_kes", raw: string) {
     const value = raw.trim() === "" ? null : Number(raw);
+    if (value !== null && (!Number.isFinite(value) || value < 0)) return toast.error("Invalid amount");
     const patch = field === "estimated_price_kes" ? { estimated_price_kes: value } : { final_price_kes: value };
     const { error } = await supabase.from("bookings").update(patch).eq("id", id);
     if (error) return toast.error(error.message);
