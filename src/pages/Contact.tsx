@@ -7,7 +7,7 @@ import EquipmentBadge from "@/components/EquipmentBadge";
 import { site, whatsappLink } from "@/config/site";
 import {
   Mail, MapPin, Copy, Check, MessageCircle, Camera, Clock4,
-  ShieldCheck, MessageSquareText, CalendarClock, Loader2, CheckCircle2,
+  ShieldCheck, MessageSquareText, Loader2, CheckCircle2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
