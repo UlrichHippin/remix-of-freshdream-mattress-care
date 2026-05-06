@@ -532,7 +532,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recurring plan</p>
               <h3 className="mt-2 text-xl font-bold text-primary">Keep every guest stay fresh</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Set up monthly or quarterly mattress hygiene visits to maintain top-rated guest reviews. Send your unit details on WhatsApp.
+                Set up monthly or quarterly mattress hygiene visits to keep rooms fresher between stays. Send your unit details on WhatsApp.
               </p>
             </div>
           </aside>
