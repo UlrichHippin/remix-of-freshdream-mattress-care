@@ -496,7 +496,7 @@ export default function Home() {
           <div className="lg:col-span-7">
             <p className="eyebrow"><BedDouble className="h-3.5 w-3.5" /> For Airbnb Hosts</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Airbnb Mattress Care for Better Guest Reviews
+              Airbnb Mattress Care for Guest-Ready Rooms
             </h2>
             <p className="mt-3 text-muted-foreground">
               FreshDream Mattress Care helps Airbnb hosts keep mattresses, sofas and sleeping areas fresh, hygienic and guest-ready.
