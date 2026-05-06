@@ -401,11 +401,11 @@ export const recurringHostPlans = {
   cta: "Request Host Plan Quote",
 };
 
-// Review & Referral
+// Private feedback & Referral
 export const reviewReferral = {
-  headline: "Review & Referral Bonus",
+  headline: "Private Feedback & Referral Bonus",
   reviewText:
-    "Leave an honest review after your first service and receive 10% off your next booking.",
+    "Share honest private feedback after your first service and receive 10% off your next booking. Public reviews should always be voluntary and never rewarded.",
   referralText:
     "Refer another Airbnb host or property owner and both receive KES 500 off the next service.",
 };
