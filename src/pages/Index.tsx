@@ -19,7 +19,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { whatsappLink } from "@/config/site";
 import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
-import heroBackground from "@/assets/brand/hero-background.jpg";
+import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 
 import logoFull from "@/assets/brand/logo-footer.png";
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <PageLayout
-      title="FreshDream Mattress Care | Mattress & Upholstery Cleaning in Nairobi"
+      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
       description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
     >
       {/* 1. HERO */}
