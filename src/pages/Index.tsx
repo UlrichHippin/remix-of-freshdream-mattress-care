@@ -380,6 +380,69 @@ export default function Home() {
         </DialogContent>
       </Dialog>
 
+      {/* Sleep Area Dust Refresh — optional add-on (real crawlable text for SEO) */}
+      <section id="sleep-area-add-on" className="section bg-surface">
+        <div className="container-tight grid gap-8 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Optional add-on</p>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+              {sleepAreaAddOn.name} — {sleepAreaAddOn.price}
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              After mattress cleaning, we can quickly vacuum around the bed area, reachable
+              under-bed spaces, floor edges and the bed frame/headboard for a fresher sleeping
+              environment.
+            </p>
+            <h3 className="mt-6 text-sm font-bold uppercase tracking-wider text-primary">Included</h3>
+            <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
+              {sleepAreaAddOn.included.map((it) => (
+                <li key={it} className="flex items-start gap-2 text-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden /> {it}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 rounded-xl border border-accent/40 bg-accent-soft/40 p-4 text-sm text-primary">
+              <strong>Important:</strong> {sleepAreaAddOn.note}
+            </p>
+            <div className="mt-6">
+              <a
+                href={whatsappLink(`Hello, I would like to add the ${sleepAreaAddOn.name} (${sleepAreaAddOn.price}) to my mattress cleaning booking.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-4 w-4" /> Add to my booking on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <aside className="lg:col-span-5">
+            <div className="card-soft border-2 border-accent/40 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6">
+              <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                <BadgeCheck className="h-3 w-3" /> {freshSleepPackage.badge}
+              </p>
+              <h3 className="mt-3 text-xl font-bold text-primary">{freshSleepPackage.name}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{freshSleepPackage.summary}</p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {freshSleepPackage.includes.map((it) => (
+                  <li key={it} className="flex items-start gap-2 text-foreground">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden /> {it}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={whatsappLink(freshSleepPackage.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-4 w-4" /> {freshSleepPackage.cta}
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
       {/* Why hosts choose us */}
       <section className="section bg-surface">
         <div className="container-tight">
