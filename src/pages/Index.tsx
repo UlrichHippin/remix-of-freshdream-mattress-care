@@ -46,12 +46,12 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
         {/* Animated mesh blobs */}
         <div
-          className="pointer-events-none absolute -left-32 top-10 -z-10 h-[480px] w-[480px] rounded-full bg-accent/25 blur-3xl"
+          className="pointer-events-none absolute -left-32 top-10 -z-10 h-[420px] w-[420px] rounded-full bg-accent/15 blur-3xl"
           style={{ animation: "mesh-drift 14s ease-in-out infinite" }}
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-primary/15 blur-3xl"
+          className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-[380px] w-[380px] rounded-full bg-primary/10 blur-3xl"
           style={{ animation: "mesh-drift 18s ease-in-out infinite reverse" }}
           aria-hidden="true"
         />
@@ -60,17 +60,16 @@ export default function Home() {
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
-            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
-              Professional{" "}
+            <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3rem] lg:leading-[1.05]">
               <span className="relative inline-block">
-                <span className="text-gradient-brand">Mattress &amp; Upholstery Care</span>
+                <span className="text-gradient-brand">Professional Mattress &amp; Upholstery Care</span>
                 <span
                   className="absolute -bottom-1 left-0 h-[4px] w-full origin-left rounded-full bg-gradient-to-r from-accent via-primary to-accent"
                   style={{ animation: "underline-sweep 1.2s ease-out 0.4s both" }}
                   aria-hidden="true"
                 />
-              </span>{" "}
-              in Nairobi
+              </span>
+              <span className="block text-primary">in Nairobi</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Fresh sleep for Airbnb hosts, families and modern homes.
@@ -149,7 +148,7 @@ export default function Home() {
                 alt="FreshDream Mattress Care logo"
                 width={920}
                 height={920}
-                className="relative w-[220px] animate-float object-contain drop-shadow-2xl sm:w-[320px] lg:w-[420px] xl:w-[460px]"
+                className="relative w-[200px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[260px] lg:w-[320px] xl:w-[340px]"
               />
               {/* Reflection */}
               <span
@@ -179,40 +178,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. OPENING OFFER */}
-      <section className="border-b border-border bg-accent-soft/40">
-        <div className="container-tight py-10 sm:py-12">
-          <div className="card-soft relative overflow-hidden border-2 border-accent/40 p-6 sm:p-8">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent-soft/70" aria-hidden="true" />
-            <div className="relative grid gap-6 md:grid-cols-12 md:items-center">
-              <div className="md:col-span-8">
+      {/* 3. OPENING OFFER — price list reference (CTA already in hero) */}
+      <section className="border-b border-border bg-accent-soft/30">
+        <div className="container-tight py-8 sm:py-10">
+          <div className="card-soft relative overflow-hidden border border-accent/30 p-5 sm:p-6">
+            <div className="grid gap-4 md:grid-cols-12 md:items-center">
+              <div className="md:col-span-5">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                  Launch Offer · First-Time Customers
+                  Launch Offer · By size
                 </span>
-                <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-                  Opening Offer: Freshen Up from KES 1,999
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-                  First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area.
+                <p className="mt-3 text-sm text-muted-foreground">
+                  First-time customers, selected Nairobi areas. Location fee may apply.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a
-                    href={whatsappLink(openingOffer.whatsappMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
-                  >
-                    <MessageCircle className="h-4 w-4" /> Book on WhatsApp
-                  </a>
-                  <Link
-                    to="/pricing"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft"
-                  >
-                    View Prices <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
               </div>
-              <ul className="md:col-span-4 grid gap-1.5 text-sm">
+              <ul className="md:col-span-7 grid gap-1.5 text-sm sm:grid-cols-2">
                 {openingOffer.prices.map((p, idx) => (
                   <li
                     key={p.label}
@@ -221,7 +200,7 @@ export default function Home() {
                     }`}
                   >
                     <span className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.label}</span>
-                    <span className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
+                    <span className={`text-sm font-bold nums ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
                   </li>
                 ))}
               </ul>
