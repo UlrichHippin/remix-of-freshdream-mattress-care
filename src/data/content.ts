@@ -182,6 +182,10 @@ export const faqs: { q: string; a: string }[] = [
     q: "Do you clean heavily damaged or moldy mattresses?",
     a: "We assess every case honestly. Some moldy or heavily damaged mattresses are not safe to recover and we'll recommend replacement instead of charging for a clean that won't deliver real results.",
   },
+  {
+    q: "Is the KES 300 Sleep Area Dust Refresh full room cleaning?",
+    a: "No. It is a quick hygiene add-on around the sleeping area only. It includes vacuuming around the bed, reachable under-bed areas, floor edges near the bed, and light dust removal from the bed frame/headboard. It does not include mopping, full room cleaning, bathroom cleaning, laundry, carpet deep cleaning, stain removal, or moving heavy furniture.",
+  },
 ];
 
 export const hostPackages = [
@@ -214,7 +218,42 @@ export const hostPackages = [
   },
 ];
 
+// Sleep Area Dust Refresh — optional hygiene add-on around the sleeping area
+export const sleepAreaAddOn = {
+  name: "Sleep Area Dust Refresh",
+  price: "KES 300",
+  priceLabel: "Add Sleep Area Dust Refresh — KES 300",
+  included: [
+    "Quick vacuuming around the bed area",
+    "Floor edges near the bed",
+    "Under-bed dust removal where reachable",
+    "Light vacuuming of bed frame/headboard",
+    "Visible dust reduction around the sleeping area",
+  ],
+  note:
+    "This is a quick hygiene add-on around the sleeping area only. It is not full room cleaning or housekeeping.",
+};
+
+// Fresh Sleep Package — mattress hygiene cleaning + Sleep Area Dust Refresh
+export const freshSleepPackage = {
+  name: "Fresh Sleep Package",
+  badge: "Recommended · Best for Airbnb & Homes",
+  summary:
+    "Mattress hygiene cleaning plus Sleep Area Dust Refresh — a complete sleep-area freshness combo.",
+  includes: [
+    "Mattress hygiene cleaning (Freshen Up)",
+    "Sleep Area Dust Refresh add-on (KES 300)",
+    "Vacuuming around the bed and reachable under-bed areas",
+    "Light dust removal from bed frame/headboard",
+    "Photo documentation",
+  ],
+  whatsappMessage:
+    "Hello, I would like to book the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh).\nLocation:\nMattress size:",
+  cta: "Book Fresh Sleep Package on WhatsApp",
+};
+
 export const pricingAddOns = [
+  { t: "Sleep Area Dust Refresh (around the bed only)", p: "KES 300" },
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
