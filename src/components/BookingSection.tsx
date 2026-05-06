@@ -20,12 +20,13 @@ import { toast } from "sonner";
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
-const ITEM_TYPES = ["Mattress", "Other / request by WhatsApp"] as const;
+const ITEM_TYPES = ["Mattress", "Multiple mattresses", "Other / request by WhatsApp"] as const;
 const SIZES = [
   "Single (3x6 ft)",
   "Double (4x6 ft)",
   "Queen (5x6 ft)",
   "King (6x6 ft)",
+  "Mixed sizes (specify in notes)",
 ] as const;
 
 const schema = z.object({
@@ -34,6 +35,7 @@ const schema = z.object({
   pkg: z.string().refine((v) => PACKAGES.includes(v), { message: "Choose a package" }),
   item: z.enum(ITEM_TYPES, { errorMap: () => ({ message: "Choose an item type" }) }),
   size: z.enum(SIZES, { errorMap: () => ({ message: "Choose a size" }) }),
+  quantity: z.coerce.number().int().min(1, "At least 1 mattress").max(20, "Max 20 — contact us on WhatsApp for larger jobs"),
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
@@ -42,7 +44,7 @@ const schema = z.object({
 
 type FormState = {
   name: string; phone: string; pkg: string; item: string; size: string;
-  location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
+  quantity: number; location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
 };
 
 const TRUST = [
@@ -54,7 +56,7 @@ const TRUST = [
 
 export default function BookingSection() {
   const [form, setForm] = useState<FormState>({
-    name: "", phone: "", pkg: "", item: "", size: "", location: "", date: undefined, notes: "", sleepAreaAddOn: false,
+    name: "", phone: "", pkg: "", item: "", size: "", quantity: 1, location: "", date: undefined, notes: "", sleepAreaAddOn: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
@@ -82,6 +84,7 @@ export default function BookingSection() {
       `Package: ${d.pkg}\n` +
       `Item: ${d.item}\n` +
       `Size: ${d.size}\n` +
+      `Number of mattresses: ${d.quantity}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
@@ -184,6 +187,28 @@ export default function BookingSection() {
                     </SelectContent>
                   </Select>
                   {errors.size && <p className="mt-1 text-xs text-destructive">{errors.size}</p>}
+                  {form.item === "Multiple mattresses" && (
+                    <p className="mt-1.5 text-xs text-muted-foreground">
+                      Different sizes? Choose <strong>Mixed sizes</strong> and list each size in Notes.
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <Label htmlFor="bk-qty">Number of mattresses *</Label>
+                  <Input
+                    id="bk-qty"
+                    type="number"
+                    inputMode="numeric"
+                    min={1}
+                    max={20}
+                    value={form.quantity}
+                    onChange={(e) => update("quantity", Math.max(1, Math.min(20, parseInt(e.target.value || "1", 10))))}
+                    aria-invalid={!!errors.quantity}
+                  />
+                  {errors.quantity && <p className="mt-1 text-xs text-destructive">{errors.quantity}</p>}
+                  <p className="mt-1.5 text-xs text-muted-foreground">
+                    Location fee is charged once per visit — multiple mattresses reduce cost per mattress.
+                  </p>
                 </div>
               </div>
 
