@@ -246,7 +246,7 @@ export default function Home() {
         <div className="container-tight grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { icon: Droplets, t: "Dry process — no soaking" },
-            { icon: ShieldCheck, t: "Safe for mattresses & sofas" },
+            { icon: ShieldCheck, t: "Safe for mattress hygiene care" },
             { icon: Sparkles, t: "UV-C hygiene & hot air refresh" },
             { icon: MapPin, t: "Nairobi & surrounding areas" },
           ].map((it) => (
@@ -269,7 +269,7 @@ export default function Home() {
               Professional Dry Cleaning Packages
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Safe, dry, and hygiene-focused cleaning for mattresses and sofas in Nairobi.
+              Safe, dry, and hygiene-focused mattress cleaning in Nairobi.
             </p>
           </div>
 
@@ -785,7 +785,7 @@ export default function Home() {
                   {" "}clean, and guest-ready.
                 </h2>
                 <p className="mt-3 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
-                  Specialist mattress and upholstery cleaning, documented and on schedule.
+                  Specialist mattress hygiene cleaning, documented and on schedule.
                   Send photos and your next check-in time — we'll take it from there.
                 </p>
               </div>

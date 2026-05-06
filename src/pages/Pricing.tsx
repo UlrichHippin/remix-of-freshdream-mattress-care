@@ -341,7 +341,7 @@ export default function Pricing() {
               Our main focus is mattress hygiene cleaning. WhatsApp us with photos for a custom quote.
             </p>
             <div className="mt-5">
-              <WhatsAppButton size="lg" label="Ask about upholstery on WhatsApp" />
+              <WhatsAppButton size="lg" label="Send photos on WhatsApp for request-based quote" />
             </div>
           </div>
         </div>

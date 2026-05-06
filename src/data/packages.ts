@@ -30,7 +30,7 @@ export const packages: PackageDef[] = [
     title: "Freshen Up",
     startingPrice: "Starting from 2,500 KES",
     hours: "Ready in about 2 hours",
-    summary: "A quick dry refresh for mattresses and sofas.",
+    summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
       "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro to remove dust, hair, dander, and surface debris, while UV-C light and hot air help improve hygiene and freshness.",
@@ -39,7 +39,7 @@ export const packages: PackageDef[] = [
       "Dust, hair, and dander removal",
       "UV-C hygiene treatment",
       "Hot air freshness treatment",
-      "Suitable for mattresses and sofas",
+      "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
     readyIn: "About 2 hours",
@@ -60,7 +60,7 @@ export const packages: PackageDef[] = [
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
-      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses and sofas with sweat buildup, trapped dust, and moderate odor. We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and hot air refresh.",
+      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and hot air refresh.",
     included: [
       "Pre-treatment with baking soda",
       "Deep dry vacuuming",
@@ -92,7 +92,7 @@ export const packages: PackageDef[] = [
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
     description:
-      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses and sofas. We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro vacuuming and hygiene treatment.",
+      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses (sofa support available on request). We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro vacuuming and hygiene treatment.",
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",
@@ -119,7 +119,7 @@ export const packages: PackageDef[] = [
     summary: "Dry odor-focused treatment for urine accidents and strong odor cases.",
     tagline: "Advanced dry treatment for urine odor and contamination.",
     description:
-      "For urine, strong odor or deep contamination cases on mattresses, sofas and selected fabric surfaces. Price depends on severity, mattress size, age of contamination and whether a second treatment is needed. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment and hot air refresh to reduce odor and restore freshness as much as possible.",
+      "For urine, strong odor or deep contamination cases on mattresses (sofa and selected fabric surfaces available on request). Price depends on severity, mattress size, age of contamination and whether a second treatment is needed. We use a multi-step dry odor-control process with absorption treatment, deep vacuuming, UV-C hygiene treatment and hot air refresh to reduce odor and restore freshness as much as possible.",
     included: [
       "Urine-focused dry pre-treatment",
       "Odor absorption process",
@@ -132,7 +132,7 @@ export const packages: PackageDef[] = [
       "Children's accidents",
       "Pet urine incidents",
       "Strong odor areas",
-      "Mattress and upholstery urine cases",
+      "Mattress urine cases (upholstery on request)",
     ],
     readyIn: "About 8 hours",
     note: "Older or deep urine contamination may improve but may not disappear completely. Severe cases may require follow-up treatment or replacement advice.",

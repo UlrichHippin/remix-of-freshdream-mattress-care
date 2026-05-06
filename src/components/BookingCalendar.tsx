@@ -375,7 +375,7 @@ export default function BookingCalendar() {
                 <SelectItem value="deep_clean">Standard Cleaning</SelectItem>
                 <SelectItem value="urine_odor">Urine & Odor Reduction Treatment</SelectItem>
                 <SelectItem value="emergency">Emergency Host Support</SelectItem>
-                <SelectItem value="upholstery">Upholstery & Sofa Refresh</SelectItem>
+                <SelectItem value="upholstery">Sofa / upholstery request — available on request</SelectItem>
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
