@@ -76,8 +76,8 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
           </h2>
           <p className="mt-3 text-muted-foreground">
             We invest in equipment built for mattress hygiene, not generic surface cleaning.
-            That means better dust and allergen pickup, UV-C hygiene support and hot-air
-            drying support — so your beds get back in service faster and cleaner.
+            That means better dust and allergen pickup, UV-C hygiene support and warm-air
+            freshness support — so your beds get back in service faster and cleaner.
           </p>
           <p className="mt-3 inline-flex items-start gap-2 rounded-xl border border-dashed border-border bg-card/60 px-3 py-2 text-sm text-muted-foreground">
             <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
