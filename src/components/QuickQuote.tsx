@@ -255,7 +255,7 @@ export default function QuickQuote() {
               {/* Breakdown */}
               <dl className="grid gap-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <dt className="text-muted-foreground">Cleaning subtotal</dt>
+                  <dt className="text-muted-foreground">Cleaning (order value)</dt>
                   <dd className="font-semibold text-primary">{cleaningLine}</dd>
                 </div>
                 <div className="flex items-center justify-between">
