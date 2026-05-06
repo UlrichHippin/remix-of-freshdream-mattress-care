@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, BedDouble, Sofa, Star, BadgeCheck, Sparkles,
+  ArrowRight, BedDouble, Star, BadgeCheck, Sparkles,
   Repeat2, Zap, FileCheck2, AlertTriangle, Building2, Filter,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -157,7 +157,7 @@ export default function HostPackagesPreview() {
                       ? "bg-gradient-to-br from-accent to-accent/80 text-accent-foreground"
                       : "bg-gradient-to-br from-primary to-primary/70 text-primary-foreground"
                   }`}>
-                    {i % 2 === 0 ? <BedDouble className="h-6 w-6" /> : <Sofa className="h-6 w-6" />}
+                    {i % 2 === 0 ? <BedDouble className="h-6 w-6" /> : <Building2 className="h-6 w-6" />}
                   </div>
                   <h3 className="mt-5 text-2xl font-bold text-primary">{p.name}</h3>
                   <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-accent">{p.units}</p>

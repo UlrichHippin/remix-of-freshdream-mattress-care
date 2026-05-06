@@ -52,7 +52,7 @@ type ZoneDef = {
 };
 
 const ZONES: ZoneDef[] = [
-  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2500 },
+  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2499 },
   { key: "north",    label: "North Nairobi",                fee: 500,  waiveAt: 5000 },
   { key: "central",  label: "Central Nairobi",              fee: 800,  waiveAt: 8000 },
   { key: "west",     label: "West / Premium Areas",         fee: 1200, discountAt: 12000 },
@@ -120,7 +120,9 @@ export default function QuickQuote() {
 
   const cleaningLine = ready && !isUrine && !isCustomQty ? fmt(calc.cleaning) : "-";
   const addonLine = addon === "yes"
-    ? (ready && !isUrine && !isCustomQty ? fmt(calc.addonTotal) : `Yes (+ KES 300 each)`)
+    ? (ready && !isUrine && !isCustomQty
+        ? `${fmt(calc.addonTotal)} (KES 300 each × ${qtyObj.count})`
+        : `Yes (KES 300 each × number of mattresses)`)
     : "No";
   const feeLine = !ready
     ? "-"
@@ -134,7 +136,7 @@ export default function QuickQuote() {
     `Package: ${pkgLabel || "-"}\n` +
     `Mattress size: ${sizeLabel || "-"}\n` +
     `Number of mattresses: ${qtyObj.label}\n` +
-    `Cleaning subtotal: ${cleaningLine}\n` +
+    `Cleaning (order value): ${cleaningLine}\n` +
     `Sleep Area Dust Refresh: ${addonLine}\n` +
     `Location zone: ${zoneObj?.label || "-"}\n` +
     `Location fee: ${feeLine}\n` +
@@ -208,7 +210,7 @@ export default function QuickQuote() {
                 <div className="mt-1.5 grid grid-cols-2 gap-2">
                   {[
                     { v: "no" as const, l: "No" },
-                    { v: "yes" as const, l: "Yes + KES 300" },
+                    { v: "yes" as const, l: "Yes + KES 300 per mattress / sleep area" },
                   ].map((o) => (
                     <button
                       key={o.v}
@@ -237,9 +239,9 @@ export default function QuickQuote() {
                         {z.custom
                           ? " (custom quote)"
                           : z.waiveAt
-                            ? ` (KES ${z.fee} — waived from ${fmt(z.waiveAt)})`
+                            ? ` (KES ${z.fee} — waived from ${fmt(z.waiveAt)} order value)`
                             : z.discountAt
-                              ? ` (KES ${z.fee} — discount possible from ${fmt(z.discountAt)})`
+                              ? ` (KES ${z.fee} — discount possible from ${fmt(z.discountAt)} order value)`
                               : ` (KES ${z.fee})`}
                       </SelectItem>
                     ))}
@@ -253,7 +255,7 @@ export default function QuickQuote() {
               {/* Breakdown */}
               <dl className="grid gap-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <dt className="text-muted-foreground">Cleaning subtotal</dt>
+                  <dt className="text-muted-foreground">Cleaning (order value)</dt>
                   <dd className="font-semibold text-primary">{cleaningLine}</dd>
                 </div>
                 <div className="flex items-center justify-between">
@@ -279,7 +281,7 @@ export default function QuickQuote() {
               </div>
 
               <p className="mt-3 text-xs text-muted-foreground">
-                Location fee is charged once per visit, not per mattress. This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
+                Location fee is charged once per visit, not per mattress, and may be waived based on your total order value (cleaning + add-ons). This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
               </p>
 
               {ready ? (
