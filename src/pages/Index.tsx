@@ -178,40 +178,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. OPENING OFFER */}
-      <section className="border-b border-border bg-accent-soft/40">
-        <div className="container-tight py-10 sm:py-12">
-          <div className="card-soft relative overflow-hidden border-2 border-accent/40 p-6 sm:p-8">
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent-soft/70" aria-hidden="true" />
-            <div className="relative grid gap-6 md:grid-cols-12 md:items-center">
-              <div className="md:col-span-8">
+      {/* 3. OPENING OFFER — price list reference (CTA already in hero) */}
+      <section className="border-b border-border bg-accent-soft/30">
+        <div className="container-tight py-8 sm:py-10">
+          <div className="card-soft relative overflow-hidden border border-accent/30 p-5 sm:p-6">
+            <div className="grid gap-4 md:grid-cols-12 md:items-center">
+              <div className="md:col-span-5">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                  Launch Offer · First-Time Customers
+                  Launch Offer · By size
                 </span>
-                <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-                  Opening Offer: Freshen Up from KES 1,999
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-                  First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area.
+                <p className="mt-3 text-sm text-muted-foreground">
+                  First-time customers, selected Nairobi areas. Location fee may apply.
                 </p>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <a
-                    href={whatsappLink(openingOffer.whatsappMessage)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
-                  >
-                    <MessageCircle className="h-4 w-4" /> Book on WhatsApp
-                  </a>
-                  <Link
-                    to="/pricing"
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft"
-                  >
-                    View Prices <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
               </div>
-              <ul className="md:col-span-4 grid gap-1.5 text-sm">
+              <ul className="md:col-span-7 grid gap-1.5 text-sm sm:grid-cols-2">
                 {openingOffer.prices.map((p, idx) => (
                   <li
                     key={p.label}
@@ -220,7 +200,7 @@ export default function Home() {
                     }`}
                   >
                     <span className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.label}</span>
-                    <span className={`text-sm font-bold ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
+                    <span className={`text-sm font-bold nums ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
                   </li>
                 ))}
               </ul>
