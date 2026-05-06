@@ -120,7 +120,9 @@ export default function QuickQuote() {
 
   const cleaningLine = ready && !isUrine && !isCustomQty ? fmt(calc.cleaning) : "-";
   const addonLine = addon === "yes"
-    ? (ready && !isUrine && !isCustomQty ? fmt(calc.addonTotal) : `Yes (+ KES 300 each)`)
+    ? (ready && !isUrine && !isCustomQty
+        ? `${fmt(calc.addonTotal)} (KES 300 each × ${qtyObj.count})`
+        : `Yes (KES 300 each × number of mattresses)`)
     : "No";
   const feeLine = !ready
     ? "-"
