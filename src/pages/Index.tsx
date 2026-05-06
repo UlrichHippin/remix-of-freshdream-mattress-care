@@ -477,7 +477,7 @@ export default function Home() {
               { icon: BadgeCheck, t: "Honest expectations", d: "No miracle promises. We tell you straight what stains can realistically improve." },
               { icon: Repeat2, t: "Repeat-property ready", d: "Recurring schedules, consistent crew, and unit-by-unit history." },
               { icon: Zap, t: "Emergency response", d: "Urgent help before next check-in when something goes wrong on turnover day." },
-              { icon: Droplets, t: "Controlled-moisture cleaning", d: "Process designed to help reduce drying time so beds get back in service faster." },
+              { icon: Droplets, t: "Dry hygiene treatment", d: "No soaking. No water extraction. Targeted spot support where suitable." },
             ].map((it) => (
               <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
                 <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-accent-soft/60 transition-transform group-hover:scale-110" aria-hidden="true" />
