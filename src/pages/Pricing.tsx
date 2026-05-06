@@ -462,6 +462,35 @@ export default function Pricing() {
             <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-whatsapp" />
             <span>{locationFee.bookingHint}</span>
           </p>
+          {/* Free or Reduced Location Fee */}
+          <div id="free-location-fee" className="mt-10 card-soft border-2 border-accent/40 p-6 sm:p-8">
+            <p className="eyebrow"><Tag className="h-3.5 w-3.5" /> Order value rules</p>
+            <h3 className="mt-3 text-xl font-bold text-primary sm:text-2xl">{locationFeeDiscount.title}</h3>
+            <p className="mt-3 text-sm text-muted-foreground">{locationFeeDiscount.intro}</p>
+
+            <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-surface text-xs uppercase tracking-wider text-muted-foreground">
+                  <tr>
+                    <th className="p-4 font-semibold">Order Value</th>
+                    <th className="p-4 font-semibold">Location Fee Rule</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {locationFeeDiscount.rules.map((r) => (
+                    <tr key={r.value} className="align-top">
+                      <td className="p-4 font-semibold text-primary">{r.value}</td>
+                      <td className="p-4 text-foreground">{r.rule}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mt-4 rounded-xl bg-primary-soft p-3 text-sm font-medium text-primary">
+              {locationFeeDiscount.fairnessNote}
+            </p>
+          </div>
         </div>
       </section>
 
