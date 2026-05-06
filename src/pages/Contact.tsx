@@ -19,7 +19,7 @@ import {
 
 const SERVICE_OPTIONS = [
   { value: "mattress", label: "Mattress cleaning" },
-  { value: "upholstery", label: "Upholstery / sofa cleaning" },
+  { value: "upholstery", label: "Sofa / upholstery request — available on request" },
   { value: "host_package", label: "Host package / multi-unit quote" },
   { value: "emergency", label: "Emergency / urgent call-out" },
 ] as const;
@@ -130,7 +130,7 @@ export default function Contact() {
   return (
     <PageLayout
       title="Request a Quote — FreshDream Mattress Care"
-      description="Send a short request or message us on WhatsApp. We reply with a realistic quote and the next available slot. Mattress and upholstery cleaning in Nairobi."
+      description="Send a short request or message us on WhatsApp. We reply with a realistic quote and the next available slot. Mattress hygiene cleaning in Nairobi. Sofa and upholstery requests are available on request via WhatsApp."
     >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
@@ -253,7 +253,7 @@ export default function Contact() {
                     <Input
                       value={values.item}
                       onChange={(e) => set("item", e.target.value)}
-                      placeholder="Queen mattress, 3-seat sofa…"
+                      placeholder="Queen mattress, number of mattresses, or request details…"
                       maxLength={80}
                     />
                   </Field>

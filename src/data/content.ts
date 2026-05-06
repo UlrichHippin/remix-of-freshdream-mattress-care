@@ -197,7 +197,7 @@ export const hostPackages = [
     bullets: [
       "Priority WhatsApp scheduling",
       "Consistent crew familiar with your unit(s)",
-      "Bundled mattress + upholstery care",
+      "Bundled mattress hygiene care + optional add-ons",
       "Documented before/after on every visit",
       "Honest assessment and drying guidance",
     ],
@@ -211,7 +211,7 @@ export const hostPackages = [
       "Recurring turnover scheduling",
       "Priority emergency response across units",
       "Unit-by-unit service history",
-      "Bundled mattress + upholstery care",
+      "Bundled mattress hygiene care + optional add-ons",
       "Custom pricing tailored to your portfolio",
     ],
     featured: true,
