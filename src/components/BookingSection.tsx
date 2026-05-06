@@ -275,9 +275,17 @@ export default function BookingSection() {
                   onChange={(e) => update("notes", e.target.value)} />
               </div>
 
-              <Button type="submit" size="lg" disabled={submitting} className="sheen w-full sm:w-auto">
-                {submitting ? "Sending…" : "Request a Booking"}
-              </Button>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
+              >
+                <MessageCircle className="h-5 w-5" />
+                {submitting ? "Opening WhatsApp…" : "Send via WhatsApp"}
+              </button>
+              <p className="-mt-2 text-xs text-muted-foreground">
+                Opens WhatsApp with your details prefilled — just press send.
+              </p>
 
               <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
                 <strong className="text-primary">Photos help us quote accurately.</strong> You can send photos directly on WhatsApp after submitting your request.
