@@ -161,56 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. TRUST BADGES */}
-      <section className="border-b border-border bg-background">
-        <div className="container-tight flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-5 text-sm text-primary">
-          {[
-            { i: MessageSquareText, t: "WhatsApp booking" },
-            { i: BadgeCheck, t: "M-PESA accepted" },
-            { i: MapPin, t: "Based in Roysambu" },
-            { i: Droplets, t: "Dry process — no soaking" },
-            { i: ShieldCheck, t: "Honest stain assessment" },
-            { i: Camera, t: "Before/after photos" },
-          ].map((it) => (
-            <span key={it.t} className="inline-flex items-center gap-1.5 font-medium">
-              <it.i className="h-4 w-4 text-accent" /> {it.t}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. OPENING OFFER — price list reference (CTA already in hero) */}
-      <section className="border-b border-border bg-accent-soft/30">
-        <div className="container-tight py-8 sm:py-10">
-          <div className="card-soft relative overflow-hidden border border-accent/30 p-5 sm:p-6">
-            <div className="grid gap-4 md:grid-cols-12 md:items-center">
-              <div className="md:col-span-5">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                  Launch Offer · By size
-                </span>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  First-time customers, selected Nairobi areas. Location fee may apply.
-                </p>
-              </div>
-              <ul className="md:col-span-7 grid gap-1.5 text-sm sm:grid-cols-2">
-                {openingOffer.prices.map((p, idx) => (
-                  <li
-                    key={p.label}
-                    className={`flex items-center justify-between rounded-lg px-3 py-2 ${
-                      idx === 0 ? "bg-primary text-primary-foreground" : "bg-surface"
-                    }`}
-                  >
-                    <span className={`text-xs font-semibold ${idx === 0 ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.label}</span>
-                    <span className={`text-sm font-bold nums ${idx === 0 ? "" : "text-primary"}`}>{p.price}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3b. QUICK QUOTE */}
+      {/* QUICK QUOTE — directly after hero */}
       <QuickQuote />
 
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
