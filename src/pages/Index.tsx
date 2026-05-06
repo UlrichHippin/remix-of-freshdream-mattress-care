@@ -167,12 +167,12 @@ export default function Home() {
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
-          {/* Most Popular */}
+          {/* Recommended */}
           <div className="card-soft glow-hover relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
             <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Star className="h-3 w-3" /> Most Popular
+              <Star className="h-3 w-3" /> Recommended
             </span>
-            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Customer Favorite</p>
+            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recommended starting point</p>
             <h2 className="mt-2 text-2xl font-bold text-primary sm:text-3xl">Standard Mattress Hygiene</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Best for homes, Airbnb rooms and serviced apartments.
