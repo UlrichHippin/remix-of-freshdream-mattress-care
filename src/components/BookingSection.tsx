@@ -105,7 +105,7 @@ export default function BookingSection() {
       <div className="container-tight">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center"><Send className="h-3.5 w-3.5" /> Booking</p>
-          <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Book Your Cleaning</h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Book Your Cleaning</span></h2>
           <p className="mt-3 text-muted-foreground">
             Choose your package and send us your request in just a few steps.
           </p>
