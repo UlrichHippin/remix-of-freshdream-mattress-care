@@ -211,6 +211,19 @@ export default function BookingSection() {
                 </div>
               </div>
 
+              <label className="flex items-start gap-3 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4 cursor-pointer transition-colors hover:bg-accent-soft/60">
+                <Checkbox
+                  id="bk-sleeparea"
+                  checked={form.sleepAreaAddOn}
+                  onCheckedChange={(v) => update("sleepAreaAddOn", v === true)}
+                  className="mt-0.5"
+                />
+                <span className="flex-1">
+                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning.</span>
+                </span>
+              </label>
+
               <div>
                 <Label htmlFor="bk-notes">Notes</Label>
                 <Textarea id="bk-notes" rows={3} value={form.notes} maxLength={500}
