@@ -151,7 +151,7 @@ export default function QuickQuote() {
       <div className="container-tight">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center"><Calculator className="h-3.5 w-3.5" /> Quick Quote</p>
-          <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Get a Quick Estimate</h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Get a Quick Estimate</span></h2>
           <p className="mt-3 text-muted-foreground">
             Choose your mattress size, package and area to see an estimated price. Final price is confirmed on WhatsApp after receiving your location pin.
           </p>
