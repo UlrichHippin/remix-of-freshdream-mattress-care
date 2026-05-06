@@ -11,12 +11,17 @@ import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
+import BrandHero from "@/components/BrandHero";
+import StatsBand from "@/components/StatsBand";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
 import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBackground from "@/assets/brand/hero-background.jpg";
+import logoMark from "@/assets/brand/logo-main.png";
 
 import logoFull from "@/assets/brand/logo-footer.png";
 
