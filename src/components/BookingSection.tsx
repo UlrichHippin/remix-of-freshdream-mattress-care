@@ -84,6 +84,7 @@ export default function BookingSection() {
       `Package: ${d.pkg}\n` +
       `Item: ${d.item}\n` +
       `Size: ${d.size}\n` +
+      `Number of mattresses: ${d.quantity}\n` +
       `Location: ${d.location}\n` +
       `Preferred date: ${format(d.date, "PPP")}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
