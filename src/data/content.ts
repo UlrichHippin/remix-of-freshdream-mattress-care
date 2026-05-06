@@ -144,7 +144,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "How long does drying take?",
-    a: "We use a controlled-moisture approach to help reduce drying time. In a well-ventilated room, mattresses are usually touch-dry within a few hours and ready for fresh sheets the same day. Hot, humid or closed rooms take longer — we share specific drying guidance after every job.",
+    a: "We use a dry mattress hygiene treatment with targeted spot support where suitable — no soaking, no water extraction. In a well-ventilated room, mattresses are usually ready for fresh sheets the same day. Hot, humid or closed rooms take longer — we share specific drying guidance after every job.",
   },
   {
     q: "Do all stains come out completely?",
