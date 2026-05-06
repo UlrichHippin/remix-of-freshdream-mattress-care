@@ -51,28 +51,26 @@ export default function Home() {
               <Sparkles className="h-3.5 w-3.5" /> Launch Offer
             </p>
             <h1 className="mt-4 text-[2rem] font-extrabold leading-[1.1] tracking-tight text-primary sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
-              Mattress Cleaning Nairobi for Airbnb Hosts &amp; Homes
+              Professional Mattress Cleaning in Nairobi
             </h1>
-            <p className="mt-3 text-lg font-semibold text-primary">
-              Freshen Up from KES 1,999
-            </p>
-            <p className="mt-2 max-w-md text-base leading-relaxed text-muted-foreground">
-              First-time customers · Selected Nairobi areas · WhatsApp booking · M-PESA accepted
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              FreshDream Mattress Care helps homes, Airbnb hosts and serviced apartments create a cleaner, fresher sleeping environment with professional mattress hygiene cleaning.
             </p>
 
             <p className="mt-4 inline-flex max-w-md items-start gap-2 rounded-xl border border-accent/40 bg-accent-soft/60 px-3 py-2 text-sm font-medium text-primary">
               <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden />
-              <span><strong>New:</strong> Add Sleep Area Dust Refresh for only KES 300 with your mattress cleaning.</span>
+              <span><strong>New Add-On:</strong> Sleep Area Dust Refresh — only KES 300</span>
             </p>
 
             {/* Trust bullets — cohesive row, wraps cleanly on mobile */}
             <ul className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-primary/90">
               {[
-                { i: BadgeCheck, t: "M-PESA accepted" },
+                { i: MapPin, t: "Nairobi based" },
+                { i: BedDouble, t: "Ideal for Airbnb hosts" },
+                { i: Wrench, t: "Jimmy BX7 Pro equipment" },
+                { i: Sparkles, t: "Sleep Area Dust Refresh add-on" },
+                { i: Camera, t: "Before/after photos" },
                 { i: MessageSquareText, t: "WhatsApp booking" },
-                { i: Clock4, t: "Same-day" },
-                { i: Camera, t: "Before/after" },
-                { i: MapPin, t: "Roysambu" },
               ].map((it) => (
                 <li key={it.t} className="inline-flex items-center gap-1.5 font-medium">
                   <it.i className="h-4 w-4 text-accent" aria-hidden /> {it.t}
@@ -90,10 +88,10 @@ export default function Home() {
                 <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
               <Link
-                to="/services"
+                to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary-soft sm:w-auto"
               >
-                Explore services <ArrowRight className="h-4 w-4" />
+                View Prices <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
