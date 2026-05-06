@@ -244,7 +244,16 @@ export default function BookingSection() {
                 </div>
               </div>
 
-              <label className="flex items-start gap-3 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4 cursor-pointer transition-colors hover:bg-accent-soft/60">
+              <div>
+                <Label>Preferred Time *</Label>
+                <Select value={form.time} onValueChange={(v) => update("time", v)}>
+                  <SelectTrigger aria-invalid={!!errors.time}><SelectValue placeholder="Choose a time slot" /></SelectTrigger>
+                  <SelectContent>
+                    {TIMES.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+                {errors.time && <p className="mt-1 text-xs text-destructive">{errors.time}</p>}
+              </div>
                 <Checkbox
                   id="bk-sleeparea"
                   checked={form.sleepAreaAddOn}
