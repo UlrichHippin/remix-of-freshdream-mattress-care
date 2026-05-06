@@ -59,6 +59,14 @@ export default function Admin() {
     toast.success("Updated");
     load();
   }
+  async function savePrice(id: string, field: "estimated_price_kes" | "final_price_kes", raw: string) {
+    const value = raw.trim() === "" ? null : Number(raw);
+    if (value !== null && (!Number.isFinite(value) || value < 0)) return toast.error("Invalid amount");
+    const { error } = await supabase.from("bookings").update({ [field]: value }).eq("id", id);
+    if (error) return toast.error(error.message);
+    toast.success("Price saved");
+    setBookings((prev) => prev.map((b) => b.id === id ? { ...b, [field]: value } as Booking : b));
+  }
   async function removeBlock(id: string) {
     const { error } = await supabase.from("blocked_periods").delete().eq("id", id);
     if (error) return toast.error(error.message);
