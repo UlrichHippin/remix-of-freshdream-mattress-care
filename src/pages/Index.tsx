@@ -17,6 +17,7 @@ import { services, faqs, hostPackages, openingOffer, sleepAreaAddOn, freshSleepP
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
 import heroBanner from "@/assets/hero-banner.png";
+import heroBackground from "@/assets/brand/hero-background.webp";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
 import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
@@ -44,7 +45,13 @@ export default function Home() {
       description="Professional mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. Fast WhatsApp booking, M-PESA accepted, based in Roysambu and serving Nairobi."
     >
       {/* Hero — clean two-column layout */}
-      <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
+      <section className="relative overflow-hidden border-b border-border">
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/20" aria-hidden="true" />
         <div className="container-tight grid gap-10 py-14 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
