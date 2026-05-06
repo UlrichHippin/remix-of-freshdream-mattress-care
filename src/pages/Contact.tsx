@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import PageLayout from "@/components/PageLayout";
-import BookingCalendar from "@/components/BookingCalendar";
+
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import EquipmentBadge from "@/components/EquipmentBadge";
 import { site, whatsappLink } from "@/config/site";
