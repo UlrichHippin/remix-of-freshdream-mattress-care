@@ -298,8 +298,8 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Choose Your Mattress Cleaning Package
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              <span className="text-gradient-brand">Choose Your Mattress Cleaning Package</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
               Safe, dry, and hygiene-focused mattress cleaning in Nairobi.
