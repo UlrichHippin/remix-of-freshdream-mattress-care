@@ -201,6 +201,8 @@ export default function BookingCalendar() {
   }
 
   if (success) {
+    const isConfirmed = success.status === "confirmed" && success.finalPrice != null;
+    const priceToShow = success.finalPrice ?? success.estimatedPrice;
     const msg =
       `Hello, I just submitted a booking request on your website.\n` +
       `Name: ${success.values.name}\nArea: ${success.values.area}\n` +
@@ -211,12 +213,48 @@ export default function BookingCalendar() {
         <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent text-accent-foreground">
           <CheckCircle2 className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 text-xl font-semibold text-primary">Request received</h3>
-        <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-          We will confirm your slot, price and payment details via WhatsApp.
-          Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
-          you can send them on WhatsApp after submitting your request.
-        </p>
+        <h3 className="mt-4 text-xl font-semibold text-primary">
+          {isConfirmed ? "Booking confirmed" : "Request received"}
+        </h3>
+        {!isConfirmed ? (
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
+            We will confirm your slot, price and payment details via WhatsApp.
+            Your booking is a <strong>request until confirmed via WhatsApp</strong>. Photos help us quote accurately —
+            you can send them on WhatsApp after submitting your request.
+            {success.estimatedPrice != null && (
+              <span className="mt-3 block text-primary">
+                Estimated price: <strong>KES {success.estimatedPrice.toLocaleString()}</strong> (subject to confirmation)
+              </span>
+            )}
+          </p>
+        ) : (
+          <div className="mx-auto mt-2 max-w-lg space-y-4 text-sm">
+            <p className="text-muted-foreground">
+              Your slot on <strong>{format(success.slot.startsAt, "EEE d MMM, h:mm a")}</strong> is confirmed.
+            </p>
+            <div className="rounded-xl border border-accent/40 bg-background p-4 text-left">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Final price</p>
+              <p className="mt-1 text-2xl font-bold text-primary">KES {priceToShow!.toLocaleString()}</p>
+            </div>
+            <div className="rounded-xl border border-border bg-background p-4 text-left text-xs text-muted-foreground">
+              <p className="text-sm font-semibold text-primary">Payment instructions</p>
+              <ul className="mt-2 list-disc space-y-1 pl-4">
+                <li>Pay via <strong>M-PESA</strong> after the service, or cash on completion.</li>
+                {site.mpesa.tillNumber && site.mpesa.tillNumber !== "TBD" && (
+                  <li>M-PESA Till Number: <strong>{site.mpesa.tillNumber}</strong></li>
+                )}
+                {site.mpesa.paybill && (
+                  <li>M-PESA Paybill: <strong>{site.mpesa.paybill}</strong> — Account: {site.mpesa.accountName}</li>
+                )}
+                {(!site.mpesa.tillNumber || site.mpesa.tillNumber === "TBD") && !site.mpesa.paybill && (
+                  <li>M-PESA payment details will be shared on WhatsApp.</li>
+                )}
+                <li>Reference: your name + booking date.</li>
+                <li>Only pay after the technician completes the job, unless a deposit was agreed on WhatsApp.</li>
+              </ul>
+            </div>
+          </div>
+        )}
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <a
             href={whatsappLink(msg)}
