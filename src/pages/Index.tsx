@@ -576,7 +576,7 @@ export default function Home() {
               {[
                 { icon: Send, t: "Share the details", d: "WhatsApp us your location, mattress or furniture, photos and the next check-in time." },
                 { icon: MessageCircle, t: "Honest quote & slot", d: "You get a realistic price, an available time slot and a clear view of what to expect." },
-                { icon: Wand2, t: "Calm on-site service", d: "Inspection and treatment with a controlled-moisture process — quiet, tidy, guest-ready." },
+                { icon: Wand2, t: "Calm on-site service", d: "Inspection and dry hygiene treatment — no soaking, quiet, tidy, guest-ready." },
                 { icon: ImageDown, t: "Proof & drying guidance", d: "Before/after photos and clear drying steps so the room is ready for the next guest." },
               ].map((s, i) => (
                 <li key={s.t} className="relative flex flex-col items-center text-center">
