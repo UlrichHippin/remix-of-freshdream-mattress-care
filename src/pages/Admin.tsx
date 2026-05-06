@@ -123,9 +123,14 @@ export default function Admin() {
             Each booking is a <strong>request</strong> until confirmed via WhatsApp. Reply to the customer to confirm slot, price and payment details.
           </p>
           <div className="mt-3 rounded-lg border border-dashed border-border bg-surface p-3 text-xs text-muted-foreground">
-            <p className="font-semibold text-primary">Planned admin enhancements</p>
+            <p className="font-semibold text-primary">Workflow</p>
+            <ol className="mt-1 list-decimal pl-4">
+              <li>Enter an <strong>estimated price</strong> after your first WhatsApp reply.</li>
+              <li>Enter the <strong>final price</strong> and click <strong>Confirm</strong> when slot and price are agreed.</li>
+              <li>The customer's confirmation page updates live with the final price and payment instructions.</li>
+            </ol>
+            <p className="mt-2 font-semibold text-primary">Planned enhancements</p>
             <ul className="mt-1 list-disc pl-4">
-              <li>Estimated price &amp; final price</li>
               <li>Payment method (M-PESA / Cash)</li>
               <li>M-PESA transaction code</li>
               <li>Payment status: unpaid / deposit paid / paid / cancelled</li>
