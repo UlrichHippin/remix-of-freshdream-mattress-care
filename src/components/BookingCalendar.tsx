@@ -247,7 +247,7 @@ export default function BookingCalendar() {
                   <li>M-PESA Paybill: <strong>{site.mpesa.paybill}</strong> — Account: {site.mpesa.accountName}</li>
                 )}
                 {(!site.mpesa.tillNumber || site.mpesa.tillNumber === "TBD") && !site.mpesa.paybill && (
-                  <li>M-PESA payment details will be shared on WhatsApp.</li>
+                  <li>M-PESA details are confirmed on WhatsApp.</li>
                 )}
                 <li>Reference: your name + booking date.</li>
                 <li>Only pay after the technician completes the job, unless a deposit was agreed on WhatsApp.</li>
