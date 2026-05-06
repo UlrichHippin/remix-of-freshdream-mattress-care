@@ -695,14 +695,14 @@ export default function Home() {
               See all FAQs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <Accordion type="single" collapsible className="card-soft px-6">
+          <div className="card-soft divide-y divide-border px-6">
             {faqs.slice(0, 5).map((f, i) => (
-              <AccordionItem key={i} value={`q${i}`} className="border-border">
-                <AccordionTrigger className="text-left text-base font-semibold text-primary">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">{f.a}</AccordionContent>
-              </AccordionItem>
+              <div key={i} className="py-5">
+                <h3 className="text-base font-semibold text-primary">{f.q}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
 
