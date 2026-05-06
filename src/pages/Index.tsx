@@ -11,8 +11,6 @@ import HostPackagesPreview from "@/components/HostPackagesPreview";
 import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
-import BrandHero from "@/components/BrandHero";
-import StatsBand from "@/components/StatsBand";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
