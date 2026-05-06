@@ -4,8 +4,7 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
-import logoHorizontal from "@/assets/logo-horizontal.png";
-import logoMark from "@/assets/logo-mark.png";
+import logoHorizontal from "@/assets/brand/logo-header.png";
 
 const nav = [
   { to: "/", label: "Home" },

@@ -16,15 +16,12 @@ import { whatsappLink } from "@/config/site";
 import { services, faqs, hostPackages, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroImg from "@/assets/hero-bed.jpg";
-import heroBanner from "@/assets/hero-banner.png";
 import heroBackground from "@/assets/brand/hero-background.jpg";
 import hospitalityBedroom from "@/assets/hospitality-bedroom.jpg";
 import hospitalityLiving from "@/assets/hospitality-living.jpg";
 import hospitalityApartment from "@/assets/hospitality-apartment.jpg";
 
-import logoMark from "@/assets/logo-mark.png";
-import logoHorizontal from "@/assets/logo-horizontal.png";
-import logoFull from "@/assets/logo-full.png";
+import logoFull from "@/assets/brand/logo-footer.png";
 import illustHostSupport from "@/assets/illust-host-support.png";
 import illustGuestReady from "@/assets/illust-guest-ready.png";
 import illustMattressCare from "@/assets/illust-mattress-care.png";
