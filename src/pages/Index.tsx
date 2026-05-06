@@ -133,7 +133,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="order-1 lg:order-2 lg:col-span-5">
             <div className="relative mx-auto flex items-center justify-center">
               <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
               <span className="absolute inset-10 -z-10 rounded-full bg-primary/15 blur-3xl" aria-hidden />
@@ -151,7 +151,7 @@ export default function Home() {
                 alt="FreshDream Mattress Care logo"
                 width={920}
                 height={920}
-                className="relative w-[200px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[260px] lg:w-[320px] xl:w-[340px]"
+                className="relative w-[150px] animate-float object-contain opacity-95 drop-shadow-2xl xs:w-[180px] sm:w-[240px] lg:w-[320px] xl:w-[340px]"
               />
               {/* Reflection */}
               <span
