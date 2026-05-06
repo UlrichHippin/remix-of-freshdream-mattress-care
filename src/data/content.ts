@@ -237,6 +237,23 @@ export const locationFee = {
     "Send your location pin on WhatsApp so we can confirm the exact location fee before booking.",
 };
 
+// Free or Reduced Location Fee — order-value based rules
+export const locationFeeDiscount = {
+  title: "Free or Reduced Location Fee",
+  intro:
+    "Location fee may be reduced or waived depending on the order value and service area. The final location fee is always confirmed before booking after receiving the customer's WhatsApp location pin.",
+  rules: [
+    { value: "Below KES 2,500", rule: "Location fee applies." },
+    { value: "From KES 2,500", rule: "Zone A / Nearby Roysambu areas may qualify for free location fee." },
+    { value: "From KES 5,000", rule: "Zone A and Zone B / North Nairobi areas may qualify for free location fee." },
+    { value: "From KES 8,000", rule: "Zone A, Zone B and selected Central Nairobi areas may qualify for free or reduced location fee." },
+    { value: "From KES 12,000", rule: "Custom location fee discount possible depending on distance, traffic, parking and access." },
+    { value: "Far Nairobi / Outside Nairobi", rule: "Always confirmed before booking." },
+  ],
+  fairnessNote:
+    "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
+};
+
 export const hostPackages = [
   {
     name: "Starter Host Package",
