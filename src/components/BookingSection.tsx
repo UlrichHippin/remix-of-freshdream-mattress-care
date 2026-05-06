@@ -20,12 +20,13 @@ import { toast } from "sonner";
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
-const ITEM_TYPES = ["Mattress", "Other / request by WhatsApp"] as const;
+const ITEM_TYPES = ["Mattress", "Multiple mattresses", "Other / request by WhatsApp"] as const;
 const SIZES = [
   "Single (3x6 ft)",
   "Double (4x6 ft)",
   "Queen (5x6 ft)",
   "King (6x6 ft)",
+  "Mixed sizes (specify in notes)",
 ] as const;
 
 const schema = z.object({
@@ -34,6 +35,7 @@ const schema = z.object({
   pkg: z.string().refine((v) => PACKAGES.includes(v), { message: "Choose a package" }),
   item: z.enum(ITEM_TYPES, { errorMap: () => ({ message: "Choose an item type" }) }),
   size: z.enum(SIZES, { errorMap: () => ({ message: "Choose a size" }) }),
+  quantity: z.coerce.number().int().min(1, "At least 1 mattress").max(20, "Max 20 — contact us on WhatsApp for larger jobs"),
   location: z.string().trim().min(2, "Please share your location/area").max(120),
   date: z.date({ required_error: "Pick a preferred date" }),
   notes: z.string().trim().max(500).optional().or(z.literal("")),
@@ -42,7 +44,7 @@ const schema = z.object({
 
 type FormState = {
   name: string; phone: string; pkg: string; item: string; size: string;
-  location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
+  quantity: number; location: string; date?: Date; notes: string; sleepAreaAddOn: boolean;
 };
 
 const TRUST = [
