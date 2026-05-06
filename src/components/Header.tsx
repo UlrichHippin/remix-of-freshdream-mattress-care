@@ -44,14 +44,12 @@ export default function Header() {
         <Link to="/" className="flex items-center" aria-label={site.name}>
           <img
             src={logoHorizontal}
-            alt={site.name}
+            alt="FreshDream Mattress Care logo"
             width={1200}
             height={400}
             className={cn(
-              "w-auto max-w-[60vw] object-contain transition-all",
-              scrolled
-                ? "h-10 sm:h-11 lg:h-12"
-                : "h-11 sm:h-14 lg:h-16",
+              "w-auto object-contain transition-all",
+              scrolled ? "h-12 sm:h-14" : "h-12 sm:h-14 lg:h-16",
             )}
           />
         </Link>
