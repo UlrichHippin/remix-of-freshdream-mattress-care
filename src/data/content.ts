@@ -295,16 +295,18 @@ export const freshSleepPackage = {
   name: "Fresh Sleep Package",
   badge: "Recommended · Best for Airbnb & Homes",
   summary:
-    "Mattress hygiene cleaning plus Sleep Area Dust Refresh — a complete sleep-area freshness combo.",
+    "Fresh Sleep Package = your selected mattress cleaning package + Sleep Area Dust Refresh for KES 300. The mattress cleaning price depends on the package and mattress size you choose; the Sleep Area Dust Refresh is always a flat KES 300 add-on.",
+  priceLogic:
+    "Total = mattress cleaning package (from KES 2,500) + KES 300 Sleep Area Dust Refresh.",
   includes: [
-    "Mattress hygiene cleaning (Freshen Up)",
+    "Mattress hygiene cleaning (your selected package)",
     "Sleep Area Dust Refresh add-on (KES 300)",
     "Vacuuming around the bed and reachable under-bed areas",
     "Light dust removal from bed frame/headboard",
     "Photo documentation",
   ],
   whatsappMessage:
-    "Hello, I would like to book the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh).\nLocation:\nMattress size:",
+    "Hello, I would like to book the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300).\nLocation:\nMattress size:\nPreferred mattress cleaning package:",
   cta: "Book Fresh Sleep Package on WhatsApp",
 };
 
@@ -346,7 +348,7 @@ export const openingOffer = {
     { label: "King Mattress", price: "KES 3,499" },
   ],
   smallPrint:
-    "Limited launch offer for first-time customers only. Available for the first 30 customers or during our launch period only. Available in selected Nairobi areas. Final price may depend on mattress condition, location and urgency.",
+    "First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
   cta: "Book Opening Offer on WhatsApp",

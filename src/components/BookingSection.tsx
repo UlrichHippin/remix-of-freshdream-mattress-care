@@ -20,7 +20,7 @@ import { toast } from "sonner";
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
-const ITEM_TYPES = ["Mattress", "Mattress + Sleep Area Dust Refresh", "Other / request by WhatsApp"] as const;
+const ITEM_TYPES = ["Mattress", "Other / request by WhatsApp"] as const;
 const SIZES = [
   "Single (3x6 ft)",
   "Double (4x6 ft)",
