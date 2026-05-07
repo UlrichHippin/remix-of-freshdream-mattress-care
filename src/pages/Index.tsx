@@ -213,6 +213,30 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="mx-auto mt-6 grid max-w-4xl gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-accent/40 bg-accent-soft/30 p-4 shadow-soft">
+              <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                <Star className="h-3 w-3" /> Opening Offer
+              </p>
+              <p className="mt-2 text-sm font-bold text-primary">Single Mattress Dry Care — from KES 1,999</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                First-time customers only · Single size (3×6 ft) · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Other sizes (Double / Queen / King) are not included in this offer.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border bg-card p-4 shadow-soft">
+              <p className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+                <BadgeCheck className="h-3 w-3" /> Regular Freshen Up
+              </p>
+              <p className="mt-2 text-sm font-bold text-primary">Single 2,500 · Double 3,000 · Queen 3,500 · King 4,000</p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                Standard pricing for repeat bookings and all mattress sizes. Same dry process — vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness, no soaking.
+              </p>
+            </div>
+          </div>
+
           <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
             <BadgeCheck className="h-4 w-4 text-accent" />
             M-PESA &amp; Cash Accepted · Receipts on request
