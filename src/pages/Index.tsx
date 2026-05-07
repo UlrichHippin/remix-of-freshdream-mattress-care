@@ -394,4 +394,36 @@ export default function Home() {
       {/* OUR GUARANTEE */}
       <section className="section">
         <div className="container-tight">
-          <div className="card-soft mx-auto grid max-w-4xl gap-6 border-2 border-accent/30 bg-gradient-
+          <div className="card-soft mx-auto max-w-4xl border-2 border-accent/30 bg-gradient-to-br from-card to-surface p-6 sm:p-8">
+            <div className="text-center">
+              <p className="eyebrow justify-center"><ShieldCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Honest, Documented, Private</h2>
+              <p className="mt-2 text-sm text-muted-foreground">Every job, handled with care by the founder.</p>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {[
+                { i: Camera, t: "Before/After Photos", d: "Visual proof on request" },
+                { i: MessageCircle, t: "WhatsApp Summary", d: "Service report after each job" },
+                { i: ShieldCheck, t: "100% Private", d: "Your home, fully respected" },
+              ].map((it) => (
+                <div key={it.t} className="rounded-xl border border-border bg-card p-4 text-center shadow-soft">
+                  <div className="mx-auto grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                    <it.i className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-3 text-sm font-bold text-primary">{it.t}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{it.d}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex justify-center">
+              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BOOKING */}
+      <BookingSection />
+    </PageLayout>
+  );
+}
