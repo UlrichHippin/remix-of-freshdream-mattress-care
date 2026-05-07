@@ -637,6 +637,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* 12b. OUR GUARANTEE / MEET THE FOUNDER */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="card-soft mx-auto grid max-w-4xl gap-6 border-2 border-accent/30 bg-gradient-to-br from-primary-soft/40 to-accent-soft/30 p-6 sm:p-10 sm:grid-cols-[auto_1fr] sm:items-center">
+            <div className="mx-auto grid h-28 w-28 place-items-center overflow-hidden rounded-full bg-accent/20 text-accent shadow-soft sm:h-32 sm:w-32" aria-label="Founder photo placeholder">
+              <ShieldCheck className="h-12 w-12" />
+            </div>
+            <div>
+              <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">A personal promise from the founder</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                FreshDream Mattress Care is a small, owner-led team based in Roysambu, Nairobi. Every booking is treated as <strong className="text-primary">strictly private and fully documented</strong> — your address, photos and details are never shared. You always receive an honest assessment, before/after photos and a clear service summary on WhatsApp.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 13. BOOKING FORM */}
       <BookingSection />
