@@ -21,7 +21,7 @@ import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 
 import logoFull from "@/assets/brand/logo-footer.png";
-import jimmyDevicePhoto from "@/assets/jimmy-bx7-pro-max.jpg";
+
 
 import { packages, STARTING_NOTE, type PackageDef as Pkg } from "@/data/packages";
 
@@ -558,21 +558,23 @@ export default function Home() {
             <div className="lg:col-span-7">
               <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Powered by JIMMY BX7 Pro Max
+                Professional Dry Mattress Care with JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Advanced dry mattress hygiene featuring 700W power, smart dust detection, and 65°C
-                graphene heating. Officially certified by the Allergy UK Foundation.
+                FreshDream uses the JIMMY BX7 Pro Max as a mattress-focused dry-care device. The model
+                is listed by Microless Kenya with 700W power, 16kPa suction, MIF filtration, LED display,
+                dust sensor, graphene technology, 65°C hot wind, UV-C support and negative ions —
+                without soaking the mattress or using water extraction.
               </p>
 
               <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
                 <p className="text-sm font-bold text-primary">No wet-mattress waiting time</p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Because the core mattress process is dry, there is no long drying delay like after
-                  wet extraction. In most dry-care cases, the mattress can be re-sheeted quickly after
-                  service. For targeted stain or odor treatment, we give separate ventilation guidance
-                  if needed.
-                </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Because the core mattress process is dry, there is no long drying delay like after
+                    wet extraction. This is especially helpful for Airbnb turnover days, serviced
+                    apartments and family homes. For targeted stain or odor treatment, we give separate
+                    ventilation guidance if needed.
+                  </p>
               </div>
 
               <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-accent-soft/40 p-4">
@@ -580,43 +582,46 @@ export default function Home() {
                 <div className="text-sm">
                   <p className="font-bold text-primary">Allergy-aware equipment choice</p>
                   <p className="mt-1 text-muted-foreground">
-                    The JIMMY BX7 Pro Max model is manufacturer-listed as Allergy UK Foundation
-                    certified. FreshDream uses it as part of a practical mattress hygiene workflow;
-                    results depend on mattress condition, material, age of stains and contamination depth.
+                    The JIMMY BX7 Pro Max device model is manufacturer-listed as Allergy UK Foundation
+                    certified. FreshDream is not itself Allergy UK certified; we use the device as part
+                    of a practical mattress hygiene workflow. Results depend on mattress condition,
+                    material, stain age and contamination depth.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-5">
-              <div className="card-soft relative overflow-hidden p-6">
+              <div className="card-soft relative overflow-hidden p-8">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
-                <div className="relative overflow-hidden rounded-2xl bg-surface">
-                  <img
-                    src={jimmyDevicePhoto}
-                    alt="JIMMY BX7 Pro Max mattress cleaning device used by FreshDream Mattress Care in Nairobi"
-                    loading="lazy"
-                    width={1024}
-                    height={1024}
-                    className="h-auto w-full object-cover"
-                  />
+                <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary-soft/60" aria-hidden="true" />
+                <div className="relative flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-surface px-6 py-12 text-center">
+                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                    <Wrench className="h-8 w-8" />
+                  </div>
+                  <p className="mt-4 text-[11px] font-bold uppercase tracking-wider text-accent">
+                    Core equipment
+                  </p>
+                  <h3 className="mt-1 text-lg font-bold text-primary">JIMMY BX7 Pro Max</h3>
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    Mattress-focused dry-care device
+                  </p>
+                  <p className="mt-3 text-[11px] uppercase tracking-wider text-muted-foreground/80">
+                    Real device photo coming soon
+                  </p>
                 </div>
-                <p className="relative mt-4 text-center text-[11px] font-bold uppercase tracking-wider text-accent">
-                  Core equipment
-                </p>
-                <h3 className="relative mt-1 text-center text-lg font-bold text-primary">
-                  JIMMY BX7 Pro Max
-                </h3>
               </div>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { i: Activity, t: "Smart Dust Sensor", d: "An intelligent LED screen detects microscopic dust, providing visual proof (from red to blue) when the mattress is truly clean." },
-              { i: Flame, t: "65°C Graphene Heating", d: "Heats up in just 5 seconds to remove deep moisture and mimic the fresh, hygienic feeling of sun-drying." },
-              { i: Zap, t: "16Kpa Suction & Tapping", d: "A patented composite roller brush and 700W power loosen deeply trapped dust, while 16Kpa suction extracts it completely." },
-              { i: ShieldCheck, t: "UV-C & Ultrasound", d: "Medical-grade UV-C light combined with ultrasound technology safely neutralizes 99.9% of dust mites and allergens." },
+              { i: Zap, t: "700W + 16kPa Suction", d: "Microless lists the BX7 Pro Max with 700W rated power and 16kPa suction for mattress-focused dry cleaning." },
+              { i: Flame, t: "65°C Graphene Hot Air", d: "Graphene heating and hot wind support a fresher, drier mattress surface without soaking the mattress." },
+              { i: Clock4, t: "No Wet-Mattress Waiting", d: "Dry care avoids the long drying delay of wet extraction — a major time saver for Airbnb turnover days." },
+              { i: ShieldCheck, t: "UV-C + Negative Ion Support", d: "UV-C surface hygiene support and negative ions are used during the cleaning pass on suitable surfaces." },
+              { i: Activity, t: "Smart Dust Sensor", d: "The LED display and dust sensor help identify areas that may need additional cleaning passes." },
+              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "MIF filtration and cyclonic dust separation are designed to help maintain stable cleaning performance." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
@@ -626,6 +631,24 @@ export default function Home() {
                 <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-8">
+            <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Comparison</p>
+            <h3 className="mt-3 text-2xl font-bold text-primary">Why this is better than ordinary cleaning</h3>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {[
+                "No water extraction and no soaked mattress",
+                "Time-saving for Airbnb check-out / check-in days",
+                "Smart dust sensing helps guide extra passes",
+                "Better fit for mattresses, sofas and fabric surfaces than ordinary vacuuming",
+              ].map((b) => (
+                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-8 flex justify-center">
