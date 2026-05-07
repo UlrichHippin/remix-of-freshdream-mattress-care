@@ -500,17 +500,16 @@ export default function Home() {
               Airbnb Mattress Care for Guest-Ready Rooms
             </h2>
             <p className="mt-3 text-muted-foreground">
-              FreshDream Mattress Care helps Airbnb hosts keep mattresses, sofas and sleeping areas fresh, hygienic and guest-ready.
+              FreshDream Mattress Care helps Airbnb hosts keep mattresses, sofas and sleeping areas fresh, hygienic and guest-ready between stays.
             </p>
             <ul className="mt-6 grid gap-2 text-sm sm:grid-cols-2">
               {[
-                "Better guest experience",
-                "Cleaner sleeping environment",
-                "Helps reduce dust, hair and allergens",
-                "Fast service between bookings",
-                "No drying time for dry mattress care",
+                "Fresher sleeping areas for guests",
+                "Helpful between bookings",
+                "Supports a cleaner guest experience",
                 "Optional recurring cleaning plans",
-                "Photo confirmation after service",
+                "Photo confirmation available after service",
+                "Ideal for short-stay apartments, guest rooms, and Airbnb hosts",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-2 text-foreground">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {b}
