@@ -76,7 +76,7 @@ export default function Home() {
               <span className="whitespace-nowrap text-primary">in Nairobi</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Fresh sleep for Airbnb hosts, families and modern homes.
+              Dry mattress care — no wet-mattress waiting. Easy WhatsApp booking for Airbnb hosts, families and modern homes.
             </p>
 
             {/* Trust badges in hero — keep to 3 key signals */}
