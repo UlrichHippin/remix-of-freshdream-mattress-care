@@ -79,13 +79,12 @@ export default function Home() {
               Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
 
-            {/* Trust badges in hero */}
+            {/* Trust badges in hero — keep to 3 key signals */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "WhatsApp booking",
+                "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
