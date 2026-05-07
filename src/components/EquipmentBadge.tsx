@@ -1,4 +1,4 @@
-import { Wrench, ShieldCheck, Sun, Wind, Sparkles } from "lucide-react";
+import { Wrench, ShieldCheck, Wind, Activity, Flame, Zap } from "lucide-react";
 
 type Variant = "inline" | "card" | "band";
 
@@ -23,6 +23,15 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
     );
   }
 
+  const features = [
+    { i: Zap, t: "16kPa suction + tapping" },
+    { i: Flame, t: "65°C graphene hot air" },
+    { i: ShieldCheck, t: "UV-C surface hygiene support" },
+    { i: Activity, t: "Smart dust sensor" },
+    { i: Wind, t: "No wet-drying delay" },
+    { i: Wrench, t: "Mattress-focused dry care" },
+  ];
+
   if (variant === "card") {
     return (
       <div className={`card-soft p-6 ${className}`}>
@@ -37,22 +46,12 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             <h3 className="text-base font-bold text-primary">JIMMY BX7 Pro Max</h3>
           </div>
         </div>
-          <p className="mt-3 text-sm text-muted-foreground">
-            We use a specialized mattress-cleaning system designed for mattress
-            hygiene and deep cleaning — not a generic home cleaner.
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            <span className="font-semibold text-primary">Coming soon:</span> a BISSELL
-            portable deep cleaner — soon part of our inventory for heavy stains
-            and upholstery support.
-          </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          A mattress-focused dry-care device — no soaking, no wet extraction and no long wet-mattress
+          drying delay.
+        </p>
         <ul className="mt-4 grid gap-2 text-sm text-foreground sm:grid-cols-2">
-          {[
-            { i: ShieldCheck, t: "UV-C hygiene support" },
-            { i: Wind, t: "Warm-air freshness support" },
-            { i: Sparkles, t: "Deep dust & allergen pickup" },
-            { i: Sun, t: "Built for mattress care" },
-          ].map((it) => (
+          {features.map((it) => (
             <li key={it.t} className="flex items-center gap-2">
               <span className="grid h-7 w-7 place-items-center rounded-lg bg-primary-soft text-primary">
                 <it.i className="h-3.5 w-3.5" />
@@ -72,28 +71,15 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         <div className="lg:col-span-7">
           <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
           <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-            Specialized mattress-cleaning setup — JIMMY BX7 Pro Max.
+            Mattress-focused dry care — JIMMY BX7 Pro Max.
           </h2>
           <p className="mt-3 text-muted-foreground">
-            We invest in equipment built for mattress hygiene, not generic surface cleaning.
-            That means better dust and allergen pickup, UV-C hygiene support and warm-air
-            freshness support — so your beds get back in service faster and cleaner.
-          </p>
-          <p className="mt-3 inline-flex items-start gap-2 rounded-xl border border-dashed border-border bg-card/60 px-3 py-2 text-sm text-muted-foreground">
-            <Sparkles className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
-            <span>
-              <span className="font-semibold text-primary">Soon part of our inventory:</span>{" "}
-              a BISSELL portable deep cleaner for heavy stain cases, upholstery
-              support and more intensive spot treatment.
-            </span>
+            We use a mattress-focused dry-care device — not a generic home vacuum. That means
+            65°C graphene hot air, 16kPa suction with tapping, UV-C surface hygiene support and
+            a smart dust sensor — without soaking the mattress or causing a long drying delay.
           </p>
           <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
-            {[
-              { i: ShieldCheck, t: "UV-C hygiene support" },
-              { i: Wind, t: "Warm-air freshness support" },
-              { i: Sparkles, t: "Deep dust & allergen pickup" },
-              { i: Sun, t: "Designed for mattress-focused cleaning" },
-            ].map((it) => (
+            {features.map((it) => (
               <li key={it.t} className="flex items-center gap-2 rounded-xl border border-border bg-card p-3 shadow-soft">
                 <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-soft text-accent">
                   <it.i className="h-4 w-4" />
@@ -114,7 +100,10 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             </p>
             <h3 className="relative mt-1 text-xl font-bold text-primary">JIMMY BX7 Pro Max</h3>
             <p className="relative mt-2 text-sm text-muted-foreground">
-              A modern, mattress-focused cleaning system as part of our standard kit.
+              Mattress-focused dry-care device — no soaking, no wet-mattress waiting time.
+            </p>
+            <p className="relative mt-3 text-[11px] uppercase tracking-wider text-muted-foreground/80">
+              Real device photo coming soon
             </p>
           </div>
         </div>
