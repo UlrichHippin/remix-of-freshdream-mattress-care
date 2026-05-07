@@ -281,51 +281,87 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. PACKAGES */}
+      {/* 5. COMPACT PRICING TABLE — All Packages */}
       <section id="packages" className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages & Pricing</p>
             <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
               <span className="text-gradient-brand">Choose Your Mattress Cleaning Package</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Safe, dry, and hygiene-focused mattress cleaning in Nairobi.
+              Transparent pricing by mattress size. Tap a package for full details.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 min-[420px]:grid-cols-2 lg:grid-cols-4">
-            {packages.map((p, i) => (
-              <div
-                key={p.title}
-                className={`card-soft glow-hover relative flex flex-col p-5 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift ${
-                  i === 1 ? "ring-2 ring-accent shadow-lift" : ""
-                }`}
-              >
-                {i === 1 && (
-                  <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                    <Star className="h-2.5 w-2.5" /> Recommended
-                  </span>
-                )}
-                <h3 className={`text-lg font-bold text-primary max-[380px]:text-base ${i === 1 ? "pr-24" : ""}`}>{p.title}</h3>
-                <p className="mt-2 text-2xl font-bold text-primary max-[380px]:text-xl">{p.startingPrice}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{STARTING_NOTE}</p>
-                <span className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
-                  <Clock4 className="h-3.5 w-3.5" /> {p.hours}
-                </span>
-                <p className="mt-4 flex-1 text-sm text-muted-foreground">{p.summary}</p>
-                <button
-                  type="button"
-                  onClick={() => setActivePkg(p)}
-                  className="mt-5 inline-flex h-10 items-center justify-center gap-1 rounded-full border-2 border-primary px-4 text-sm font-semibold text-primary transition-colors hover:bg-primary-soft"
-                >
-                  More info <ArrowRight className="h-4 w-4" />
-                </button>
-              </div>
-            ))}
+          <div className="mx-auto mt-8 max-w-5xl overflow-hidden rounded-2xl border-2 border-accent/30 bg-card shadow-soft">
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="px-3 py-3 text-left text-[11px] font-bold uppercase tracking-wider sm:px-4">Package</th>
+                    <th className="px-2 py-3 text-right text-[11px] font-bold uppercase tracking-wider sm:px-4">Single</th>
+                    <th className="px-2 py-3 text-right text-[11px] font-bold uppercase tracking-wider sm:px-4">Double</th>
+                    <th className="px-2 py-3 text-right text-[11px] font-bold uppercase tracking-wider sm:px-4">Queen</th>
+                    <th className="px-2 py-3 text-right text-[11px] font-bold uppercase tracking-wider sm:px-4">King</th>
+                    <th className="hidden px-2 py-3 sm:table-cell sm:px-4"></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  {packages.map((p, i) => (
+                    <tr key={p.title} className={i === 1 ? "bg-accent-soft/40" : "bg-card"}>
+                      <td className="px-3 py-3 sm:px-4">
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setActivePkg(p)}
+                            className="text-left font-bold text-primary hover:underline max-[380px]:text-xs"
+                          >
+                            {p.title}
+                          </button>
+                          {i === 1 && (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground">
+                              <Star className="h-2.5 w-2.5" /> Top
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      {p.sizes.length === 4 ? (
+                        p.sizes.map((s) => (
+                          <td key={s.label} className="px-2 py-3 text-right font-semibold text-primary nums sm:px-4">
+                            {s.price.replace("KES ", "")}
+                          </td>
+                        ))
+                      ) : (
+                        <td colSpan={4} className="px-2 py-3 text-right text-xs font-semibold text-primary sm:px-4">
+                          {p.sizes[0].price}
+                        </td>
+                      )}
+                      <td className="hidden px-2 py-3 text-right sm:table-cell sm:px-4">
+                        <button
+                          type="button"
+                          onClick={() => setActivePkg(p)}
+                          className="text-xs font-semibold text-accent hover:underline"
+                        >
+                          Details →
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="border-t border-border bg-surface px-4 py-3 text-xs text-muted-foreground">
+              <p>All prices in KES. <span className="font-semibold text-primary">Sleep Area Dust Refresh +KES 300.</span> Final price confirmed by WhatsApp before the visit.</p>
+            </div>
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-3">
+          <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
+            <BadgeCheck className="h-4 w-4 text-accent" />
+            M-PESA &amp; Cash Accepted · Receipts on request
+          </p>
+
+          <div className="mt-8 flex flex-col items-center gap-3">
             <WhatsAppButton size="lg" label="Book a Cleaning" className="w-full sm:w-auto animate-soft-pulse" />
             <p className="text-center text-sm text-muted-foreground">
               Sofa or rug? Available on request after photos on WhatsApp.
