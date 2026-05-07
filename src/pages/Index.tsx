@@ -229,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* 5. PACKAGES */}
-      <section className="section bg-surface">
+      <section id="packages" className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
