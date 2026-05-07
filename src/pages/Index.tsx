@@ -15,6 +15,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
+import { mattressCleaningMsg, airbnbMattressMsg, upholsteryMsg, stainOdorMsg } from "@/config/whatsappTemplates";
 import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
@@ -156,6 +157,61 @@ export default function Home() {
                 className="pointer-events-none absolute bottom-0 left-1/2 h-6 w-[60%] -translate-x-1/2 rounded-[50%] bg-primary/20 blur-xl"
                 aria-hidden="true"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COMPACT HOMEPAGE PRICING TABLE */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Pricing</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Simple, Honest Pricing</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Starting prices for mattress cleaning in Nairobi.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-6 max-w-2xl card-soft p-5 sm:p-6">
+            <ul className="divide-y divide-border rounded-xl border border-border bg-surface text-sm">
+              {[
+                { s: "Single Mattress", p: "from KES 1,999" },
+                { s: "Double Mattress", p: "from KES 2,499" },
+                { s: "Queen Mattress", p: "from KES 2,999" },
+                { s: "King Mattress", p: "from KES 3,499" },
+              ].map((r) => (
+                <li key={r.s} className="flex items-center justify-between px-4 py-3">
+                  <span className="font-medium text-foreground">{r.s}</span>
+                  <span className="font-bold text-primary nums">{r.p}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+              <div className="rounded-lg bg-accent-soft/40 px-3 py-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-accent">Add-on</p>
+                <p className="mt-0.5 text-foreground">Sleep Area Dust Refresh — <span className="font-semibold nums">+ KES 300</span></p>
+              </div>
+              <div className="rounded-lg bg-primary-soft/50 px-3 py-2">
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">Transport</p>
+                <p className="mt-0.5 text-foreground">Confirmed by location</p>
+              </div>
+            </div>
+
+            <p className="mt-4 text-center text-xs italic text-muted-foreground">
+              Final price is confirmed by WhatsApp before the visit.
+            </p>
+
+            <div className="mt-4 flex justify-center">
+              <a
+                href={whatsappLink(mattressCleaningMsg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-4 w-4" /> Get exact price on WhatsApp
+              </a>
             </div>
           </div>
         </div>
