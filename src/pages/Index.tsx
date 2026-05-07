@@ -168,7 +168,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* QUICK QUOTE — directly after hero */}
+      {/* COMPACT PRICING TABLE */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Simple, Honest Pricing</p>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              <span className="text-gradient-brand">Regular Freshen Up Dry Care</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Transparent starting prices by mattress size. No soaking, no wet-drying delay.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 max-w-3xl card-soft border-2 border-accent/30 p-6 sm:p-8">
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {[
+                { label: "Single Mattress", price: "from KES 2,500" },
+                { label: "Double Mattress", price: "from KES 3,000" },
+                { label: "Queen Mattress", price: "from KES 3,500" },
+                { label: "King Mattress", price: "from KES 4,000" },
+              ].map((row) => (
+                <li
+                  key={row.label}
+                  className="flex items-baseline justify-between rounded-xl bg-surface px-4 py-3"
+                >
+                  <span className="text-sm font-semibold text-muted-foreground">{row.label}</span>
+                  <span className="text-base font-bold text-primary nums">{row.price}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5 grid gap-2 rounded-xl border border-border bg-surface/60 p-4 text-sm">
+              <p className="font-semibold text-primary">Add-ons</p>
+              <p className="text-muted-foreground">• Sleep Area Dust Refresh — <span className="font-semibold text-primary">+ KES 300</span></p>
+              <p className="text-muted-foreground">• Stain / odor support — <span className="font-semibold text-primary">quote after photo</span></p>
+              <p className="text-muted-foreground">• Transport fee — <span className="font-semibold text-primary">confirmed by location</span></p>
+            </div>
+
+            <p className="mt-4 text-center text-xs italic text-muted-foreground">
+              Final price is confirmed by WhatsApp before the visit.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* QUICK QUOTE */}
       <QuickQuote />
 
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
