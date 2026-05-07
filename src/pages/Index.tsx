@@ -15,7 +15,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
-import { faqs, openingOffer, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
+import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
@@ -115,19 +115,23 @@ export default function Home() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappLink(openingOffer.whatsappMessage)}
+                href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Book via WhatsApp
+                <MessageCircle className="h-5 w-5" /> WhatsApp Us for an Exact Quote
               </a>
-              <Link
-                to="/services"
+              <a
+                href="#packages"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("packages")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Services <ArrowRight className="h-5 w-5" />
-              </Link>
+                View Cleaning Packages <ArrowRight className="h-5 w-5" />
+              </a>
             </div>
           </div>
 
@@ -225,7 +229,7 @@ export default function Home() {
       </section>
 
       {/* 5. PACKAGES */}
-      <section className="section bg-surface">
+      <section id="packages" className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Packages</p>
@@ -424,11 +428,8 @@ export default function Home() {
             <div className="text-center">
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transport Fee — Always Confirmed Before Booking</h2>
-              <p className="mt-3 text-muted-foreground">
-                Service Price <span className="font-semibold text-primary">+</span> Transport Fee <span className="font-semibold text-primary">=</span> Final Confirmed Price
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Transport fees depend on customer location and are always confirmed before booking. Charged once per visit — not per mattress.
+              <p className="mt-3 text-base font-semibold text-primary">
+                Standard travel fee of KES 300–500 applies depending on your Nairobi location. Travel fee is completely waived for bookings of 3 or more mattresses.
               </p>
             </div>
 
@@ -636,6 +637,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* 12b. OUR GUARANTEE / MEET THE FOUNDER */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="card-soft mx-auto grid max-w-4xl gap-6 border-2 border-accent/30 bg-gradient-to-br from-primary-soft/40 to-accent-soft/30 p-6 sm:p-10 sm:grid-cols-[auto_1fr] sm:items-center">
+            <div className="mx-auto grid h-28 w-28 place-items-center overflow-hidden rounded-full bg-accent/20 text-accent shadow-soft sm:h-32 sm:w-32" aria-label="Founder photo placeholder">
+              <ShieldCheck className="h-12 w-12" />
+            </div>
+            <div>
+              <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">A personal promise from the founder</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                FreshDream Mattress Care is a small, owner-led team based in Roysambu, Nairobi. Every booking is treated as <strong className="text-primary">strictly private and fully documented</strong> — your address, photos and details are never shared. You always receive an honest assessment, before/after photos and a clear service summary on WhatsApp.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 13. BOOKING FORM */}
       <BookingSection />
@@ -652,6 +670,9 @@ export default function Home() {
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
               Send us photos and your next check-in time. We'll tell you honestly what's possible and prioritize you for same-day or next-day support where we can.
+            </p>
+            <p className="mt-3 max-w-2xl rounded-xl bg-primary-foreground/10 p-4 text-sm leading-relaxed text-primary-foreground sm:text-base">
+              <strong>Resolution Center Ready:</strong> You receive a formal service receipt and private before/after photos, perfectly formatted for Airbnb Resolution Center claims.
             </p>
             <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
               <WhatsAppButton size="lg" label="WhatsApp now" className="w-full animate-soft-pulse" />
