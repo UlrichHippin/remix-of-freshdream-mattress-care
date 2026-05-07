@@ -689,22 +689,40 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature cards */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Feature cards — compact 2-col, with 65°C + Smart Sensor highlighted */}
+          <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-3">
             {[
-              { i: Zap, t: "700W + 16kPa Suction", d: "Mattress-focused dry cleaning power for dust, hair, dander and surface debris." },
-              { i: Flame, t: "65°C Graphene Hot Air", d: "Hot-air support for a fresher, drier mattress surface without soaking." },
-              { i: Clock4, t: "No Wet-Mattress Waiting", d: "No water extraction, no soaked mattress and no long drying delay." },
-              { i: ShieldCheck, t: "UV-C + Negative Ion Support", d: "Surface hygiene support during the cleaning pass on suitable materials." },
-              { i: Activity, t: "Smart Dust Sensor", d: "The LED display helps identify areas that may need additional cleaning passes." },
-              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "Designed to separate fine dust from airflow and help maintain stable cleaning performance." },
+              { i: Flame, t: "65°C Graphene Heating", d: "Hot-air freshness support — no soaking.", hero: true },
+              { i: Activity, t: "Smart Dust Sensor", d: "LED proof of clean — shows dust hotspots in real time.", hero: true },
+              { i: Zap, t: "700W · 16kPa Suction", d: "Mattress-focused dry power." },
+              { i: ShieldCheck, t: "UV-C + Negative Ion", d: "Surface hygiene support." },
+              { i: Wind, t: "MIF Filtration", d: "Fine-dust separation, dual cyclone." },
+              { i: Clock4, t: "No Wet Waiting", d: "No drying delay after the pass." },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
-                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                  <it.i className="h-5 w-5" />
+              <div
+                key={it.t}
+                className={`relative rounded-2xl p-3 transition-all hover:-translate-y-0.5 hover:shadow-lift sm:p-4 ${
+                  it.hero
+                    ? "border-2 border-accent bg-gradient-to-br from-accent-soft/60 to-card shadow-lift"
+                    : "card-soft"
+                }`}
+              >
+                {it.hero && (
+                  <span className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-accent px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wider text-accent-foreground">
+                    <Star className="h-2 w-2" /> Key
+                  </span>
+                )}
+                <div
+                  className={`grid h-9 w-9 place-items-center rounded-xl shadow-soft sm:h-10 sm:w-10 ${
+                    it.hero
+                      ? "bg-gradient-to-br from-accent to-accent/70 text-accent-foreground"
+                      : "bg-gradient-to-br from-primary to-primary/70 text-primary-foreground"
+                  }`}
+                >
+                  <it.i className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
-                <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
+                <h3 className="mt-2 text-xs font-bold text-primary sm:text-sm">{it.t}</h3>
+                <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground sm:text-xs">{it.d}</p>
               </div>
             ))}
           </div>
