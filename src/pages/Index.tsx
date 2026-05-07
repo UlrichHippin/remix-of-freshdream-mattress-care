@@ -79,6 +79,12 @@ export default function Home() {
               Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
 
+            {/* Hero eyecatcher: Dry Process */}
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
+              <Droplets className="h-4 w-4" />
+              100% Dry Process · Zero Drying Time
+            </div>
+
             {/* Trust badges in hero */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
