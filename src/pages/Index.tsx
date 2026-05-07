@@ -116,6 +116,10 @@ export default function Home() {
                 <Clock4 className="h-3.5 w-3.5" />
                 Limited slots available this week. Book now to secure your spot.
               </p>
+              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-soft">
+                <Zap className="h-3.5 w-3.5" />
+                100% Dry Process · Zero Drying Time · Ready for guests immediately
+              </p>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
