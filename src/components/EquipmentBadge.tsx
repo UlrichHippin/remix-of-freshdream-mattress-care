@@ -112,7 +112,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
             <p className="relative mt-4 text-[11px] font-bold uppercase tracking-wider text-accent">
               Core equipment
             </p>
-            <h3 className="relative mt-1 text-xl font-bold text-primary">JIMMY BX7 Pro</h3>
+            <h3 className="relative mt-1 text-xl font-bold text-primary">JIMMY BX7 Pro Max</h3>
             <p className="relative mt-2 text-sm text-muted-foreground">
               A modern, mattress-focused cleaning system as part of our standard kit.
             </p>
