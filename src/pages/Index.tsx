@@ -794,47 +794,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. DOCUMENTED SERVICE */}
-      <section className="section">
-        <div className="container-tight grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="eyebrow"><Camera className="h-3.5 w-3.5" /> FreshDream Service Proof</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              What you receive after service
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Every job is documented with care. You receive a clear summary on WhatsApp and visual proof of the work — with full customer privacy.
-            </p>
-            <ul className="mt-6 space-y-3 text-sm">
-              {[
-                "Before/after photos shared on WhatsApp where suitable",
-                "WhatsApp service summary of what was treated",
-                "Honest result communication — no hype",
-                "Customer privacy protected — no addresses, no personal details",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 text-foreground"><ClipboardCheck className="mt-0.5 h-4 w-4 text-accent" />{b}</li>
-              ))}
-            </ul>
-          </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {[
-              { i: Camera, t: "Before/after photos where suitable", d: "Visual proof of the cleaning result." },
-              { i: MessageCircle, t: "WhatsApp service summary", d: "Clear written recap of what was treated." },
-              { i: ShieldCheck, t: "Privacy-protected documentation", d: "No addresses or personal details shared." },
-              { i: BedDouble, t: "Guest-ready room impression", d: "A cleaner, fresher sleep area for your guests." },
-            ].map((it) => (
-              <li
-                key={it.t}
-                className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-surface p-5 text-center shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift"
-              >
-                <it.i className="h-7 w-7 text-accent" />
-                <p className="text-sm font-semibold text-primary">{it.t}</p>
-                <p className="text-xs text-muted-foreground">{it.d}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* (Section 11 Documented Service merged into 12b Guarantee) */}
 
       {/* 11b. BEFORE / AFTER — placeholder until real photos */}
       <section className="section">
