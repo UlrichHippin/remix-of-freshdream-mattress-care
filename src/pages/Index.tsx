@@ -567,7 +567,7 @@ export default function Home() {
             </ul>
             <div className="mt-6">
               <a
-                href={whatsappLink("Hello FreshDream, I am an Airbnb host and would like to book Airbnb mattress care.\nNumber of mattresses:\nLocation:\nPreferred date:")}
+                href={whatsappLink(airbnbMattressMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
