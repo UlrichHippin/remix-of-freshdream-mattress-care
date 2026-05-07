@@ -558,13 +558,11 @@ export default function Home() {
             <div className="lg:col-span-7">
               <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Professional Dry Mattress Care with JIMMY BX7 Pro Max
+                Powered by JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
-                FreshDream Mattress Care uses the JIMMY BX7 Pro Max for dry mattress hygiene care.
-                The Pro Max version combines strong suction, composite brushroll tapping, UV-C surface
-                hygiene support, 65°C graphene hot air, negative ions and smart dust sensing — without
-                soaking the mattress or using water extraction.
+                Advanced dry mattress hygiene featuring 700W power, smart dust detection, and 65°C
+                graphene heating. Officially certified by the Allergy UK Foundation.
               </p>
 
               <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
