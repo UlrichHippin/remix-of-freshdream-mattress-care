@@ -140,7 +140,7 @@ export const services: ServiceDef[] = [
 export const faqs: { q: string; a: string }[] = [
   {
     q: "How long until we can sleep on the mattress again?",
-    a: "Immediately! Our JIMMY BX7 Pro Max system uses a specialized dry extraction process with warm-air freshness, meaning there is no water soaking and zero drying time required.",
+    a: "For dry mattress care, there is no wet-mattress drying delay because we do not soak the mattress or use water extraction. In most dry-care cases, fresh sheets can be placed back shortly after service. If targeted stain or odor treatment is applied, we will give separate ventilation guidance.",
   },
   {
     q: "How long does mattress cleaning take?",
