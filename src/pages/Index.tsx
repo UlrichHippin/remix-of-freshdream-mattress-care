@@ -235,7 +235,7 @@ export default function Home() {
               Recommended with Sleep Area Dust Refresh + KES 300.
             </p>
             <a
-              href={whatsappLink("Hello, I'd like to book the Recommended mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
+              href={whatsappLink(mattressCleaningMsg)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
