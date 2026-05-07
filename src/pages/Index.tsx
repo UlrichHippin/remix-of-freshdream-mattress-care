@@ -836,8 +836,20 @@ export default function Home() {
               <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">A personal promise from the founder</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                FreshDream Mattress Care is a small, owner-led team based in Roysambu, Nairobi. Every booking is treated as <strong className="text-primary">strictly private and fully documented</strong> — your address, photos and details are never shared. You always receive an honest assessment, before/after photos and a clear service summary on WhatsApp.
+                FreshDream Mattress Care is a small, owner-led team based in Roysambu, Nairobi. Every booking is treated as <strong className="text-primary">strictly private and fully documented</strong> — your address, photos and details are never shared. You always receive an honest assessment and a clear service summary on WhatsApp.
               </p>
+              <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-3">
+                {[
+                  { i: Camera, t: "Before/After Photos" },
+                  { i: MessageCircle, t: "WhatsApp Summary" },
+                  { i: ShieldCheck, t: "100% Private" },
+                ].map((b) => (
+                  <li key={b.t} className="flex items-center gap-2 rounded-xl bg-card px-3 py-2 ring-1 ring-border">
+                    <b.i className="h-4 w-4 shrink-0 text-accent" />
+                    <span className="text-xs font-semibold text-primary sm:text-sm">{b.t}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
