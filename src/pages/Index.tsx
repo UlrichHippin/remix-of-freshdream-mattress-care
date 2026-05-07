@@ -85,7 +85,7 @@ export default function Home() {
                 "WhatsApp booking",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "Dry care — no soaking",
+                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
