@@ -611,14 +611,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: Wind, t: "65°C Graphene Hot Air", d: "The Pro Max version uses graphene heating and hot air support for a fresher, drier mattress surface." },
-              { i: Clock4, t: "No Wet-Mattress Waiting", d: "Dry care means no soaking and no long drying delay like after wet extraction." },
-              { i: Sun, t: "UV-C Surface Hygiene Support", d: "UV-C support is used during the cleaning pass on suitable surfaces." },
-              { i: Sparkles, t: "Composite Brushroll Tapping", d: "The composite brushroll helps loosen dust, hair, dander and fine surface debris." },
-              { i: Zap, t: "Smart Dust Sensor", d: "The LED dust sensor helps identify areas that may need additional cleaning passes." },
-              { i: ShieldCheck, t: "Allergy-Aware Device Choice", d: "The BX7 Pro Max model is manufacturer-listed as Allergy UK Foundation certified." },
+              { i: Activity, t: "Smart Dust Sensor", d: "An intelligent LED screen detects microscopic dust, providing visual proof (from red to blue) when the mattress is truly clean." },
+              { i: Flame, t: "65°C Graphene Heating", d: "Heats up in just 5 seconds to remove deep moisture and mimic the fresh, hygienic feeling of sun-drying." },
+              { i: Zap, t: "16Kpa Suction & Tapping", d: "A patented composite roller brush and 700W power loosen deeply trapped dust, while 16Kpa suction extracts it completely." },
+              { i: ShieldCheck, t: "UV-C & Ultrasound", d: "Medical-grade UV-C light combined with ultrasound technology safely neutralizes 99.9% of dust mites and allergens." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
