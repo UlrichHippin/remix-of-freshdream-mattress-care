@@ -208,7 +208,8 @@ export default function Home() {
               </table>
             </div>
             <div className="border-t border-border bg-surface px-4 py-3 text-xs text-muted-foreground">
-              <p>All prices in KES. <span className="font-semibold text-primary">Sleep Area Dust Refresh +KES 300.</span></p>
+              <p>All prices in KES — regular package rates. <span className="font-semibold text-primary">Sleep Area Dust Refresh +KES 300.</span></p>
+              <p className="mt-1"><span className="font-semibold text-accent">Opening Offer:</span> Single Mattress Dry Care from KES 1,999 — first-time customers only.</p>
             </div>
           </div>
 
