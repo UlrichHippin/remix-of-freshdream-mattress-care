@@ -4,7 +4,7 @@ import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
   FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
-  MessageCircle, BedDouble, Star, Check, Package, Wind, Sun,
+  MessageCircle, BedDouble, Star, Check, Package, Wind, Sun, Activity, Flame,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
