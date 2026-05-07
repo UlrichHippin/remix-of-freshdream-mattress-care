@@ -107,9 +107,13 @@ export default function Home() {
                   <Star className="h-3 w-3" /> First-time
                 </span>
               </div>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
+            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
                 <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
                 Add Sleep Area Dust Refresh for only <span className="text-accent nums">KES 300</span>
+              </p>
+              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent-soft/50 px-3 py-1.5 text-xs font-semibold text-accent">
+                <Clock4 className="h-3.5 w-3.5" />
+                Limited slots available this week. Book now to secure your spot.
               </p>
             </div>
 

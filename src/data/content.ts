@@ -139,6 +139,10 @@ export const services: ServiceDef[] = [
 
 export const faqs: { q: string; a: string }[] = [
   {
+    q: "How long until we can sleep on the mattress again?",
+    a: "Immediately! Our JIMMY BX7 Pro system uses a specialized dry extraction process with warm-air freshness, meaning there is no water soaking and zero drying time required.",
+  },
+  {
     q: "How long does mattress cleaning take?",
     a: "Most single-mattress jobs take about 45–90 minutes depending on the service and the condition. Deeper cleans and urine and odor treatment take longer. We confirm a time estimate when you send photos.",
   },
