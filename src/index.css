@@ -235,4 +235,10 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .sheen::after, .gradient-border::before { animation: none; }
+  .animate-fade-up,
+  .animate-soft-pulse,
+  .animate-float,
+  .animate-glow-pulse {
+    animation: none !important;
+  }
 }

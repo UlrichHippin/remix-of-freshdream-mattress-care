@@ -167,8 +167,8 @@ export const faqs: { q: string; a: string }[] = [
     a: "Sofas and upholstery cleaning is available on request alongside a mattress booking. Our main focus is professional mattress hygiene cleaning — WhatsApp us with photos for a custom quote.",
   },
   {
-    q: "Do you provide before/after photo proof?",
-    a: "Yes. Documented service is part of every job: before/after photos, what was treated, and honest result communication shared with you.",
+    q: "Do you provide service photos?",
+    a: "Yes. Service photos can be provided on request where suitable, including photos of the cleaning process, treated areas and final setup.",
   },
   {
     q: "Do you offer support for multiple units?",
