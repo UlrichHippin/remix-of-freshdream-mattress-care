@@ -375,6 +375,102 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHY DRY CARE — COMPARISON */}
+      <section className="section bg-gradient-hero">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><Wind className="h-3.5 w-3.5" /> The aha moment</p>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Why dry mattress care saves time</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              FreshDream dry care does not soak the mattress or use wet extraction, so there is no long wet-mattress drying delay.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "Ordinary home vacuum",
+                tone: "muted",
+                items: ["Mainly visible dust", "Not mattress-focused", "No hot-air support", "No smart dust guidance"],
+              },
+              {
+                title: "Wet extraction cleaning",
+                tone: "muted",
+                items: ["Can help selected stain cases", "Leaves fabric damp or wet", "Needs drying time", "Difficult for tight check-in windows"],
+              },
+              {
+                title: "FreshDream dry care",
+                tone: "hero",
+                items: [
+                  "JIMMY BX7 Pro Max mattress-focused device",
+                  "No soaking",
+                  "No wet extraction",
+                  "No long wet-mattress drying delay",
+                  "Re-sheet sooner",
+                  "Ideal for Airbnb turnover days",
+                ],
+              },
+            ].map((col) => {
+              const isHero = col.tone === "hero";
+              return (
+                <div
+                  key={col.title}
+                  className={`relative rounded-2xl p-5 shadow-soft transition-all ${
+                    isHero
+                      ? "border-2 border-accent bg-gradient-to-br from-accent-soft/70 to-card shadow-lift md:-translate-y-2"
+                      : "border border-border bg-card"
+                  }`}
+                >
+                  {isHero && (
+                    <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+                      <Star className="h-3 w-3" /> Recommended
+                    </span>
+                  )}
+                  {isHero && (
+                    <span
+                      className="pointer-events-none absolute -inset-2 -z-10 rounded-3xl bg-accent/20 blur-2xl animate-glow-pulse"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <h3 className={`text-base font-bold ${isHero ? "text-primary" : "text-primary/80"}`}>{col.title}</h3>
+                  <ul className="mt-3 space-y-2 text-sm">
+                    {col.items.map((it) => (
+                      <li key={it} className="flex items-start gap-2">
+                        <Check className={`mt-0.5 h-4 w-4 shrink-0 ${isHero ? "text-accent" : "text-muted-foreground"}`} />
+                        <span className={isHero ? "text-foreground" : "text-muted-foreground"}>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Airbnb turnover mini timeline */}
+          <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-border bg-card p-5 shadow-soft">
+            <p className="text-center text-[11px] font-bold uppercase tracking-wider text-accent">
+              Example Airbnb turnover flow
+            </p>
+            <ol className="mt-4 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center sm:justify-between">
+              {["Check-out", "Dry care service", "Re-sheet sooner", "Guest-ready room"].map((step, i, arr) => (
+                <li key={step} className="flex items-center gap-2 sm:flex-1 sm:flex-col sm:text-center">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm font-semibold text-primary">{step}</span>
+                  {i < arr.length - 1 && (
+                    <ArrowRight className="ml-auto h-4 w-4 text-accent sm:ml-0 sm:hidden" />
+                  )}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-3 text-center text-xs text-muted-foreground">
+              Timing depends on booking size, mattress condition and route availability.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* JIMMY BX7 PRO MAX EQUIPMENT */}
       <section className="section">
         <div className="container-tight">
