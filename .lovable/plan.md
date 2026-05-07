@@ -1,76 +1,71 @@
-# Phase 1 — Homepage Conversion Polish
+# Equipment & Benefits Section Refresh — JIMMY BX7 Pro Max
 
-Brand stays exactly: **FreshDream Mattress Care**. No fake reviews/ratings/Superhost claims. All existing strong sections (JIMMY BX7 Pro Max, no-wet-waiting, M-PESA, transport fee, Quick Quote, booking form, Airbnb host) stay intact.
+All work happens in the existing equipment section in `src/pages/Index.tsx` (section "10. JIMMY BX7 PRO MAX EQUIPMENT", ~lines 554–658). No new files, no manufacturer images, no business-logic changes.
 
-## 1. Hero cleanup (`src/pages/Index.tsx`)
+## What changes
 
-- Reduce trust chips from 4 → 3, in this order:
-  1. No wet-mattress waiting
-  2. M-PESA accepted
-  3. Based in Roysambu
-  - (Keep "WhatsApp booking" array entry commented out as optional 4th — disabled by default.)
-- Compact the Opening Offer price card:
-  - Remove the large "100% Dry Process · Zero Drying Time…" primary chip and the "Limited slots available this week" urgency chip.
-  - Keep: "Opening Offer" label, "from KES 1,999", "First-time" star badge, and the Sleep Area Dust Refresh +KES 300 line.
-  - Reduce padding (`p-5` → `p-4`), tighter spacing.
-- CTA hierarchy (clean two-button row):
-  - Primary solid: **Book via WhatsApp** (whatsapp green, current style)
-  - Secondary outline: **View Services** → links to `/services` (replaces "View Cleaning Packages" which scrolled to `#packages`)
+### 1. Headline & description (already mostly correct — finalize copy)
+- Headline: **Professional Dry Mattress Care with JIMMY BX7 Pro Max**
+- Description: exact Microless-sourced wording provided by the user.
 
-## 2. Compact homepage pricing table (new section)
+### 2. "No wet-mattress waiting time" highlighted block
+- Keep the existing card, update copy to the user's exact text including the "re-sheeted shortly after service" line.
 
-Insert a new section right after the hero (before Quick Quote), titled **"Simple, Honest Pricing"**.
+### 3. NEW visual block — "Why dry mattress care saves time"
+Inserted directly after the headline/description column block, before the equipment feature cards. 4 cards, mobile-friendly grid (`sm:grid-cols-2 lg:grid-cols-4`), each with an icon:
+1. **No soaked mattress** — `Droplets` (with slash style via muted color)
+2. **No long drying delay** — `Clock4`
+3. **Airbnb turnover friendly** — `Repeat2`
+4. **Re-sheet sooner** — `BedDouble`
 
-Compact card containing a clean table:
+### 4. Equipment feature cards (6 cards)
+Update the existing 6-card grid copy to the user's exact text:
+1. 700W + 16kPa Suction — `Zap`
+2. 65°C Graphene Hot Air — `Flame`
+3. No Wet-Mattress Waiting — `Clock4`
+4. UV-C + Negative Ion Support — `ShieldCheck`
+5. Smart Dust Sensor — `Activity`
+6. MIF Filtration + Dual Cyclone — `Wind`
+
+Grid stays `sm:grid-cols-2 lg:grid-cols-3` for clean balance with 6 items.
+
+### 5. "Why this is better than ordinary cleaning" comparison
+Expand the existing list to all 7 user-supplied points:
+- Not a generic home vacuum
+- Designed for mattresses, sofas and fabric surfaces
+- Dry process with no soaking
+- No wet extraction and no long drying delay
+- Strong time-saving benefit for Airbnb turnover days
+- Smart dust sensor helps guide extra passes
+- Combines suction, tapping, UV-C surface support, hot air, filtration and negative ion support
+
+### 6. Allergy-aware certification wording
+Tighten the existing block to the user's exact safer wording:
+> The JIMMY BX7 Pro Max device model is manufacturer-listed as Allergy UK Foundation certified. FreshDream Mattress Care itself is not Allergy UK certified.
+
+### 7. Image / device card
+The right-column card already shows a neutral premium placeholder (`Wrench` icon + "Real device photo coming soon"). Keep as-is. Confirm no manufacturer image is imported anywhere in the section.
+
+### 8. Safer claim audit
+Sweep the section copy to ensure none of the forbidden phrases appear ("99.99%", "sterilizes", "medical-grade", "guaranteed", "completely clean", "FreshDream is Allergy UK certified"). Current copy already complies; verify after edit.
+
+## Out of scope
+- No changes to Services, Pricing, FAQ, Footer, or `content.ts` (FAQ already updated previously and uses safe wording).
+- No new images generated; user will upload a real device photo later.
+
+## Layout sketch
 
 ```text
-Single Mattress   from KES 1,999
-Double Mattress   from KES 2,499
-Queen Mattress    from KES 2,999
-King Mattress     from KES 3,499
+[ Headline + description + No-wet-waiting block + Allergy note ]   [ Neutral device card ]
+─────────────────────────────────────────────────────────────────────────────────────────
+            Why dry mattress care saves time  (4 cards)
+─────────────────────────────────────────────────────────────────────────────────────────
+            Equipment specs  (6 feature cards)
+─────────────────────────────────────────────────────────────────────────────────────────
+            Why this is better than ordinary cleaning  (7-point list)
+─────────────────────────────────────────────────────────────────────────────────────────
+                              [ WhatsApp CTA ]
 ```
 
-Add-ons block below:
-- Sleep Area Dust Refresh — + KES 300
-- Transport fee — confirmed by location
-
-Footnote: *Final price is confirmed by WhatsApp before the visit.*
-
-Use existing `Table` UI primitive, semantic tokens only, mobile-friendly (full width, small text on mobile, single CTA below: "Get exact price on WhatsApp").
-
-## 3. Mobile UX fix
-
-- `src/components/FloatingWhatsApp.tsx`: hide on mobile by adding `hidden md:grid` so it only shows desktop/tablet.
-- `src/components/MobileStickyCTA.tsx`: simplify to a single dominant full-width WhatsApp CTA labeled **"Book via WhatsApp"** with the price as a small caption above or inline. Keeps "from KES 1,999" visible but the button is the dominant element.
-- Result: mobile = one sticky bottom WhatsApp CTA. Desktop = floating WhatsApp + inline buttons unchanged.
-
-## 4. Service-specific WhatsApp templates
-
-Create new helper `src/config/whatsappTemplates.ts` exporting four prefilled message strings (verbatim from the user spec):
-
-- `mattressCleaningMsg`
-- `airbnbMattressMsg`
-- `upholsteryMsg`
-- `stainOdorMsg`
-
-Wire them into the matching service cards / CTAs:
-- Mattress Cleaning card → `mattressCleaningMsg`
-- Airbnb host section CTA (`HostPackagesPreview` or its inline buttons in Index) → `airbnbMattressMsg`
-- Sofa / Upholstery card → `upholsteryMsg`
-- Stain / Odor card or Intensive Stain / Urine package CTAs → `stainOdorMsg`
-
-Will check `src/pages/Services.tsx`, `src/components/HostPackagesPreview.tsx`, and the relevant Index sections to map each card to the right template. Existing generic `whatsappLink()` calls elsewhere are untouched.
-
-## 5. Sections preserved
-
-JIMMY BX7 Pro Max equipment section, "No wet-mattress waiting" messaging, M-PESA payment section, transport fee zones, QuickQuote, BookingSection, HostPackagesPreview — all kept as-is unless touched by item 4 above.
-
 ## Files touched
-
-- `src/pages/Index.tsx` — hero chips, price card, CTAs, insert pricing table section, wire service templates
-- `src/components/FloatingWhatsApp.tsx` — hide on mobile
-- `src/components/MobileStickyCTA.tsx` — single dominant WhatsApp CTA
-- `src/config/whatsappTemplates.ts` — new file with 4 templates
-- `src/components/HostPackagesPreview.tsx` — use Airbnb template (read first to confirm)
-
-No backend, no schema, no new dependencies.
+- `src/pages/Index.tsx` — only the equipment section (~lines 554–658).

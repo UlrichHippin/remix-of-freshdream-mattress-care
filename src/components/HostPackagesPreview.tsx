@@ -5,7 +5,6 @@ import {
   Repeat2, Zap, FileCheck2, AlertTriangle, Building2, Filter,
 } from "lucide-react";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { airbnbMattressMsg } from "@/config/whatsappTemplates";
 import { hostPackages } from "@/data/content";
 import hostPortfolio from "@/assets/host-portfolio.jpg";
 
@@ -178,7 +177,7 @@ export default function HostPackagesPreview() {
                 </div>
 
                 <div className="relative mt-7 flex flex-wrap gap-2.5">
-                  <WhatsAppButton className="flex-1" label="Get this package" message={airbnbMattressMsg} />
+                  <WhatsAppButton className="flex-1" label="Get this package" />
                   <Link
                     to="/host-packages"
                     className="inline-flex h-11 items-center justify-center gap-1 rounded-full border-2 border-border px-4 text-sm font-semibold text-primary transition-colors hover:border-primary"
