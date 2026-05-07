@@ -567,25 +567,24 @@ export default function Home() {
                 without soaking the mattress or using water extraction.
               </p>
 
-              <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="mt-5 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
                 <p className="text-sm font-bold text-primary">No wet-mattress waiting time</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Because the core mattress process is dry, there is no long drying delay like after
-                    wet extraction. This is especially helpful for Airbnb turnover days, serviced
-                    apartments and family homes. For targeted stain or odor treatment, we give separate
-                    ventilation guidance if needed.
-                  </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Because the core process is dry, there is no long drying delay like after wet
+                  extraction. This is especially helpful for Airbnb turnover days, serviced apartments
+                  and family homes. In most dry-care cases, the mattress can be re-sheeted shortly
+                  after service. For targeted stain or odor treatment, we give separate ventilation
+                  guidance if needed.
+                </p>
               </div>
 
-              <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-accent-soft/40 p-4">
+              <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-card p-4">
                 <ShieldCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
                 <div className="text-sm">
                   <p className="font-bold text-primary">Allergy-aware equipment choice</p>
                   <p className="mt-1 text-muted-foreground">
                     The JIMMY BX7 Pro Max device model is manufacturer-listed as Allergy UK Foundation
-                    certified. FreshDream is not itself Allergy UK certified; we use the device as part
-                    of a practical mattress hygiene workflow. Results depend on mattress condition,
-                    material, stain age and contamination depth.
+                    certified. FreshDream Mattress Care itself is not Allergy UK certified.
                   </p>
                 </div>
               </div>
@@ -614,14 +613,39 @@ export default function Home() {
             </div>
           </div>
 
+
+          {/* Why dry mattress care saves time */}
+          <div className="mt-12">
+            <div className="text-center">
+              <p className="eyebrow justify-center"><Clock4 className="h-3.5 w-3.5" /> Time-saving benefit</p>
+              <h3 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why dry mattress care saves time</h3>
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { i: Droplets, t: "No soaked mattress", d: "Dry care means the mattress is not left wet after the cleaning pass." },
+                { i: Clock4, t: "No long drying delay", d: "Avoid the waiting time often needed after wet extraction." },
+                { i: Repeat2, t: "Airbnb turnover friendly", d: "Helpful between check-out and check-in when rooms need to be ready fast." },
+                { i: BedDouble, t: "Re-sheet sooner", d: "In most dry-care cases, fresh sheets can go back shortly after service." },
+              ].map((it) => (
+                <div key={it.t} className="card-soft p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lift">
+                  <div className="mx-auto grid h-11 w-11 place-items-center rounded-2xl bg-accent-soft text-accent">
+                    <it.i className="h-5 w-5" />
+                  </div>
+                  <h4 className="mt-3 text-base font-bold text-primary">{it.t}</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { i: Zap, t: "700W + 16kPa Suction", d: "Microless lists the BX7 Pro Max with 700W rated power and 16kPa suction for mattress-focused dry cleaning." },
-              { i: Flame, t: "65°C Graphene Hot Air", d: "Graphene heating and hot wind support a fresher, drier mattress surface without soaking the mattress." },
-              { i: Clock4, t: "No Wet-Mattress Waiting", d: "Dry care avoids the long drying delay of wet extraction — a major time saver for Airbnb turnover days." },
-              { i: ShieldCheck, t: "UV-C + Negative Ion Support", d: "UV-C surface hygiene support and negative ions are used during the cleaning pass on suitable surfaces." },
-              { i: Activity, t: "Smart Dust Sensor", d: "The LED display and dust sensor help identify areas that may need additional cleaning passes." },
-              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "MIF filtration and cyclonic dust separation are designed to help maintain stable cleaning performance." },
+              { i: Zap, t: "700W + 16kPa Suction", d: "Mattress-focused dry cleaning power for dust, hair, dander and surface debris." },
+              { i: Flame, t: "65°C Graphene Hot Air", d: "Hot-air support for a fresher, drier mattress surface without soaking." },
+              { i: Clock4, t: "No Wet-Mattress Waiting", d: "No water extraction, no soaked mattress, no long drying delay." },
+              { i: ShieldCheck, t: "UV-C + Negative Ion Support", d: "Surface hygiene support during the cleaning pass on suitable materials." },
+              { i: Activity, t: "Smart Dust Sensor", d: "The LED display helps identify areas that may need additional passes." },
+              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "Designed to separate fine dust from airflow and maintain stable performance." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
@@ -638,10 +662,13 @@ export default function Home() {
             <h3 className="mt-3 text-2xl font-bold text-primary">Why this is better than ordinary cleaning</h3>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {[
-                "No water extraction and no soaked mattress",
-                "Time-saving for Airbnb check-out / check-in days",
-                "Smart dust sensing helps guide extra passes",
-                "Better fit for mattresses, sofas and fabric surfaces than ordinary vacuuming",
+                "Not a generic home vacuum",
+                "Designed for mattresses, sofas and fabric surfaces",
+                "Dry process with no soaking",
+                "No wet extraction and no long drying delay",
+                "Strong time-saving benefit for Airbnb turnover days",
+                "Smart dust sensor helps guide extra passes",
+                "Combines suction, tapping, UV-C surface support, hot air, filtration and negative ion support",
               ].map((b) => (
                 <li key={b} className="flex items-start gap-2 text-sm text-foreground">
                   <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
