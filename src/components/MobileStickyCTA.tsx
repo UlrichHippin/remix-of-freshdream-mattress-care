@@ -10,7 +10,7 @@ export default function MobileStickyCTA() {
             <Tag className="h-4 w-4" />
           </span>
           <p className="truncate text-xs font-semibold text-primary">
-            Freshen Up from KES 1,999
+            Opening Offer · from KES 1,999
           </p>
         </div>
         <a
