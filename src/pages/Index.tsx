@@ -567,25 +567,24 @@ export default function Home() {
                 without soaking the mattress or using water extraction.
               </p>
 
-              <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
+              <div className="mt-5 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
                 <p className="text-sm font-bold text-primary">No wet-mattress waiting time</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Because the core mattress process is dry, there is no long drying delay like after
-                    wet extraction. This is especially helpful for Airbnb turnover days, serviced
-                    apartments and family homes. For targeted stain or odor treatment, we give separate
-                    ventilation guidance if needed.
-                  </p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Because the core process is dry, there is no long drying delay like after wet
+                  extraction. This is especially helpful for Airbnb turnover days, serviced apartments
+                  and family homes. In most dry-care cases, the mattress can be re-sheeted shortly
+                  after service. For targeted stain or odor treatment, we give separate ventilation
+                  guidance if needed.
+                </p>
               </div>
 
-              <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-accent-soft/40 p-4">
+              <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-card p-4">
                 <ShieldCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
                 <div className="text-sm">
                   <p className="font-bold text-primary">Allergy-aware equipment choice</p>
                   <p className="mt-1 text-muted-foreground">
                     The JIMMY BX7 Pro Max device model is manufacturer-listed as Allergy UK Foundation
-                    certified. FreshDream is not itself Allergy UK certified; we use the device as part
-                    of a practical mattress hygiene workflow. Results depend on mattress condition,
-                    material, stain age and contamination depth.
+                    certified. FreshDream Mattress Care itself is not Allergy UK certified.
                   </p>
                 </div>
               </div>
