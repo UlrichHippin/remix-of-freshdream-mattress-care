@@ -61,7 +61,7 @@ export default function Home() {
             {/* Hero eyecatcher: Dry Process */}
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
               <Droplets className="h-4 w-4" />
-              100% Dry Process · Zero Drying Time
+              Dry mattress care · No wet-mattress waiting
             </div>
 
             {/* Trust badges in hero */}
@@ -177,7 +177,7 @@ export default function Home() {
                           </button>
                           {i === 1 && (
                             <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground">
-                              <Star className="h-2.5 w-2.5" /> Top
+                              <Star className="h-2.5 w-2.5" /> Recommended
                             </span>
                           )}
                         </div>
@@ -341,9 +341,9 @@ export default function Home() {
                   <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
                     <Activity className="h-8 w-8" />
                   </div>
-                  <h3 className="mt-4 text-lg font-bold text-primary">Visual Proof of Clean</h3>
+                  <h3 className="mt-4 text-lg font-bold text-primary">Smart Dust Guidance</h3>
                   <p className="mt-1 text-xs text-muted-foreground">
-                    Smart LED Dust Sensor changes from red to blue when the mattress is truly clean.
+                    The LED dust sensor helps identify areas that may need additional cleaning passes.
                   </p>
                 </div>
               </div>
@@ -356,7 +356,7 @@ export default function Home() {
               { i: Flame, t: "65°C Graphene", d: "Hot-air freshness", hero: true },
               { i: Zap, t: "16kPa Suction", d: "Mattress-focused power" },
               { i: ShieldCheck, t: "UV-C Support", d: "Surface hygiene" },
-              { i: Clock4, t: "No Wet Waiting", d: "Zero drying delay" },
+              { i: Clock4, t: "No Wet-Mattress Waiting", d: "No soaking or wet extraction" },
             ].map((it) => (
               <div key={it.t} className={`relative rounded-2xl p-4 transition-all hover:-translate-y-0.5 hover:shadow-lift ${it.hero ? "border-2 border-accent bg-gradient-to-br from-accent-soft/60 to-card shadow-lift" : "card-soft"}`}>
                 <div className={`grid h-10 w-10 place-items-center rounded-xl shadow-soft ${it.hero ? "bg-gradient-to-br from-accent to-accent/70 text-accent-foreground" : "bg-gradient-to-br from-primary to-primary/70 text-primary-foreground"}`}>
@@ -402,7 +402,7 @@ export default function Home() {
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {[
-                { i: Camera, t: "Before/After Photos", d: "Visual proof on request" },
+                { i: Camera, t: "Service Photos", d: "Photos on request where suitable" },
                 { i: MessageCircle, t: "WhatsApp Summary", d: "Service report after each job" },
                 { i: ShieldCheck, t: "100% Private", d: "Your home, fully respected" },
               ].map((it) => (
