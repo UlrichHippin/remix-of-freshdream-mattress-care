@@ -15,6 +15,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
+import { mattressCleaningMsg, airbnbMattressMsg } from "@/config/whatsappTemplates";
 import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
