@@ -148,7 +148,7 @@ export const faqs: { q: string; a: string }[] = [
   },
   {
     q: "How long does the mattress take to dry after cleaning?",
-    a: "Zero minutes! Unlike traditional wet-shampoo extraction that leaves your bed damp for up to 12 hours, we use an advanced dry-extraction method. Combined with the 65°C graphene heating of our JIMMY BX7 Pro Max, your mattress is instantly fresh, dry, and ready for your next guest the second we finish.",
+    a: "For our core dry mattress care, there is no wet-mattress drying delay because we do not soak the mattress or use water extraction. In most dry-care cases, fresh sheets can be placed back shortly after service. If targeted stain or odor treatment is applied, we will give separate ventilation guidance.",
   },
   {
     q: "Do all stains come out completely?",
