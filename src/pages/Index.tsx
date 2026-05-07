@@ -657,6 +657,9 @@ export default function Home() {
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
               Send us photos and your next check-in time. We'll tell you honestly what's possible and prioritize you for same-day or next-day support where we can.
             </p>
+            <p className="mt-3 max-w-2xl rounded-xl bg-primary-foreground/10 p-4 text-sm leading-relaxed text-primary-foreground sm:text-base">
+              <strong>Resolution Center Ready:</strong> You receive a formal service receipt and private before/after photos, perfectly formatted for Airbnb Resolution Center claims.
+            </p>
             <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:max-w-md">
               <WhatsAppButton size="lg" label="WhatsApp now" className="w-full animate-soft-pulse" />
               <a
