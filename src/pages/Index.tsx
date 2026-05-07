@@ -85,7 +85,7 @@ export default function Home() {
                 "WhatsApp booking",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "Dry care — no soaking",
+                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -558,13 +558,13 @@ export default function Home() {
             <div className="lg:col-span-7">
               <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Professional Dry Mattress Care with JIMMY BX7 Pro Max
+                No wet mattress waiting time — powered by JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
                 FreshDream uses the JIMMY BX7 Pro Max as a mattress-focused dry-care device. The model
-                is listed by Microless Kenya with 700W power, 16kPa suction, MIF filtration, LED display,
-                dust sensor, graphene technology, 65°C hot wind, UV-C support and negative ions —
-                without soaking the mattress or using water extraction.
+                is listed with 700W power, 16kPa suction, MIF filtration, LED display, dust sensor,
+                graphene technology, 65°C hot wind, UV-C support and negative ions — without soaking
+                the mattress or using water extraction.
               </p>
 
               <div className="mt-5 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
@@ -572,9 +572,11 @@ export default function Home() {
                 <p className="mt-1 text-sm text-muted-foreground">
                   Because the core process is dry, there is no long drying delay like after wet
                   extraction. This is especially helpful for Airbnb turnover days, serviced apartments
-                  and family homes. In most dry-care cases, the mattress can be re-sheeted shortly
-                  after service. For targeted stain or odor treatment, we give separate ventilation
-                  guidance if needed.
+                  and family homes. In most dry-care cases, fresh sheets can be placed back shortly
+                  after service.
+                </p>
+                <p className="mt-2 text-xs italic text-muted-foreground">
+                  For targeted stain or odor treatment, we give separate ventilation guidance if needed.
                 </p>
               </div>
 
@@ -591,61 +593,86 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="card-soft relative overflow-hidden p-8">
+              <div className="card-soft relative overflow-hidden p-6 sm:p-8">
                 <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
                 <div className="pointer-events-none absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-primary-soft/60" aria-hidden="true" />
-                <div className="relative flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-surface px-6 py-12 text-center">
-                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                <div className="relative rounded-2xl border border-dashed border-border bg-surface p-6 text-center">
+                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
                     <Wrench className="h-8 w-8" />
                   </div>
                   <p className="mt-4 text-[11px] font-bold uppercase tracking-wider text-accent">
                     Core equipment
                   </p>
                   <h3 className="mt-1 text-lg font-bold text-primary">JIMMY BX7 Pro Max</h3>
-                  <p className="mt-2 text-xs text-muted-foreground">
+                  <p className="mt-1 text-xs text-muted-foreground">
                     Mattress-focused dry-care device
                   </p>
-                  <p className="mt-3 text-[11px] uppercase tracking-wider text-muted-foreground/80">
+                  <ul className="mt-4 grid grid-cols-2 gap-2 text-left text-[12px]">
+                    {[
+                      { i: Zap, t: "700W Power" },
+                      { i: Wind, t: "16kPa Suction" },
+                      { i: Flame, t: "65°C Hot Air" },
+                      { i: ShieldCheck, t: "UV-C Surface Support" },
+                      { i: Sparkles, t: "MIF Filtration" },
+                      { i: Activity, t: "LED Dust Sensor" },
+                    ].map((s) => (
+                      <li key={s.t} className="flex items-center gap-1.5 rounded-lg bg-card px-2 py-1.5 ring-1 ring-border">
+                        <s.i className="h-3.5 w-3.5 flex-shrink-0 text-accent" />
+                        <span className="font-semibold text-primary">{s.t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground/80">
                     Real device photo coming soon
+                  </p>
+                  <p className="mt-1 text-[11px] text-muted-foreground/70">
+                    Until then, no incorrect or unlicensed product image is used.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-
-          {/* Why dry mattress care saves time */}
-          <div className="mt-12">
+          {/* Time-saving journey */}
+          <div className="mt-14">
             <div className="text-center">
-              <p className="eyebrow justify-center"><Clock4 className="h-3.5 w-3.5" /> Time-saving benefit</p>
-              <h3 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why dry mattress care saves time</h3>
+              <p className="eyebrow justify-center"><Clock4 className="h-3.5 w-3.5" /> Time-saving journey</p>
+              <h3 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
+                From check-out to fresh sheets — without a soaked mattress
+              </h3>
+              <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+                Dry mattress care helps rooms get back into service faster because the mattress is
+                not left wet after the cleaning pass.
+              </p>
             </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { i: Droplets, t: "No soaked mattress", d: "Dry care means the mattress is not left wet after the cleaning pass." },
-                { i: Clock4, t: "No long drying delay", d: "Avoid the waiting time often needed after wet extraction." },
-                { i: Repeat2, t: "Airbnb turnover friendly", d: "Helpful between check-out and check-in when rooms need to be ready fast." },
-                { i: BedDouble, t: "Re-sheet sooner", d: "In most dry-care cases, fresh sheets can go back shortly after service." },
-              ].map((it) => (
-                <div key={it.t} className="card-soft p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lift">
-                  <div className="mx-auto grid h-11 w-11 place-items-center rounded-2xl bg-accent-soft text-accent">
-                    <it.i className="h-5 w-5" />
+                { i: Repeat2, n: "1", t: "Check-out", d: "Guest leaves or family needs a fresh sleeping area." },
+                { i: Wrench, n: "2", t: "Dry-care service", d: "JIMMY BX7 Pro Max cleaning pass with suction, tapping, hot air and surface hygiene support." },
+                { i: Clock4, n: "3", t: "No long drying delay", d: "No soaking and no wet extraction means no wet-mattress waiting time." },
+                { i: BedDouble, n: "4", t: "Re-sheet sooner", d: "In most dry-care cases, fresh sheets can go back shortly after service." },
+              ].map((s) => (
+                <div key={s.t} className="card-soft relative p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
+                  <span className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground">{s.n}</span>
+                  <div className="grid h-11 w-11 place-items-center rounded-2xl bg-accent-soft text-accent">
+                    <s.i className="h-5 w-5" />
                   </div>
-                  <h4 className="mt-3 text-base font-bold text-primary">{it.t}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
+                  <h4 className="mt-3 text-base font-bold text-primary">{s.t}</h4>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Feature cards */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { i: Zap, t: "700W + 16kPa Suction", d: "Mattress-focused dry cleaning power for dust, hair, dander and surface debris." },
               { i: Flame, t: "65°C Graphene Hot Air", d: "Hot-air support for a fresher, drier mattress surface without soaking." },
-              { i: Clock4, t: "No Wet-Mattress Waiting", d: "No water extraction, no soaked mattress, no long drying delay." },
+              { i: Clock4, t: "No Wet-Mattress Waiting", d: "No water extraction, no soaked mattress and no long drying delay." },
               { i: ShieldCheck, t: "UV-C + Negative Ion Support", d: "Surface hygiene support during the cleaning pass on suitable materials." },
-              { i: Activity, t: "Smart Dust Sensor", d: "The LED display helps identify areas that may need additional passes." },
-              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "Designed to separate fine dust from airflow and maintain stable performance." },
+              { i: Activity, t: "Smart Dust Sensor", d: "The LED display helps identify areas that may need additional cleaning passes." },
+              { i: Wind, t: "MIF Filtration + Dual Cyclone", d: "Designed to separate fine dust from airflow and help maintain stable cleaning performance." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
@@ -657,29 +684,69 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-3xl border border-border bg-card p-6 shadow-soft sm:p-8">
-            <p className="eyebrow"><BadgeCheck className="h-3.5 w-3.5" /> Comparison</p>
-            <h3 className="mt-3 text-2xl font-bold text-primary">Why this is better than ordinary cleaning</h3>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {[
-                "Not a generic home vacuum",
-                "Designed for mattresses, sofas and fabric surfaces",
-                "Dry process with no soaking",
-                "No wet extraction and no long drying delay",
-                "Strong time-saving benefit for Airbnb turnover days",
-                "Smart dust sensor helps guide extra passes",
-                "Combines suction, tapping, UV-C surface support, hot air, filtration and negative ion support",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+          {/* 3-column comparison */}
+          <div className="mt-14">
+            <div className="text-center">
+              <p className="eyebrow justify-center"><BadgeCheck className="h-3.5 w-3.5" /> Comparison</p>
+              <h3 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why FreshDream dry care is different</h3>
+            </div>
+            <div className="mt-8 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+              {/* Ordinary home vacuum */}
+              <div className="rounded-2xl border border-border bg-card p-6 opacity-90">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Option A</p>
+                <h4 className="mt-2 text-lg font-bold text-primary">Ordinary home vacuum</h4>
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  {[
+                    "Mainly visible dust and surface debris",
+                    "Not mattress-focused",
+                    "No hot-air support",
+                    "No smart dust guidance",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-muted-foreground/60" />{b}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Wet extraction */}
+              <div className="rounded-2xl border border-border bg-card p-6 opacity-90">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Option B</p>
+                <h4 className="mt-2 text-lg font-bold text-primary">Wet extraction cleaning</h4>
+                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                  {[
+                    "Can be useful for selected stain cases",
+                    "Leaves fabric damp or wet",
+                    "Needs drying time",
+                    "Not ideal for tight check-in windows",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-muted-foreground/60" />{b}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* FreshDream — visually stronger */}
+              <div className="relative rounded-2xl border-2 border-accent bg-gradient-to-br from-primary-soft via-card to-accent-soft/50 p-6 shadow-lift lg:-translate-y-2">
+                <span className="absolute -top-3 left-6 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
+                  <Star className="h-3 w-3" /> Recommended
+                </span>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-accent">FreshDream</p>
+                <h4 className="mt-2 text-lg font-bold text-primary">FreshDream dry care</h4>
+                <ul className="mt-4 space-y-2 text-sm text-foreground">
+                  {[
+                    "JIMMY BX7 Pro Max mattress-focused device",
+                    "No soaking and no wet extraction",
+                    "No long wet-mattress drying delay",
+                    "Strong fit for Airbnb turnover days",
+                    "Suction, tapping, hot air, UV-C support and dust sensing",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 flex justify-center">
-            <WhatsAppButton />
+          <div className="mt-10 flex justify-center">
+            <WhatsAppButton label="Book dry mattress care via WhatsApp" />
           </div>
         </div>
       </section>
