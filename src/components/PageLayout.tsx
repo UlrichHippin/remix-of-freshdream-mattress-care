@@ -36,7 +36,7 @@ export default function PageLayout({ title, description, children }: Props) {
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <Breadcrumbs />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pb-16 md:pb-0">{children}</main>
       <Footer />
       <FloatingWhatsApp />
       <MobileStickyCTA />
