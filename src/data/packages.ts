@@ -33,7 +33,7 @@ export const packages: PackageDef[] = [
     summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
-      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro to remove dust, hair, dander, and surface debris, while UV-C light and warm-air freshness help improve hygiene and freshness.",
+      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro Max to help remove dust, hair, dander and surface debris, with UV-C surface hygiene support and 65°C graphene hot air.",
     included: [
       "Dry vacuum treatment",
       "Dust, hair, and dander removal",
@@ -60,7 +60,7 @@ export const packages: PackageDef[] = [
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
-      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and warm-air freshness.",
+      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). Dry treatment with baking soda preparation, deep vacuuming, composite brushroll tapping, UV-C surface hygiene support and warm-air freshness — using the JIMMY BX7 Pro Max.",
     included: [
       "Pre-treatment with baking soda",
       "Deep dry vacuuming",
@@ -92,7 +92,7 @@ export const packages: PackageDef[] = [
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
     description:
-      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses (sofa support available on request). We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro vacuuming and hygiene treatment.",
+      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses (sofa support available on request). We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro Max vacuuming and surface hygiene support. Results vary and complete stain removal cannot be guaranteed.",
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",

@@ -546,22 +546,22 @@ export default function Home() {
       {/* 9b. HOSTS PREVIEW */}
       <HostPackagesPreview />
 
-      {/* 10. JIMMY BX7 PRO EQUIPMENT */}
+      {/* 10. JIMMY BX7 PRO MAX EQUIPMENT */}
       <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Powered by JIMMY BX7 Pro</h2>
+            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Professional Mattress Care with JIMMY BX7 Pro Max</h2>
             <p className="mt-3 text-muted-foreground">
-              Dry mattress hygiene treatment with suction, vibration, UV-C support and warm-air freshness. No soaking. No water extraction.
+              We use the JIMMY BX7 Pro Max for dry mattress hygiene care. It combines strong suction, composite brushroll tapping, UV-C surface hygiene support, 65°C graphene hot air and smart dust sensing — without soaking the mattress or using water extraction.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: Wind, t: "Powerful Suction", d: "Helps remove dust, hair, dander and fine particles from the mattress surface." },
-              { i: Zap, t: "Vibration", d: "Loosens trapped dust and debris from inside the mattress." },
-              { i: Sun, t: "UV-C Support", d: "Surface hygiene support during the cleaning pass." },
-              { i: Droplets, t: "Warm-Air Freshness", d: "Helps freshen the mattress after the cleaning pass." },
+              { i: Zap, t: "700W Mattress-Focused Power", d: "Helps lift dust, hair, dander and fine particles from mattress and fabric surfaces." },
+              { i: Sparkles, t: "Composite Brushroll Tapping", d: "A soft rubber and bristle brushroll helps loosen trapped dust and surface debris." },
+              { i: Sun, t: "UV-C Surface Hygiene Support", d: "UV-C support is used during the cleaning pass on suitable surfaces." },
+              { i: Wind, t: "65°C Graphene Hot Air", d: "Warm air support helps reduce moisture and freshen the mattress surface." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
