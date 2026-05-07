@@ -72,7 +72,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         <div className="lg:col-span-7">
           <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
           <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-            Specialized mattress-cleaning setup — JIMMY BX7 Pro.
+            Specialized mattress-cleaning setup — JIMMY BX7 Pro Max.
           </h2>
           <p className="mt-3 text-muted-foreground">
             We invest in equipment built for mattress hygiene, not generic surface cleaning.
