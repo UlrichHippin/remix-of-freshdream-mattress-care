@@ -79,13 +79,12 @@ export default function Home() {
               Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
 
-            {/* Trust badges in hero */}
+            {/* Trust badges in hero — max 3 */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "WhatsApp booking",
+                "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -97,28 +96,20 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* Strong price box */}
-            <div className="relative mt-6 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur sheen">
-              <div className="flex items-start justify-between gap-3">
+            {/* Compact price card */}
+            <div className="relative mt-6 max-w-md overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-4 shadow-lift backdrop-blur sheen">
+              <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
-                  <p className="mt-1 text-2xl font-extrabold text-primary nums sm:text-3xl">from KES 1,999</p>
+                  <p className="mt-0.5 text-2xl font-extrabold text-primary nums sm:text-3xl">from KES 1,999</p>
                 </div>
                 <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
                 </span>
               </div>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
-                <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
-                Add Sleep Area Dust Refresh for only <span className="text-accent nums">KES 300</span>
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent-soft/50 px-3 py-1.5 text-xs font-semibold text-accent">
-                <Clock4 className="h-3.5 w-3.5" />
-                Limited slots available this week. Book now to secure your spot.
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-soft">
-                <Zap className="h-3.5 w-3.5" />
-                100% Dry Process · Zero Drying Time · Ready for guests immediately
+              <p className="mt-2.5 text-xs font-medium text-muted-foreground">
+                <Sparkles className="mr-1 inline h-3.5 w-3.5 text-accent" />
+                Add Sleep Area Dust Refresh for only <span className="font-bold text-primary nums">KES 300</span>
               </p>
             </div>
 
@@ -129,18 +120,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> WhatsApp Us for an Exact Quote
+                <MessageCircle className="h-5 w-5" /> Book via WhatsApp
               </a>
-              <a
-                href="#packages"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("packages")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
+              <Link
+                to="/services"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Cleaning Packages <ArrowRight className="h-5 w-5" />
-              </a>
+                View Services <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
