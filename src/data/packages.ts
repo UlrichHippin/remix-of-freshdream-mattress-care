@@ -29,7 +29,7 @@ export const packages: PackageDef[] = [
     slug: "freshen-up",
     title: "Freshen Up",
     startingPrice: "Starting from 2,500 KES",
-    hours: "Ready in about 2 hours",
+    hours: "Service time: about 45–90 minutes · No wet-drying delay",
     summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
@@ -42,8 +42,8 @@ export const packages: PackageDef[] = [
       "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
-    readyIn: "About 2 hours",
-    note: "Dry process only. No soaking.",
+    readyIn: "About 45–90 minutes service time",
+    note: "Dry process only. No soaking and no wet-drying delay.",
     sizes: [
       { label: "Single (3x6 ft)", price: "KES 2,500" },
       { label: "Double (4x6 ft)", price: "KES 3,000" },
@@ -56,7 +56,7 @@ export const packages: PackageDef[] = [
     slug: "standard",
     title: "Standard Cleaning",
     startingPrice: "Starting from 3,500 KES",
-    hours: "Ready in about 4 hours",
+    hours: "Service time depends on mattress size and condition · No soaking",
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
@@ -74,8 +74,8 @@ export const packages: PackageDef[] = [
       "General household use",
       "Regular care for frequently used items",
     ],
-    readyIn: "About 4 hours",
-    note: "Dry treatment. No water extraction.",
+    readyIn: "Service time depends on mattress size and condition",
+    note: "Dry treatment. No soaking; no wet extraction.",
     sizes: [
       { label: "Single (3x6 ft)", price: "KES 3,500" },
       { label: "Double (4x6 ft)", price: "KES 4,000" },
@@ -88,7 +88,7 @@ export const packages: PackageDef[] = [
     slug: "intensive-stain",
     title: "Intensive Stain Treatment",
     startingPrice: "Starting from 4,500 KES",
-    hours: "Ready in about 6 hours",
+    hours: "Service time varies by condition · Spot treatment may need ventilation guidance",
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
     description:
@@ -101,7 +101,7 @@ export const packages: PackageDef[] = [
       "Warm-air freshness treatment",
     ],
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
-    readyIn: "About 6 hours",
+    readyIn: "Service time varies by condition",
     note: "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
     sizes: [
       { label: "Single (3x6 ft)", price: "KES 4,500" },
@@ -115,7 +115,7 @@ export const packages: PackageDef[] = [
     slug: "urine-odor",
     title: "Urine & Odor Reduction Treatment",
     startingPrice: "From KES 4,500 — quoted by photo",
-    hours: "Ready in about 8 hours",
+    hours: "Service time and aftercare depend on odor depth · Ventilation guidance provided",
     summary: "Dry odor-focused treatment for urine accidents and strong odor cases.",
     tagline: "Advanced dry treatment for urine odor and contamination.",
     description:
@@ -134,8 +134,8 @@ export const packages: PackageDef[] = [
       "Strong odor areas",
       "Mattress urine cases (upholstery on request)",
     ],
-    readyIn: "About 8 hours",
-    note: "Older or deep urine contamination may improve but may not disappear completely. Severe cases may require follow-up treatment or replacement advice.",
+    readyIn: "Service time and aftercare depend on odor depth and mattress condition",
+    note: "No soaking. Ventilation guidance provided if needed. Older or deep urine contamination may improve but may not disappear completely. Severe cases may require follow-up treatment or replacement advice.",
     sizes: [
       { label: "All sizes", price: "From KES 4,500 (quoted)" },
     ],

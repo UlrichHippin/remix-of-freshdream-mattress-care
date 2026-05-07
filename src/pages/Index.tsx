@@ -21,6 +21,7 @@ import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 
 import logoFull from "@/assets/brand/logo-footer.png";
+import jimmyDevicePhoto from "@/assets/jimmy-bx7-pro-max.jpg";
 
 import { packages, STARTING_NOTE, type PackageDef as Pkg } from "@/data/packages";
 
@@ -549,28 +550,86 @@ export default function Home() {
       {/* 10. JIMMY BX7 PRO MAX EQUIPMENT */}
       <section className="section bg-surface">
         <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Professional Mattress Care with JIMMY BX7 Pro Max</h2>
-            <p className="mt-3 text-muted-foreground">
-              We use the JIMMY BX7 Pro Max for dry mattress hygiene care. It combines strong suction, composite brushroll tapping, UV-C surface hygiene support, 65°C graphene hot air and smart dust sensing — without soaking the mattress or using water extraction.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
+              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
+              <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
+                Professional Dry Mattress Care with JIMMY BX7 Pro Max
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                FreshDream Mattress Care uses the JIMMY BX7 Pro Max for dry mattress hygiene care.
+                The Pro Max version combines strong suction, composite brushroll tapping, UV-C surface
+                hygiene support, 65°C graphene hot air, negative ions and smart dust sensing — without
+                soaking the mattress or using water extraction.
+              </p>
+
+              <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
+                <p className="text-sm font-bold text-primary">No wet-mattress waiting time</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Because the core mattress process is dry, there is no long drying delay like after
+                  wet extraction. In most dry-care cases, the mattress can be re-sheeted quickly after
+                  service. For targeted stain or odor treatment, we give separate ventilation guidance
+                  if needed.
+                </p>
+              </div>
+
+              <div className="mt-4 inline-flex items-start gap-3 rounded-2xl border border-dashed border-accent/40 bg-accent-soft/40 p-4">
+                <ShieldCheck className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                <div className="text-sm">
+                  <p className="font-bold text-primary">Allergy-aware equipment choice</p>
+                  <p className="mt-1 text-muted-foreground">
+                    The JIMMY BX7 Pro Max model is manufacturer-listed as Allergy UK Foundation
+                    certified. FreshDream uses it as part of a practical mattress hygiene workflow;
+                    results depend on mattress condition, material, age of stains and contamination depth.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="card-soft relative overflow-hidden p-6">
+                <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-soft/70" aria-hidden="true" />
+                <div className="relative overflow-hidden rounded-2xl bg-surface">
+                  <img
+                    src={jimmyDevicePhoto}
+                    alt="JIMMY BX7 Pro Max mattress cleaning device used by FreshDream Mattress Care in Nairobi"
+                    loading="lazy"
+                    width={1024}
+                    height={1024}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+                <p className="relative mt-4 text-center text-[11px] font-bold uppercase tracking-wider text-accent">
+                  Core equipment
+                </p>
+                <h3 className="relative mt-1 text-center text-lg font-bold text-primary">
+                  JIMMY BX7 Pro Max
+                </h3>
+              </div>
+            </div>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { i: Zap, t: "700W Mattress-Focused Power", d: "Helps lift dust, hair, dander and fine particles from mattress and fabric surfaces." },
-              { i: Sparkles, t: "Composite Brushroll Tapping", d: "A soft rubber and bristle brushroll helps loosen trapped dust and surface debris." },
+              { i: Wind, t: "65°C Graphene Hot Air", d: "The Pro Max version uses graphene heating and hot air support for a fresher, drier mattress surface." },
+              { i: Clock4, t: "No Wet-Mattress Waiting", d: "Dry care means no soaking and no long drying delay like after wet extraction." },
               { i: Sun, t: "UV-C Surface Hygiene Support", d: "UV-C support is used during the cleaning pass on suitable surfaces." },
-              { i: Wind, t: "65°C Graphene Hot Air", d: "Warm air support helps reduce moisture and freshen the mattress surface." },
+              { i: Sparkles, t: "Composite Brushroll Tapping", d: "The composite brushroll helps loosen dust, hair, dander and fine surface debris." },
+              { i: Zap, t: "Smart Dust Sensor", d: "The LED dust sensor helps identify areas that may need additional cleaning passes." },
+              { i: ShieldCheck, t: "Allergy-Aware Device Choice", d: "The BX7 Pro Max model is manufacturer-listed as Allergy UK Foundation certified." },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-5 text-center transition-all hover:-translate-y-1 hover:shadow-lift">
-                <div className="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+              <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
                   <it.i className="h-5 w-5" />
                 </div>
                 <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{it.d}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{it.d}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <WhatsAppButton />
           </div>
         </div>
       </section>
