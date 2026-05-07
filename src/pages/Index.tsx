@@ -4,7 +4,7 @@ import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, MessageSquareText, Sparkles, ClipboardCheck,
   FileCheck2, BadgeCheck, Repeat2, Zap, Droplets,
-  MessageCircle, BedDouble, Star, Check, Package, Wind, Sun,
+  MessageCircle, BedDouble, Star, Check, Package, Wind, Sun, Activity, Flame,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import HostPackagesPreview from "@/components/HostPackagesPreview";
@@ -115,6 +115,10 @@ export default function Home() {
               <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent-soft/50 px-3 py-1.5 text-xs font-semibold text-accent">
                 <Clock4 className="h-3.5 w-3.5" />
                 Limited slots available this week. Book now to secure your spot.
+              </p>
+              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-soft">
+                <Zap className="h-3.5 w-3.5" />
+                100% Dry Process · Zero Drying Time · Ready for guests immediately
               </p>
             </div>
 
@@ -554,13 +558,11 @@ export default function Home() {
             <div className="lg:col-span-7">
               <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                Professional Dry Mattress Care with JIMMY BX7 Pro Max
+                Powered by JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
-                FreshDream Mattress Care uses the JIMMY BX7 Pro Max for dry mattress hygiene care.
-                The Pro Max version combines strong suction, composite brushroll tapping, UV-C surface
-                hygiene support, 65°C graphene hot air, negative ions and smart dust sensing — without
-                soaking the mattress or using water extraction.
+                Advanced dry mattress hygiene featuring 700W power, smart dust detection, and 65°C
+                graphene heating. Officially certified by the Allergy UK Foundation.
               </p>
 
               <div className="mt-5 rounded-2xl border border-border bg-card p-5 shadow-soft">
@@ -609,14 +611,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: Wind, t: "65°C Graphene Hot Air", d: "The Pro Max version uses graphene heating and hot air support for a fresher, drier mattress surface." },
-              { i: Clock4, t: "No Wet-Mattress Waiting", d: "Dry care means no soaking and no long drying delay like after wet extraction." },
-              { i: Sun, t: "UV-C Surface Hygiene Support", d: "UV-C support is used during the cleaning pass on suitable surfaces." },
-              { i: Sparkles, t: "Composite Brushroll Tapping", d: "The composite brushroll helps loosen dust, hair, dander and fine surface debris." },
-              { i: Zap, t: "Smart Dust Sensor", d: "The LED dust sensor helps identify areas that may need additional cleaning passes." },
-              { i: ShieldCheck, t: "Allergy-Aware Device Choice", d: "The BX7 Pro Max model is manufacturer-listed as Allergy UK Foundation certified." },
+              { i: Activity, t: "Smart Dust Sensor", d: "An intelligent LED screen detects microscopic dust, providing visual proof (from red to blue) when the mattress is truly clean." },
+              { i: Flame, t: "65°C Graphene Heating", d: "Heats up in just 5 seconds to remove deep moisture and mimic the fresh, hygienic feeling of sun-drying." },
+              { i: Zap, t: "16Kpa Suction & Tapping", d: "A patented composite roller brush and 700W power loosen deeply trapped dust, while 16Kpa suction extracts it completely." },
+              { i: ShieldCheck, t: "UV-C & Ultrasound", d: "Medical-grade UV-C light combined with ultrasound technology safely neutralizes 99.9% of dust mites and allergens." },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
                 <div className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">

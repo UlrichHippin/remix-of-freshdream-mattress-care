@@ -147,8 +147,8 @@ export const faqs: { q: string; a: string }[] = [
     a: "Most single-mattress jobs take about 45–90 minutes depending on the service and the condition. Deeper cleans and urine and odor treatment take longer. We confirm a time estimate when you send photos.",
   },
   {
-    q: "How long does drying take?",
-    a: "We use a dry mattress hygiene treatment with targeted spot support where suitable — no soaking, no water extraction. In a well-ventilated room, mattresses are usually ready for fresh sheets the same day. Hot, humid or closed rooms take longer — we share specific drying guidance after every job.",
+    q: "How long does the mattress take to dry after cleaning?",
+    a: "Zero minutes! Unlike traditional wet-shampoo extraction that leaves your bed damp for up to 12 hours, we use an advanced dry-extraction method. Combined with the 65°C graphene heating of our JIMMY BX7 Pro Max, your mattress is instantly fresh, dry, and ready for your next guest the second we finish.",
   },
   {
     q: "Do all stains come out completely?",
