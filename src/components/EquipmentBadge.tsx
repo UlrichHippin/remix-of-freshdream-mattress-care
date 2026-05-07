@@ -18,7 +18,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
         className={`inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft ${className}`}
       >
         <Wrench className="h-3.5 w-3.5 text-accent" />
-        Powered by JIMMY BX7 Pro
+        Powered by JIMMY BX7 Pro Max
       </span>
     );
   }
