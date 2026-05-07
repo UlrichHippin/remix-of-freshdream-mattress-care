@@ -150,7 +150,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-2xl border-2 border-accent/30 bg-card shadow-soft">
+          {/* Desktop pricing table */}
+          <div className="mx-auto mt-8 hidden max-w-4xl overflow-hidden rounded-2xl border-2 border-accent/30 bg-card shadow-soft sm:block">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -171,7 +172,7 @@ export default function Home() {
                           <button
                             type="button"
                             onClick={() => setActivePkg(p)}
-                            className="text-left font-bold text-primary hover:underline max-[380px]:text-xs"
+                            className="text-left font-bold text-primary hover:underline"
                           >
                             {p.title}
                           </button>
@@ -210,6 +211,41 @@ export default function Home() {
             <div className="border-t border-border bg-surface px-4 py-3 text-xs text-muted-foreground">
               <p>All prices in KES — regular package rates. <span className="font-semibold text-primary">Sleep Area Dust Refresh +KES 300.</span></p>
               <p className="mt-1"><span className="font-semibold text-accent">Opening Offer:</span> Single Mattress Dry Care from KES 1,999 — first-time customers only.</p>
+            </div>
+          </div>
+
+          {/* Mobile pricing cards */}
+          <div className="mx-auto mt-8 grid max-w-md gap-4 sm:hidden">
+            {packages.filter((p) => p.sizes.length === 4).map((p, i) => (
+              <button
+                key={p.title}
+                type="button"
+                onClick={() => setActivePkg(p)}
+                className={`rounded-2xl border-2 p-4 text-left shadow-soft transition-all active:scale-[0.99] ${i === 1 ? "border-accent bg-accent-soft/30" : "border-border bg-card"}`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-base font-bold text-primary">{p.title}</h3>
+                  {i === 1 && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-accent-foreground">
+                      <Star className="h-2.5 w-2.5" /> Recommended
+                    </span>
+                  )}
+                </div>
+                <ul className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                  {p.sizes.map((s) => (
+                    <li key={s.label} className="flex items-center justify-between rounded-lg bg-background/60 px-2.5 py-1.5">
+                      <span className="font-semibold text-muted-foreground">{s.label}</span>
+                      <span className="font-bold text-primary nums">{s.price.replace("KES ", "")}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-[11px] font-semibold text-accent">Tap for details →</p>
+              </button>
+            ))}
+            <div className="rounded-2xl border border-border bg-surface p-3 text-xs text-muted-foreground">
+              <p><span className="font-semibold text-primary">Sleep Area Dust Refresh</span> + KES 300</p>
+              <p className="mt-1">Transport fee confirmed by location.</p>
+              <p className="mt-1">Final price confirmed by WhatsApp before visit.</p>
             </div>
           </div>
 
