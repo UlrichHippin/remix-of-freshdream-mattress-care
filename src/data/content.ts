@@ -140,7 +140,7 @@ export const services: ServiceDef[] = [
 export const faqs: { q: string; a: string }[] = [
   {
     q: "How long until we can sleep on the mattress again?",
-    a: "Immediately! Our JIMMY BX7 Pro system uses a specialized dry extraction process with warm-air freshness, meaning there is no water soaking and zero drying time required.",
+    a: "Immediately! Our JIMMY BX7 Pro Max system uses a specialized dry extraction process with warm-air freshness, meaning there is no water soaking and zero drying time required.",
   },
   {
     q: "How long does mattress cleaning take?",
