@@ -92,7 +92,7 @@ export const packages: PackageDef[] = [
     summary: "Focused treatment for visible stains and stronger dirt buildup.",
     tagline: "Targeted care for visible problem areas.",
     description:
-      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses (sofa support available on request). We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro vacuuming and hygiene treatment.",
+      "This package is designed for customers dealing with stronger stains or visible dirt marks on mattresses (sofa support available on request). We use a focused dry-treatment method with stain-targeting preparation, brushing where needed, followed by deep JIMMY BX7 Pro Max vacuuming and surface hygiene support. Results vary and complete stain removal cannot be guaranteed.",
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",
