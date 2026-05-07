@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, Camera, Clock4, ShieldCheck, Wrench, MapPin, AlarmClock,
   PhoneCall, Sparkles,
-  BadgeCheck, Repeat2, Zap, Droplets,
+  BadgeCheck, Zap, Droplets,
   MessageCircle, BedDouble, Star, Check, Package, Wind, Activity, Flame,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
@@ -15,7 +15,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
-import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
+import { faqs } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
@@ -174,112 +174,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMPACT PRICING TABLE */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Simple, Honest Pricing</p>
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              <span className="text-gradient-brand">Regular Freshen Up Dry Care</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Transparent starting prices by mattress size. No soaking, no wet-drying delay.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-8 max-w-3xl card-soft border-2 border-accent/30 p-6 sm:p-8">
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {[
-                { label: "Single Mattress", price: "from KES 2,500" },
-                { label: "Double Mattress", price: "from KES 3,000" },
-                { label: "Queen Mattress", price: "from KES 3,500" },
-                { label: "King Mattress", price: "from KES 4,000" },
-              ].map((row) => (
-                <li
-                  key={row.label}
-                  className="flex items-baseline justify-between rounded-xl bg-surface px-4 py-3"
-                >
-                  <span className="text-sm font-semibold text-muted-foreground">{row.label}</span>
-                  <span className="text-base font-bold text-primary nums">{row.price}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-5 grid gap-2 rounded-xl border border-border bg-surface/60 p-4 text-sm">
-              <p className="font-semibold text-primary">Add-ons</p>
-              <p className="text-muted-foreground">• Sleep Area Dust Refresh — <span className="font-semibold text-primary">+ KES 300</span></p>
-              <p className="text-muted-foreground">• Stain / odor support — <span className="font-semibold text-primary">quote after photo</span></p>
-              <p className="text-muted-foreground">• Transport fee — <span className="font-semibold text-primary">confirmed by location</span></p>
-            </div>
-
-            <p className="mt-4 text-center text-xs italic text-muted-foreground">
-              Final price is confirmed by WhatsApp before the visit.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* QUICK QUOTE */}
       <QuickQuote />
 
-      {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
-      <section className="section">
-        <div className="container-tight grid gap-6 lg:grid-cols-2">
-          {/* Recommended */}
-          <div className="card-soft glow-hover relative overflow-hidden border-2 border-accent/50 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-            <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-              <Star className="h-3 w-3" /> Recommended
-            </span>
-            <h2 className="mt-2 text-2xl font-bold text-primary sm:text-3xl">Standard Mattress Hygiene</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Best for homes, Airbnb rooms and serviced apartments.
-            </p>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/60 px-3 py-2 text-xs font-semibold text-primary">
-              <Sparkles className="h-3.5 w-3.5 text-accent animate-sparkle" />
-              Add Sleep Area Dust Refresh + KES 300.
-            </p>
-            <a
-              href={whatsappLink("Hello, I'd like to book the Recommended mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
-            >
-              <MessageCircle className="h-4 w-4" /> Book on WhatsApp
-            </a>
-          </div>
-
-          {/* Fresh Sleep Package */}
-          <div className="card-soft glow-hover relative overflow-hidden border-2 border-primary/20 bg-gradient-to-br from-accent-soft/40 to-primary-soft/40 p-6 sm:p-8 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-              <BadgeCheck className="h-3 w-3" /> Fresh Sleep
-            </span>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">{freshSleepPackage.name}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Mattress cleaning + Sleep Area Dust Refresh for a cleaner sleeping area and better guest impression.
-            </p>
-            <ul className="mt-4 grid gap-2 text-sm">
-              {[
-                "Mattress hygiene cleaning",
-                "Around-bed dust refresh",
-                "Reachable under-bed dust",
-                "Bed frame/headboard light vacuuming",
-              ].map((it) => (
-                <li key={it} className="flex items-start gap-2 text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /> {it}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={whatsappLink(freshSleepPackage.whatsappMessage)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
-            >
-              <MessageCircle className="h-4 w-4" /> Book Fresh Sleep Package on WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* 5. COMPACT PRICING TABLE — All Packages */}
       <section id="packages" className="section bg-surface">
@@ -445,64 +343,6 @@ export default function Home() {
         </DialogContent>
       </Dialog>
 
-      {/* 6. SLEEP AREA DUST REFRESH */}
-      <section id="sleep-area-add-on" className="section">
-        <div className="container-tight grid gap-8 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-7">
-            <p className="eyebrow"><Sparkles className="h-3.5 w-3.5 animate-sparkle" /> Optional add-on</p>
-            <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              {sleepAreaAddOn.name} — {sleepAreaAddOn.price}
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              After mattress cleaning, we can quickly vacuum around the bed area, reachable
-              under-bed spaces, floor edges and the bed frame/headboard for a fresher sleeping
-              environment.
-            </p>
-            <h3 className="mt-6 text-sm font-bold uppercase tracking-wider text-primary">Included</h3>
-            <ul className="mt-3 grid gap-2 text-sm sm:grid-cols-2">
-              {sleepAreaAddOn.included.map((it) => (
-                <li key={it} className="flex items-start gap-2 text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden /> {it}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 rounded-xl border border-accent/40 bg-accent-soft/40 p-4 text-sm text-primary">
-              <strong>Important:</strong> {sleepAreaAddOn.note}
-            </p>
-            <div className="mt-6">
-              <a
-                href={whatsappLink(`Hello, I would like to add the ${sleepAreaAddOn.name} (${sleepAreaAddOn.price}) to my mattress cleaning booking.`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
-              >
-                <MessageCircle className="h-4 w-4" /> Add to my booking on WhatsApp
-              </a>
-            </div>
-          </div>
-
-          {/* Multi-mattress eyecatcher */}
-          <aside className="lg:col-span-5">
-            <div className="card-soft border-2 border-primary/20 bg-gradient-to-br from-primary-soft to-accent-soft/40 p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-                <Repeat2 className="h-3 w-3" /> Multi-Mattress Deal
-              </span>
-              <h3 className="mt-3 text-xl font-bold text-primary">Cleaning more than one mattress?</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Location fee is charged once per visit, not per mattress. Multiple mattresses at the same address can reduce the total cost per mattress.
-              </p>
-              <a
-                href={whatsappLink(multiMattressMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
-              >
-                <MessageCircle className="h-4 w-4" /> Ask for multi-mattress price on WhatsApp
-              </a>
-            </div>
-          </aside>
-        </div>
-      </section>
 
       {/* 7. PROCESS TIMELINE */}
       <ProcessTimeline />
@@ -658,36 +498,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Time-saving journey */}
-          <div className="mt-14">
-            <div className="text-center">
-              <p className="eyebrow justify-center"><Clock4 className="h-3.5 w-3.5" /> Time-saving journey</p>
-              <h3 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-                From check-out to fresh sheets — without a soaked mattress
-              </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
-                Dry mattress care helps rooms get back into service faster because the mattress is
-                not left wet after the cleaning pass.
-              </p>
-            </div>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                { i: Repeat2, n: "1", t: "Check-out", d: "Guest leaves or family needs a fresh sleeping area." },
-                { i: Wrench, n: "2", t: "Dry-care service", d: "JIMMY BX7 Pro Max cleaning pass with suction, tapping, hot air and surface hygiene support." },
-                { i: Clock4, n: "3", t: "No long drying delay", d: "No soaking and no wet extraction means no wet-mattress waiting time." },
-                { i: BedDouble, n: "4", t: "Re-sheet sooner", d: "In most dry-care cases, fresh sheets can go back shortly after service." },
-              ].map((s) => (
-                <div key={s.t} className="card-soft relative p-5 transition-all hover:-translate-y-1 hover:shadow-lift">
-                  <span className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-accent text-[11px] font-bold text-accent-foreground">{s.n}</span>
-                  <div className="grid h-11 w-11 place-items-center rounded-2xl bg-accent-soft text-accent">
-                    <s.i className="h-5 w-5" />
-                  </div>
-                  <h4 className="mt-3 text-base font-bold text-primary">{s.t}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Feature cards — compact 2-col, with 65°C + Smart Sensor highlighted */}
           <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-3">
