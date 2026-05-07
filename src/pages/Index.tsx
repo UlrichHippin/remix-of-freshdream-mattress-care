@@ -163,6 +163,59 @@ export default function Home() {
       {/* QUICK QUOTE — directly after hero */}
       <QuickQuote />
 
+      {/* COMPACT PRICING TABLE */}
+      <section className="section">
+        <div className="container-tight mx-auto max-w-4xl">
+          <div className="text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Pricing</p>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Simple, honest pricing</h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Starting prices for dry mattress care in Nairobi. Final price is confirmed by WhatsApp before the visit.
+            </p>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+            <ul className="divide-y divide-border">
+              {[
+                { t: "Single Mattress", p: "from KES 1,999" },
+                { t: "Double Mattress", p: "from KES 2,499" },
+                { t: "Queen Mattress", p: "from KES 2,999" },
+                { t: "King Mattress", p: "from KES 3,499" },
+              ].map((row) => (
+                <li key={row.t} className="flex items-center justify-between gap-4 px-5 py-4">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-primary sm:text-base">
+                    <BedDouble className="h-4 w-4 text-accent" /> {row.t}
+                  </span>
+                  <span className="text-sm font-bold text-primary nums sm:text-base">{row.p}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="border-t border-border bg-surface px-5 py-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-primary/70">Add-ons</p>
+              <ul className="mt-2 grid gap-1.5 text-sm text-foreground sm:grid-cols-2">
+                <li className="flex items-center gap-2"><Sparkles className="h-3.5 w-3.5 text-accent" /> Sleep Area Dust Refresh — <span className="nums font-semibold">+ KES 300</span></li>
+                <li className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-accent" /> Transport fee — confirmed by location</li>
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-4 text-center text-xs italic text-muted-foreground">
+            Final price is confirmed by WhatsApp before the visit.
+          </p>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Get my exact price on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
