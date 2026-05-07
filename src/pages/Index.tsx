@@ -325,7 +325,25 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-col items-center gap-3">
-            <WhatsAppButton size="lg" label="Book a Cleaning" className="w-full sm:w-auto animate-soft-pulse" />
+            <WhatsAppButton size="lg" label="Book Mattress Cleaning" message={mattressCleaningMsg} className="w-full sm:w-auto animate-soft-pulse" />
+            <div className="flex flex-wrap justify-center gap-2 text-xs">
+              <a
+                href={whatsappLink(upholsteryMsg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-semibold text-primary hover:border-primary"
+              >
+                <MessageCircle className="h-3.5 w-3.5" /> Sofa / Upholstery quote
+              </a>
+              <a
+                href={whatsappLink(stainOdorMsg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-semibold text-primary hover:border-primary"
+              >
+                <MessageCircle className="h-3.5 w-3.5" /> Stain / Odor support
+              </a>
+            </div>
             <p className="text-center text-sm text-muted-foreground">
               Sofa or rug? Available on request after photos on WhatsApp.
             </p>
