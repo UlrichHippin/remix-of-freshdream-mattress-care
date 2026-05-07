@@ -12,7 +12,6 @@ type QtyKey = "1" | "2" | "3" | "4+";
 type ZoneKey = "roysambu" | "north" | "central" | "west" | "south" | "far";
 
 const PACKAGES: { key: PackageKey; label: string }[] = [
-  { key: "opening",   label: "Opening Offer / Freshen Up Launch — first-time customers only" },
   { key: "freshen",   label: "Freshen Up" },
   { key: "standard",  label: "Standard Cleaning" },
   { key: "intensive", label: "Intensive Stain Treatment" },
@@ -28,7 +27,7 @@ const SIZES: { key: SizeKey; label: string }[] = [
 
 // Base prices (KES) per package x size — aligned with src/data/packages.ts
 const BASE: Record<PackageKey, Record<SizeKey, number>> = {
-  opening:   { single: 1999, double: 2499, queen: 2999, king: 3499 },
+  opening:   { single: 2500, double: 3000, queen: 3500, king: 4000 },
   freshen:   { single: 2500, double: 3000, queen: 3500, king: 4000 },
   standard:  { single: 3500, double: 4000, queen: 4500, king: 5000 },
   intensive: { single: 4500, double: 5000, queen: 5500, king: 6500 },

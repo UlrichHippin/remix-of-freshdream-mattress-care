@@ -145,7 +145,7 @@ export default function Pricing() {
                   {isPopular && (
                     <div className="absolute inset-x-0 top-0 flex justify-center">
                       <span className="rounded-b-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
-                        Most Popular
+                        Recommended
                       </span>
                     </div>
                   )}

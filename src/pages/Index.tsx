@@ -12,7 +12,7 @@ import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
 import ProcessTimeline from "@/components/ProcessTimeline";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
 import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
@@ -82,10 +82,9 @@ export default function Home() {
             {/* Trust badges in hero */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "WhatsApp booking",
+                "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -108,17 +107,12 @@ export default function Home() {
                   <Star className="h-3 w-3" /> First-time
                 </span>
               </div>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
+              <p className="mt-2 text-xs text-muted-foreground">
+                First-time Single Mattress Dry Care starting price.
+              </p>
+              <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
                 <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
                 Add Sleep Area Dust Refresh for only <span className="text-accent nums">KES 300</span>
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent-soft/50 px-3 py-1.5 text-xs font-semibold text-accent">
-                <Clock4 className="h-3.5 w-3.5" />
-                Limited slots available this week. Book now to secure your spot.
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-soft">
-                <Zap className="h-3.5 w-3.5" />
-                100% Dry Process · Zero Drying Time · Ready for guests immediately
               </p>
             </div>
 
@@ -174,7 +168,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* QUICK QUOTE — directly after hero */}
+      {/* COMPACT PRICING TABLE */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Simple, Honest Pricing</p>
+            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              <span className="text-gradient-brand">Regular Freshen Up Dry Care</span>
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Transparent starting prices by mattress size. No soaking, no wet-drying delay.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 max-w-3xl card-soft border-2 border-accent/30 p-6 sm:p-8">
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {[
+                { label: "Single Mattress", price: "from KES 2,500" },
+                { label: "Double Mattress", price: "from KES 3,000" },
+                { label: "Queen Mattress", price: "from KES 3,500" },
+                { label: "King Mattress", price: "from KES 4,000" },
+              ].map((row) => (
+                <li
+                  key={row.label}
+                  className="flex items-baseline justify-between rounded-xl bg-surface px-4 py-3"
+                >
+                  <span className="text-sm font-semibold text-muted-foreground">{row.label}</span>
+                  <span className="text-base font-bold text-primary nums">{row.price}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5 grid gap-2 rounded-xl border border-border bg-surface/60 p-4 text-sm">
+              <p className="font-semibold text-primary">Add-ons</p>
+              <p className="text-muted-foreground">• Sleep Area Dust Refresh — <span className="font-semibold text-primary">+ KES 300</span></p>
+              <p className="text-muted-foreground">• Stain / odor support — <span className="font-semibold text-primary">quote after photo</span></p>
+              <p className="text-muted-foreground">• Transport fee — <span className="font-semibold text-primary">confirmed by location</span></p>
+            </div>
+
+            <p className="mt-4 text-center text-xs italic text-muted-foreground">
+              Final price is confirmed by WhatsApp before the visit.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* QUICK QUOTE */}
       <QuickQuote />
 
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
@@ -185,14 +224,13 @@ export default function Home() {
             <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft">
               <Star className="h-3 w-3" /> Recommended
             </span>
-            <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Recommended starting point</p>
             <h2 className="mt-2 text-2xl font-bold text-primary sm:text-3xl">Standard Mattress Hygiene</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Best for homes, Airbnb rooms and serviced apartments.
             </p>
             <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/60 px-3 py-2 text-xs font-semibold text-primary">
               <Sparkles className="h-3.5 w-3.5 text-accent animate-sparkle" />
-              Recommended with Sleep Area Dust Refresh + KES 300.
+              Add Sleep Area Dust Refresh + KES 300.
             </p>
             <a
               href={whatsappLink("Hello, I'd like to book the Recommended mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
@@ -793,8 +831,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11b. BEFORE / AFTER */}
-      <BeforeAfterSlider />
+      {/* 11b. BEFORE / AFTER — placeholder until real photos */}
+      <section className="section">
+        <div className="container-tight">
+          <p className="mx-auto max-w-2xl rounded-2xl border border-border bg-surface px-5 py-4 text-center text-sm text-muted-foreground">
+            Real FreshDream before/after photos coming soon.
+          </p>
+        </div>
+      </section>
 
       {/* 12. FAQ */}
       <section className="section bg-surface">
