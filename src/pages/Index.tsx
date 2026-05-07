@@ -15,6 +15,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
+import { mattressCleaningMsg, airbnbMattressMsg } from "@/config/whatsappTemplates";
 import { faqs, sleepAreaAddOn, freshSleepPackage } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
@@ -76,16 +77,15 @@ export default function Home() {
               <span className="whitespace-nowrap text-primary">in Nairobi</span>
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Fresh sleep for Airbnb hosts, families and modern homes.
+              Dry mattress care — no wet-mattress waiting. Easy WhatsApp booking for Airbnb hosts, families and modern homes.
             </p>
 
-            {/* Trust badges in hero */}
+            {/* Trust badges in hero — keep to 3 key signals */}
             <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "WhatsApp booking",
+                "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
-                "No wet-mattress waiting",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -97,29 +97,20 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* Strong price box */}
-            <div className="relative mt-6 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur sheen">
+            {/* Compact Opening Offer card */}
+            <div className="relative mt-6 max-w-md overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-4 shadow-lift backdrop-blur">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
-                  <p className="mt-1 text-2xl font-extrabold text-primary nums sm:text-3xl">from KES 1,999</p>
+                  <p className="mt-1 text-2xl font-extrabold text-primary nums sm:text-[1.75rem]">from KES 1,999</p>
+                  <p className="mt-1.5 text-xs font-semibold text-muted-foreground">
+                    Add Sleep Area Dust Refresh <span className="text-accent nums">+ KES 300</span>
+                  </p>
                 </div>
                 <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
                 </span>
               </div>
-            <p className="mt-3 inline-flex items-center gap-2 rounded-xl bg-accent-soft/70 px-3 py-2 text-sm font-semibold text-primary">
-                <Sparkles className="h-4 w-4 text-accent animate-sparkle" aria-hidden />
-                Add Sleep Area Dust Refresh for only <span className="text-accent nums">KES 300</span>
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-accent-soft/50 px-3 py-1.5 text-xs font-semibold text-accent">
-                <Clock4 className="h-3.5 w-3.5" />
-                Limited slots available this week. Book now to secure your spot.
-              </p>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-soft">
-                <Zap className="h-3.5 w-3.5" />
-                100% Dry Process · Zero Drying Time · Ready for guests immediately
-              </p>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -129,18 +120,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> WhatsApp Us for an Exact Quote
+                <MessageCircle className="h-5 w-5" /> Book via WhatsApp
               </a>
-              <a
-                href="#packages"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("packages")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
+              <Link
+                to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Cleaning Packages <ArrowRight className="h-5 w-5" />
-              </a>
+                View Pricing <ArrowRight className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
@@ -177,6 +164,59 @@ export default function Home() {
       {/* QUICK QUOTE — directly after hero */}
       <QuickQuote />
 
+      {/* COMPACT PRICING TABLE */}
+      <section className="section">
+        <div className="container-tight mx-auto max-w-4xl">
+          <div className="text-center">
+            <p className="eyebrow justify-center"><Package className="h-3.5 w-3.5" /> Pricing</p>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Simple, honest pricing</h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              Starting prices for dry mattress care in Nairobi. Final price is confirmed by WhatsApp before the visit.
+            </p>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+            <ul className="divide-y divide-border">
+              {[
+                { t: "Single Mattress", p: "from KES 1,999" },
+                { t: "Double Mattress", p: "from KES 2,499" },
+                { t: "Queen Mattress", p: "from KES 2,999" },
+                { t: "King Mattress", p: "from KES 3,499" },
+              ].map((row) => (
+                <li key={row.t} className="flex items-center justify-between gap-4 px-5 py-4">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-primary sm:text-base">
+                    <BedDouble className="h-4 w-4 text-accent" /> {row.t}
+                  </span>
+                  <span className="text-sm font-bold text-primary nums sm:text-base">{row.p}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="border-t border-border bg-surface px-5 py-4">
+              <p className="text-xs font-bold uppercase tracking-wider text-primary/70">Add-ons</p>
+              <ul className="mt-2 grid gap-1.5 text-sm text-foreground sm:grid-cols-2">
+                <li className="flex items-center gap-2"><Sparkles className="h-3.5 w-3.5 text-accent" /> Sleep Area Dust Refresh — <span className="nums font-semibold">+ KES 300</span></li>
+                <li className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-accent" /> Transport fee — confirmed by location</li>
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-4 text-center text-xs italic text-muted-foreground">
+            Final price is confirmed by WhatsApp before the visit.
+          </p>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Get my exact price on WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 4. MOST POPULAR + FRESH SLEEP HIGHLIGHT */}
       <section className="section">
         <div className="container-tight grid gap-6 lg:grid-cols-2">
@@ -195,7 +235,7 @@ export default function Home() {
               Recommended with Sleep Area Dust Refresh + KES 300.
             </p>
             <a
-              href={whatsappLink("Hello, I'd like to book the Recommended mattress hygiene package.\nMattress size:\nLocation:\nPreferred date:")}
+              href={whatsappLink(mattressCleaningMsg)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover sm:w-auto"
@@ -527,7 +567,7 @@ export default function Home() {
             </ul>
             <div className="mt-6">
               <a
-                href={whatsappLink("Hello FreshDream, I am an Airbnb host and would like to book Airbnb mattress care.\nNumber of mattresses:\nLocation:\nPreferred date:")}
+                href={whatsappLink(airbnbMattressMsg)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover animate-soft-pulse"
