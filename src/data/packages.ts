@@ -60,7 +60,7 @@ export const packages: PackageDef[] = [
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
-      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). We apply a dry treatment process with baking soda preparation followed by deep vacuuming, UV-C hygiene treatment, and warm-air freshness.",
+      "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). Dry treatment with baking soda preparation, deep vacuuming, composite brushroll tapping, UV-C surface hygiene support and warm-air freshness — using the JIMMY BX7 Pro Max.",
     included: [
       "Pre-treatment with baking soda",
       "Deep dry vacuuming",
