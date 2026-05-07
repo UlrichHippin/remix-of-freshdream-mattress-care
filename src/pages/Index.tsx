@@ -428,11 +428,8 @@ export default function Home() {
             <div className="text-center">
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">Transport Fee — Always Confirmed Before Booking</h2>
-              <p className="mt-3 text-muted-foreground">
-                Service Price <span className="font-semibold text-primary">+</span> Transport Fee <span className="font-semibold text-primary">=</span> Final Confirmed Price
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Transport fees depend on customer location and are always confirmed before booking. Charged once per visit — not per mattress.
+              <p className="mt-3 text-base font-semibold text-primary">
+                Standard travel fee of KES 300–500 applies depending on your Nairobi location. Travel fee is completely waived for bookings of 3 or more mattresses.
               </p>
             </div>
 
