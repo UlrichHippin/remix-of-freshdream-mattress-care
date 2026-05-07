@@ -26,6 +26,11 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <BadgeCheck className="h-4 w-4 shrink-0 text-accent" /> M-PESA accepted
             </li>
+            <li>
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent-soft px-3 py-1.5 text-xs font-bold text-primary shadow-soft">
+                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> Lipa na M-PESA Till Number: <span className="text-accent">Coming Soon</span>
+              </span>
+            </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 shrink-0 text-accent" /> Based in {site.base}
             </li>
