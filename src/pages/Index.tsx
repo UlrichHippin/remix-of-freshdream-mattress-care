@@ -583,7 +583,7 @@ export default function Home() {
             <div className="lg:col-span-7">
               <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
               <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-                No wet mattress waiting time — powered by JIMMY BX7 Pro Max
+                Powered by JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
                 FreshDream uses the JIMMY BX7 Pro Max as a mattress-focused dry-care device. The model
