@@ -8,7 +8,7 @@ interface Props {
 }
 
 /**
- * EquipmentBadge — communicates the JIMMY BX7 Pro as a professional
+ * EquipmentBadge — communicates the JIMMY BX7 Pro Max as a professional
  * mattress-cleaning setup. Honest, no exaggerated claims.
  */
 export default function EquipmentBadge({ variant = "inline", className = "" }: Props) {
