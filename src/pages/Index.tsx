@@ -21,7 +21,7 @@ import logoMark from "@/assets/brand/logo-main.png";
 import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 
 import { packages, type PackageDef as Pkg } from "@/data/packages";
-import { locationFee, openingOffer } from "@/data/content";
+import { locationFee } from "@/data/content";
 
 export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
