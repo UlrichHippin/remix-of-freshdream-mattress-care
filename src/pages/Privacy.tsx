@@ -18,7 +18,7 @@ export default function Privacy() {
       <ul>
         <li>To respond to your enquiry and confirm your booking.</li>
         <li>To plan our route and arrive on time.</li>
-        <li>To share before/after photos and service summaries with you.</li>
+        <li>To share service photos on request where suitable, plus service summaries with you.</li>
       </ul>
       <h2>Sharing</h2>
       <p>We do not sell your data. We only share information with our cleaning crew assigned to your job.</p>

@@ -4,7 +4,7 @@ const steps = [
   { i: MessageCircle, t: "Send a WhatsApp", d: "Share mattress size, location pin and preferred date." },
   { i: Calculator, t: "Get your quote", d: "We confirm price, location fee and a slot — fast." },
   { i: Sparkles, t: "Pro cleaning", d: "Dry process with JIMMY BX7 Pro Max. No soaking, no mess." },
-  { i: Camera, t: "Photo report", d: "Before/after photos and a clear summary on WhatsApp." },
+  { i: Camera, t: "Service summary", d: "Service photos on request where suitable, plus a clear summary on WhatsApp." },
 ];
 
 export default function ProcessTimeline() {

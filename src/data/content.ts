@@ -105,7 +105,7 @@ export const services: ServiceDef[] = [
       "On-site inspection and triage",
       "Targeted treatment for the issue",
       "Drying guidance for tight turnarounds",
-      "Photo proof of the result",
+      "Service photos on request where suitable",
     ],
     expectations:
       "Availability depends on the day's schedule. Send photos and your check-in time and we will tell you honestly what is possible.",
@@ -258,7 +258,7 @@ export const hostPackages = [
       "Priority WhatsApp scheduling",
       "Consistent crew familiar with your unit(s)",
       "Bundled mattress hygiene care + optional add-ons",
-      "Documented before/after on every visit",
+      "Service photos on request where suitable",
       "Honest assessment and drying guidance",
     ],
   },

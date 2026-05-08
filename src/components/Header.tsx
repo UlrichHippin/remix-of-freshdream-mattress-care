@@ -9,7 +9,7 @@ import logoHorizontal from "@/assets/brand/logo-header.png";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Prices" },
+  { to: "/pricing", label: "Pricing" },
   { to: "/host-packages", label: "Hosts" },
   { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },

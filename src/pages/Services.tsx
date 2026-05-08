@@ -30,7 +30,7 @@ export default function Services() {
               recommend the right one — honestly.
             </p>
             <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              <span className="font-semibold text-primary">Recommended package:</span> Freshen Up · Standard Cleaning · Intensive Stain Treatment — see the <Link to="/pricing" className="font-semibold text-primary underline-offset-4 hover:underline">Prices</Link> page for sizes and rates.
+              <span className="font-semibold text-primary">Recommended package:</span> Freshen Up · Standard Cleaning · Intensive Stain Treatment — see the <Link to="/pricing" className="font-semibold text-primary underline-offset-4 hover:underline">Pricing</Link> page for sizes and rates.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <WhatsAppButton />
@@ -139,12 +139,12 @@ export default function Services() {
           <div className="lg:col-span-7">
             <p className="eyebrow"><Sparkles className="h-3.5 w-3.5" /> Documented service</p>
             <h2 className="mt-4 text-3xl font-bold text-primary sm:text-4xl">
-              Before, after, and an honest update.
+              Honest service, clearly summarised.
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Every job ends the same way: clear photo proof, a short summary of what was treated,
-              and a realistic note on what to expect on the next check-in. Real before/after photos
-              from FreshDream jobs are coming soon — ask us on WhatsApp for current examples.
+              Each job ends with a short summary of what was treated and a realistic note on what to
+              expect on the next check-in. Service photos can be provided on request where suitable —
+              ask us on WhatsApp for current examples.
             </p>
           </div>
         </div>
