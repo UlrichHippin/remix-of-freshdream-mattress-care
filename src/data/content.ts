@@ -213,7 +213,7 @@ export const locationFee = {
     {
       area: "North Nairobi",
       examples: "Garden Estate, Ruaraka, Muthaiga North, Kahawa areas",
-      fee: "KES 500–800",
+      fee: "KES 500",
       free: "Free from KES 5,000 order value",
     },
     {
