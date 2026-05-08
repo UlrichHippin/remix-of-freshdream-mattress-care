@@ -243,7 +243,7 @@ export default function Home() {
             ))}
             <div className="rounded-2xl border border-border bg-surface p-3 text-xs text-muted-foreground">
               <p><span className="font-semibold text-primary">Sleep Area Dust Refresh</span> + KES 300</p>
-              <p className="mt-1">Location Fee confirmed by location.</p>
+              <p className="mt-1">Location Fee confirmed after WhatsApp location pin.</p>
               <p className="mt-1">Final price confirmed by WhatsApp before visit.</p>
             </div>
           </div>
