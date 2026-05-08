@@ -618,7 +618,7 @@ export default function Home() {
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {[
                 "Confirmed final price",
-                "Transport fee confirmation",
+                "Location Fee confirmation",
                 "Service expectation",
                 "WhatsApp booking summary",
                 "M-PESA / cash payment option",
