@@ -85,6 +85,7 @@ export default function Home() {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
                   <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
                   <p className="mt-0.5 text-[11px] text-muted-foreground">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499.</p>
+                  <p className="mt-1 text-[11px] font-medium text-primary/80">Opening Offer = discounted Freshen Up for first-time customers.</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
@@ -253,8 +254,9 @@ export default function Home() {
                 <Star className="h-3 w-3" /> Opening Offer
               </p>
               <p className="mt-2 text-sm font-bold text-primary">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
+              <p className="mt-1 text-xs font-semibold text-primary/80">Opening Offer = discounted Freshen Up for first-time customers.</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                First-time customers only · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
+                Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Limited launch period. Final price confirmed on WhatsApp.
