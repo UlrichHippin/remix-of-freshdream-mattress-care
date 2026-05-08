@@ -295,7 +295,7 @@ export default function BookingSection() {
               </div>
 
               <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-                Your booking is a <strong>request until confirmed via WhatsApp</strong>. We will reply with your slot, price and payment details.
+                Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, location fee and available time slot.
               </div>
 
               <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
