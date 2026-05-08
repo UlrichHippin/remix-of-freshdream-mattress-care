@@ -144,7 +144,7 @@ export default function Home() {
               <span className="text-gradient-brand">Simple, Honest Pricing</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Transparent starting prices by mattress size. No soaking, no wet-drying delay.
+              Transparent starting prices by mattress size. No soaking, no wet-mattress waiting.
             </p>
           </div>
 

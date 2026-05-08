@@ -29,7 +29,7 @@ export const packages: PackageDef[] = [
     slug: "freshen-up",
     title: "Freshen Up",
     startingPrice: "Starting from 2,500 KES",
-    hours: "Service time: about 45–90 minutes · No wet-drying delay",
+    hours: "Service time: about 45–90 minutes · No Wet-Mattress Waiting",
     summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
@@ -43,7 +43,7 @@ export const packages: PackageDef[] = [
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
     readyIn: "About 45–90 minutes service time",
-    note: "Dry process only. No soaking and no wet-drying delay.",
+    note: "Dry process only. No soaking and no wet-mattress waiting.",
     sizes: [
       { label: "Single (3x6 ft)", price: "KES 2,500" },
       { label: "Double (4x6 ft)", price: "KES 3,000" },
