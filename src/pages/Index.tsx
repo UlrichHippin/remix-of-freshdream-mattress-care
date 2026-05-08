@@ -50,13 +50,11 @@ export default function Home() {
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="relative inline">
-                <span className="text-gradient-brand">Professional Mattress &amp; Upholstery Care</span>
-              </span>{" "}
-              <span className="whitespace-nowrap text-primary">in Nairobi</span>
+              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
+              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Fresh sleep for Airbnb hosts, families and modern homes.
+              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
             </p>
 
             <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
@@ -66,6 +64,7 @@ export default function Home() {
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
+                "Opening Offer from KES 1,999",
                 "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
@@ -83,9 +82,9 @@ export default function Home() {
             <div className="relative mt-4 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 px-4 py-3 shadow-lift backdrop-blur sheen">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
                   <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
-                  <p className="mt-0.5 text-[11px] text-muted-foreground">First-time Single Mattress Dry Care.</p>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499.</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
