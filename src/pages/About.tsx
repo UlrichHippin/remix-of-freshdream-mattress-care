@@ -82,7 +82,7 @@ export default function About() {
             {[
               { i: MapPin, t: "Roysambu base", d: "Quick coverage across north Nairobi and surrounding hubs." },
               { i: Droplets, t: "Dry hygiene treatment", d: "No soaking. No water extraction. Targeted spot support where suitable." },
-              { i: Camera, t: "Documented service", d: "Before/after photos and clear treatment notes on every job." },
+              { i: Camera, t: "Documented service", d: "Service photos on request where suitable, with clear treatment notes." },
               { i: ShieldCheck, t: "Honest assessment", d: "Real expectations, not miracle promises." },
             ].map((it) => (
               <div key={it.t} className="card-soft group relative overflow-hidden p-6 transition-all hover:-translate-y-0.5 hover:shadow-lift">
