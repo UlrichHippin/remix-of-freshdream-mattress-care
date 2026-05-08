@@ -143,6 +143,8 @@ export const packages: PackageDef[] = [
   },
 ];
 
-export const packageBookingLabels = packages.map(
-  (p) => `${p.title} — from ${p.sizes[0].price}`,
-);
+export const packageBookingLabels = [
+  "Opening Offer — First-time customer — from KES 1,999",
+  ...packages.map((p) => `${p.title} — from ${p.sizes[0].price}`),
+];
+
