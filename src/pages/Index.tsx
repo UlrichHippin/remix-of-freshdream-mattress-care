@@ -288,15 +288,48 @@ export default function Home() {
           {activePkg && (
             <>
               <DialogHeader>
-                <div className="flex flex-wrap items-baseline gap-3">
-                  <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
-                </div>
-                <DialogDescription className="mt-3 text-sm italic text-muted-foreground">
+                <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
+                <DialogDescription className="mt-2 text-sm italic text-muted-foreground">
                   {activePkg.tagline}
                 </DialogDescription>
               </DialogHeader>
               <div className="space-y-5">
                 <p className="text-sm text-foreground">{activePkg.description}</p>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">Pricing by size</p>
+                  <ul className="mt-2 grid grid-cols-2 gap-2 text-sm">
+                    {activePkg.sizes.map((s) => (
+                      <li key={s.label} className="flex items-center justify-between rounded-lg bg-surface px-3 py-2">
+                        <span className="font-medium text-muted-foreground">{s.label}</span>
+                        <span className="font-bold text-primary nums">{s.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">What's included</p>
+                  <ul className="mt-2 space-y-1.5 text-sm">
+                    {activePkg.included.map((it) => (
+                      <li key={it} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">Best for</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{activePkg.bestFor.join(" · ")}</p>
+                </div>
+
+                <div className="rounded-xl border-l-4 border-accent bg-accent-soft/40 p-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">Realistic expectation</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{activePkg.note}</p>
+                </div>
+
                 <a
                   href={whatsappLink(activePkg.whatsappMessage)}
                   target="_blank"
