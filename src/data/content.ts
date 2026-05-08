@@ -320,7 +320,7 @@ export const freshSleepPackage = {
   summary:
     "Fresh Sleep Package = your selected mattress cleaning package + Sleep Area Dust Refresh for KES 300. The mattress cleaning price depends on the package and mattress size you choose; the Sleep Area Dust Refresh is always a flat KES 300 add-on.",
   priceLogic:
-    "Total = mattress cleaning package (from KES 2,500) + KES 300 Sleep Area Dust Refresh.",
+    "Total = selected mattress cleaning package + KES 300 Sleep Area Dust Refresh. Opening Offer starts from KES 1,999 where applicable; regular Freshen Up starts from KES 2,500.",
   includes: [
     "Mattress hygiene cleaning (your selected package)",
     "Sleep Area Dust Refresh add-on (KES 300)",
