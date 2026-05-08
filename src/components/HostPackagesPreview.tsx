@@ -199,7 +199,7 @@ export default function HostPackagesPreview() {
           {[
             { icon: Repeat2, t: "Recurring scheduling", d: "Lock in regular turnovers." },
             { icon: Zap, t: "Priority response", d: "Faster slots when it matters." },
-            { icon: FileCheck2, t: "Documented service", d: "Photo proof on every visit." },
+            { icon: FileCheck2, t: "Documented service", d: "Service photos on request where suitable." },
           ].map((it) => (
             <div key={it.t} className="flex items-start gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
