@@ -18,7 +18,7 @@ import { faqs } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
-import equipmentComingSoon from "@/assets/equipment-coming-soon.jpg";
+import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 
 import { packages, type PackageDef as Pkg } from "@/data/packages";
 import { locationFee } from "@/data/content";
