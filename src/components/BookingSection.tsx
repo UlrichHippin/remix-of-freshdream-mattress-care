@@ -287,7 +287,7 @@ export default function BookingSection() {
                 {submitting ? "Opening WhatsApp…" : "Book on WhatsApp"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
-                Opens WhatsApp with your details prefilled — just press send.
+                Your WhatsApp message will include your selected package, mattress size, location, and preferred day/time — just press send.
               </p>
 
               <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
