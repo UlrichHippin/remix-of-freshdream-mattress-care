@@ -252,12 +252,12 @@ export default function Home() {
               <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                 <Star className="h-3 w-3" /> Opening Offer
               </p>
-              <p className="mt-2 text-sm font-bold text-primary">Single Mattress Dry Care — from KES 1,999</p>
+              <p className="mt-2 text-sm font-bold text-primary">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                First-time customers only · Single size (3×6 ft) · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
+                First-time customers only · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Other sizes (Double / Queen / King) are not included in this offer.
+                Limited launch period. Final price confirmed on WhatsApp.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-4 shadow-soft">
