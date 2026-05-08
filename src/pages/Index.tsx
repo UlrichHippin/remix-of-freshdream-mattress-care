@@ -578,14 +578,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR GUARANTEE */}
+      {/* OUR SERVICE PROMISE */}
       <section className="section">
         <div className="container-tight">
           <div className="card-soft mx-auto max-w-4xl border-2 border-accent/30 bg-gradient-to-br from-card to-surface p-6 sm:p-8">
             <div className="text-center">
-              <p className="eyebrow justify-center"><ShieldCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
+              <p className="eyebrow justify-center"><ShieldCheck className="h-3.5 w-3.5" /> Our Service Promise</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Honest, Documented, Private</h2>
-              <p className="mt-2 text-sm text-muted-foreground">Every job, handled with care by the founder.</p>
+              <p className="mt-2 text-sm text-muted-foreground">Realistic expectations. Service photos on request. Privacy respected.</p>
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {[
