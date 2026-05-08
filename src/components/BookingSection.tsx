@@ -110,7 +110,7 @@ export default function BookingSection() {
             Choose your package and send us your request in just a few steps.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Your booking is only confirmed after FreshDream replies on WhatsApp with final price and slot.
+            Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, location fee and available time slot.
           </p>
         </div>
 
@@ -284,7 +284,7 @@ export default function BookingSection() {
                 className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                {submitting ? "Opening WhatsApp…" : "Send via WhatsApp"}
+                {submitting ? "Opening WhatsApp…" : "Book on WhatsApp"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
                 Opens WhatsApp with your details prefilled — just press send.
@@ -295,7 +295,7 @@ export default function BookingSection() {
               </div>
 
               <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-                Your booking is a <strong>request until confirmed via WhatsApp</strong>. We will reply with your slot, price and payment details.
+                Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, location fee and available time slot.
               </div>
 
               <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
