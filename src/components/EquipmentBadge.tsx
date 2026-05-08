@@ -28,7 +28,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
     { i: Flame, t: "65°C graphene hot air" },
     { i: ShieldCheck, t: "UV-C surface hygiene support" },
     { i: Activity, t: "Smart dust sensor" },
-    { i: Wind, t: "No wet-drying delay" },
+    { i: Wind, t: "No Wet-Mattress Waiting" },
     { i: Wrench, t: "Mattress-focused dry care" },
   ];
 
@@ -103,7 +103,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
               Mattress-focused dry-care device — no soaking, no wet-mattress waiting time.
             </p>
             <p className="relative mt-3 text-[11px] uppercase tracking-wider text-muted-foreground/80">
-              Real device photo coming soon
+              JIMMY BX7 Pro Max dry-care device
             </p>
           </div>
         </div>

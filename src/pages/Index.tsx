@@ -85,6 +85,7 @@ export default function Home() {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
                   <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
                   <p className="mt-0.5 text-[11px] text-muted-foreground">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499.</p>
+                  <p className="mt-1 text-[11px] font-medium text-primary/80">Opening Offer = discounted Freshen Up for first-time customers.</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
@@ -144,7 +145,7 @@ export default function Home() {
               <span className="text-gradient-brand">Simple, Honest Pricing</span>
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Transparent starting prices by mattress size. No soaking, no wet-drying delay.
+              Transparent starting prices by mattress size. No soaking, no wet-mattress waiting.
             </p>
           </div>
 
@@ -253,8 +254,9 @@ export default function Home() {
                 <Star className="h-3 w-3" /> Opening Offer
               </p>
               <p className="mt-2 text-sm font-bold text-primary">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
+              <p className="mt-1 text-xs font-semibold text-primary/80">Opening Offer = discounted Freshen Up for first-time customers.</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                First-time customers only · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
+                Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Limited launch period. Final price confirmed on WhatsApp.
@@ -614,21 +616,10 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-5 shadow-soft sm:p-6">
             <p className="eyebrow"><ShieldCheck className="h-3.5 w-3.5" /> First booking confidence</p>
-            <h2 className="mt-3 text-xl font-bold text-primary sm:text-2xl">Before we visit, you will receive:</h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {[
-                "Confirmed final price",
-                "Location Fee confirmation",
-                "Service expectation",
-                "WhatsApp booking summary",
-                "M-PESA / cash payment option",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+            <h2 className="mt-3 text-xl font-bold text-primary sm:text-2xl">Confirmed on WhatsApp before your visit</h2>
+            <p className="mt-3 text-sm text-foreground">
+              Before your visit, we confirm everything on WhatsApp: final price, Location Fee, available time slot, service expectation and M-PESA/cash payment option.
+            </p>
           </div>
         </div>
       </section>

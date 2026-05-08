@@ -149,6 +149,9 @@ export default function QuickQuote() {
           <p className="mt-3 text-muted-foreground">
             Choose your mattress size, package and area to see an estimated price. Final price is confirmed on WhatsApp after receiving your location pin.
           </p>
+          <p className="mt-3 text-sm font-medium text-primary">
+            Already know your mattress size? Get a quick estimate below. Not sure? Tap WhatsApp and send a photo.
+          </p>
         </div>
 
         <div className="mx-auto mt-8 max-w-4xl">

@@ -110,7 +110,7 @@ export default function BookingSection() {
             Choose your package and send us your request in just a few steps.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, location fee and available time slot.
+            Booking request only. Before your visit, we confirm everything on WhatsApp: final price, Location Fee, available time slot, service expectation and M-PESA/cash payment option.
           </p>
         </div>
 
