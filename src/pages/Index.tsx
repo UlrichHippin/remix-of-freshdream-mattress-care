@@ -616,21 +616,10 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-5 shadow-soft sm:p-6">
             <p className="eyebrow"><ShieldCheck className="h-3.5 w-3.5" /> First booking confidence</p>
-            <h2 className="mt-3 text-xl font-bold text-primary sm:text-2xl">Before we visit, you will receive:</h2>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {[
-                "Confirmed final price",
-                "Location Fee confirmation",
-                "Service expectation",
-                "WhatsApp booking summary",
-                "M-PESA / cash payment option",
-              ].map((b) => (
-                <li key={b} className="flex items-start gap-2 text-sm text-foreground">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+            <h2 className="mt-3 text-xl font-bold text-primary sm:text-2xl">Confirmed on WhatsApp before your visit</h2>
+            <p className="mt-3 text-sm text-foreground">
+              Before your visit, we confirm everything on WhatsApp: final price, Location Fee, available time slot, service expectation and M-PESA/cash payment option.
+            </p>
           </div>
         </div>
       </section>
