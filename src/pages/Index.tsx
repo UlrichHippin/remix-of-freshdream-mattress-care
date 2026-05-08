@@ -523,15 +523,15 @@ export default function Home() {
             <div className="lg:col-span-5">
               <figure className="card-soft relative overflow-hidden p-3">
                 <img
-                  src={equipmentComingSoon}
-                  alt="JIMMY BX7 Pro Max equipment photo coming soon"
+                  src={jimmyImage}
+                  alt="JIMMY BX7 Pro Max used for dry mattress hygiene cleaning in Nairobi"
                   width={1200}
                   height={1024}
                   loading="lazy"
                   className="aspect-[4/3] w-full rounded-xl object-cover"
                 />
                 <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
-                  <Activity className="h-3.5 w-3.5 text-accent" /> Equipment photo coming soon
+                  <Activity className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro Max mattress-focused dry-care device
                 </figcaption>
               </figure>
             </div>
