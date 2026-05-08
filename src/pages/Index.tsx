@@ -476,6 +476,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LOCATION FEE — COMPACT */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center">
+              <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Location Fee</h2>
+              <p className="mt-2 text-sm font-semibold text-primary">
+                Location Fee from KES 300 · charged once per visit · confirmed after WhatsApp location pin.
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
+            </div>
+
+            <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card text-sm shadow-soft">
+              {locationFee.zones.map((z) => (
+                <li key={z.area} className="flex items-center justify-between gap-3 px-3 py-2.5">
+                  <div className="flex min-w-0 items-center gap-2">
+                    <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
+                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.area}</span>
+                  </div>
+                  <span className="shrink-0 text-right text-xs font-medium text-muted-foreground">
+                    {z.fee}{z.free ? ` · ${z.free}` : ""}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 text-center text-xs text-muted-foreground">{locationFee.bookingHint}</p>
+          </div>
+        </div>
+      </section>
+
       {/* AIRBNB CTA BANNER */}
       <section className="section bg-surface">
         <div className="container-tight">
