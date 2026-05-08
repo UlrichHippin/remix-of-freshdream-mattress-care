@@ -30,7 +30,7 @@ export default function Services() {
               recommend the right one — honestly.
             </p>
             <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
-              <span className="font-semibold text-primary">Recommended package:</span> Freshen Up · Standard Cleaning · Intensive Stain Treatment — see the <Link to="/pricing" className="font-semibold text-primary underline-offset-4 hover:underline">Prices</Link> page for sizes and rates.
+              <span className="font-semibold text-primary">Recommended package:</span> Freshen Up · Standard Cleaning · Intensive Stain Treatment — see the <Link to="/pricing" className="font-semibold text-primary underline-offset-4 hover:underline">Pricing</Link> page for sizes and rates.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <WhatsAppButton />
