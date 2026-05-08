@@ -258,7 +258,7 @@ export const hostPackages = [
       "Priority WhatsApp scheduling",
       "Consistent crew familiar with your unit(s)",
       "Bundled mattress hygiene care + optional add-ons",
-      "Documented before/after on every visit",
+      "Service photos on request where suitable",
       "Honest assessment and drying guidance",
     ],
   },
