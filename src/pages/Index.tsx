@@ -40,13 +40,13 @@ export default function Home() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
         
-        <div className="container-tight grid gap-8 py-10 sm:gap-10 sm:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
+        <div className="container-tight grid gap-6 py-8 sm:gap-8 sm:py-12 lg:grid-cols-12 lg:items-center lg:py-14">
           <div className="order-2 lg:order-1 lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft sm:px-3.5 sm:py-1.5 sm:text-[11px]">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
             <h1
-              className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-4 sm:text-5xl sm:leading-[1.1] lg:text-[3rem] lg:leading-[1.05]"
+              className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
               <span className="relative inline">
@@ -54,18 +54,16 @@ export default function Home() {
               </span>{" "}
               <span className="whitespace-nowrap text-primary">in Nairobi</span>
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Fresh sleep for Airbnb hosts, families and modern homes.
             </p>
 
-            {/* Hero eyecatcher: Dry Process */}
-            <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
               <Droplets className="h-4 w-4" />
               Dry mattress care · No wet-mattress waiting
             </div>
 
-            {/* Trust badges in hero */}
-            <ul className="mt-5 flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {[
                 "No wet-mattress waiting",
                 "M-PESA accepted",
@@ -81,23 +79,20 @@ export default function Home() {
               ))}
             </ul>
 
-            {/* Strong price box */}
-            <div className="relative mt-6 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 p-5 shadow-lift backdrop-blur sheen">
-              <div className="flex items-start justify-between gap-3">
+            <div className="relative mt-4 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 px-4 py-3 shadow-lift backdrop-blur sheen">
+              <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
-                  <p className="mt-1 text-2xl font-extrabold text-primary nums sm:text-3xl">from KES 1,999</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
+                  <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground">First-time Single Mattress Dry Care.</p>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
+                <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
                 </span>
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
-                First-time Single Mattress Dry Care starting price.
-              </p>
             </div>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappLink()}
                 target="_blank"
@@ -127,8 +122,11 @@ export default function Home() {
                 alt="FreshDream Mattress Care logo"
                 width={920}
                 height={920}
-                className="relative w-[220px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[320px] lg:w-[420px]"
+                className="relative w-[180px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[240px] lg:w-[300px]"
               />
+              <span className="absolute bottom-2 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
+                <Droplets className="h-3.5 w-3.5 text-accent" /> No wet-mattress waiting
+              </span>
             </div>
           </div>
         </div>
