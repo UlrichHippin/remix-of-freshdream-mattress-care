@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
 import MobileStickyCTA from "./MobileStickyCTA";
 import Breadcrumbs from "./Breadcrumbs";
+import { site } from "@/config/site";
 
 interface Props {
   title: string;
@@ -29,7 +30,7 @@ export default function PageLayout({ title, description, children }: Props) {
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", window.location.origin + window.location.pathname);
+    canonical.setAttribute("href", site.publicUrl + window.location.pathname);
   }, [title, description]);
 
   return (

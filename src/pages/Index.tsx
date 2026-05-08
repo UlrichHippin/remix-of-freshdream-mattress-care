@@ -18,9 +18,10 @@ import { faqs } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
-import logoFull from "@/assets/brand/logo-footer.png";
+import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 
-import { packages, STARTING_NOTE, type PackageDef as Pkg } from "@/data/packages";
+import { packages, type PackageDef as Pkg } from "@/data/packages";
+import { locationFee } from "@/data/content";
 
 export default function Home() {
   const [activePkg, setActivePkg] = useState<Pkg | null>(null);
@@ -49,13 +50,11 @@ export default function Home() {
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="relative inline">
-                <span className="text-gradient-brand">Professional Mattress &amp; Upholstery Care</span>
-              </span>{" "}
-              <span className="whitespace-nowrap text-primary">in Nairobi</span>
+              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
+              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Fresh sleep for Airbnb hosts, families and modern homes.
+              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
             </p>
 
             <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
@@ -65,6 +64,7 @@ export default function Home() {
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
+                "Opening Offer from KES 1,999",
                 "No wet-mattress waiting",
                 "M-PESA accepted",
                 "Based in Roysambu",
@@ -82,9 +82,9 @@ export default function Home() {
             <div className="relative mt-4 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 px-4 py-3 shadow-lift backdrop-blur sheen">
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
                   <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
-                  <p className="mt-0.5 text-[11px] text-muted-foreground">First-time Single Mattress Dry Care.</p>
+                  <p className="mt-0.5 text-[11px] text-muted-foreground">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499.</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
@@ -99,7 +99,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> WhatsApp Us for a Quote
+                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
               <a
                 href="#packages"
@@ -109,7 +109,7 @@ export default function Home() {
                 }}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Packages <ArrowRight className="h-5 w-5" />
+                View Prices <ArrowRight className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
             </div>
             <div className="border-t border-border bg-surface px-4 py-3 text-xs text-muted-foreground">
               <p>All prices in KES — regular package rates. <span className="font-semibold text-primary">Sleep Area Dust Refresh +KES 300.</span></p>
-              <p className="mt-1"><span className="font-semibold text-accent">Opening Offer:</span> Single Mattress Dry Care from KES 1,999 — first-time customers only.</p>
+              <p className="mt-1"><span className="font-semibold text-accent">Opening Offer:</span> Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499 — first-time customers only.</p>
             </div>
           </div>
 
@@ -252,12 +252,12 @@ export default function Home() {
               <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                 <Star className="h-3 w-3" /> Opening Offer
               </p>
-              <p className="mt-2 text-sm font-bold text-primary">Single Mattress Dry Care — from KES 1,999</p>
+              <p className="mt-2 text-sm font-bold text-primary">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                First-time customers only · Single size (3×6 ft) · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
+                First-time customers only · Same Freshen Up dry process: vacuum, dust &amp; dander removal, UV-C surface hygiene, warm-air freshness.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Other sizes (Double / Queen / King) are not included in this offer.
+                Limited launch period. Final price confirmed on WhatsApp.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-4 shadow-soft">
@@ -288,15 +288,48 @@ export default function Home() {
           {activePkg && (
             <>
               <DialogHeader>
-                <div className="flex flex-wrap items-baseline gap-3">
-                  <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
-                </div>
-                <DialogDescription className="mt-3 text-sm italic text-muted-foreground">
+                <DialogTitle className="text-2xl text-primary">{activePkg.title}</DialogTitle>
+                <DialogDescription className="mt-2 text-sm italic text-muted-foreground">
                   {activePkg.tagline}
                 </DialogDescription>
               </DialogHeader>
               <div className="space-y-5">
                 <p className="text-sm text-foreground">{activePkg.description}</p>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">Pricing by size</p>
+                  <ul className="mt-2 grid grid-cols-2 gap-2 text-sm">
+                    {activePkg.sizes.map((s) => (
+                      <li key={s.label} className="flex items-center justify-between rounded-lg bg-surface px-3 py-2">
+                        <span className="font-medium text-muted-foreground">{s.label}</span>
+                        <span className="font-bold text-primary nums">{s.price}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">What's included</p>
+                  <ul className="mt-2 space-y-1.5 text-sm">
+                    {activePkg.included.map((it) => (
+                      <li key={it} className="flex items-start gap-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">Best for</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{activePkg.bestFor.join(" · ")}</p>
+                </div>
+
+                <div className="rounded-xl border-l-4 border-accent bg-accent-soft/40 p-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-primary">Realistic expectation</p>
+                  <p className="mt-1 text-xs text-muted-foreground">{activePkg.note}</p>
+                </div>
+
                 <a
                   href={whatsappLink(activePkg.whatsappMessage)}
                   target="_blank"
@@ -410,35 +443,33 @@ export default function Home() {
       {/* PROCESS TIMELINE */}
       <ProcessTimeline />
 
-      {/* TRANSPORT FEE — COMPACT */}
+      {/* LOCATION FEE — COMPACT */}
       <section className="section">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Transport Fee</h2>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Location Fee</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                KES 300–500 by Nairobi location · <span className="text-accent">Waived for 3+ mattresses</span>
+                Location Fee from KES 300 · charged once per visit · confirmed after WhatsApp location pin.
               </p>
+              <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
 
             <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card text-sm shadow-soft">
-              {[
-                { zone: "Roysambu / nearby", fee: "Low / waived" },
-                { zone: "Kasarani · Garden Estate · Thome · Mirema", fee: "Small fee" },
-                { zone: "Westlands · Kilimani · Kileleshwa · Lavington", fee: "Medium fee" },
-                { zone: "Karen · Langata · Runda · Gigiri · Muthaiga", fee: "Higher fee" },
-                { zone: "Outside Nairobi", fee: "Quote on request" },
-              ].map((z) => (
-                <li key={z.zone} className="flex items-center justify-between gap-3 px-3 py-2.5">
-                  <div className="flex items-center gap-2 min-w-0">
+              {locationFee.zones.map((z) => (
+                <li key={z.area} className="flex items-center justify-between gap-3 px-3 py-2.5">
+                  <div className="flex min-w-0 items-center gap-2">
                     <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
-                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.zone}</span>
+                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.area}</span>
                   </div>
-                  <span className="shrink-0 text-xs font-medium text-muted-foreground">{z.fee}</span>
+                  <span className="shrink-0 text-right text-xs font-medium text-muted-foreground">
+                    {z.fee}{z.free ? ` · ${z.free}` : ""}
+                  </span>
                 </li>
               ))}
             </ul>
+            <p className="mt-3 text-center text-xs text-muted-foreground">{locationFee.bookingHint}</p>
           </div>
         </div>
       </section>
@@ -490,17 +521,19 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="card-soft relative overflow-hidden p-6 sm:p-8">
-                <div className="relative rounded-2xl border border-dashed border-border bg-surface p-6 text-center">
-                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                    <Activity className="h-8 w-8" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-primary">Smart Dust Guidance</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    The LED dust sensor helps identify areas that may need additional cleaning passes.
-                  </p>
-                </div>
-              </div>
+              <figure className="card-soft relative overflow-hidden p-3">
+                <img
+                  src={jimmyImage}
+                  alt="JIMMY BX7 Pro Max mattress-focused dry-care device used by FreshDream Mattress Care"
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full rounded-xl object-cover"
+                />
+                <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                  <Activity className="h-3.5 w-3.5 text-accent" /> Smart dust sensor · UV-C support · 65°C warm air
+                </figcaption>
+              </figure>
             </div>
           </div>
 
@@ -545,14 +578,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR GUARANTEE */}
+      {/* OUR SERVICE PROMISE */}
       <section className="section">
         <div className="container-tight">
           <div className="card-soft mx-auto max-w-4xl border-2 border-accent/30 bg-gradient-to-br from-card to-surface p-6 sm:p-8">
             <div className="text-center">
-              <p className="eyebrow justify-center"><ShieldCheck className="h-3.5 w-3.5" /> Our Guarantee</p>
+              <p className="eyebrow justify-center"><ShieldCheck className="h-3.5 w-3.5" /> Our Service Promise</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Honest, Documented, Private</h2>
-              <p className="mt-2 text-sm text-muted-foreground">Every job, handled with care by the founder.</p>
+              <p className="mt-2 text-sm text-muted-foreground">Realistic expectations. Service photos on request. Privacy respected.</p>
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
               {[

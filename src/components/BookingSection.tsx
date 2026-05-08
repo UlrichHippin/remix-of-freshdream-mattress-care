@@ -109,6 +109,9 @@ export default function BookingSection() {
           <p className="mt-3 text-muted-foreground">
             Choose your package and send us your request in just a few steps.
           </p>
+          <p className="mt-2 text-sm font-semibold text-primary">
+            Your booking is only confirmed after FreshDream replies on WhatsApp with final price and slot.
+          </p>
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">

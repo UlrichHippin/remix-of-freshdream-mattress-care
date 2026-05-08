@@ -3,6 +3,7 @@
 export const site = {
   name: "FreshDream Mattress Care",
   shortName: "FreshDream",
+  publicUrl: "https://freshdream.co.ke",
   tagline: "Mattress Cleaning Nairobi for Airbnb Hosts, Homes & Serviced Apartments",
   base: "Roysambu, Nairobi",
   // Use international format without leading + for wa.me

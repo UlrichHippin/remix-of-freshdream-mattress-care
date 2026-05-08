@@ -5,6 +5,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import { whatsappLink } from "@/config/site";
+import { locationZonesData } from "@/data/content";
 
 type PackageKey = "opening" | "freshen" | "standard" | "intensive" | "urine";
 type SizeKey = "single" | "double" | "queen" | "king";
@@ -12,6 +13,7 @@ type QtyKey = "1" | "2" | "3" | "4+";
 type ZoneKey = "roysambu" | "north" | "central" | "west" | "south" | "far";
 
 const PACKAGES: { key: PackageKey; label: string }[] = [
+  { key: "opening",   label: "Opening Offer · First-time customer (from KES 1,999)" },
   { key: "freshen",   label: "Freshen Up" },
   { key: "standard",  label: "Standard Cleaning" },
   { key: "intensive", label: "Intensive Stain Treatment" },
@@ -27,7 +29,7 @@ const SIZES: { key: SizeKey; label: string }[] = [
 
 // Base prices (KES) per package x size — aligned with src/data/packages.ts
 const BASE: Record<PackageKey, Record<SizeKey, number>> = {
-  opening:   { single: 2500, double: 3000, queen: 3500, king: 4000 },
+  opening:   { single: 1999, double: 2499, queen: 2999, king: 3499 },
   freshen:   { single: 2500, double: 3000, queen: 3500, king: 4000 },
   standard:  { single: 3500, double: 4000, queen: 4500, king: 5000 },
   intensive: { single: 4500, double: 5000, queen: 5500, king: 6500 },
@@ -50,14 +52,7 @@ type ZoneDef = {
   custom?: boolean;       // confirmed on WhatsApp
 };
 
-const ZONES: ZoneDef[] = [
-  { key: "roysambu", label: "Nearby Roysambu Area",         fee: 300,  waiveAt: 2499 },
-  { key: "north",    label: "North Nairobi",                fee: 500,  waiveAt: 5000 },
-  { key: "central",  label: "Central Nairobi",              fee: 800,  waiveAt: 8000 },
-  { key: "west",     label: "West / Premium Areas",         fee: 1200, discountAt: 12000 },
-  { key: "south",    label: "South / East Nairobi",         fee: 1500, discountAt: 12000 },
-  { key: "far",      label: "Far Nairobi / Outside Nairobi", fee: 0,   custom: true },
-];
+const ZONES: ZoneDef[] = locationZonesData;
 
 const ADDON_PRICE = 300;
 
@@ -169,7 +164,7 @@ export default function QuickQuote() {
                 </Select>
                 {isOpening && (
                   <p className="mt-2 text-xs text-muted-foreground">
-                    First-time customers only. Limited launch period. Location fee may apply unless waived by order value and service area.
+                    First-time customers only. Limited launch period. Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499. Final price confirmed on WhatsApp.
                   </p>
                 )}
               </div>
