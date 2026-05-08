@@ -284,7 +284,7 @@ export default function BookingSection() {
                 className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                {submitting ? "Opening WhatsApp…" : "Send via WhatsApp"}
+                {submitting ? "Opening WhatsApp…" : "Book on WhatsApp"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
                 Opens WhatsApp with your details prefilled — just press send.
