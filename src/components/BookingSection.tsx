@@ -213,7 +213,7 @@ export default function BookingSection() {
                   />
                   {errors.quantity && <p className="mt-1 text-xs text-destructive">{errors.quantity}</p>}
                   <p className="mt-1.5 text-xs text-muted-foreground">
-                    Location fee is charged once per visit — multiple mattresses reduce cost per mattress.
+                    Location Fee is charged once per visit — multiple mattresses reduce cost per mattress.
                   </p>
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default function BookingSection() {
               </div>
 
               <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-                Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, location fee and available time slot.
+                Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, Location Fee and available time slot.
               </div>
 
               <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">

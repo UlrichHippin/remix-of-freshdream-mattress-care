@@ -260,7 +260,7 @@ export default function QuickQuote() {
                   <dd className="font-semibold text-primary">{addonLine}</dd>
                 </div>
                 <div className="flex items-center justify-between">
-                  <dt className="text-muted-foreground">Location fee</dt>
+                  <dt className="text-muted-foreground">Location Fee</dt>
                   <dd className="font-semibold text-primary">{feeLine}</dd>
                 </div>
               </dl>
@@ -278,7 +278,7 @@ export default function QuickQuote() {
               </div>
 
               <p className="mt-3 text-xs text-muted-foreground">
-                Location fee is charged once per visit, not per mattress, and may be waived based on your total order value (cleaning + add-ons). This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
+                Location Fee is charged once per visit, not per mattress, and may be waived based on your total order value (cleaning + add-ons). This is an estimate — final price and available slot are confirmed on WhatsApp after receiving your location pin.
               </p>
 
               {ready ? (
