@@ -247,6 +247,25 @@ export const locationFee = {
     "Send your location pin on WhatsApp so we can confirm the exact location fee before booking.",
 };
 
+// Centralized numeric location zone data (single source of truth for QuickQuote / forms)
+export type LocationZoneData = {
+  key: "roysambu" | "north" | "central" | "west" | "south" | "far";
+  label: string;
+  fee: number;
+  waiveAt?: number;
+  discountAt?: number;
+  custom?: boolean;
+};
+
+export const locationZonesData: LocationZoneData[] = [
+  { key: "roysambu", label: "Nearby Roysambu Area",          fee: 300,  waiveAt: 2500 },
+  { key: "north",    label: "North Nairobi",                 fee: 500,  waiveAt: 5000 },
+  { key: "central",  label: "Central Nairobi",               fee: 800,  waiveAt: 8000 },
+  { key: "west",     label: "West / Premium Areas",          fee: 1200, discountAt: 12000 },
+  { key: "south",    label: "South / East Nairobi",          fee: 1500, discountAt: 12000 },
+  { key: "far",      label: "Far Nairobi / Outside Nairobi", fee: 0,    custom: true },
+];
+
 
 export const hostPackages = [
   {
