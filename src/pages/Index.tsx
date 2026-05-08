@@ -521,17 +521,19 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="card-soft relative overflow-hidden p-6 sm:p-8">
-                <div className="relative rounded-2xl border border-dashed border-border bg-surface p-6 text-center">
-                  <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                    <Activity className="h-8 w-8" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-primary">Smart Dust Guidance</h3>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    The LED dust sensor helps identify areas that may need additional cleaning passes.
-                  </p>
-                </div>
-              </div>
+              <figure className="card-soft relative overflow-hidden p-3">
+                <img
+                  src={jimmyImage}
+                  alt="JIMMY BX7 Pro Max mattress-focused dry-care device used by FreshDream Mattress Care"
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full rounded-xl object-cover"
+                />
+                <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                  <Activity className="h-3.5 w-3.5 text-accent" /> Smart dust sensor · UV-C support · 65°C warm air
+                </figcaption>
+              </figure>
             </div>
           </div>
 
