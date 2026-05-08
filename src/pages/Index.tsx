@@ -443,39 +443,6 @@ export default function Home() {
       {/* PROCESS TIMELINE */}
       <ProcessTimeline />
 
-      {/* TRANSPORT FEE — COMPACT */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto max-w-3xl">
-            <div className="text-center">
-              <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Transport Fee</h2>
-              <p className="mt-2 text-sm font-semibold text-primary">
-                KES 300–500 by Nairobi location · <span className="text-accent">Waived for 3+ mattresses</span>
-              </p>
-            </div>
-
-            <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card text-sm shadow-soft">
-              {[
-                { zone: "Roysambu / nearby", fee: "Low / waived" },
-                { zone: "Kasarani · Garden Estate · Thome · Mirema", fee: "Small fee" },
-                { zone: "Westlands · Kilimani · Kileleshwa · Lavington", fee: "Medium fee" },
-                { zone: "Karen · Langata · Runda · Gigiri · Muthaiga", fee: "Higher fee" },
-                { zone: "Outside Nairobi", fee: "Quote on request" },
-              ].map((z) => (
-                <li key={z.zone} className="flex items-center justify-between gap-3 px-3 py-2.5">
-                  <div className="flex items-center gap-2 min-w-0">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
-                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.zone}</span>
-                  </div>
-                  <span className="shrink-0 text-xs font-medium text-muted-foreground">{z.fee}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* LOCATION FEE — COMPACT */}
       <section className="section">
         <div className="container-tight">
