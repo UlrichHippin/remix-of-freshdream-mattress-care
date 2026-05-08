@@ -220,7 +220,7 @@ export const locationFee = {
       area: "Central Nairobi",
       examples: "CBD, Parklands, Ngara, Pangani, Eastleigh",
       fee: "KES 800",
-      free: "Free or reduced from KES 8,000 order value",
+      free: "Free from KES 8,000 order value",
     },
     {
       area: "West / Premium Areas",
