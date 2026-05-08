@@ -478,7 +478,7 @@ export default function Home() {
                 Powered by JIMMY BX7 Pro Max
               </h2>
               <p className="mt-4 text-muted-foreground">
-                FreshDream uses the JIMMY BX7 Pro Max as a mattress-focused dry-care device. Without soaking the mattress or using water extraction, your bed is ready to sleep on immediately.
+                FreshDream uses the JIMMY BX7 Pro Max as a mattress-focused dry-care device. In most dry-care cases, fresh sheets can be placed back shortly after service.
               </p>
 
               <div className="mt-5 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
