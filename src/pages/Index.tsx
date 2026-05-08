@@ -99,7 +99,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> WhatsApp Us for a Quote
+                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
               </a>
               <a
                 href="#packages"
@@ -109,7 +109,7 @@ export default function Home() {
                 }}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Packages <ArrowRight className="h-5 w-5" />
+                View Prices <ArrowRight className="h-5 w-5" />
               </a>
             </div>
           </div>
