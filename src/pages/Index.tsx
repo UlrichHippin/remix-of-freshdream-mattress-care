@@ -450,7 +450,7 @@ export default function Home() {
       </section>
 
       {/* PROCESS TIMELINE */}
-      <div id="how-it-works"><ProcessTimeline /></div>
+      <div id="how-it-works" className="scroll-mt-24"><ProcessTimeline /></div>
 
       {/* LOCATION FEE — COMPACT */}
       <section id="areas" className="section scroll-mt-24">
