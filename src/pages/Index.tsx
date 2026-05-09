@@ -137,17 +137,16 @@ export default function Home() {
           <div className="order-1 lg:order-2 lg:col-span-5">
             <div className="relative mx-auto">
               <span className="absolute -inset-4 -z-10 rounded-3xl bg-accent/20 blur-3xl animate-glow-pulse" aria-hidden />
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-lift ring-1 ring-accent/20">
+              <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary-soft via-card to-accent-soft p-8 shadow-lift ring-1 ring-accent/20 sm:p-12">
                 <img
-                  src={heroDevice}
-                  alt="FreshDream Mattress Care — professional dry mattress hygiene with JIMMY BX7 Pro Max in Nairobi"
-                  width={1600}
-                  height={1067}
+                  src={logoMark}
+                  alt="FreshDream Mattress Care logo"
+                  width={1200}
+                  height={1200}
                   loading="eager"
                   fetchPriority="high"
-                  className="aspect-[4/3] w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-transparent" aria-hidden />
               </div>
               <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
                 <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
