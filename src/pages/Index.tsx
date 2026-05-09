@@ -407,10 +407,10 @@ export default function Home() {
               <div className="min-w-0">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-accent">For Airbnb Hosts</p>
                 <h2 className="mt-0.5 text-base font-bold text-primary sm:text-xl">
-                  Are you an Airbnb Host?
+                  Airbnb Host?
                 </h2>
                 <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-                  Click here for our specialized turnover packages.
+                  Fast dry mattress refresh for turnovers — no wet-mattress waiting before the next guest.
                 </p>
               </div>
             </div>
