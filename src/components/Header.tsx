@@ -6,13 +6,12 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
 
-const nav = [
-  { to: "/", label: "Home" },
+const nav: { to: string; label: string; hash?: boolean }[] = [
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/host-packages", label: "Hosts" },
+  { to: "/pricing", label: "Prices" },
+  { to: "/#areas", label: "Areas", hash: true },
+  { to: "/#how-it-works", label: "How It Works", hash: true },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
