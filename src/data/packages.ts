@@ -126,9 +126,10 @@ export const packages: PackageDef[] = [
     included: [
       "Urine-focused dry pre-treatment",
       "Odor absorption process",
-      "Deep vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
+      "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
       "Final inspection",
     ],
     bestFor: [
