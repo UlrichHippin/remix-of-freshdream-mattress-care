@@ -79,6 +79,13 @@ export default function Home() {
               ))}
             </ul>
 
+            <div className="mt-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft backdrop-blur">
+                <Wrench className="h-3.5 w-3.5 text-accent" />
+                Powered by JIMMY BX7 Pro Max Technology
+              </span>
+            </div>
+
             <div className="relative mt-4 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 px-4 py-3 shadow-lift backdrop-blur sheen">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -443,10 +450,10 @@ export default function Home() {
       </section>
 
       {/* PROCESS TIMELINE */}
-      <ProcessTimeline />
+      <div id="how-it-works" className="scroll-mt-24"><ProcessTimeline /></div>
 
       {/* LOCATION FEE — COMPACT */}
-      <section className="section">
+      <section id="areas" className="section scroll-mt-24">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
