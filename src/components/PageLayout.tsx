@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
 import MobileStickyCTA from "./MobileStickyCTA";
 import Breadcrumbs from "./Breadcrumbs";
+import ScrollToHash from "./ScrollToHash";
 import { site } from "@/config/site";
 
 interface Props {
