@@ -129,47 +129,60 @@ export default function Home() {
       {/* 2. COMPACT JIMMY TECHNOLOGY PROOF */}
       <section className="section">
         <div className="container-tight">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-                Powered by JIMMY BX7 Pro Max Technology
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-                FreshDream uses the JIMMY BX7 Pro Max — a mattress-focused dry-care device. Fresh sheets can be placed back shortly after service.
-              </p>
-              <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3">
-                {[
-                  { i: Flame, t: "65°C Graphene", d: "Hot-air freshness" },
-                  { i: Zap, t: "16kPa Suction", d: "Mattress-focused power" },
-                  { i: ShieldCheck, t: "UV-C Support", d: "Surface hygiene" },
-                  { i: Clock4, t: "No Wet-Mattress Waiting", d: "No soaking" },
-                ].map((it) => (
-                  <div key={it.t} className="card-soft p-3">
-                    <div className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                      <it.i className="h-4 w-4" />
-                    </div>
-                    <h3 className="mt-2 text-sm font-bold text-primary">{it.t}</h3>
-                    <p className="mt-0.5 text-xs text-muted-foreground">{it.d}</p>
-                  </div>
-                ))}
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
+              Why FreshDream Uses JIMMY BX7 Pro Max Technology
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              Professional dry mattress hygiene equipment — used as proof behind our no-wet-mattress service.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-8 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                i: Flame,
+                t: "65°C Heated Air",
+                d: "Warm air supports a fresh, dry sleeping feel without soaking the mattress.",
+              },
+              {
+                i: ShieldCheck,
+                t: "UV-C Hygiene Support",
+                d: "UV-C technology supports a more hygienic mattress surface as part of the dry refresh process.",
+              },
+              {
+                i: Activity,
+                t: "Smart Dust Detection",
+                d: "The LED display helps show where more dust is present and when the surface is cleaner.",
+              },
+              {
+                i: Zap,
+                t: "Tapping Brushroll + Dry Suction",
+                d: "The brushroll helps loosen fine dust and particles before suction removes them.",
+              },
+            ].map((it) => (
+              <div key={it.t} className="card-soft p-4">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <it.i className="h-5 w-5" />
+                </div>
+                <h3 className="mt-3 text-sm font-bold text-primary">{it.t}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
               </div>
-            </div>
-            <div className="lg:col-span-5">
-              <figure className="card-soft relative overflow-hidden p-3">
-                <img
-                  src={jimmyImage}
-                  alt="JIMMY BX7 Pro Max used by FreshDream for dry mattress hygiene cleaning in Nairobi"
-                  width={1200}
-                  height={1024}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full rounded-xl object-cover"
-                />
-                <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
-                  <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
-                </figcaption>
-              </figure>
-            </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80">
+            700W Power · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
+          </p>
+
+          <div className="mt-6 flex justify-center">
+            <Link
+              to="/technology"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              See the Technology <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
