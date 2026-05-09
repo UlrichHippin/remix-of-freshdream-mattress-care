@@ -33,7 +33,7 @@ export const packages: PackageDef[] = [
     summary: "A quick dry refresh for mattresses, with selected sofa support available on request.",
     tagline: "Instant fresh care with no soaking.",
     description:
-      "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro Max to help remove dust, hair, dander and surface debris, with UV-C surface hygiene support and 65°C graphene hot air.",
+      "A professional surface revitalization using UV-C Sterilization and light High-Frequency Vibration Tapping with the JIMMY BX7 Pro Max. Ideal for routine hygiene maintenance between guests — fast, dry and ready to use immediately.",
     included: [
       "High-Frequency Vibration Tapping (45,000 taps/min) to dislodge deep dust and allergens",
       "Dust, hair, and dander removal",
