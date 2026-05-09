@@ -68,6 +68,13 @@ export default function Technology() {
           <p className="mt-3 text-sm leading-relaxed text-foreground sm:text-base">
             FreshDream's dry process does not soak the mattress and does not use wet extraction. There is no long drying delay — fresh sheets can be placed back shortly after service. Ideal for tight Airbnb check-ins and family homes that need the bed ready the same day.
           </p>
+
+          <div className="mt-6 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-primary sm:text-xs">Why Dry Care wins in Nairobi</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground sm:text-base">
+              Unlike wet cleaning, our thermal process leaves no moisture behind, preventing mold growth even during the rainy season. Your bed is ready to use immediately.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -161,24 +168,32 @@ export default function Technology() {
             </figcaption>
           </figure>
 
-          <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              "700W Power",
-              "245mm Suction Inlet / Cleaning Path",
-              "0.5L Dust Cup",
-              "MIF Filtration",
-              "LED Display",
-              "Dust Sensor",
-              "UV Lamp",
-              "Graphene Heating",
-              "65°C Hot Wind Temperature",
-              "Negative Ions",
-              "3 Modes",
-              "5m Power Cord",
-            ].map((spec) => (
-              <li key={spec} className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm shadow-soft">
-                <Check className="h-4 w-4 shrink-0 text-accent" />
-                <span className="font-medium text-primary">{spec}</span>
+              { label: "700W Power", icon: Zap },
+              { label: "245mm Cleaning Path", icon: Wind },
+              { label: "0.5L Dust Cup", icon: Check },
+              { label: "MIF Filtration", icon: ShieldCheck },
+              { label: "LED Display", icon: Activity },
+              { label: "Smart Dust Sensor", icon: Activity },
+              { label: "UV-C Lamp", icon: ShieldCheck },
+              { label: "Graphene Heating", icon: Flame },
+              { label: "65°C Hot Air", icon: Flame },
+              { label: "Negative Ions", icon: Wind },
+              { label: "3 Cleaning Modes", icon: BadgeCheck },
+              { label: "5m Power Cord", icon: Check },
+            ].map(({ label, icon: Icon }) => (
+              <li
+                key={label}
+                className="group flex items-center gap-3 rounded-2xl border-2 border-accent/20 bg-gradient-to-br from-card to-accent-soft/30 px-4 py-3 shadow-soft transition-all hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-lift"
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-accent">Verified spec</span>
+                  <span className="text-sm font-bold leading-tight text-primary">{label}</span>
+                </div>
               </li>
             ))}
           </ul>
