@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import FloatingWhatsApp from "./FloatingWhatsApp";
 import MobileStickyCTA from "./MobileStickyCTA";
 import Breadcrumbs from "./Breadcrumbs";
+import ScrollToHash from "./ScrollToHash";
 import { site } from "@/config/site";
 
 interface Props {
@@ -35,6 +36,7 @@ export default function PageLayout({ title, description, children }: Props) {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <ScrollToHash />
       <Header />
       <Breadcrumbs />
       <main className="flex-1 pb-16 md:pb-0">{children}</main>

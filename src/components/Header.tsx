@@ -11,7 +11,7 @@ const nav = [
   { to: "/services", label: "Services" },
   { to: "/pricing", label: "Prices" },
   { to: "/technology", label: "Technology" },
-  { to: "/#areas", label: "Areas" },
+  { to: "/#areas", label: "Areas & Fees" },
   { to: "/#how-it-works", label: "How It Works" },
   { to: "/faq", label: "FAQ" },
 ];

@@ -113,19 +113,23 @@ export default function Home() {
           </div>
 
           <div className="order-1 lg:order-2 lg:col-span-5">
-            <div className="relative mx-auto flex items-center justify-center">
-              <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
+            <figure className="relative mx-auto overflow-hidden rounded-3xl border border-border bg-card shadow-lift">
               <img
-                src={logoMark}
-                alt="FreshDream Mattress Care logo"
-                width={920}
-                height={920}
-                className="relative w-[180px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[240px] lg:w-[300px]"
+                src={jimmyEquipmentProof}
+                alt="Professional dry mattress hygiene cleaning by FreshDream using JIMMY BX7 Pro Max"
+                width={1200}
+                height={900}
+                className="aspect-[4/3] w-full object-cover"
               />
-              <span className="absolute bottom-2 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
+              {/* Compact FreshDream brand mark badge */}
+              <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-border backdrop-blur sm:text-[11px]">
+                <img src={logoMark} alt="FreshDream" className="h-4 w-4 object-contain" />
+                FreshDream
+              </span>
+              <span className="absolute bottom-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
                 <Droplets className="h-3.5 w-3.5 text-accent" /> No wet-mattress waiting
               </span>
-            </div>
+            </figure>
           </div>
         </div>
       </section>
@@ -225,12 +229,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. COMPACT COMPARISON */}
-      <section id="how-it-works" className="section bg-gradient-hero scroll-mt-24">
+      {/* 3. HOW IT WORKS — real 4-step process */}
+      <section id="how-it-works" className="section bg-surface scroll-mt-24">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">How It Works</h2>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+              Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
+            </p>
+          </div>
+
+          <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { i: MessageCircle, t: "Send WhatsApp Request", d: "Tell us your mattress size, area and preferred time." },
+              { i: MapPin, t: "Share Location Pin", d: "We confirm the location fee and available time slot." },
+              { i: Sparkles, t: "Dry Mattress Refresh", d: "We use JIMMY BX7 Pro Max technology with UV-C support, 65°C heated air, smart dust detection and dry suction." },
+              { i: BedDouble, t: "Ready Without Drying Wait", d: "The mattress is not soaked, so it can be re-sheeted shortly after service." },
+            ].map((s, idx) => (
+              <li key={s.t} className="card-soft relative p-5">
+                <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
+                  {idx + 1}
+                </span>
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-soft">
+                  <s.i className="h-5 w-5" />
+                </div>
+                <h3 className="mt-3 text-base font-bold text-primary">{s.t}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 3b. COMPACT COMPARISON */}
+      <section className="section bg-gradient-hero">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Wind className="h-3.5 w-3.5" /> The aha moment</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why dry mattress care saves time</h2>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why Dry Refresh Is Different</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               No soaking, no wet extraction, no long drying delay.
             </p>
@@ -349,9 +386,9 @@ export default function Home() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Location Fee</h2>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Areas & Location Fees</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                From KES 300 · charged once per visit · confirmed after WhatsApp location pin.
+                Transparent location fees from Roysambu across Nairobi — confirmed after your WhatsApp location pin.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
