@@ -35,15 +35,20 @@ export default function Technology() {
           <div className="lg:col-span-5">
             <figure className="card-soft relative overflow-hidden p-3">
               <img
-                src={jimmyImage}
+                src={jimmyHero}
                 alt="JIMMY BX7 Pro Max used by FreshDream for dry mattress hygiene cleaning in Nairobi"
                 width={1200}
                 height={1024}
                 loading="lazy"
                 className="aspect-[4/3] w-full rounded-xl object-cover"
               />
-              <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
-                <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
+              <figcaption className="mt-3 flex flex-col items-center gap-1 text-center">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                  <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
+                </span>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                  Manufacturer reference image — JIMMY BX7 Pro Max
+                </span>
               </figcaption>
             </figure>
           </div>
