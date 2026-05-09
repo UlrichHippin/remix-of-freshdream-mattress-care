@@ -7,6 +7,7 @@ import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
 
 const nav = [
+  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/pricing", label: "Prices" },
   { to: "/technology", label: "Technology" },
