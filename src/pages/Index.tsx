@@ -372,16 +372,19 @@ export default function Home() {
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
 
-            <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card text-sm shadow-soft">
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {locationFee.zones.map((z) => (
-                <li key={z.area} className="flex items-center justify-between gap-3 px-3 py-2.5">
-                  <div className="flex min-w-0 items-center gap-2">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
-                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.area}</span>
+                <li key={z.area} className="rounded-xl border border-border bg-card p-4 shadow-soft">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold text-primary">{z.area}</p>
+                      <p className="mt-0.5 text-xs text-muted-foreground">{z.examples}</p>
+                      <p className="mt-2 text-xs font-semibold text-primary">
+                        {z.fee}{z.free ? ` · ${z.free}` : ""}
+                      </p>
+                    </div>
                   </div>
-                  <span className="shrink-0 text-right text-xs font-medium text-muted-foreground">
-                    {z.fee}{z.free ? ` · ${z.free}` : ""}
-                  </span>
                 </li>
               ))}
             </ul>
