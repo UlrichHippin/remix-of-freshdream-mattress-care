@@ -64,10 +64,11 @@ export const packages: PackageDef[] = [
       "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). Dry treatment with baking soda preparation, deep vacuuming, composite brushroll tapping, UV-C surface hygiene support and warm-air freshness — using the JIMMY BX7 Pro Max.",
     included: [
       "Pre-treatment with baking soda",
-      "Deep dry vacuuming",
+      "High-Frequency Vibration Tapping (45,000 taps/min) for deep dust and allergen release",
+      "Ultrasonic Mite Suppression to disrupt the mite nervous system",
       "Dust and odor reduction",
       "UV-C hygiene treatment",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: [
       "Sweat and body odor",
