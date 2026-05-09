@@ -426,8 +426,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. BOOKING */}
-      <BookingSection />
+      {/* 10. COMPACT FINAL CTA */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to book your dry mattress refresh?</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              Send your mattress size, area and preferred time on WhatsApp. Final price, location fee and time slot are confirmed before the visit.
+            </p>
+            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <Link
+                to="/pricing"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                See Prices <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 }
