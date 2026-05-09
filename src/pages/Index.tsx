@@ -19,6 +19,7 @@ import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
+import heroDevice from "@/assets/hero-jimmy-mattress.webp";
 
 import { packages, type PackageDef as Pkg } from "@/data/packages";
 import { locationFee } from "@/data/content";
@@ -50,11 +51,11 @@ export default function Home() {
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
-              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
+              <span className="text-gradient-brand">Dry Mattress Hygiene</span>{" "}
+              <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
+              FreshDream Mattress Care provides professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology: UV-C hygiene support, 65°C heated air, smart dust detection and dry suction — ideal for homes, Airbnb rooms and serviced apartments.
             </p>
 
             <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
@@ -64,10 +65,12 @@ export default function Home() {
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
-                "Opening Offer from KES 1,999",
-                "No wet-mattress waiting",
+                "No wet mattress",
+                "Ready to use immediately",
+                "UV-C support",
+                "65°C heated air",
+                "Smart dust detection",
                 "M-PESA accepted",
-                "Based in Roysambu",
               ].map((b, i) => (
                 <li
                   key={b}
