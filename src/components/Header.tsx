@@ -6,12 +6,13 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
 
-const nav: { to: string; label: string; hash?: boolean }[] = [
+const nav = [
+  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Prices" },
-  { to: "/#areas", label: "Areas", hash: true },
-  { to: "/#how-it-works", label: "How It Works", hash: true },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/host-packages", label: "Hosts" },
   { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -55,32 +56,22 @@ export default function Header() {
 
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-          {nav.map((item) =>
-            item.hash ? (
-              <a
-                key={item.to}
-                href={item.to}
-                className="relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent"
-              >
-                {item.label}
-              </a>
-            ) : (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === "/"}
-                className={({ isActive }) =>
-                  cn(
-                    "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
-                    "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-[width,opacity] after:duration-200 after:ease-out hover:after:w-6 hover:after:opacity-70",
-                    isActive && "bg-accent-soft font-semibold text-accent after:w-8 after:opacity-100 after:animate-fade-in",
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ),
-          )}
+          {nav.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                cn(
+                  "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
+                  "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-[width,opacity] after:duration-200 after:ease-out hover:after:w-6 hover:after:opacity-70",
+                  isActive && "bg-accent-soft font-semibold text-accent after:w-8 after:opacity-100 after:animate-fade-in",
+                )
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
@@ -101,32 +92,21 @@ export default function Header() {
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="container-tight flex flex-col py-3" aria-label="Mobile">
-            {nav.map((item) =>
-              item.hash ? (
-                <a
-                  key={item.to}
-                  href={item.to}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-3 text-base font-medium text-foreground/80"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.to === "/"}
-                  className={({ isActive }) =>
-                    cn(
-                      "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
-                      isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
-                    )
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ),
-            )}
+            {nav.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  cn(
+                    "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
+                    isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
             <div className="pt-3">
               <WhatsAppButton className="w-full" />
             </div>
