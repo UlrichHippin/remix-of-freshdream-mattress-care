@@ -24,7 +24,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
   }
 
   const features = [
-    { i: Zap, t: "16kPa suction + tapping" },
+    { i: Zap, t: "700W power + tapping brushroll" },
     { i: Flame, t: "65°C graphene hot air" },
     { i: ShieldCheck, t: "UV-C surface hygiene support" },
     { i: Activity, t: "Smart dust sensor" },
@@ -75,7 +75,7 @@ export default function EquipmentBadge({ variant = "inline", className = "" }: P
           </h2>
           <p className="mt-3 text-muted-foreground">
             We use a mattress-focused dry-care device — not a generic home vacuum. That means
-            65°C graphene hot air, 16kPa suction with tapping, UV-C surface hygiene support and
+            65°C graphene hot air, 700W power with 245mm cleaning path, UV-C surface hygiene support and
             a smart dust sensor — without soaking the mattress or causing a long drying delay.
           </p>
           <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-2">
