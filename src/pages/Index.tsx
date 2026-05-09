@@ -453,7 +453,7 @@ export default function Home() {
       <div id="how-it-works"><ProcessTimeline /></div>
 
       {/* LOCATION FEE — COMPACT */}
-      <section className="section">
+      <section id="areas" className="section scroll-mt-24">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
