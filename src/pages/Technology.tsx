@@ -184,6 +184,7 @@ export default function Technology() {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { label: "700W Power", icon: Zap },
+              { label: "Up to 16 kPa Suction", icon: Wind },
               { label: "245mm Cleaning Path", icon: Wind },
               { label: "0.5L Dust Cup", icon: Check },
               { label: "MIF Filtration", icon: ShieldCheck },
@@ -195,6 +196,7 @@ export default function Technology() {
               { label: "Negative Ions", icon: Wind },
               { label: "3 Cleaning Modes", icon: BadgeCheck },
               { label: "5m Power Cord", icon: Check },
+              { label: "Ultrasonic Mite Control Support", icon: Activity },
             ].map(({ label, icon: Icon }) => (
               <li
                 key={label}
