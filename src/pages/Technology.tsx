@@ -90,7 +90,7 @@ export default function Technology() {
                 img: techUvc,
                 i: ShieldCheck,
                 t: "UV-C Hygiene Support",
-                d: "UV-C supports surface hygiene as part of the dry refresh process. Avoid medical or absolute sterilization claims.",
+                d: "UV-C technology supports surface hygiene as part of the dry refresh process. Manufacturer results may vary depending on surface, use and lab conditions.",
               },
               {
                 img: techSmartDust,
@@ -122,13 +122,13 @@ export default function Technology() {
                     <h3 className="text-base font-bold leading-snug text-primary">{it.t}</h3>
                   </div>
                   <p className="mt-2 text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">{it.d}</p>
-                  <p className="mt-2.5 text-[11px] font-semibold uppercase leading-snug tracking-wide text-muted-foreground break-words sm:mt-3 sm:text-[10px]">
-                    Manufacturer reference image — JIMMY BX7 Pro Max
-                  </p>
                 </div>
               </div>
             ))}
           </div>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground sm:text-sm">
+            Images and technical references are based on manufacturer material for the JIMMY BX7 Pro Max.
+          </p>
         </div>
       </section>
 
