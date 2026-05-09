@@ -138,11 +138,11 @@ export default function Home() {
               Why FreshDream Uses JIMMY BX7 Pro Max Technology
             </h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Professional dry mattress hygiene equipment — used as proof behind our no-wet-mattress service.
+              Professional dry mattress hygiene equipment — combining heated air, UV-C support, smart dust detection, ultrasonic mite-control support and dry suction.
             </p>
           </div>
 
-          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 img: techSmartDust,
@@ -152,17 +152,22 @@ export default function Home() {
               {
                 img: techHeatedAir,
                 t: "65°C Heated Air",
-                d: "Warm air supports a fresh, dry sleeping feel without soaking the mattress.",
+                d: "Graphene heated air supports a fresh, dry sleeping feel without soaking the mattress.",
               },
               {
                 img: techUvc,
                 t: "UV-C Hygiene Support",
-                d: "UV-C technology supports a more hygienic mattress surface as part of the dry refresh process.",
+                d: "UV-C technology supports surface hygiene as part of the dry refresh process.",
               },
               {
                 img: techTapping,
                 t: "Tapping Brushroll + Dry Suction",
-                d: "The brushroll helps loosen fine dust and particles before suction removes them.",
+                d: "The composite brushroll helps loosen fine dust, hair and particles before suction removes them.",
+              },
+              {
+                img: techOverview,
+                t: "Ultrasonic Mite Control Support",
+                d: "Ultrasonic technology supports mite-control as part of the combined dry hygiene system.",
               },
             ].map((it) => (
               <div key={it.t} className="card-soft overflow-hidden p-0">
@@ -180,8 +185,11 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80">
-            700W Power · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:hidden">
+            700W · Up to 16 kPa · 65°C Heat · UV-C · Smart Sensor
+          </p>
+          <p className="mx-auto mt-6 hidden max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:block">
+            700W Power · Up to 16 kPa Suction · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
           </p>
 
           <p className="mx-auto mt-3 max-w-3xl text-center text-[11px] text-muted-foreground">
