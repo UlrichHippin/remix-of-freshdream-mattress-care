@@ -13,6 +13,7 @@ import QuickQuote from "@/components/QuickQuote";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import EquipmentProof from "@/components/EquipmentProof";
 import ComparisonSection from "@/components/ComparisonSection";
+import AirbnbSection from "@/components/AirbnbSection";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
@@ -160,6 +161,9 @@ export default function Home() {
 
       {/* COMPARISON */}
       <ComparisonSection />
+
+      {/* AIRBNB */}
+      <AirbnbSection />
 
       {/* QUICK QUOTE */}
       <QuickQuote />
