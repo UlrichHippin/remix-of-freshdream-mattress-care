@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
-import { SmartSensorDemo } from "@/components/SmartSensorDemo";
+
 
 import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
