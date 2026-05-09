@@ -5,12 +5,12 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import jimmyHero from "@/assets/jimmy/hero-jimmy-bed.jpg";
-import jimmyOverview from "@/assets/jimmy/tech-overview.jpg";
-import techHeatedAir from "@/assets/jimmy/tech-heated-air.jpg";
-import techUvc from "@/assets/jimmy/tech-uvc.jpg";
-import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.jpg";
-import techTapping from "@/assets/jimmy/tech-tapping-brushroll.jpg";
+import jimmyHero from "@/assets/jimmy/hero-jimmy-bed.webp";
+import jimmyOverview from "@/assets/jimmy/tech-overview.webp";
+import techHeatedAir from "@/assets/jimmy/tech-heated-air.webp";
+import techUvc from "@/assets/jimmy/tech-uvc.webp";
+import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.webp";
+import techTapping from "@/assets/jimmy/tech-tapping-brushroll.webp";
 
 export default function Technology() {
   return (
