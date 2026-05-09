@@ -129,7 +129,7 @@ export default function Technology() {
               loading="lazy"
               className="aspect-[4/3] w-full rounded-xl object-cover"
             />
-            <figcaption className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground">
+            <figcaption className="mt-2 px-2 text-center text-[10px] uppercase tracking-wide text-muted-foreground break-words">
               Manufacturer reference image — JIMMY BX7 Pro Max
             </figcaption>
           </figure>
