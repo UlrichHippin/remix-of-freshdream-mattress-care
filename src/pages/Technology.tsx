@@ -120,6 +120,20 @@ export default function Technology() {
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">JIMMY BX7 Pro Max</h2>
           </div>
 
+          <figure className="card-soft mx-auto mt-6 max-w-2xl overflow-hidden p-3">
+            <img
+              src={jimmyOverview}
+              alt="JIMMY BX7 Pro Max product overview — manufacturer reference"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground">
+              Manufacturer reference image — JIMMY BX7 Pro Max
+            </figcaption>
+          </figure>
+
           <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {[
               "700W Power",
