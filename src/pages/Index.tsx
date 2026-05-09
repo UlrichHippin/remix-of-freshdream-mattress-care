@@ -49,7 +49,7 @@ export default function Home() {
               <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without long drying wait.
+              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without wet cleaning or long drying wait.
             </p>
 
             <ul className="mt-4 flex flex-wrap gap-2">
