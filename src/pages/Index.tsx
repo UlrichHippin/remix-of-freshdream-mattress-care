@@ -32,54 +32,44 @@ export default function Home() {
       description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
     >
       {/* 1. HERO */}
-      <section className="relative overflow-hidden border-b border-border animate-fade-up">
-        <div
-          className="absolute inset-0 -z-10 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBackground})` }}
-          role="img"
-          aria-label="Mattress cleaning service in Nairobi"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-background/95 via-background/80 to-background/40 lg:from-background/90 lg:via-background/70 lg:to-background/30" aria-hidden="true" />
-        
-        <div className="container-tight grid gap-6 py-8 sm:gap-8 sm:py-12 lg:grid-cols-12 lg:items-center lg:py-14">
-          <div className="order-2 lg:order-1 lg:col-span-7">
+      <section className="relative overflow-hidden border-b border-border bg-gradient-to-br from-background via-background to-accent-soft/20 animate-fade-up">
+        <div className="container-tight grid gap-8 py-10 sm:py-14 lg:grid-cols-12 lg:items-center lg:gap-10 lg:py-16">
+          <div className="order-2 lg:order-1 lg:col-span-6">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft sm:px-3.5 sm:py-1.5 sm:text-[11px]">
               <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
             </p>
+
             <h1
-              className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
+              className="mt-4 text-3xl font-extrabold leading-[1.1] tracking-tight text-primary sm:text-4xl lg:text-5xl"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
-              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
+              <span className="text-gradient-brand">Dry Mattress Hygiene</span>
+              <span className="block text-primary">— No Drying Time</span>
             </h1>
-            <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              FreshDream uses the JIMMY BX7 Pro Max with UV-C, 65°C heated air, smart dust detection and dry suction to refresh mattresses fast — ideal for Nairobi homes, Airbnb rooms and serviced apartments.
             </p>
 
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
-              <Droplets className="h-4 w-4" />
-              Dry mattress care · No wet-mattress waiting
-            </div>
-
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <ul className="mt-5 flex flex-wrap gap-2">
               {[
-                "Opening Offer from KES 1,999",
-                "No wet-mattress waiting",
+                "No wet mattress",
+                "Ready to use immediately",
+                "UV-C hygiene support",
+                "Smart dust detection",
                 "M-PESA accepted",
-                "Based in Roysambu",
               ].map((b, i) => (
                 <li
                   key={b}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur animate-fade-up"
-                  style={{ animationDelay: `${i * 70}ms` }}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-card px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border animate-fade-up"
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
                   <BadgeCheck className="h-3.5 w-3.5 text-accent" /> {b}
                 </li>
               ))}
             </ul>
 
-            <div className="relative mt-4 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card/95 px-4 py-3 shadow-lift backdrop-blur sheen">
+            <div className="relative mt-6 max-w-lg overflow-hidden rounded-2xl border-2 border-accent/50 bg-card px-4 py-3 shadow-lift sheen">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
@@ -93,7 +83,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappLink()}
                 target="_blank"
@@ -110,24 +100,32 @@ export default function Home() {
                 }}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Prices <ArrowRight className="h-5 w-5" />
+                See Prices <ArrowRight className="h-5 w-5" />
               </a>
             </div>
+
+            <p className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-accent" />
+              Based in Roysambu · Serving Nairobi · M-PESA accepted
+            </p>
           </div>
 
-          <div className="order-1 lg:order-2 lg:col-span-5">
-            <div className="relative mx-auto flex items-center justify-center">
-              <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
-              <img
-                src={logoMark}
-                alt="FreshDream Mattress Care logo"
-                width={920}
-                height={920}
-                className="relative w-[180px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[240px] lg:w-[300px]"
-              />
-              <span className="absolute bottom-2 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
-                <Droplets className="h-3.5 w-3.5 text-accent" /> No wet-mattress waiting
-              </span>
+          <div className="order-1 lg:order-2 lg:col-span-6">
+            <div className="relative">
+              <span className="absolute -inset-4 -z-10 rounded-[2rem] bg-accent/20 blur-3xl" aria-hidden />
+              <div className="relative overflow-hidden rounded-3xl border-2 border-accent/40 bg-card shadow-lift">
+                <img
+                  src={heroMattressCare}
+                  alt="FreshDream technician using JIMMY BX7 Pro Max for dry mattress hygiene in Nairobi"
+                  width={1920}
+                  height={1280}
+                  loading="eager"
+                  className="h-full w-full object-cover"
+                />
+                <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
+                  <Droplets className="h-3.5 w-3.5 text-accent" /> JIMMY BX7 Pro Max · Dry care
+                </span>
+              </div>
             </div>
           </div>
         </div>
