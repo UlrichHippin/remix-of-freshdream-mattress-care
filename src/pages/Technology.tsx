@@ -161,12 +161,12 @@ export default function Technology() {
       {/* DISCLAIMER */}
       <section className="section bg-surface">
         <div className="container-tight mx-auto max-w-3xl">
-          <div className="rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
-            <div className="flex items-start gap-3">
+          <div className="rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
+            <div className="flex items-start gap-2.5 sm:gap-3">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">Honest disclaimer</p>
-                <p className="mt-2 text-sm leading-relaxed text-foreground">
+                <p className="text-[11px] font-bold uppercase leading-snug tracking-wide text-primary sm:text-xs sm:tracking-wider">Honest disclaimer</p>
+                <p className="mt-1.5 text-[13px] leading-snug text-foreground sm:mt-2 sm:text-sm sm:leading-relaxed">
                   Technology claims are based on manufacturer information and lab conditions. FreshDream provides a dry mattress hygiene refresh service and does not replace medical treatment, pest control or specialist deep stain removal.
                 </p>
               </div>
