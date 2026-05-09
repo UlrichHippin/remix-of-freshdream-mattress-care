@@ -212,6 +212,9 @@ export default function Technology() {
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-center text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+            Technical data and feature descriptions are based on JIMMY product/manufacturer information. Features may vary by market or exact model version.
+          </p>
         </div>
       </section>
 
