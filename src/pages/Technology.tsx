@@ -28,7 +28,7 @@ export default function Technology() {
               The Technology Behind FreshDream Dry Mattress Hygiene
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream uses the JIMMY BX7 Pro Max to support dry mattress hygiene with heated air, UV-C support, smart dust detection, tapping brushroll and mattress-focused suction.
+              FreshDream uses JIMMY BX7 Pro Max technology to support dry mattress hygiene with ultrasonic mite-control support, UV-C hygiene support, 65°C heated air, smart dust detection, tapping brushroll and strong dry suction.
             </p>
             <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
               <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
@@ -66,10 +66,17 @@ export default function Technology() {
           <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Dry process</p>
           <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">No Wet Mattress, No Drying Time</h2>
           <p className="mt-3 text-sm leading-relaxed text-foreground sm:text-base">
-            FreshDream's dry process does not soak the mattress and does not use wet extraction. There is no long drying delay — fresh sheets can be placed back shortly after service. Ideal for tight Airbnb check-ins and family homes that need the bed ready the same day.
+            FreshDream's dry hygiene refresh does not soak the mattress, so there is no long wet-mattress drying delay. Fresh sheets can be placed back shortly after service — ideal for tight Airbnb check-ins and family homes that need the bed ready the same day.
           </p>
 
           <div className="mt-6 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-primary sm:text-xs">700W Power + Up to 16 kPa Suction</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground sm:text-base">
+              Strong dry suction helps lift dust, hair, dander and fine particles from mattress surfaces — without soaking or wet extraction.
+            </p>
+          </div>
+
+          <div className="mt-4 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
             <p className="text-[11px] font-bold uppercase tracking-wider text-primary sm:text-xs">Why Dry Care wins in Nairobi</p>
             <p className="mt-2 text-sm leading-relaxed text-foreground sm:text-base">
               Unlike wet cleaning, our thermal process leaves no moisture behind, preventing mold growth even during the rainy season. Your bed is ready to use immediately.
@@ -91,8 +98,8 @@ export default function Technology() {
               {
                 img: techHeatedAir,
                 i: Flame,
-                t: "65°C Graphene Heat Sterilization",
-                d: "Graphene-generated heat up to 65°C helps eliminate dust mites and actively dehumidifies the mattress — a real advantage in Nairobi's humid climate. Manufacturer information; results may vary by surface and conditions.",
+                t: "65°C Graphene Heated Air",
+                d: "Graphene heated air supports a fresh, dry sleeping feel and helps reduce damp-feeling bedding — useful in Nairobi's humid climate. Temperature and results may vary by surface and conditions.",
               },
               {
                 img: techUvc,
@@ -109,8 +116,14 @@ export default function Technology() {
               {
                 img: techTapping,
                 i: Zap,
-                t: "High-Frequency Vibration Tapping",
-                d: "Up to 45,000 taps per minute loosen deep-seated dust, dander and allergens from inside the mattress fibers, while powerful suction extracts them. Combined with Ultrasonic Mite Suppression, which disrupts the mite nervous system to reduce activity in the fabric.",
+                t: "Tapping Brushroll + Dry Suction",
+                d: "The composite brushroll helps loosen fine dust, hair and particles, while up to 16 kPa dry suction extracts them from the mattress surface.",
+              },
+              {
+                img: jimmyOverview,
+                i: Activity,
+                t: "Ultrasonic Mite Control Support",
+                d: "Ultrasonic technology supports mite-control during the dry hygiene process. It is part of the combined JIMMY BX7 Pro Max system together with tapping, suction, UV-C support and heated air.",
               },
             ].map((it) => (
               <div key={it.t} className="card-soft p-0">
@@ -171,6 +184,7 @@ export default function Technology() {
           <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { label: "700W Power", icon: Zap },
+              { label: "Up to 16 kPa Suction", icon: Wind },
               { label: "245mm Cleaning Path", icon: Wind },
               { label: "0.5L Dust Cup", icon: Check },
               { label: "MIF Filtration", icon: ShieldCheck },
@@ -182,6 +196,7 @@ export default function Technology() {
               { label: "Negative Ions", icon: Wind },
               { label: "3 Cleaning Modes", icon: BadgeCheck },
               { label: "5m Power Cord", icon: Check },
+              { label: "Ultrasonic Mite Control Support", icon: Activity },
             ].map(({ label, icon: Icon }) => (
               <li
                 key={label}
@@ -197,6 +212,9 @@ export default function Technology() {
               </li>
             ))}
           </ul>
+          <p className="mt-4 text-center text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+            Technical data and feature descriptions are based on JIMMY product/manufacturer information. Features may vary by market or exact model version.
+          </p>
         </div>
       </section>
 
