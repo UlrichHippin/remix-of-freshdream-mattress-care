@@ -139,7 +139,7 @@ export default function Home() {
               <span className="absolute -inset-4 -z-10 rounded-3xl bg-accent/20 blur-3xl animate-glow-pulse" aria-hidden />
               <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary-soft via-card to-accent-soft p-8 shadow-lift ring-1 ring-accent/20 sm:p-12">
                 <img
-                  src={brandLogoMain}
+                  src={logoMark}
                   alt="FreshDream Mattress Care logo"
                   width={1200}
                   height={1200}
