@@ -13,7 +13,11 @@ import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
-import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
+import jimmyEquipmentProof from "@/assets/jimmy/hero-jimmy-bed.jpg";
+import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.jpg";
+import techHeatedAir from "@/assets/jimmy/tech-heated-air.jpg";
+import techUvc from "@/assets/jimmy/tech-uvc.jpg";
+import techTapping from "@/assets/jimmy/tech-tapping-brushroll.jpg";
 
 import { locationFee } from "@/data/content";
 
@@ -126,7 +130,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. COMPACT JIMMY TECHNOLOGY PROOF */}
+      {/* 2a. EQUIPMENT PROOF CARD */}
+      <section className="section">
+        <div className="container-tight">
+          <div className="mx-auto grid max-w-5xl items-center gap-6 overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-soft sm:p-6 md:grid-cols-5">
+            <div className="md:col-span-2">
+              <img
+                src={jimmyEquipmentProof}
+                alt="JIMMY BX7 Pro Max professional dry mattress hygiene equipment used by FreshDream"
+                loading="lazy"
+                className="aspect-[4/3] w-full rounded-2xl object-cover"
+              />
+            </div>
+            <div className="md:col-span-3">
+              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Equipment proof</p>
+              <h2 className="mt-2 text-xl font-bold text-primary sm:text-2xl">
+                Powered by JIMMY BX7 Pro Max Technology
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Dry mattress hygiene with UV-C support, 65°C heated air and smart dust detection.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. JIMMY TECHNOLOGY IMAGE CARDS */}
       <section className="section">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
@@ -139,41 +168,50 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-8 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                i: Flame,
-                t: "65°C Heated Air",
-                d: "Warm air supports a fresh, dry sleeping feel without soaking the mattress.",
-              },
-              {
-                i: ShieldCheck,
-                t: "UV-C Hygiene Support",
-                d: "UV-C technology supports a more hygienic mattress surface as part of the dry refresh process.",
-              },
-              {
-                i: Activity,
+                img: techSmartDust,
                 t: "Smart Dust Detection",
                 d: "The LED display helps show where more dust is present and when the surface is cleaner.",
               },
               {
-                i: Zap,
+                img: techHeatedAir,
+                t: "65°C Heated Air",
+                d: "Warm air supports a fresh, dry sleeping feel without soaking the mattress.",
+              },
+              {
+                img: techUvc,
+                t: "UV-C Hygiene Support",
+                d: "UV-C technology supports a more hygienic mattress surface as part of the dry refresh process.",
+              },
+              {
+                img: techTapping,
                 t: "Tapping Brushroll + Dry Suction",
                 d: "The brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-4">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                  <it.i className="h-5 w-5" />
+              <div key={it.t} className="card-soft overflow-hidden p-0">
+                <img
+                  src={it.img}
+                  alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
+                  loading="lazy"
+                  className="aspect-square w-full object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-sm font-bold text-primary">{it.t}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
                 </div>
-                <h3 className="mt-3 text-sm font-bold text-primary">{it.t}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
               </div>
             ))}
           </div>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80">
             700W Power · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
+          </p>
+
+          <p className="mx-auto mt-3 max-w-3xl text-center text-[11px] text-muted-foreground">
+            Equipment images and technical claims are based on manufacturer information and lab conditions.
           </p>
 
           <div className="mt-6 flex justify-center">
