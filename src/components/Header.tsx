@@ -7,12 +7,12 @@ import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
 
 const nav = [
-  { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
-  { to: "/pricing", label: "Pricing" },
-  { to: "/host-packages", label: "Hosts" },
+  { to: "/pricing", label: "Prices" },
+  { to: "/technology", label: "Technology" },
+  { to: "/#areas", label: "Areas" },
+  { to: "/#how-it-works", label: "How It Works" },
   { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

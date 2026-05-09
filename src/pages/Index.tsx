@@ -188,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* 3. COMPACT COMPARISON */}
-      <section className="section bg-gradient-hero">
+      <section id="how-it-works" className="section bg-gradient-hero scroll-mt-24">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Wind className="h-3.5 w-3.5" /> The aha moment</p>
@@ -306,7 +306,7 @@ export default function Home() {
       <QuickQuote />
 
       {/* 6. COMPACT LOCATION FEE */}
-      <section className="section">
+      <section id="areas" className="section scroll-mt-24">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
