@@ -103,7 +103,7 @@ export default function Technology() {
                 </div>
                 <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
-                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground break-words">
                   Manufacturer information — JIMMY BX7 Pro Max
                 </p>
               </div>
