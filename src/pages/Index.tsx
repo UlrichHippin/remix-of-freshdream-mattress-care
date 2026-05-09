@@ -19,6 +19,7 @@ import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
+import heroDevice from "@/assets/hero-jimmy-mattress.webp";
 
 import { packages, type PackageDef as Pkg } from "@/data/packages";
 import { locationFee } from "@/data/content";
@@ -50,11 +51,11 @@ export default function Home() {
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
-              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
+              <span className="text-gradient-brand">Dry Mattress Hygiene</span>{" "}
+              <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
+              FreshDream Mattress Care provides professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology: UV-C hygiene support, 65°C heated air, smart dust detection and dry suction — ideal for homes, Airbnb rooms and serviced apartments.
             </p>
 
             <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
@@ -64,10 +65,12 @@ export default function Home() {
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
-                "Opening Offer from KES 1,999",
-                "No wet-mattress waiting",
+                "No wet mattress",
+                "Ready to use immediately",
+                "UV-C support",
+                "65°C heated air",
+                "Smart dust detection",
                 "M-PESA accepted",
-                "Based in Roysambu",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -117,23 +120,33 @@ export default function Home() {
                 }}
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Prices <ArrowRight className="h-5 w-5" />
+                See Prices <ArrowRight className="h-5 w-5" />
               </a>
             </div>
+
+            <p className="mt-4 inline-flex items-center gap-2 text-xs font-medium text-muted-foreground sm:text-sm">
+              <MapPin className="h-4 w-4 text-accent" />
+              Based in Roysambu · Serving Nairobi · M-PESA accepted
+            </p>
           </div>
 
           <div className="order-1 lg:order-2 lg:col-span-5">
-            <div className="relative mx-auto flex items-center justify-center">
-              <span className="absolute inset-6 -z-10 rounded-full bg-accent/25 blur-3xl animate-glow-pulse" aria-hidden />
-              <img
-                src={logoMark}
-                alt="FreshDream Mattress Care logo"
-                width={920}
-                height={920}
-                className="relative w-[180px] animate-float object-contain opacity-95 drop-shadow-2xl sm:w-[240px] lg:w-[300px]"
-              />
-              <span className="absolute bottom-2 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
-                <Droplets className="h-3.5 w-3.5 text-accent" /> No wet-mattress waiting
+            <div className="relative mx-auto">
+              <span className="absolute -inset-4 -z-10 rounded-3xl bg-accent/20 blur-3xl animate-glow-pulse" aria-hidden />
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-lift ring-1 ring-accent/20">
+                <img
+                  src={heroDevice}
+                  alt="FreshDream Mattress Care — professional dry mattress hygiene with JIMMY BX7 Pro Max in Nairobi"
+                  width={1600}
+                  height={1067}
+                  loading="eager"
+                  fetchPriority="high"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-transparent" aria-hidden />
+              </div>
+              <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary shadow-lift ring-1 ring-accent/40 backdrop-blur sm:text-[11px]">
+                <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
               </span>
             </div>
           </div>
