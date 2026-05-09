@@ -37,14 +37,14 @@ export default function Technology() {
             </div>
           </div>
           <div className="lg:col-span-5">
-            <figure className="card-soft relative overflow-hidden p-3">
+            <figure className="card-soft p-3">
               <img
                 src={jimmyHero}
                 alt="JIMMY BX7 Pro Max used by FreshDream for dry mattress hygiene cleaning in Nairobi"
                 width={1200}
                 height={1024}
                 loading="lazy"
-                className="aspect-[4/3] w-full rounded-xl object-cover"
+                className="w-full h-auto rounded-xl object-contain"
               />
               <figcaption className="mt-2.5 flex flex-col items-center gap-0.5 px-2 text-center leading-tight sm:mt-3 sm:gap-1">
                 <span className="inline-flex flex-wrap items-center justify-center gap-1.5 text-[12px] font-bold uppercase leading-snug tracking-wide text-primary sm:text-[11px]">
@@ -105,13 +105,15 @@ export default function Technology() {
                 d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
-              <div key={it.t} className="card-soft overflow-hidden p-0">
-                <img
-                  src={it.img}
-                  alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
+              <div key={it.t} className="card-soft p-0">
+                <div className="bg-white/80 p-3 sm:p-4">
+                  <img
+                    src={it.img}
+                    alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
+                    loading="lazy"
+                    className="w-full max-h-[420px] object-contain rounded-xl"
+                  />
+                </div>
                 <div className="p-4 sm:p-5">
                   <div className="flex items-center gap-2.5">
                     <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
@@ -138,14 +140,14 @@ export default function Technology() {
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">JIMMY BX7 Pro Max</h2>
           </div>
 
-          <figure className="card-soft mx-auto mt-6 max-w-2xl overflow-hidden p-3">
+          <figure className="card-soft mx-auto mt-6 max-w-2xl p-3">
             <img
               src={jimmyOverview}
               alt="JIMMY BX7 Pro Max product overview — manufacturer reference"
               width={1200}
               height={900}
               loading="lazy"
-              className="aspect-[4/3] w-full rounded-xl object-cover"
+              className="w-full h-auto rounded-xl object-contain"
             />
             <figcaption className="mt-2 px-2 text-center text-[11px] uppercase leading-snug tracking-wide text-muted-foreground break-words sm:text-[10px]">
               Manufacturer reference image — JIMMY BX7 Pro Max
