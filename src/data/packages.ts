@@ -98,9 +98,10 @@ export const packages: PackageDef[] = [
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",
-      "Deep vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
+      "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
     readyIn: "Service time varies by condition",
