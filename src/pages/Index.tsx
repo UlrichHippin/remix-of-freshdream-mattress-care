@@ -42,29 +42,30 @@ export default function Home() {
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
-              <span className="text-gradient-brand">Mattress Hygiene in Nairobi</span>{" "}
-              <span className="whitespace-nowrap text-primary">— No Wet-Mattress Waiting</span>
+              <span className="text-gradient-brand">Dry Mattress Hygiene</span>{" "}
+              <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Dry mattress refresh with UV-C, warm air and strong suction. Ideal for homes, Airbnb hosts and serviced apartments.
+              FreshDream Mattress Care provides professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology: UV-C hygiene support, 65°C heated air, smart dust detection and dry suction — ideal for homes, Airbnb rooms and serviced apartments.
             </p>
 
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-primary-foreground shadow-lift sm:text-sm">
-              <Droplets className="h-4 w-4" />
-              Dry mattress care · No wet-mattress waiting
-            </div>
+            <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
+              <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
+            </span>
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
-                "Opening Offer from KES 1,999",
-                "No wet-mattress waiting",
+                "No wet mattress",
+                "Ready to use immediately",
+                "UV-C support",
+                "65°C heated air",
+                "Smart dust detection",
                 "M-PESA accepted",
-                "Based in Roysambu",
               ].map((b, i) => (
                 <li
                   key={b}
                   className="inline-flex items-center gap-1.5 rounded-full bg-card/90 px-3 py-1.5 text-[11px] font-semibold text-primary shadow-soft ring-1 ring-border backdrop-blur animate-fade-up"
-                  style={{ animationDelay: `${i * 70}ms` }}
+                  style={{ animationDelay: `${i * 60}ms` }}
                 >
                   <BadgeCheck className="h-3.5 w-3.5 text-accent" /> {b}
                 </li>
@@ -77,7 +78,6 @@ export default function Home() {
                   <p className="text-[10px] font-bold uppercase tracking-wider text-accent">Opening Offer · First-time customers</p>
                   <p className="mt-0.5 text-xl font-extrabold text-primary nums sm:text-2xl">from KES 1,999</p>
                   <p className="mt-0.5 text-[11px] text-muted-foreground">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499.</p>
-                  <p className="mt-1 text-[11px] font-medium text-primary/80">Opening Offer = discounted Freshen Up for first-time customers.</p>
                 </div>
                 <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
                   <Star className="h-3 w-3" /> First-time
@@ -98,9 +98,14 @@ export default function Home() {
                 to="/pricing"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
               >
-                View Prices <ArrowRight className="h-5 w-5" />
+                See Prices <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
+
+            <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-accent" />
+              Based in Roysambu · Serving Nairobi · M-PESA accepted
+            </p>
           </div>
 
           <div className="order-1 lg:order-2 lg:col-span-5">
