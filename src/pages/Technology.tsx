@@ -98,8 +98,8 @@ export default function Technology() {
               {
                 img: techHeatedAir,
                 i: Flame,
-                t: "65°C Graphene Heat Sterilization",
-                d: "Graphene-generated heat up to 65°C helps eliminate dust mites and actively dehumidifies the mattress — a real advantage in Nairobi's humid climate. Manufacturer information; results may vary by surface and conditions.",
+                t: "65°C Graphene Heated Air",
+                d: "Graphene heated air supports a fresh, dry sleeping feel and helps reduce damp-feeling bedding — useful in Nairobi's humid climate. Temperature and results may vary by surface and conditions.",
               },
               {
                 img: techUvc,
@@ -116,8 +116,14 @@ export default function Technology() {
               {
                 img: techTapping,
                 i: Zap,
-                t: "High-Frequency Vibration Tapping",
-                d: "Up to 45,000 taps per minute loosen deep-seated dust, dander and allergens from inside the mattress fibers, while powerful suction extracts them. Combined with Ultrasonic Mite Suppression, which disrupts the mite nervous system to reduce activity in the fabric.",
+                t: "Tapping Brushroll + Dry Suction",
+                d: "The composite brushroll helps loosen fine dust, hair and particles, while up to 16 kPa dry suction extracts them from the mattress surface.",
+              },
+              {
+                img: jimmyOverview,
+                i: Activity,
+                t: "Ultrasonic Mite Control Support",
+                d: "Ultrasonic technology supports mite-control during the dry hygiene process. It is part of the combined JIMMY BX7 Pro Max system together with tapping, suction, UV-C support and heated air.",
               },
             ].map((it) => (
               <div key={it.t} className="card-soft p-0">
