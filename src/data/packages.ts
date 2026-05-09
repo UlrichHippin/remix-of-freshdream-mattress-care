@@ -35,10 +35,11 @@ export const packages: PackageDef[] = [
     description:
       "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro Max to help remove dust, hair, dander and surface debris, with UV-C surface hygiene support and 65°C graphene hot air.",
     included: [
-      "Dry vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) to dislodge deep dust and allergens",
       "Dust, hair, and dander removal",
+      "Ultrasonic Mite Suppression — disrupts the mite nervous system",
       "UV-C hygiene treatment",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies the mattress in Nairobi's humid climate",
       "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
