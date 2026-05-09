@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import {
-  Wrench, Flame, ShieldCheck, Activity, Zap, Wind,
-  ArrowRight, BadgeCheck, Check, Droplets, AlertCircle,
+  Wrench, ShieldCheck, Activity, Zap, Wind,
+  ArrowRight, BadgeCheck, Check, Droplets, AlertCircle, Flame,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import jimmyHero from "@/assets/jimmy/hero-jimmy-bed.jpg";
 import jimmyOverview from "@/assets/jimmy/tech-overview.jpg";
+import techHeatedAir from "@/assets/jimmy/tech-heated-air.jpg";
+import techUvc from "@/assets/jimmy/tech-uvc.jpg";
+import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.jpg";
+import techTapping from "@/assets/jimmy/tech-tapping-brushroll.jpg";
 
 export default function Technology() {
   return (
@@ -77,35 +81,49 @@ export default function Technology() {
           <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
             {[
               {
+                img: techHeatedAir,
                 i: Flame,
                 t: "65°C Graphene Heated Air",
                 d: "Manufacturer information states that the BX7 Pro Max uses graphene heated air up to 65°C. Temperature may vary depending on surface and conditions.",
               },
               {
+                img: techUvc,
                 i: ShieldCheck,
                 t: "UV-C Hygiene Support",
                 d: "UV-C supports surface hygiene as part of the dry refresh process. Avoid medical or absolute sterilization claims.",
               },
               {
+                img: techSmartDust,
                 i: Activity,
                 t: "Smart Dust Detection",
                 d: "The LED display helps show cleaning status and where more dust is present.",
               },
               {
+                img: techTapping,
                 i: Zap,
                 t: "Tapping Brushroll + Dry Suction",
                 d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-4 sm:p-5">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
-                  <it.i className="h-5 w-5" />
+              <div key={it.t} className="card-soft overflow-hidden p-0">
+                <img
+                  src={it.img}
+                  alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-center gap-2.5">
+                    <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
+                      <it.i className="h-4 w-4" />
+                    </span>
+                    <h3 className="text-base font-bold leading-snug text-primary">{it.t}</h3>
+                  </div>
+                  <p className="mt-2 text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">{it.d}</p>
+                  <p className="mt-2.5 text-[11px] font-semibold uppercase leading-snug tracking-wide text-muted-foreground break-words sm:mt-3 sm:text-[10px]">
+                    Manufacturer reference image — JIMMY BX7 Pro Max
+                  </p>
                 </div>
-                <h3 className="mt-3 text-base font-bold leading-snug text-primary">{it.t}</h3>
-                <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">{it.d}</p>
-                <p className="mt-2.5 text-[11px] font-semibold uppercase leading-snug tracking-wide text-muted-foreground break-words sm:mt-3 sm:text-[10px]">
-                  Manufacturer information — JIMMY BX7 Pro Max
-                </p>
               </div>
             ))}
           </div>

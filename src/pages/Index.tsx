@@ -5,7 +5,6 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
-import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
 
@@ -50,21 +49,15 @@ export default function Home() {
               <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care provides professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology: UV-C hygiene support, 65°C heated air, smart dust detection and dry suction — ideal for homes, Airbnb rooms and serviced apartments.
+              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without long drying wait.
             </p>
-
-            <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
-              <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
-            </span>
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
                 "No wet mattress",
                 "Ready to use immediately",
-                "UV-C support",
                 "65°C heated air",
                 "Smart dust detection",
-                "M-PESA accepted",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -130,31 +123,6 @@ export default function Home() {
                 <Droplets className="h-3.5 w-3.5 text-accent" /> No wet-mattress waiting
               </span>
             </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* 2a. EQUIPMENT PROOF CARD */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto grid max-w-5xl items-center gap-6 overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-soft sm:p-6 md:grid-cols-5">
-            <div className="md:col-span-2">
-              <img
-                src={jimmyEquipmentProof}
-                alt="JIMMY BX7 Pro Max professional dry mattress hygiene equipment used by FreshDream"
-                loading="lazy"
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
-              />
-            </div>
-            <div className="md:col-span-3">
-              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Equipment proof</p>
-              <h2 className="mt-2 text-xl font-bold text-primary sm:text-2xl">
-                Powered by JIMMY BX7 Pro Max Technology
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Dry mattress hygiene with UV-C support, 65°C heated air and smart dust detection.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -458,8 +426,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. BOOKING */}
-      <BookingSection />
+      {/* 10. COMPACT FINAL CTA */}
+      <section className="section bg-surface">
+        <div className="container-tight">
+          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to book your dry mattress refresh?</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              Send your mattress size, area and preferred time on WhatsApp. Final price, location fee and time slot are confirmed before the visit.
+            </p>
+            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <Link
+                to="/pricing"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                See Prices <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 }
