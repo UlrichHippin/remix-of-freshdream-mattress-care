@@ -61,7 +61,7 @@ export const packages: PackageDef[] = [
     summary: "A deeper dry-cleaning treatment for everyday dirt and odor.",
     tagline: "Deeper freshness for everyday use.",
     description:
-      "Our signature deep hygiene process. Includes baking soda pre-treatment, 45,000 taps/min High-Frequency Vibration Tapping, Ultrasonic Mite Suppression, UV-C surface hygiene support and 65°C Graphene Heat Sterilization to deliver a bone-dry, allergen-reduced mattress — powered by the JIMMY BX7 Pro Max.",
+      "A deeper dry hygiene refresh with pre-treatment where suitable, tapping brushroll, dry suction, UV-C hygiene support, ultrasonic mite-control support and 65°C heated air freshness — powered by the JIMMY BX7 Pro Max.",
     included: [
       "Pre-treatment with baking soda",
       "High-Frequency Vibration Tapping (45,000 taps/min) for deep dust and allergen release",
