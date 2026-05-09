@@ -101,21 +101,32 @@ export default function Header() {
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="container-tight flex flex-col py-3" aria-label="Mobile">
-            {nav.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === "/"}
-                className={({ isActive }) =>
-                  cn(
-                    "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
-                    isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
-                  )
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
+            {nav.map((item) =>
+              item.hash ? (
+                <a
+                  key={item.to}
+                  href={item.to}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-foreground/80"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.to === "/"}
+                  className={({ isActive }) =>
+                    cn(
+                      "rounded-xl px-3 py-3 text-base font-medium text-foreground/80",
+                      isActive && "border-l-4 border-accent bg-accent-soft pl-4 font-semibold text-accent",
+                    )
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ),
+            )}
             <div className="pt-3">
               <WhatsAppButton className="w-full" />
             </div>
