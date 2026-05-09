@@ -12,11 +12,11 @@ import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
-import jimmyEquipmentProof from "@/assets/jimmy/hero-jimmy-bed.jpg";
-import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.jpg";
-import techHeatedAir from "@/assets/jimmy/tech-heated-air.jpg";
-import techUvc from "@/assets/jimmy/tech-uvc.jpg";
-import techTapping from "@/assets/jimmy/tech-tapping-brushroll.jpg";
+import jimmyEquipmentProof from "@/assets/jimmy/hero-jimmy-bed.webp";
+import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.webp";
+import techHeatedAir from "@/assets/jimmy/tech-heated-air.webp";
+import techUvc from "@/assets/jimmy/tech-uvc.webp";
+import techTapping from "@/assets/jimmy/tech-tapping-brushroll.webp";
 
 import { locationFee } from "@/data/content";
 
