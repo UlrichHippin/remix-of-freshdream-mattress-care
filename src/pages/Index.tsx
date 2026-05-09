@@ -171,12 +171,14 @@ export default function Home() {
               },
             ].map((it) => (
               <div key={it.t} className="card-soft overflow-hidden p-0">
-                <img
-                  src={it.img}
-                  alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
-                  loading="lazy"
-                  className="aspect-square w-full object-cover"
-                />
+                <div className="aspect-square w-full bg-white/80 p-3 flex items-center justify-center">
+                  <img
+                    src={it.img}
+                    alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-sm font-bold text-primary">{it.t}</h3>
                   <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
