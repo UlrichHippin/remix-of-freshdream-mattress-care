@@ -207,7 +207,7 @@ export default function QuickQuote() {
                 <div className="mt-1.5 grid grid-cols-2 gap-2">
                   {[
                     { v: "no" as const, l: "No" },
-                    { v: "yes" as const, l: "Yes + KES 300 per mattress / sleep area" },
+                    { v: "yes" as const, l: "Yes + KES 300" },
                   ].map((o) => (
                     <button
                       key={o.v}
@@ -223,6 +223,7 @@ export default function QuickQuote() {
                     </button>
                   ))}
                 </div>
+                <p className="mt-1.5 text-xs text-muted-foreground">per mattress / sleep area</p>
               </div>
 
               <div className="sm:col-span-2">

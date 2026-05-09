@@ -49,7 +49,7 @@ export default function Home() {
               <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without long drying wait.
+              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without wet cleaning or long drying wait.
             </p>
 
             <ul className="mt-4 flex flex-wrap gap-2">
@@ -202,7 +202,7 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">How It Works</h2>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
             </p>
@@ -227,6 +227,17 @@ export default function Home() {
               </li>
             ))}
           </ol>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Start on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
@@ -361,16 +372,19 @@ export default function Home() {
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
 
-            <ul className="mt-5 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card text-sm shadow-soft">
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {locationFee.zones.map((z) => (
-                <li key={z.area} className="flex items-center justify-between gap-3 px-3 py-2.5">
-                  <div className="flex min-w-0 items-center gap-2">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 text-accent" />
-                    <span className="truncate text-xs font-semibold text-primary sm:text-sm">{z.area}</span>
+                <li key={z.area} className="rounded-xl border border-border bg-card p-4 shadow-soft">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-bold text-primary">{z.area}</p>
+                      <p className="mt-0.5 text-xs text-muted-foreground">{z.examples}</p>
+                      <p className="mt-2 text-xs font-semibold text-primary">
+                        {z.fee}{z.free ? ` · ${z.free}` : ""}
+                      </p>
+                    </div>
                   </div>
-                  <span className="shrink-0 text-right text-xs font-medium text-muted-foreground">
-                    {z.fee}{z.free ? ` · ${z.free}` : ""}
-                  </span>
                 </li>
               ))}
             </ul>
@@ -393,10 +407,10 @@ export default function Home() {
               <div className="min-w-0">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-accent">For Airbnb Hosts</p>
                 <h2 className="mt-0.5 text-base font-bold text-primary sm:text-xl">
-                  Are you an Airbnb Host?
+                  Airbnb Host?
                 </h2>
                 <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-                  Click here for our specialized turnover packages.
+                  Fast dry mattress refresh for turnovers — no wet-mattress waiting before the next guest.
                 </p>
               </div>
             </div>
@@ -416,7 +430,17 @@ export default function Home() {
             </Link>
           </div>
           <div className="card-soft divide-y divide-border px-6">
-            {faqs.slice(0, 4).map((f, i) => (
+            {(() => {
+              const wanted = [
+                "How long until we can sleep on the mattress again?",
+                "Do all stains come out completely?",
+                "Do you offer same-day support?",
+                "Do you charge a location fee?",
+              ];
+              return wanted
+                .map((q) => faqs.find((f) => f.q === q))
+                .filter((f): f is { q: string; a: string } => Boolean(f));
+            })().map((f, i) => (
               <div key={i} className="py-5">
                 <h3 className="text-base font-semibold text-primary">{f.q}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
