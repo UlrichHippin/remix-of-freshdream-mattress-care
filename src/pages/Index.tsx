@@ -127,31 +127,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2a. EQUIPMENT PROOF CARD */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto grid max-w-5xl items-center gap-6 overflow-hidden rounded-3xl border border-border bg-card p-4 shadow-soft sm:p-6 md:grid-cols-5">
-            <div className="md:col-span-2">
-              <img
-                src={jimmyEquipmentProof}
-                alt="JIMMY BX7 Pro Max professional dry mattress hygiene equipment used by FreshDream"
-                loading="lazy"
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
-              />
-            </div>
-            <div className="md:col-span-3">
-              <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Equipment proof</p>
-              <h2 className="mt-2 text-xl font-bold text-primary sm:text-2xl">
-                Powered by JIMMY BX7 Pro Max Technology
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Dry mattress hygiene with UV-C support, 65°C heated air and smart dust detection.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 2. JIMMY TECHNOLOGY IMAGE CARDS */}
       <section className="section">
         <div className="container-tight">
