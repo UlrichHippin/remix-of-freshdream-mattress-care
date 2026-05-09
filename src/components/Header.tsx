@@ -55,22 +55,32 @@ export default function Header() {
 
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-          {nav.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === "/"}
-              className={({ isActive }) =>
-                cn(
-                  "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
-                  "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-[width,opacity] after:duration-200 after:ease-out hover:after:w-6 hover:after:opacity-70",
-                  isActive && "bg-accent-soft font-semibold text-accent after:w-8 after:opacity-100 after:animate-fade-in",
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {nav.map((item) =>
+            item.hash ? (
+              <a
+                key={item.to}
+                href={item.to}
+                className="relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                className={({ isActive }) =>
+                  cn(
+                    "relative rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent-soft hover:text-accent",
+                    "after:pointer-events-none after:absolute after:left-1/2 after:-bottom-1 after:h-[3px] after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-accent after:opacity-0 after:transition-[width,opacity] after:duration-200 after:ease-out hover:after:w-6 hover:after:opacity-70",
+                    isActive && "bg-accent-soft font-semibold text-accent after:w-8 after:opacity-100 after:animate-fade-in",
+                  )
+                }
+              >
+                {item.label}
+              </NavLink>
+            ),
+          )}
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
