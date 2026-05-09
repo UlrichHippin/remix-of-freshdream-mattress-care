@@ -21,16 +21,16 @@ export const SmartSensorDemo = () => {
         </div>
         <div className="mt-4">
           <h3 className="text-lg font-bold">
-            {isClean ? "Reinigung abgeschlossen" : "Schmutz & Milben erkannt"}
+            {isClean ? "Cleaning complete" : "Dust & mites detected"}
           </h3>
           <p className="text-sm text-muted-foreground mt-1">
-            Der LED-Sensor zeigt Echtzeit-Sauberkeit.
+            The LED sensor shows real-time cleanliness.
           </p>
         </div>
         <div className={`mt-4 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
           isClean ? 'bg-blue-100 text-blue-700' : 'bg-red-100 text-red-700'
         }`}>
-          {isClean ? "Blau = Sauber" : "Rot = Reinigung läuft"}
+          {isClean ? "Blue = Clean" : "Red = Cleaning in progress"}
         </div>
       </div>
     </div>

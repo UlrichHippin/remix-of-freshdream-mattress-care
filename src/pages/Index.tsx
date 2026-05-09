@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
-import { SmartSensorDemo } from "@/components/SmartSensorDemo";
+
 
 import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
@@ -194,15 +194,6 @@ export default function Home() {
             >
               See the Technology <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 2b. SMART SENSOR DEMO */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="mx-auto max-w-sm">
-            <SmartSensorDemo />
           </div>
         </div>
       </section>

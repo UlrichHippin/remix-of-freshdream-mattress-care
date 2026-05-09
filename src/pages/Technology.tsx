@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SmartSensorDemo } from "@/components/SmartSensorDemo";
 import {
   Wrench, ShieldCheck, Activity, Zap, Wind,
   ArrowRight, BadgeCheck, Check, Droplets, AlertCircle, Flame,
@@ -126,6 +127,12 @@ export default function Technology() {
               </div>
             ))}
           </div>
+
+          {/* Smart Sensor Live Demo */}
+          <div className="mx-auto mt-10 max-w-sm">
+            <SmartSensorDemo />
+          </div>
+
           <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground sm:text-sm">
             Images and technical references are based on manufacturer material for the JIMMY BX7 Pro Max.
           </p>
