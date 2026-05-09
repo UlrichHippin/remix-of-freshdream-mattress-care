@@ -18,6 +18,7 @@ import { faqs } from "@/data/content";
 import { site } from "@/config/site";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
+import heroMattress from "@/assets/brand/hero-mattress.jpg";
 import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 
 import { packages, type PackageDef as Pkg } from "@/data/packages";
