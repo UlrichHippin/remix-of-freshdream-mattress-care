@@ -430,7 +430,17 @@ export default function Home() {
             </Link>
           </div>
           <div className="card-soft divide-y divide-border px-6">
-            {faqs.slice(0, 4).map((f, i) => (
+            {(() => {
+              const wanted = [
+                "How long until we can sleep on the mattress again?",
+                "Do all stains come out completely?",
+                "Do you offer same-day support?",
+                "Do you charge a location fee?",
+              ];
+              return wanted
+                .map((q) => faqs.find((f) => f.q === q))
+                .filter((f): f is { q: string; a: string } => Boolean(f));
+            })().map((f, i) => (
               <div key={i} className="py-5">
                 <h3 className="text-base font-semibold text-primary">{f.q}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
