@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
 import { site } from "@/config/site";
-import logoMark from "@/assets/brand/logo-main.png";
+import heroMattressCare from "@/assets/hero-mattress-care.jpg";
 import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 import heroMattressCare from "@/assets/hero-mattress-care.jpg";
 
