@@ -68,6 +68,13 @@ export default function Technology() {
           <p className="mt-3 text-sm leading-relaxed text-foreground sm:text-base">
             FreshDream's dry process does not soak the mattress and does not use wet extraction. There is no long drying delay — fresh sheets can be placed back shortly after service. Ideal for tight Airbnb check-ins and family homes that need the bed ready the same day.
           </p>
+
+          <div className="mt-6 rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-primary sm:text-xs">Why Dry Care wins in Nairobi</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground sm:text-base">
+              Unlike wet cleaning, our thermal process leaves no moisture behind, preventing mold growth even during the rainy season. Your bed is ready to use immediately.
+            </p>
+          </div>
         </div>
       </section>
 
