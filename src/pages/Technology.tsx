@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {
-  Wrench, Flame, ShieldCheck, Activity, Zap, Wind, Clock4,
-  ArrowRight, BadgeCheck, Check,
+  Wrench, Flame, ShieldCheck, Activity, Zap, Wind,
+  ArrowRight, BadgeCheck, Check, Droplets, AlertCircle,
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -10,8 +10,8 @@ import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
 export default function Technology() {
   return (
     <PageLayout
-      title="JIMMY BX7 Pro Max Technology | FreshDream Mattress Care Nairobi"
-      description="The professional dry mattress hygiene technology behind FreshDream Mattress Care: UV-C support, 65°C heated air, smart dust detection and dry suction."
+      title="JIMMY BX7 Pro Max Technology — FreshDream Mattress Care"
+      description="The professional equipment behind FreshDream Mattress Care: graphene heated air, UV-C hygiene support, smart dust detection, tapping brushroll and mattress-focused dry suction."
     >
       {/* HERO */}
       <section className="section bg-surface">
@@ -19,14 +19,17 @@ export default function Technology() {
           <div className="lg:col-span-7">
             <p className="eyebrow"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
             <h1 className="mt-3 text-3xl font-extrabold leading-tight text-primary sm:text-4xl">
-              The Technology Behind FreshDream
+              The Technology Behind FreshDream Dry Mattress Hygiene
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care uses JIMMY BX7 Pro Max — a mattress-focused dry-care device. This page explains the technology used during every service so you know exactly what's happening to your mattress.
+              FreshDream uses the JIMMY BX7 Pro Max to support dry mattress hygiene with heated air, UV-C support, smart dust detection, tapping brushroll and mattress-focused suction.
             </p>
             <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
               <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
             </span>
+            <div className="mt-5">
+              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+            </div>
           </div>
           <div className="lg:col-span-5">
             <figure className="card-soft relative overflow-hidden p-3">
@@ -46,35 +49,46 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* CORE TECHNOLOGY */}
+      {/* 1. NO WET MATTRESS */}
       <section className="section">
+        <div className="container-tight mx-auto max-w-3xl">
+          <p className="eyebrow"><Droplets className="h-3.5 w-3.5" /> Dry process</p>
+          <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">No Wet Mattress, No Drying Time</h2>
+          <p className="mt-3 text-sm leading-relaxed text-foreground sm:text-base">
+            FreshDream's dry process does not soak the mattress and does not use wet extraction. There is no long drying delay — fresh sheets can be placed back shortly after service. Ideal for tight Airbnb check-ins and family homes that need the bed ready the same day.
+          </p>
+        </div>
+      </section>
+
+      {/* 2-5. CORE TECHNOLOGY */}
+      <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><BadgeCheck className="h-3.5 w-3.5" /> Core technology</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Four pillars of dry mattress hygiene</h2>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">How the equipment works</h2>
           </div>
 
           <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
             {[
               {
                 i: Flame,
-                t: "65°C Heated Air",
-                d: "Warm air supports a fresh, dry sleeping feel without soaking the mattress. Designed to refresh the surface fibres without long drying time.",
+                t: "65°C Graphene Heated Air",
+                d: "Manufacturer information states that the BX7 Pro Max uses graphene heated air up to 65°C. Temperature may vary depending on surface and conditions.",
               },
               {
                 i: ShieldCheck,
                 t: "UV-C Hygiene Support",
-                d: "UV-C technology supports a more hygienic mattress surface as part of the dry refresh process. No chemicals, no soaking.",
+                d: "UV-C supports surface hygiene as part of the dry refresh process. Avoid medical or absolute sterilization claims.",
               },
               {
                 i: Activity,
                 t: "Smart Dust Detection",
-                d: "The LED display helps show where more dust is present and when the surface is cleaner — so we know when each section is properly serviced.",
+                d: "The LED display helps show cleaning status and where more dust is present.",
               },
               {
                 i: Zap,
                 t: "Tapping Brushroll + Dry Suction",
-                d: "The brushroll helps loosen fine dust and particles before suction removes them — ideal for surface debris and embedded dust.",
+                d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
               <div key={it.t} className="card-soft p-5">
@@ -89,47 +103,65 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* SPECS */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="mx-auto max-w-3xl">
-            <div className="text-center">
-              <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Technical specs</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">JIMMY BX7 Pro Max</h2>
-            </div>
+      {/* 6. TECHNICAL SPECS */}
+      <section className="section">
+        <div className="container-tight mx-auto max-w-4xl">
+          <div className="text-center">
+            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Technical specs</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">JIMMY BX7 Pro Max</h2>
+          </div>
 
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                { t: "700W Power", d: "Strong, efficient suction performance" },
-                { t: "245mm Cleaning Path", d: "Wider strokes, faster service" },
-                { t: "0.5L Dust Cup", d: "Hygienic, easy-to-empty container" },
-                { t: "MIF Filtration", d: "Fine-particle filtration support" },
-                { t: "16kPa Suction", d: "Mattress-focused dry suction" },
-                { t: "No Wet-Mattress Waiting", d: "No soaking, no wet extraction" },
-              ].map((it) => (
-                <li key={it.t} className="card-soft flex items-start gap-3 p-4">
-                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <div>
-                    <p className="text-sm font-bold text-primary">{it.t}</p>
-                    <p className="mt-0.5 text-xs text-muted-foreground">{it.d}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              "700W Power",
+              "245mm Suction Inlet / Cleaning Path",
+              "0.5L Dust Cup",
+              "MIF Filtration",
+              "LED Display",
+              "Dust Sensor",
+              "UV Lamp",
+              "Graphene Heating",
+              "65°C Hot Wind Temperature",
+              "Negative Ions",
+              "3 Modes",
+              "5m Power Cord",
+            ].map((spec) => (
+              <li key={spec} className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2.5 text-sm shadow-soft">
+                <Check className="h-4 w-4 shrink-0 text-accent" />
+                <span className="font-medium text-primary">{spec}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* DISCLAIMER */}
+      <section className="section bg-surface">
+        <div className="container-tight mx-auto max-w-3xl">
+          <div className="rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary">Honest disclaimer</p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">
+                  Technology claims are based on manufacturer information and lab conditions. FreshDream provides a dry mattress hygiene refresh service and does not replace medical treatment, pest control or specialist deep stain removal.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* WHY IT MATTERS */}
+      {/* CTA */}
       <section className="section">
         <div className="container-tight">
-          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 shadow-soft sm:p-8">
-            <p className="eyebrow"><Wind className="h-3.5 w-3.5" /> Why it matters</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">No wet mattress. Ready to use immediately.</h2>
-            <p className="mt-3 text-sm leading-relaxed text-foreground sm:text-base">
-              Because the process is dry, there is no long drying delay like after wet extraction. Fresh sheets can be placed back shortly after service — ideal for tight Airbnb check-ins and family homes.
+          <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
+            <p className="eyebrow justify-center"><Wind className="h-3.5 w-3.5" /> Ready when you are</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Book your dry mattress refresh</h2>
+            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
+              Booking request only. Final price, Location Fee and time slot are confirmed on WhatsApp before your visit.
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <WhatsAppButton size="lg" label="Book on WhatsApp" />
               <Link
                 to="/pricing"
