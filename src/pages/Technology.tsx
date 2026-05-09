@@ -42,11 +42,11 @@ export default function Technology() {
                 loading="lazy"
                 className="aspect-[4/3] w-full rounded-xl object-cover"
               />
-              <figcaption className="mt-3 flex flex-col items-center gap-1 px-2 text-center">
-                <span className="inline-flex flex-wrap items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-primary">
+              <figcaption className="mt-2.5 flex flex-col items-center gap-0.5 px-2 text-center leading-tight sm:mt-3 sm:gap-1">
+                <span className="inline-flex flex-wrap items-center justify-center gap-1.5 text-[12px] font-bold uppercase leading-snug tracking-wide text-primary sm:text-[11px]">
                   <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
                 </span>
-                <span className="text-[10px] uppercase tracking-wide text-muted-foreground break-words">
+                <span className="text-[11px] uppercase leading-snug tracking-wide text-muted-foreground break-words sm:text-[10px]">
                   Manufacturer reference image — JIMMY BX7 Pro Max
                 </span>
               </figcaption>
@@ -97,13 +97,13 @@ export default function Technology() {
                 d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-5">
+              <div key={it.t} className="card-soft p-4 sm:p-5">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
                   <it.i className="h-5 w-5" />
                 </div>
-                <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
-                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground break-words">
+                <h3 className="mt-3 text-base font-bold leading-snug text-primary">{it.t}</h3>
+                <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">{it.d}</p>
+                <p className="mt-2.5 text-[11px] font-semibold uppercase leading-snug tracking-wide text-muted-foreground break-words sm:mt-3 sm:text-[10px]">
                   Manufacturer information — JIMMY BX7 Pro Max
                 </p>
               </div>
@@ -129,7 +129,7 @@ export default function Technology() {
               loading="lazy"
               className="aspect-[4/3] w-full rounded-xl object-cover"
             />
-            <figcaption className="mt-2 px-2 text-center text-[10px] uppercase tracking-wide text-muted-foreground break-words">
+            <figcaption className="mt-2 px-2 text-center text-[11px] uppercase leading-snug tracking-wide text-muted-foreground break-words sm:text-[10px]">
               Manufacturer reference image — JIMMY BX7 Pro Max
             </figcaption>
           </figure>
@@ -161,12 +161,12 @@ export default function Technology() {
       {/* DISCLAIMER */}
       <section className="section bg-surface">
         <div className="container-tight mx-auto max-w-3xl">
-          <div className="rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-5 shadow-soft">
-            <div className="flex items-start gap-3">
+          <div className="rounded-2xl border-l-4 border-accent bg-accent-soft/40 p-4 shadow-soft sm:p-5">
+            <div className="flex items-start gap-2.5 sm:gap-3">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-primary">Honest disclaimer</p>
-                <p className="mt-2 text-sm leading-relaxed text-foreground">
+                <p className="text-[11px] font-bold uppercase leading-snug tracking-wide text-primary sm:text-xs sm:tracking-wider">Honest disclaimer</p>
+                <p className="mt-1.5 text-[13px] leading-snug text-foreground sm:mt-2 sm:text-sm sm:leading-relaxed">
                   Technology claims are based on manufacturer information and lab conditions. FreshDream provides a dry mattress hygiene refresh service and does not replace medical treatment, pest control or specialist deep stain removal.
                 </p>
               </div>
