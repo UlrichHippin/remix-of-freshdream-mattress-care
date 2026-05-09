@@ -5,7 +5,8 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import jimmyImage from "@/assets/jimmy/tech-overview.jpg";
+import jimmyHero from "@/assets/jimmy/hero-jimmy-bed.jpg";
+import jimmyOverview from "@/assets/jimmy/tech-overview.jpg";
 
 export default function Technology() {
   return (
@@ -34,15 +35,20 @@ export default function Technology() {
           <div className="lg:col-span-5">
             <figure className="card-soft relative overflow-hidden p-3">
               <img
-                src={jimmyImage}
+                src={jimmyHero}
                 alt="JIMMY BX7 Pro Max used by FreshDream for dry mattress hygiene cleaning in Nairobi"
                 width={1200}
                 height={1024}
                 loading="lazy"
                 className="aspect-[4/3] w-full rounded-xl object-cover"
               />
-              <figcaption className="mt-3 flex items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
-                <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
+              <figcaption className="mt-3 flex flex-col items-center gap-1 text-center">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                  <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
+                </span>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                  Manufacturer reference image — JIMMY BX7 Pro Max
+                </span>
               </figcaption>
             </figure>
           </div>
@@ -97,6 +103,9 @@ export default function Technology() {
                 </div>
                 <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                  Manufacturer information — JIMMY BX7 Pro Max
+                </p>
               </div>
             ))}
           </div>
@@ -110,6 +119,20 @@ export default function Technology() {
             <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Technical specs</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">JIMMY BX7 Pro Max</h2>
           </div>
+
+          <figure className="card-soft mx-auto mt-6 max-w-2xl overflow-hidden p-3">
+            <img
+              src={jimmyOverview}
+              alt="JIMMY BX7 Pro Max product overview — manufacturer reference"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-xl object-cover"
+            />
+            <figcaption className="mt-2 text-center text-[10px] uppercase tracking-wider text-muted-foreground">
+              Manufacturer reference image — JIMMY BX7 Pro Max
+            </figcaption>
+          </figure>
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {[
