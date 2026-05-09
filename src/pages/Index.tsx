@@ -386,9 +386,9 @@ export default function Home() {
           <div className="mx-auto max-w-3xl">
             <div className="text-center">
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
-              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Location Fee</h2>
+              <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Areas & Location Fees</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                From KES 300 · charged once per visit · confirmed after WhatsApp location pin.
+                Transparent location fees from Roysambu across Nairobi — confirmed after your WhatsApp location pin.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
