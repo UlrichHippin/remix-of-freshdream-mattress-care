@@ -49,21 +49,15 @@ export default function Home() {
               <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream Mattress Care provides professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology: UV-C hygiene support, 65°C heated air, smart dust detection and dry suction — ideal for homes, Airbnb rooms and serviced apartments.
+              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without long drying wait.
             </p>
-
-            <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
-              <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
-            </span>
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
                 "No wet mattress",
                 "Ready to use immediately",
-                "UV-C support",
                 "65°C heated air",
                 "Smart dust detection",
-                "M-PESA accepted",
               ].map((b, i) => (
                 <li
                   key={b}
