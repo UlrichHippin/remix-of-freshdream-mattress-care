@@ -11,6 +11,7 @@ import BookingSection from "@/components/BookingSection";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
 import ProcessTimeline from "@/components/ProcessTimeline";
+import EquipmentProof from "@/components/EquipmentProof";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { whatsappLink } from "@/config/site";
@@ -152,6 +153,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* EQUIPMENT PROOF */}
+      <EquipmentProof />
 
       {/* QUICK QUOTE */}
       <QuickQuote />
