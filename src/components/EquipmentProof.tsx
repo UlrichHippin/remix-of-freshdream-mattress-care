@@ -124,6 +124,12 @@ export default function EquipmentProof() {
           JIMMY BX7 Pro Max is the professional dry mattress hygiene device used by FreshDream Mattress Care.
           Equipment images are provided as technology proof.
         </p>
+
+        <div className="mx-auto mt-4 max-w-3xl rounded-xl border border-border bg-muted/40 p-4 text-center text-xs leading-relaxed text-muted-foreground">
+          Technology claims are based on manufacturer information and lab conditions. FreshDream provides a
+          dry mattress hygiene refresh service and does not replace medical treatment, pest control or
+          specialist deep stain removal.
+        </div>
       </div>
     </section>
   );
