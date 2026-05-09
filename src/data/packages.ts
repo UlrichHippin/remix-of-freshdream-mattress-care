@@ -35,10 +35,11 @@ export const packages: PackageDef[] = [
     description:
       "Our Freshen Up package is perfect for customers who want a fast hygiene and freshness boost without deep stain treatment. We use the JIMMY BX7 Pro Max to help remove dust, hair, dander and surface debris, with UV-C surface hygiene support and 65°C graphene hot air.",
     included: [
-      "Dry vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) to dislodge deep dust and allergens",
       "Dust, hair, and dander removal",
+      "Ultrasonic Mite Suppression — disrupts the mite nervous system",
       "UV-C hygiene treatment",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies the mattress in Nairobi's humid climate",
       "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
@@ -63,10 +64,11 @@ export const packages: PackageDef[] = [
       "Our Standard Cleaning package goes beyond surface refreshment. It is ideal for mattresses with sweat buildup, trapped dust, and moderate odor (sofa support available on request). Dry treatment with baking soda preparation, deep vacuuming, composite brushroll tapping, UV-C surface hygiene support and warm-air freshness — using the JIMMY BX7 Pro Max.",
     included: [
       "Pre-treatment with baking soda",
-      "Deep dry vacuuming",
+      "High-Frequency Vibration Tapping (45,000 taps/min) for deep dust and allergen release",
+      "Ultrasonic Mite Suppression to disrupt the mite nervous system",
       "Dust and odor reduction",
       "UV-C hygiene treatment",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: [
       "Sweat and body odor",
@@ -96,9 +98,10 @@ export const packages: PackageDef[] = [
     included: [
       "Targeted stain pre-treatment",
       "Brushing of affected areas",
-      "Deep vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
+      "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
     readyIn: "Service time varies by condition",
@@ -123,9 +126,10 @@ export const packages: PackageDef[] = [
     included: [
       "Urine-focused dry pre-treatment",
       "Odor absorption process",
-      "Deep vacuum treatment",
+      "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
+      "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "Warm-air freshness treatment",
+      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
       "Final inspection",
     ],
     bestFor: [

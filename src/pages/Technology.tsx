@@ -84,8 +84,8 @@ export default function Technology() {
               {
                 img: techHeatedAir,
                 i: Flame,
-                t: "65°C Graphene Heated Air",
-                d: "Manufacturer information states that the BX7 Pro Max uses graphene heated air up to 65°C. Temperature may vary depending on surface and conditions.",
+                t: "65°C Graphene Heat Sterilization",
+                d: "Graphene-generated heat up to 65°C helps eliminate dust mites and actively dehumidifies the mattress — a real advantage in Nairobi's humid climate. Manufacturer information; results may vary by surface and conditions.",
               },
               {
                 img: techUvc,
@@ -102,8 +102,8 @@ export default function Technology() {
               {
                 img: techTapping,
                 i: Zap,
-                t: "Tapping Brushroll + Dry Suction",
-                d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
+                t: "High-Frequency Vibration Tapping",
+                d: "Up to 45,000 taps per minute loosen deep-seated dust, dander and allergens from inside the mattress fibers, while powerful suction extracts them. Combined with Ultrasonic Mite Suppression, which disrupts the mite nervous system to reduce activity in the fabric.",
               },
             ].map((it) => (
               <div key={it.t} className="card-soft p-0">
