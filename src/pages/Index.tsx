@@ -18,6 +18,7 @@ import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.webp";
 import techHeatedAir from "@/assets/jimmy/tech-heated-air.webp";
 import techUvc from "@/assets/jimmy/tech-uvc.webp";
 import techTapping from "@/assets/jimmy/tech-tapping-brushroll.webp";
+import techOverview from "@/assets/jimmy/tech-overview.webp";
 
 import { locationFee } from "@/data/content";
 
