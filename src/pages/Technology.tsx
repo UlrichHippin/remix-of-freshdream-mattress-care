@@ -42,11 +42,11 @@ export default function Technology() {
                 loading="lazy"
                 className="aspect-[4/3] w-full rounded-xl object-cover"
               />
-              <figcaption className="mt-3 flex flex-col items-center gap-1 text-center">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+              <figcaption className="mt-3 flex flex-col items-center gap-1 px-2 text-center">
+                <span className="inline-flex flex-wrap items-center justify-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-primary">
                   <Activity className="h-3.5 w-3.5 text-accent" /> Equipment used by FreshDream
                 </span>
-                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                <span className="text-[10px] uppercase tracking-wide text-muted-foreground break-words">
                   Manufacturer reference image — JIMMY BX7 Pro Max
                 </span>
               </figcaption>
