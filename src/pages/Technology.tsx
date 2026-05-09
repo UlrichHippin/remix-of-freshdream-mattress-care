@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import jimmyImage from "@/assets/jimmy-bx7-pro-max.jpg";
+import jimmyImage from "@/assets/jimmy/tech-overview.jpg";
 
 export default function Technology() {
   return (
