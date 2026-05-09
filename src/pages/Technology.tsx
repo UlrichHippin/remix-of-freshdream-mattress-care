@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SmartSensorDemo } from "@/components/SmartSensorDemo";
 import {
   Wrench, ShieldCheck, Activity, Zap, Wind,
   ArrowRight, BadgeCheck, Check, Droplets, AlertCircle, Flame,

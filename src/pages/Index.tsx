@@ -198,15 +198,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2b. SMART SENSOR DEMO */}
-      <section className="section bg-surface">
-        <div className="container-tight">
-          <div className="mx-auto max-w-sm">
-            <SmartSensorDemo />
-          </div>
-        </div>
-      </section>
-
       {/* 3. HOW IT WORKS — real 4-step process */}
       <section id="how-it-works" className="section bg-surface scroll-mt-24">
         <div className="container-tight">
