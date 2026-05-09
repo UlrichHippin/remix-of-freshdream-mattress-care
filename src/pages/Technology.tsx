@@ -97,13 +97,13 @@ export default function Technology() {
                 d: "The motorized brushroll helps loosen fine dust and particles before suction removes them.",
               },
             ].map((it) => (
-              <div key={it.t} className="card-soft p-5">
+              <div key={it.t} className="card-soft p-4 sm:p-5">
                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground shadow-soft">
                   <it.i className="h-5 w-5" />
                 </div>
-                <h3 className="mt-3 text-base font-bold text-primary">{it.t}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
-                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground break-words">
+                <h3 className="mt-3 text-base font-bold leading-snug text-primary">{it.t}</h3>
+                <p className="mt-1.5 text-[13px] leading-snug text-muted-foreground sm:text-sm sm:leading-relaxed">{it.d}</p>
+                <p className="mt-2.5 text-[11px] font-semibold uppercase leading-snug tracking-wide text-muted-foreground break-words sm:mt-3 sm:text-[10px]">
                   Manufacturer information — JIMMY BX7 Pro Max
                 </p>
               </div>
