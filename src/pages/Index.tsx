@@ -202,7 +202,7 @@ export default function Home() {
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">How It Works</h2>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
               Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
             </p>
@@ -227,6 +227,17 @@ export default function Home() {
               </li>
             ))}
           </ol>
+
+          <div className="mt-6 flex justify-center">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Start on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
