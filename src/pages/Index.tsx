@@ -229,12 +229,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. COMPACT COMPARISON */}
-      <section id="how-it-works" className="section bg-gradient-hero scroll-mt-24">
+      {/* 3. HOW IT WORKS — real 4-step process */}
+      <section id="how-it-works" className="section bg-surface scroll-mt-24">
+        <div className="container-tight">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">How It Works</h2>
+            <p className="mt-2 text-sm text-muted-foreground sm:text-base">
+              Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
+            </p>
+          </div>
+
+          <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { i: MessageCircle, t: "Send WhatsApp Request", d: "Tell us your mattress size, area and preferred time." },
+              { i: MapPin, t: "Share Location Pin", d: "We confirm the location fee and available time slot." },
+              { i: Sparkles, t: "Dry Mattress Refresh", d: "We use JIMMY BX7 Pro Max technology with UV-C support, 65°C heated air, smart dust detection and dry suction." },
+              { i: BedDouble, t: "Ready Without Drying Wait", d: "The mattress is not soaked, so it can be re-sheeted shortly after service." },
+            ].map((s, idx) => (
+              <li key={s.t} className="card-soft relative p-5">
+                <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
+                  {idx + 1}
+                </span>
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-soft">
+                  <s.i className="h-5 w-5" />
+                </div>
+                <h3 className="mt-3 text-base font-bold text-primary">{s.t}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 3b. COMPACT COMPARISON */}
+      <section className="section bg-gradient-hero">
         <div className="container-tight">
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow justify-center"><Wind className="h-3.5 w-3.5" /> The aha moment</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why dry mattress care saves time</h2>
+            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Why Dry Refresh Is Different</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               No soaking, no wet extraction, no long drying delay.
             </p>
