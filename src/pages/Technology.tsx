@@ -28,7 +28,7 @@ export default function Technology() {
               The Technology Behind FreshDream Dry Mattress Hygiene
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              FreshDream uses the JIMMY BX7 Pro Max to support dry mattress hygiene with heated air, UV-C support, smart dust detection, tapping brushroll and mattress-focused suction.
+              FreshDream uses JIMMY BX7 Pro Max technology to support dry mattress hygiene with ultrasonic mite-control support, UV-C hygiene support, 65°C heated air, smart dust detection, tapping brushroll and strong dry suction.
             </p>
             <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
               <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
