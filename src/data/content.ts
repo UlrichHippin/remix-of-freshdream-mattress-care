@@ -329,7 +329,7 @@ export const freshSleepPackage = {
     "Photo documentation",
   ],
   whatsappMessage:
-    "Hello, I would like to book the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300).\nLocation:\nMattress size:\nPreferred mattress cleaning package:",
+    "Hello FreshDream, I have a quick inquiry about the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300).\nLocation:\nMattress size:\nPreferred mattress cleaning package:\n(For an official booking with a FreshDream booking reference, I will use the booking request form on the website.)",
   cta: "Ask about Fresh Sleep Package on WhatsApp",
 };
 
@@ -373,7 +373,7 @@ export const openingOffer = {
   smallPrint:
     "First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
-    "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
+    "Hello FreshDream, I have a quick inquiry about the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes\n(For an official booking with a FreshDream booking reference, I will use the booking request form on the website.)",
   cta: "Ask about Opening Offer on WhatsApp",
 };
 
@@ -402,7 +402,7 @@ export const hostStarter = {
   smallPrint:
     "Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
-    "Hello, I would like to book the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:",
+    "Hello FreshDream, I have a quick inquiry about the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:\n(For an official booking with a FreshDream booking reference, I will use the booking request form on the website.)",
   cta: "Ask about Host Package on WhatsApp",
 };
 
