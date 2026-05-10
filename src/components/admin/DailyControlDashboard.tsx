@@ -133,6 +133,7 @@ export default function DailyControlDashboard({ bookings, isOwner, onManage }: P
   }
 
   function scrollToBooking(id: string) {
+    if (onManage) { onManage(id); return; }
     const el = document.getElementById(`booking-${id}`);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
