@@ -302,7 +302,7 @@ export default function BookingSection() {
                         className={cn("justify-start text-left font-normal", !form.date && "text-muted-foreground")}
                         aria-invalid={!!errors.date}>
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {form.date ? format(form.date, "PPP") : <span>Pick a date</span>}
+                        {form.date ? format(form.date, "dd.MM.yyyy") : <span>Pick a date</span>}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
