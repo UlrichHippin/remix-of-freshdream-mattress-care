@@ -372,6 +372,26 @@ export default function BookingSection() {
                 Your WhatsApp message includes your FreshDream booking reference. We reply on WhatsApp to confirm availability, final price, location fee and time slot.
               </p>
 
+              {savedRef && savedWaUrl && (
+                <div className="rounded-xl border-2 border-whatsapp/40 bg-whatsapp/5 p-4">
+                  <p className="text-sm font-semibold text-primary">
+                    Request saved — Booking reference <span className="font-mono">{savedRef}</span>
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    If WhatsApp did not open automatically, tap the button below to send your booking message.
+                  </p>
+                  <a
+                    href={savedWaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                  >
+                    <MessageCircle className="h-4 w-4" />
+                    Open WhatsApp with Booking Reference
+                  </a>
+                </div>
+              )}
+
               <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
                 <strong className="text-primary">Photos help us review accurately.</strong> Send photos of the mattress or upholstery on WhatsApp after submitting your request.
               </div>
