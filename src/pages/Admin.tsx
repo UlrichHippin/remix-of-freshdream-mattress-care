@@ -286,11 +286,13 @@ export default function Admin() {
 
 function BookingCard({
   b,
+  isOwner,
   onPatch,
   onStatus,
   onPayment,
 }: {
   b: Booking;
+  isOwner: boolean;
   onPatch: (id: string, patch: Partial<Booking>) => Promise<boolean>;
   onStatus: (id: string, s: BookingStatus) => void;
   onPayment: (id: string, s: PaymentStatus) => void;
