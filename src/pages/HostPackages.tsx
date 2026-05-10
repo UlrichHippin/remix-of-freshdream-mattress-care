@@ -276,7 +276,7 @@ export default function HostPackages() {
                 >
                   Open the quote form <ArrowRight className="h-4 w-4" />
                 </Link>
-                <WhatsAppButton size="lg" label="WhatsApp now" message={portfolioMessage} />
+                <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" message={portfolioMessage} />
               </div>
             </div>
             <div className="md:col-span-5">
@@ -313,7 +313,7 @@ export default function HostPackages() {
                 >
                   Request a portfolio quote
                 </Link>
-                <WhatsAppButton size="lg" label="WhatsApp now" message={portfolioMessage} />
+                <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" message={portfolioMessage} />
               </div>
             </div>
           </div>
