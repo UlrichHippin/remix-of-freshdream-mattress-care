@@ -1,5 +1,5 @@
 import { MessageCircle, CheckCircle2, AlertTriangle } from "lucide-react";
-import { whatsappLink, site } from "@/config/site";
+import { customerWhatsAppLink, site } from "@/config/site";
 
 const NBO = "Africa/Nairobi";
 const _date = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, day: "2-digit", month: "2-digit", year: "numeric" });
