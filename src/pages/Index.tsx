@@ -222,10 +222,10 @@ export default function Home() {
 
           <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: MessageCircle, t: "Send WhatsApp Request", d: "Tell us your mattress size, area and preferred time." },
-              { i: MapPin, t: "Share Location Pin", d: "We confirm the location fee and available time slot." },
-              { i: Sparkles, t: "Dry Mattress Refresh", d: "We use JIMMY BX7 Pro Max technology with UV-C support, 65°C heated air, smart dust detection and dry suction." },
-              { i: BedDouble, t: "Ready Without Drying Wait", d: "The mattress is not soaked, so it can be re-sheeted shortly after service." },
+              { i: MessageCircle, t: "Send Your Booking Request", d: "Share your mattress size, location and preferred time on WhatsApp." },
+              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually to avoid scheduling conflicts and reply with your FreshDream booking reference, final price and location fee." },
+              { i: Sparkles, t: "Mattress & Upholstery Care", d: "Our specialist process refreshes your mattress or upholstery without soaking — suitable for homes, Airbnb and serviced apartments." },
+              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Payment instructions are shared only after booking confirmation." },
             ].map((s, idx) => (
               <li key={s.t} className="card-soft relative p-5">
                 <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
