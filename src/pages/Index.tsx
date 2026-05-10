@@ -51,15 +51,15 @@ export default function Home() {
               <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Professional dry mattress hygiene in Nairobi using JIMMY BX7 Pro Max technology — ideal for homes, Airbnb rooms and serviced apartments that need a fresh mattress without wet cleaning or long drying wait.
+              Specialist mattress and upholstery care in Nairobi for homes, Airbnb hosts and serviced apartments — refreshed and guest-ready without long drying delays.
             </p>
 
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
                 "No wet mattress",
-                "Ready to use immediately",
-                "65°C heated air",
-                "Smart dust detection",
+                "Guest-ready quickly",
+                "Hospitality-aware",
+                "Booking reference for every job",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -91,7 +91,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Book on WhatsApp
+                <MessageCircle className="h-5 w-5" /> Request a Booking on WhatsApp
               </a>
               <Link
                 to="/pricing"
@@ -103,7 +103,7 @@ export default function Home() {
 
             <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
-              Based in Roysambu · Serving Nairobi · M-PESA accepted
+              Based in Roysambu · Serving Nairobi · Payment details shared after booking confirmation
             </p>
           </div>
 
@@ -216,16 +216,16 @@ export default function Home() {
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
+              Request-first booking. We review your request, confirm availability and share a FreshDream booking reference before your visit — no long drying wait after service.
             </p>
           </div>
 
           <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: MessageCircle, t: "Send WhatsApp Request", d: "Tell us your mattress size, area and preferred time." },
-              { i: MapPin, t: "Share Location Pin", d: "We confirm the location fee and available time slot." },
-              { i: Sparkles, t: "Dry Mattress Refresh", d: "We use JIMMY BX7 Pro Max technology with UV-C support, 65°C heated air, smart dust detection and dry suction." },
-              { i: BedDouble, t: "Ready Without Drying Wait", d: "The mattress is not soaked, so it can be re-sheeted shortly after service." },
+              { i: MessageCircle, t: "Send Your Booking Request", d: "Share your mattress size, location and preferred time on WhatsApp." },
+              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually to avoid scheduling conflicts and reply with your FreshDream booking reference, final price and location fee." },
+              { i: Sparkles, t: "Mattress & Upholstery Care", d: "Our specialist process refreshes your mattress or upholstery without soaking — suitable for homes, Airbnb and serviced apartments." },
+              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Payment instructions are shared only after booking confirmation." },
             ].map((s, idx) => (
               <li key={s.t} className="card-soft relative p-5">
                 <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
@@ -247,7 +247,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
             >
-              <MessageCircle className="h-4 w-4" /> Start on WhatsApp
+              <MessageCircle className="h-4 w-4" /> Send a Booking Request
             </a>
           </div>
         </div>
@@ -353,7 +353,7 @@ export default function Home() {
 
           <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
             <BadgeCheck className="h-4 w-4 text-accent" />
-            M-PESA &amp; Cash Accepted · Receipts on request
+            Payment instructions shared after booking confirmation · M-PESA &amp; Cash · Receipts on request
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -363,7 +363,7 @@ export default function Home() {
             >
               See full pricing <ArrowRight className="h-4 w-4" />
             </Link>
-            <WhatsAppButton size="lg" label="Book on WhatsApp" className="animate-soft-pulse" />
+            <WhatsAppButton size="lg" label="Request a Booking" className="animate-soft-pulse" />
           </div>
         </div>
       </section>
@@ -379,7 +379,7 @@ export default function Home() {
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Areas & Location Fees</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                Transparent location fees from Roysambu across Nairobi — confirmed after your WhatsApp location pin.
+                Transparent location fees from Roysambu across Nairobi — confirmed in writing with your booking reference before the visit.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
@@ -422,7 +422,7 @@ export default function Home() {
                   Airbnb Host?
                 </h2>
                 <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-                  Fast dry mattress refresh for turnovers — no wet-mattress waiting before the next guest.
+                  Reliable mattress and upholstery refresh between guests — guest-ready without long drying delays.
                 </p>
               </div>
             </div>
@@ -466,12 +466,12 @@ export default function Home() {
       <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
-            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to book your dry mattress refresh?</h2>
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to request your FreshDream booking?</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Send your mattress size, area and preferred time on WhatsApp. Final price, location fee and time slot are confirmed before the visit.
+              Send your mattress size, area and preferred time on WhatsApp. We review every request, confirm availability manually and reply with your FreshDream booking reference, final price and location fee. Payment instructions are shared only after confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <WhatsAppButton size="lg" label="Request a Booking" />
               <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"

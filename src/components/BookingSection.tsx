@@ -80,7 +80,7 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
     const message =
-      `Hello FreshDream Mattress Care, I would like to book a service.\n\n` +
+      `Hello FreshDream Mattress Care, I would like to request a booking.\n\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
@@ -93,24 +93,24 @@ export default function BookingSection() {
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Special notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success("Opening WhatsApp to send your booking request…");
+    toast.success("Opening WhatsApp to send your booking request — we'll reply with your FreshDream booking reference.");
     setTimeout(() => setSubmitting(false), 800);
   };
 
   const quickWaMessage =
-    "Hello, I would like to book a cleaning service.\n\nPackage:\nMattress size:\nNumber of mattresses:\nLocation pin:\nPreferred date:\nAdd Sleep Area Dust Refresh? Yes/No:\nPhotos:";
+    "Hello FreshDream, I would like to request a booking.\n\nPackage:\nMattress size:\nNumber of mattresses:\nLocation pin:\nPreferred date:\nAdd Sleep Area Dust Refresh? Yes/No:\nPhotos:";
 
   return (
     <section id="book" className="section bg-surface">
       <div className="container-tight">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center"><Send className="h-3.5 w-3.5" /> Booking</p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Book Your Cleaning</span></h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Request Your FreshDream Booking</span></h2>
           <p className="mt-3 text-muted-foreground">
-            Choose your package and send us your request in just a few steps.
+            Send your mattress and upholstery details — we'll review and confirm before any payment.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Booking request only. Before your visit, we confirm everything on WhatsApp: final price, Location Fee, available time slot, service expectation and M-PESA/cash payment option.
+            Request only. We review every booking, confirm availability manually and reply on WhatsApp with your FreshDream booking reference, final price, location fee and time slot. Payment instructions are shared only after confirmation.
           </p>
         </div>
 
@@ -120,12 +120,12 @@ export default function BookingSection() {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-whatsapp/10 text-whatsapp">
               <MessageCircle className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Book on WhatsApp</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Request on WhatsApp</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground">
-              Send us your package, location, and preferred date on WhatsApp for a quick response.
+              Send your package, mattress or upholstery details, location and preferred date. We'll review and reply with your FreshDream booking reference.
             </p>
             <div className="mt-5">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
+              <WhatsAppButton size="lg" label="Request on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
             </div>
           </div>
 
@@ -134,13 +134,13 @@ export default function BookingSection() {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Request a Booking</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Send a Booking Request</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use the booking form to send your mattress hygiene cleaning request. Sofa and rug cleaning is available on request — please send photos on WhatsApp.
+              Use the form to send your mattress hygiene request. Sofa and upholstery care is available on request — please share photos on WhatsApp so we can review accurately.
             </p>
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
-              <span>Send your location pin on WhatsApp so we can confirm the exact location fee before booking.</span>
+              <span>Share your location pin on WhatsApp so we can confirm the exact location fee with your booking reference.</span>
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
@@ -284,27 +284,28 @@ export default function BookingSection() {
                 className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                {submitting ? "Opening WhatsApp…" : "Book on WhatsApp"}
+                {submitting ? "Opening WhatsApp…" : "Send Booking Request on WhatsApp"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
-                Your WhatsApp message will include your selected package, mattress size, location, and preferred day/time — just press send.
+                Your WhatsApp message includes your package, mattress size, location and preferred day/time — just press send. We reply with your FreshDream booking reference once reviewed.
               </p>
 
               <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
-                <strong className="text-primary">Photos help us quote accurately.</strong> You can send photos directly on WhatsApp after submitting your request.
+                <strong className="text-primary">Photos help us review accurately.</strong> Send photos of the mattress or upholstery on WhatsApp after submitting your request.
               </div>
 
               <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-                Booking request only: Your appointment is confirmed after FreshDream replies on WhatsApp with the final price, Location Fee and available time slot.
+                Request only: Your booking is confirmed once FreshDream replies on WhatsApp with your booking reference, final price, location fee and time slot. Final pricing or extra treatment may be confirmed after on-site inspection where necessary.
               </div>
 
               <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
                 <p className="font-semibold text-primary">Payment</p>
                 <ul className="mt-1.5 list-disc space-y-1 pl-4">
-                  <li>M-PESA and cash accepted.</li>
-                  <li>Payment is made after service unless a deposit is requested for same-day, urgent or multi-unit bookings.</li>
+                  <li>Payment instructions are shared only after your booking is confirmed.</li>
+                  <li>Use only the official FreshDream payment details sent with your booking reference.</li>
+                  <li>M-PESA and cash accepted. Payment is normally made after service, unless a deposit is requested for same-day, urgent or multi-unit bookings.</li>
                 </ul>
-                <p className="mt-2 font-medium text-destructive">Do not send payment until your booking and price are confirmed by FreshDream via WhatsApp.</p>
+                <p className="mt-2 font-medium text-destructive">Do not send any payment before your booking is confirmed by FreshDream via WhatsApp.</p>
               </div>
             </form>
           </div>
