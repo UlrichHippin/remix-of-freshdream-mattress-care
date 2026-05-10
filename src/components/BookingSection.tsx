@@ -84,6 +84,8 @@ export default function BookingSection() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [savedRef, setSavedRef] = useState<string | null>(null);
+  const [savedWaUrl, setSavedWaUrl] = useState<string | null>(null);
 
   const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
@@ -102,12 +104,13 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
 
-    // Build starts_at / ends_at from the preferred date and time slot
+    // Build starts_at / ends_at as Nairobi (UTC+3) wall time, regardless of browser timezone.
     const [sh, eh] = timeSlotToHours(d.time);
-    const startsAt = new Date(d.date);
-    startsAt.setHours(sh, 0, 0, 0);
-    const endsAt = new Date(d.date);
-    endsAt.setHours(eh, 0, 0, 0);
+    const yyyy = d.date.getFullYear();
+    const mm = String(d.date.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.date.getDate()).padStart(2, "0");
+    const startsAtISO = new Date(`${yyyy}-${mm}-${dd}T${String(sh).padStart(2, "0")}:00:00+03:00`).toISOString();
+    const endsAtISO = new Date(`${yyyy}-${mm}-${dd}T${String(eh).padStart(2, "0")}:00:00+03:00`).toISOString();
 
     const composedDetails = [
       `Package: ${d.pkg}`,
@@ -129,8 +132,8 @@ export default function BookingSection() {
       _property_type: null,
       _service: mapPackageToService(d.pkg, d.item),
       _details: composedDetails,
-      _starts_at: startsAt.toISOString(),
-      _ends_at: endsAt.toISOString(),
+      _starts_at: startsAtISO,
+      _ends_at: endsAtISO,
     });
 
     const row = Array.isArray(rpcData) ? rpcData[0] : rpcData;
@@ -153,21 +156,31 @@ export default function BookingSection() {
       `Size: ${d.size}\n` +
       `Number of items: ${d.quantity}\n` +
       `Location / estate: ${d.location}\n` +
-      `Preferred date: ${dateStr}\n` +
+      `Preferred date: ${dateStr} (Nairobi time)\n` +
       `Preferred time: ${d.time}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Special notes: ${d.notes}\n` : "") +
       `\nPlease confirm availability, final price and payment details. Thank you.`;
-    window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success(
-      `Request saved. Your FreshDream booking reference is ${reference}. Opening WhatsApp — please send the message so we can confirm.`,
-      { duration: 8000 }
-    );
-    setTimeout(() => setSubmitting(false), 800);
+    const waUrl = whatsappLink(message);
+    setSavedRef(reference);
+    setSavedWaUrl(waUrl);
+    const popup = window.open(waUrl, "_blank", "noopener,noreferrer");
+    if (!popup) {
+      toast.success(
+        `Request saved. Booking reference ${reference}. Tap "Open WhatsApp with Booking Reference" below to send the message.`,
+        { duration: 10000 }
+      );
+    } else {
+      toast.success(
+        `Request saved. Your FreshDream booking reference is ${reference}. Please send the WhatsApp message so we can confirm.`,
+        { duration: 8000 }
+      );
+    }
+    setTimeout(() => setSubmitting(false), 600);
   };
 
   const quickWaMessage =
-    "Hello FreshDream, I would like to request a booking.\n\nPackage:\nMattress size:\nNumber of mattresses:\nLocation pin:\nPreferred date:\nAdd Sleep Area Dust Refresh? Yes/No:\nPhotos:";
+    "Hello FreshDream, I have a quick inquiry about mattress / upholstery care. I understand that official bookings with a FreshDream booking reference are made through the booking request form on the website.";
 
   return (
     <section id="book" className="section bg-surface">
