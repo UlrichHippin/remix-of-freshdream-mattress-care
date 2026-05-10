@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Link as RouterLink } from "react-router-dom";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
@@ -77,7 +76,13 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <WhatsAppButton size="sm" label="Book on WhatsApp" />
+          <Link
+            to="/#book"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
+          >
+            Request a Booking
+          </Link>
+          <WhatsAppButton size="sm" label="Quick WhatsApp Inquiry" />
         </div>
 
         <button
@@ -109,8 +114,14 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <div className="pt-3">
-              <WhatsAppButton className="w-full" />
+            <div className="flex flex-col gap-2 pt-3">
+              <Link
+                to="/#book"
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft"
+              >
+                Request a Booking
+              </Link>
+              <WhatsAppButton className="w-full" label="Quick WhatsApp Inquiry" />
             </div>
           </nav>
         </div>
