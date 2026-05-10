@@ -180,8 +180,16 @@ export default function Admin() {
             <div>
               <h2 className="text-lg font-bold text-primary">Bookings</h2>
               <p className="mt-1 text-xs text-muted-foreground">
-                Each booking is a <strong>request</strong> until you confirm it. Reply on WhatsApp to confirm slot, price and payment details.
+                Each booking is a <strong>request</strong> until you confirm it. Reply on WhatsApp using the booking reference to confirm slot, price and payment details.
               </p>
+              <div className="mt-3 space-y-2 text-xs">
+                <p className="rounded-xl border border-accent/40 bg-accent-soft/40 p-3 text-primary">
+                  <strong>Dashboard rule:</strong> every official FreshDream job must have a booking reference, payment status and completion update. Do not handle official jobs outside this dashboard.
+                </p>
+                <p className="rounded-xl border border-border bg-surface p-3 text-muted-foreground">
+                  <strong className="text-primary">Payment is manual for now.</strong> Record the M-PESA receipt code, amount paid and payment receiver after checking the customer payment. Do not delete bookings — use status <em>cancelled</em> instead so the audit trail is preserved.
+                </p>
+              </div>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {filterChips.map((c) => (

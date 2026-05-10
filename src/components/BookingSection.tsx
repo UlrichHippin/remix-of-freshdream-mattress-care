@@ -192,7 +192,7 @@ export default function BookingSection() {
             Send your mattress and upholstery details — we'll review and confirm before any payment.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Request only. We review every booking, confirm availability manually and reply on WhatsApp with your FreshDream booking reference, final price, location fee and time slot. Payment instructions are shared only after confirmation.
+            Your FreshDream booking reference is generated immediately when you submit the official form. We then reply on WhatsApp using that reference to confirm availability, final price, location fee and time slot. Your booking is confirmed only after this reply. Payment instructions are shared only after confirmation.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export default function BookingSection() {
             </div>
             <h3 className="mt-4 text-xl font-bold text-primary">Official Booking Request Form</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use this form to send an official booking request. We save your request, generate your FreshDream booking reference, and then open WhatsApp so we can confirm availability and final price.
+              Submit this form to send an official booking request. Your FreshDream booking reference is generated immediately on submit, and your WhatsApp message includes that reference so we can confirm availability and final price.
             </p>
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
@@ -397,7 +397,7 @@ export default function BookingSection() {
               </div>
 
               <div className="rounded-xl bg-primary-soft p-4 text-xs text-primary">
-                Request only: Your booking is confirmed once FreshDream replies on WhatsApp with your booking reference, final price, location fee and time slot. Final pricing or extra treatment may be confirmed after on-site inspection where necessary.
+                Your FreshDream booking reference is generated immediately when you submit this form. Your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price and time slot. Final pricing or extra treatment may be confirmed after on-site inspection where necessary.
               </div>
 
               <div className="rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
