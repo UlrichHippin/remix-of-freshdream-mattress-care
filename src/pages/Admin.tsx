@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { Loader2, LogOut, MessageCircle, Trash2, CalendarPlus } from "lucide-react";
 import { whatsappLink } from "@/config/site";
+import DailyControlDashboard from "@/components/admin/DailyControlDashboard";
 
 type BookingStatus = "requested" | "confirmed" | "declined" | "completed" | "cancelled";
 type PaymentStatus = "unpaid" | "deposit_paid" | "paid" | "cancelled";
@@ -195,6 +196,8 @@ export default function Admin() {
       </header>
 
       <main className="container-tight space-y-8 py-8">
+        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} />
+
         <Card className="p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
@@ -354,7 +357,7 @@ function BookingCard({
   };
 
   return (
-    <div className="rounded-xl border border-border bg-card p-4 shadow-soft">
+    <div id={`booking-${b.id}`} className="rounded-xl border border-border bg-card p-4 shadow-soft scroll-mt-24 transition-shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
