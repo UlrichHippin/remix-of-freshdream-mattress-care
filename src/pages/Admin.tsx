@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Loader2, LogOut, MessageCircle, Trash2, CalendarPlus } from "lucide-react";
 import { whatsappLink } from "@/config/site";
 import DailyControlDashboard from "@/components/admin/DailyControlDashboard";
+import { QuickWhatsAppActions, CompletionChecklist, WorkflowStageBadge } from "@/components/admin/OperatorWorkflow";
 
 type BookingStatus = "requested" | "confirmed" | "declined" | "completed" | "cancelled";
 type PaymentStatus = "unpaid" | "deposit_paid" | "paid" | "cancelled";
