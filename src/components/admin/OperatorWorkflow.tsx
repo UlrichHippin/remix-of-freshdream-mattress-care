@@ -1,5 +1,5 @@
 import { MessageCircle, CheckCircle2, AlertTriangle } from "lucide-react";
-import { whatsappLink, site } from "@/config/site";
+import { customerWhatsAppLink, site } from "@/config/site";
 
 const NBO = "Africa/Nairobi";
 const _date = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, day: "2-digit", month: "2-digit", year: "numeric" });
@@ -11,6 +11,8 @@ export interface WorkflowBooking {
   id: string;
   booking_reference: string | null;
   name: string;
+  phone: string;
+  whatsapp: string | null;
   area: string;
   service: string;
   starts_at: string;
@@ -128,26 +130,58 @@ function buildCompletionMsg(b: WorkflowBooking) {
   ].join("\n");
 }
 
-function WaButton({ msg, label }: { msg: string; label: string }) {
+function WaButton({ to, msg, label, disabledReason }: { to: string | null | undefined; msg: string; label: string; disabledReason?: string | null }) {
+  const href = customerWhatsAppLink(to, msg);
+  if (!href) {
+    return (
+      <span
+        title="No customer WhatsApp/phone number on this booking."
+        className="inline-flex h-8 cursor-not-allowed items-center gap-1 rounded-md bg-muted px-2.5 text-[11px] font-semibold text-muted-foreground"
+      >
+        <MessageCircle className="h-3 w-3" /> {label} (no number)
+      </span>
+    );
+  }
   return (
-    <a
-      href={whatsappLink(msg)}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex h-8 items-center gap-1 rounded-md bg-whatsapp px-2.5 text-[11px] font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
-    >
-      <MessageCircle className="h-3 w-3" /> {label}
-    </a>
+    <span className="inline-flex flex-col gap-0.5">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex h-8 items-center gap-1 rounded-md bg-whatsapp px-2.5 text-[11px] font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
+      >
+        <MessageCircle className="h-3 w-3" /> {label}
+      </a>
+      {disabledReason && (
+        <span
+          title={disabledReason}
+          className="inline-flex items-center gap-1 rounded bg-destructive/10 px-1.5 py-0.5 text-[9px] font-bold uppercase text-destructive"
+        >
+          <AlertTriangle className="h-2.5 w-2.5" /> Payment data incomplete
+        </span>
+      )}
+    </span>
   );
 }
 
 export function QuickWhatsAppActions({ b }: { b: WorkflowBooking }) {
+  const to = b.whatsapp || b.phone;
+  // Compute payment-received warning
+  const paymentIncomplete: string[] = [];
+  if (b.payment_status === "unpaid") paymentIncomplete.push("payment status is still unpaid");
+  if (!b.amount_paid_kes || b.amount_paid_kes <= 0) paymentIncomplete.push("amount paid is empty");
+  if (b.payment_method === "M-PESA" && !b.mpesa_receipt_code) paymentIncomplete.push("M-PESA receipt code is empty");
+  if (!b.payment_receiver) paymentIncomplete.push("payment receiver is empty");
+  const paymentReason = paymentIncomplete.length
+    ? `Enter payment status, amount, receiver and receipt code first. Missing: ${paymentIncomplete.join(", ")}.`
+    : null;
+
   return (
     <div className="flex flex-wrap gap-1.5">
-      <WaButton msg={buildConfirmMsg(b)} label="Confirm availability" />
-      <WaButton msg={buildPaymentInstructionsMsg(b)} label="Payment instructions" />
-      <WaButton msg={buildPaymentReceivedMsg(b)} label="Payment received" />
-      <WaButton msg={buildCompletionMsg(b)} label="Job completed" />
+      <WaButton to={to} msg={buildConfirmMsg(b)} label="Confirm availability" />
+      <WaButton to={to} msg={buildPaymentInstructionsMsg(b)} label="Payment instructions" />
+      <WaButton to={to} msg={buildPaymentReceivedMsg(b)} label="Payment received" disabledReason={paymentReason} />
+      <WaButton to={to} msg={buildCompletionMsg(b)} label="Job completed" />
     </div>
   );
 }

@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { Loader2, LogOut, MessageCircle, Trash2, CalendarPlus } from "lucide-react";
-import { whatsappLink } from "@/config/site";
+import { customerWhatsAppLink } from "@/config/site";
 import DailyControlDashboard from "@/components/admin/DailyControlDashboard";
 import { QuickWhatsAppActions, CompletionChecklist, WorkflowStageBadge } from "@/components/admin/OperatorWorkflow";
 
@@ -219,7 +219,7 @@ export default function Admin() {
       </header>
 
       <main className="container-tight space-y-8 py-8">
-        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} onManage={handleManageBooking} />
+        <DailyControlDashboard bookings={bookings} isOwner={isOwner} onManage={handleManageBooking} />
 
         <Card className="p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -396,7 +396,7 @@ function BookingCard({
             <span className="font-mono text-sm font-bold text-primary">{b.booking_reference ?? `#${b.id.slice(0, 8)}`}</span>
             {statusChip(b.status)}
             {paymentChip(b.payment_status)}
-            <WorkflowStageBadge b={b as never} />
+            <WorkflowStageBadge b={b} />
           </div>
           <div className="mt-1 text-sm font-semibold text-primary">{b.name} · {b.phone}</div>
           <div className="mt-0.5 text-xs text-muted-foreground">
@@ -414,24 +414,35 @@ function BookingCard({
           {b.status === "confirmed" && (
             <Button size="sm" onClick={() => onStatus(b.id, "completed")}>Mark complete</Button>
           )}
-          <a className="inline-flex h-9 items-center gap-1 rounded-md bg-whatsapp px-3 text-xs font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
-             target="_blank" rel="noopener noreferrer"
-             href={whatsappLink(`Hi ${b.name}, regarding your FreshDream booking ${b.booking_reference ?? ""} on ${fmtDate(b.starts_at)} at ${fmtTime(b.starts_at)}…`)}>
-            <MessageCircle className="h-3 w-3" /> WhatsApp
-          </a>
+          {(() => {
+            const href = customerWhatsAppLink(
+              b.whatsapp || b.phone,
+              `Hi ${b.name}, regarding your FreshDream booking ${b.booking_reference ?? ""} on ${fmtDate(b.starts_at)} at ${fmtTime(b.starts_at)}…`,
+            );
+            return href ? (
+              <a className="inline-flex h-9 items-center gap-1 rounded-md bg-whatsapp px-3 text-xs font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
+                 target="_blank" rel="noopener noreferrer" href={href}>
+                <MessageCircle className="h-3 w-3" /> WhatsApp
+              </a>
+            ) : (
+              <span title="No customer WhatsApp/phone number on this booking." className="inline-flex h-9 cursor-not-allowed items-center gap-1 rounded-md bg-muted px-3 text-xs font-semibold text-muted-foreground">
+                <MessageCircle className="h-3 w-3" /> WhatsApp (no number)
+              </span>
+            );
+          })()}
           <Button size="sm" variant="ghost" onClick={() => setOpen((v) => !v)}>{open ? "Hide" : "Manage"}</Button>
         </div>
       </div>
 
       <div className="mt-3 border-t border-border pt-3">
         <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Quick WhatsApp messages</p>
-        <QuickWhatsAppActions b={b as never} />
+        <QuickWhatsAppActions b={b} />
       </div>
 
       {open && (
         <div className="mt-4 grid gap-3 border-t border-border pt-4 md:grid-cols-2 lg:grid-cols-3">
           <div className="md:col-span-2 lg:col-span-3">
-            <CompletionChecklist b={b as never} />
+            <CompletionChecklist b={b} />
           </div>
           <Field label="Estimated price (KES)">
             <Input type="number" min={0} defaultValue={b.estimated_price_kes ?? ""} onBlur={(e) => {
