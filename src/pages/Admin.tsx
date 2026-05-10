@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Loader2, LogOut, MessageCircle, Trash2, CalendarPlus } from "lucide-react";
 import { whatsappLink } from "@/config/site";
 import DailyControlDashboard from "@/components/admin/DailyControlDashboard";
+import { QuickWhatsAppActions, CompletionChecklist, WorkflowStageBadge } from "@/components/admin/OperatorWorkflow";
 
 type BookingStatus = "requested" | "confirmed" | "declined" | "completed" | "cancelled";
 type PaymentStatus = "unpaid" | "deposit_paid" | "paid" | "cancelled";
@@ -395,6 +396,7 @@ function BookingCard({
             <span className="font-mono text-sm font-bold text-primary">{b.booking_reference ?? `#${b.id.slice(0, 8)}`}</span>
             {statusChip(b.status)}
             {paymentChip(b.payment_status)}
+            <WorkflowStageBadge b={b as never} />
           </div>
           <div className="mt-1 text-sm font-semibold text-primary">{b.name} · {b.phone}</div>
           <div className="mt-0.5 text-xs text-muted-foreground">
@@ -421,8 +423,16 @@ function BookingCard({
         </div>
       </div>
 
+      <div className="mt-3 border-t border-border pt-3">
+        <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Quick WhatsApp messages</p>
+        <QuickWhatsAppActions b={b as never} />
+      </div>
+
       {open && (
         <div className="mt-4 grid gap-3 border-t border-border pt-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="md:col-span-2 lg:col-span-3">
+            <CompletionChecklist b={b as never} />
+          </div>
           <Field label="Estimated price (KES)">
             <Input type="number" min={0} defaultValue={b.estimated_price_kes ?? ""} onBlur={(e) => {
               const v = e.target.value.trim() === "" ? null : Number(e.target.value);
