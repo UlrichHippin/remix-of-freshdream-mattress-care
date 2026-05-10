@@ -33,8 +33,14 @@ export default function Technology() {
             <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-primary shadow-soft">
               <Wrench className="h-3.5 w-3.5 text-accent" /> Powered by JIMMY BX7 Pro Max Technology
             </span>
-            <div className="mt-5">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href="/#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                Request a Booking <ArrowRight className="h-4 w-4" />
+              </a>
+              <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
             </div>
           </div>
           <div className="lg:col-span-5">
@@ -245,7 +251,13 @@ export default function Technology() {
               Booking request only. Final price, Location Fee and time slot are confirmed on WhatsApp before your visit.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <a
+                href="/#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                Request a Booking <ArrowRight className="h-5 w-5" />
+              </a>
+              <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
               <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"

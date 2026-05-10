@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Bed, Sofa, Sparkles, Info, Check, ArrowRight, ShieldCheck, MessageCircle, Tag, Building2, Repeat, Droplets, BadgeCheck, MapPin } from "lucide-react";
+// ArrowRight already imported
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import IllustrationFrame from "@/components/IllustrationFrame";
@@ -48,7 +49,13 @@ export default function Pricing() {
               Final quotes depend on size, condition, location and urgency.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" />
+              <a
+                href="/#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                Request a Booking <ArrowRight className="h-4 w-4" />
+              </a>
+              <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
               <Link
                 to="/contact"
                 className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
