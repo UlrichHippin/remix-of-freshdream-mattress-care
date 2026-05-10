@@ -363,7 +363,7 @@ export default function Home() {
             >
               See full pricing <ArrowRight className="h-4 w-4" />
             </Link>
-            <WhatsAppButton size="lg" label="Book on WhatsApp" className="animate-soft-pulse" />
+            <WhatsAppButton size="lg" label="Request a Booking" className="animate-soft-pulse" />
           </div>
         </div>
       </section>
