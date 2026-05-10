@@ -372,6 +372,23 @@ export default function BookingSection() {
                 Your WhatsApp message includes your FreshDream booking reference. We reply on WhatsApp to confirm availability, final price, location fee and time slot.
               </p>
 
+              <div className="rounded-xl border border-border bg-surface p-4 text-xs text-muted-foreground space-y-2">
+                <p>
+                  <strong className="text-primary">Photos:</strong>{" "}
+                  Send photos of the mattress on WhatsApp after submitting — it helps us confirm the price.
+                </p>
+                <p>
+                  <strong className="text-primary">Booking reference:</strong>{" "}
+                  Generated immediately on submit. Your booking is confirmed only after FreshDream 
+                  replies on WhatsApp with availability and final price.
+                </p>
+                <p>
+                  <strong className="text-primary">Payment:</strong>{" "}
+                  Instructions shared only after confirmation. M-PESA and cash accepted. 
+                  <span className="font-semibold text-destructive"> Do not pay before your booking is confirmed.</span>
+                </p>
+              </div>
+
               {savedRef && savedWaUrl && (
                 <div className="rounded-xl border-2 border-whatsapp/40 bg-whatsapp/5 p-4">
                   <p className="text-sm font-semibold text-primary">
