@@ -27,8 +27,11 @@ export default function Footer() {
               <BadgeCheck className="h-4 w-4 shrink-0 text-accent" /> M-PESA accepted
             </li>
             <li>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent-soft px-3 py-1.5 text-xs font-bold text-primary shadow-soft">
-                <BadgeCheck className="h-3.5 w-3.5 text-accent" /> Lipa na M-PESA: <span className="text-accent">Payment after service completion to confirmed company number</span>
+              <span className="inline-flex items-start gap-2 rounded-2xl border border-accent/40 bg-accent-soft px-3 py-2 text-xs font-medium text-primary shadow-soft">
+                <BadgeCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
+                <span>
+                  Payment instructions are shared after booking confirmation. Please only use the official FreshDream payment details provided together with your booking reference.
+                </span>
               </span>
             </li>
             <li className="flex items-center gap-2">

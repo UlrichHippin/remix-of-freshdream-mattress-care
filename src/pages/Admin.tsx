@@ -390,7 +390,7 @@ function BookingCard({
           </Field>
           <Field label="Payment received at">
             <Input type="datetime-local" defaultValue={b.payment_received_at ? toDtLocal(b.payment_received_at) : ""} onBlur={(e) => {
-              const v = e.target.value ? new Date(e.target.value).toISOString() : null;
+              const v = fromNairobiLocalToISO(e.target.value);
               if (v !== b.payment_received_at) onPatch(b.id, { payment_received_at: v });
             }} />
             {b.payment_received_at && <p className="mt-1 text-[11px] text-muted-foreground">{fmtDateTime(b.payment_received_at)}</p>}
@@ -398,14 +398,14 @@ function BookingCard({
 
           <Field label="Job started at">
             <Input type="datetime-local" defaultValue={b.job_started_at ? toDtLocal(b.job_started_at) : ""} onBlur={(e) => {
-              const v = e.target.value ? new Date(e.target.value).toISOString() : null;
+              const v = fromNairobiLocalToISO(e.target.value);
               if (v !== b.job_started_at) onPatch(b.id, { job_started_at: v });
             }} />
             {b.job_started_at && <p className="mt-1 text-[11px] text-muted-foreground">{fmtDateTime(b.job_started_at)}</p>}
           </Field>
           <Field label="Job completed at">
             <Input type="datetime-local" defaultValue={b.job_completed_at ? toDtLocal(b.job_completed_at) : ""} onBlur={(e) => {
-              const v = e.target.value ? new Date(e.target.value).toISOString() : null;
+              const v = fromNairobiLocalToISO(e.target.value);
               if (v !== b.job_completed_at) onPatch(b.id, { job_completed_at: v });
             }} />
             {b.job_completed_at && <p className="mt-1 text-[11px] text-muted-foreground">{fmtDateTime(b.job_completed_at)}</p>}
