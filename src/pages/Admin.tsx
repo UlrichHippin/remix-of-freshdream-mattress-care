@@ -131,11 +131,42 @@ export default function Admin() {
     setLoading(false);
   }
   useEffect(() => { if (isAdmin) load(); }, [isAdmin]);
-  useEffect(() => {
+  async function loadStaff() {
     if (!isOwner) return;
-    supabase.from("staff_members").select("user_id, role, created_at").order("created_at", { ascending: true })
-      .then(({ data }) => { if (data) setStaffList(data as { user_id: string; role: StaffRole; created_at: string }[]); });
-  }, [isOwner]);
+    setStaffLoading(true);
+    const { data, error } = await supabase.functions.invoke("list-staff");
+    setStaffLoading(false);
+    if (error) { toast.error(error.message); return; }
+    if (data?.staff) setStaffList(data.staff);
+  }
+  useEffect(() => { loadStaff(); }, [isOwner]);
+
+  async function createOperator() {
+    const email = newOpEmail.trim();
+    if (!email) return toast.error("E-Mail erforderlich.");
+    if (newOpMode === "password" && newOpPassword.length < 8) return toast.error("Passwort min. 8 Zeichen.");
+    setCreatingOp(true);
+    const { data, error } = await supabase.functions.invoke("create-operator", {
+      body: { email, mode: newOpMode, password: newOpMode === "password" ? newOpPassword : undefined },
+    });
+    setCreatingOp(false);
+    if (error) { toast.error(error.message); return; }
+    if (data?.error) { toast.error(data.error); return; }
+    toast.success(newOpMode === "invite" ? "Einladung gesendet." : "Operator angelegt.");
+    setNewOpEmail(""); setNewOpPassword("");
+    loadStaff();
+  }
+
+  async function removeOperator(user_id: string) {
+    if (!confirm("Zugang wirklich entfernen?")) return;
+    const { data, error } = await supabase.functions.invoke("update-staff-role", {
+      body: { user_id, action: "remove" },
+    });
+    if (error) { toast.error(error.message); return; }
+    if (data?.error) { toast.error(data.error); return; }
+    toast.success("Zugang entfernt.");
+    loadStaff();
+  }
 
   async function patchBooking(id: string, patch: Partial<Booking>) {
     const { error } = await supabase.from("bookings").update(patch as never).eq("id", id);
