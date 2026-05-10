@@ -134,13 +134,13 @@ export default function BookingSection() {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Request a Booking</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Send a Booking Request</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use the booking form to send your mattress hygiene cleaning request. Sofa and rug cleaning is available on request — please send photos on WhatsApp.
+              Use the form to send your mattress hygiene request. Sofa and upholstery care is available on request — please share photos on WhatsApp so we can review accurately.
             </p>
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
-              <span>Send your location pin on WhatsApp so we can confirm the exact location fee before booking.</span>
+              <span>Share your location pin on WhatsApp so we can confirm the exact location fee with your booking reference.</span>
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
