@@ -47,17 +47,18 @@ const EMPTY: FormValues = {
 function buildMessage(v: z.output<typeof schema>) {
   const serviceLabel =
     SERVICE_OPTIONS.find((s) => s.value === v.service)?.label ?? v.service;
-  return [
+  const lines = [
     `Hello, I'd like a quote from FreshDream.`,
     `Name: ${v.name}`,
     `WhatsApp/Phone: ${v.phone}`,
     `Location: ${v.area}`,
     `Service type: ${serviceLabel}`,
-    v.item ? `Mattress size / item: ${v.item}` : `Mattress size / item:`,
-    v.preferred ? `Preferred date/time: ${v.preferred}` : `Preferred date/time:`,
-    v.photos ? `Photos: ${v.photos}` : `Photos attached: yes/no`,
-    v.note ? `Note: ${v.note}` : null,
-  ].filter(Boolean).join("\n");
+  ];
+  if (v.item) lines.push(`Mattress size / item: ${v.item}`);
+  if (v.preferred) lines.push(`Preferred date/time: ${v.preferred}`);
+  if (v.photos) lines.push(`Photos: ${v.photos}`);
+  if (v.note) lines.push(`Note: ${v.note}`);
+  return lines.join("\n");
 }
 
 const COPY_TEMPLATE = `Hello, I'd like a quote for mattress cleaning.
@@ -141,7 +142,7 @@ export default function Contact() {
               Quick inquiry or message us on WhatsApp.
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Quick inquiry only. For an official booking with a FreshDream booking reference, please use the booking request form. Send your details, photos and preferred time and we'll reply with a realistic quote.
+              Send your details, photos and preferred time and we'll reply with a realistic quote.
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
@@ -151,12 +152,6 @@ export default function Contact() {
                 Request Official Booking
               </a>
               <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
-              <a
-                href="#booking-form"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
-              >
-                Send inquiry form
-              </a>
             </div>
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
               {trustNotes.map((n) => (
@@ -207,7 +202,7 @@ export default function Contact() {
                 <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Quick inquiry</p>
                 <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Tell us the basics.</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Quick inquiry only — this does not create an official booking. For an official booking with a FreshDream booking reference, please <a href="/#book" className="font-semibold text-primary underline">use the booking request form</a>.
+                  Not an official booking — for a booking reference, use the form on the home page.
                 </p>
 
                 <form onSubmit={onSubmit} noValidate className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -276,7 +271,7 @@ export default function Contact() {
                     <Input
                       value={values.photos}
                       onChange={(e) => set("photos", e.target.value)}
-                      placeholder="Paste a Google Drive / image link, or attach on WhatsApp"
+                      placeholder="Send photos directly on WhatsApp after submitting — we'll ask if needed"
                       inputMode="url"
                       maxLength={300}
                     />
