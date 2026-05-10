@@ -80,7 +80,7 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
     const message =
-      `Hello FreshDream Mattress Care, I would like to book a service.\n\n` +
+      `Hello FreshDream Mattress Care, I would like to request a booking.\n\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
