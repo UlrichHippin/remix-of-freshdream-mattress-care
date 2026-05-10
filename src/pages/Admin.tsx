@@ -178,7 +178,12 @@ export default function Admin() {
     <div className="min-h-screen bg-surface">
       <header className="border-b border-border bg-background">
         <div className="container-tight flex h-16 items-center justify-between">
-          <h1 className="text-lg font-bold text-primary">Admin · FreshDream</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-lg font-bold text-primary">Admin · FreshDream</h1>
+            <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${isOwner ? "bg-primary text-primary-foreground" : "bg-accent-soft text-accent"}`}>
+              Role: {isOwner ? "Owner" : "Operator"}
+            </span>
+          </div>
           <Button variant="outline" size="sm" onClick={signOut}><LogOut className="mr-2 h-4 w-4" />Sign out</Button>
         </div>
       </header>
