@@ -372,7 +372,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Time-slot booking temporarily hidden — WhatsApp booking only for now */}
+      {/* Quick inquiry only — official booking is handled by BookingSection. */}
     </PageLayout>
   );
 }
