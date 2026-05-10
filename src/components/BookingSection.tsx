@@ -105,12 +105,12 @@ export default function BookingSection() {
       <div className="container-tight">
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow justify-center"><Send className="h-3.5 w-3.5" /> Booking</p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Book Your Cleaning</span></h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl"><span className="text-gradient-brand">Request Your FreshDream Booking</span></h2>
           <p className="mt-3 text-muted-foreground">
-            Choose your package and send us your request in just a few steps.
+            Send your mattress and upholstery details — we'll review and confirm before any payment.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Booking request only. Before your visit, we confirm everything on WhatsApp: final price, Location Fee, available time slot, service expectation and M-PESA/cash payment option.
+            Request only. We review every booking, confirm availability manually and reply on WhatsApp with your FreshDream booking reference, final price, location fee and time slot. Payment instructions are shared only after confirmation.
           </p>
         </div>
 
