@@ -423,8 +423,16 @@ function BookingCard({
         </div>
       </div>
 
+      <div className="mt-3 border-t border-border pt-3">
+        <p className="mb-1.5 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">Quick WhatsApp messages</p>
+        <QuickWhatsAppActions b={b as never} />
+      </div>
+
       {open && (
         <div className="mt-4 grid gap-3 border-t border-border pt-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="md:col-span-2 lg:col-span-3">
+            <CompletionChecklist b={b as never} />
+          </div>
           <Field label="Estimated price (KES)">
             <Input type="number" min={0} defaultValue={b.estimated_price_kes ?? ""} onBlur={(e) => {
               const v = e.target.value.trim() === "" ? null : Number(e.target.value);
