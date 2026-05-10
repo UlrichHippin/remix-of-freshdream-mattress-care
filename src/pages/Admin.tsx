@@ -77,9 +77,13 @@ export default function Admin() {
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) { navigate("/admin/login", { replace: true }); return; }
-      const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", session.user.id);
-      const admin = (roles || []).some((r) => r.role === "admin");
-      setIsAdmin(admin);
+      const { data: staff } = await supabase
+        .from("staff_members" as never)
+        .select("role")
+        .eq("user_id", session.user.id)
+        .maybeSingle();
+      const role = (staff as { role?: StaffRole } | null)?.role ?? null;
+      setStaffRole(role);
       setChecking(false);
     })();
   }, [navigate]);
