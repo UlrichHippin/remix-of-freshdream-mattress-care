@@ -475,7 +475,7 @@ function BookingCard({
           </div>
 
           <div className="md:col-span-2 lg:col-span-3 flex flex-wrap gap-2">
-            {b.status !== "cancelled" && <Button size="sm" variant="outline" onClick={() => onStatus(b.id, "cancelled")}>Cancel booking</Button>}
+            {isOwner && b.status !== "cancelled" && <Button size="sm" variant="outline" onClick={() => onStatus(b.id, "cancelled")}>Cancel booking</Button>}
             <span className="ml-auto text-[11px] text-muted-foreground">Created {fmtDateTime(b.created_at)}</span>
           </div>
         </div>
