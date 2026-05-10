@@ -214,7 +214,7 @@ export default function Admin() {
       </header>
 
       <main className="container-tight space-y-8 py-8">
-        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} />
+        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} onManage={handleManageBooking} />
 
         <Card className="p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
