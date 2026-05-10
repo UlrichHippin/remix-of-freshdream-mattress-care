@@ -124,14 +124,27 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Assign admin role
+    // Assign legacy admin role (idempotent)
     const { error: roleErr } = await supabase
       .from("user_roles")
-      .insert({ user_id: userId, role: "admin" });
+      .upsert({ user_id: userId, role: "admin" }, { onConflict: "user_id,role" });
 
     if (roleErr) {
       if (createdNow) await supabase.auth.admin.deleteUser(userId);
       return new Response(JSON.stringify({ error: roleErr.message }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 500,
+      });
+    }
+
+    // Assign owner staff role (the source of truth used by the Admin dashboard)
+    const { error: staffErr } = await supabase
+      .from("staff_members")
+      .upsert({ user_id: userId, role: "owner" }, { onConflict: "user_id" });
+
+    if (staffErr) {
+      if (createdNow) await supabase.auth.admin.deleteUser(userId);
+      return new Response(JSON.stringify({ error: staffErr.message }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 500,
       });

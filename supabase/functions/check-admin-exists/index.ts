@@ -16,14 +16,27 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
 
-    const { count, error } = await supabase
-      .from("user_roles")
+    // Primary check: at least one staff_members owner exists
+    const { count: ownerCount, error: ownerErr } = await supabase
+      .from("staff_members")
       .select("*", { count: "exact", head: true })
-      .eq("role", "admin");
+      .eq("role", "owner");
 
-    if (error) throw error;
+    if (ownerErr) throw ownerErr;
 
-    return new Response(JSON.stringify({ exists: (count ?? 0) > 0 }), {
+    let exists = (ownerCount ?? 0) > 0;
+
+    // Legacy fallback: check user_roles admin
+    if (!exists) {
+      const { count: adminCount, error: adminErr } = await supabase
+        .from("user_roles")
+        .select("*", { count: "exact", head: true })
+        .eq("role", "admin");
+      if (adminErr) throw adminErr;
+      exists = (adminCount ?? 0) > 0;
+    }
+
+    return new Response(JSON.stringify({ exists }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
