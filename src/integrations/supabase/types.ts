@@ -218,6 +218,24 @@ export type Database = {
         }
         Relationships: []
       }
+      staff_members: {
+        Row: {
+          created_at: string
+          role: Database["public"]["Enums"]["staff_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          role: Database["public"]["Enums"]["staff_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          role?: Database["public"]["Enums"]["staff_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -276,6 +294,9 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_operator: { Args: { _uid: string }; Returns: boolean }
+      is_owner: { Args: { _uid: string }; Returns: boolean }
+      is_staff: { Args: { _uid: string }; Returns: boolean }
       next_booking_reference: { Args: { _for_date: string }; Returns: string }
     }
     Enums: {
@@ -294,6 +315,7 @@ export type Database = {
         | "emergency"
         | "upholstery"
         | "other"
+      staff_role: "owner" | "operator"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -438,6 +460,7 @@ export const Constants = {
         "upholstery",
         "other",
       ],
+      staff_role: ["owner", "operator"],
     },
   },
 } as const
