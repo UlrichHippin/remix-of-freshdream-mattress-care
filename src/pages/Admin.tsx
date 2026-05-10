@@ -313,8 +313,9 @@ export default function Admin() {
         </Card>
         )}
 
+        {isOwner && (
         <Card className="p-6">
-          <h2 className="text-lg font-bold text-primary">Recent audit log</h2>
+          <h2 className="text-lg font-bold text-primary">Recent audit log (owner only)</h2>
           <p className="text-xs text-muted-foreground">Latest 50 admin changes (status, price, payment, receiver, worker, completion).</p>
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-xs">
@@ -336,6 +337,7 @@ export default function Admin() {
             </table>
           </div>
         </Card>
+        )}
       </main>
     </div>
   );
