@@ -87,12 +87,10 @@ export default function Home() {
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#book"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking on WhatsApp
+                <MessageCircle className="h-5 w-5" /> Request a Booking
               </a>
               <Link
                 to="/pricing"
@@ -101,6 +99,13 @@ export default function Home() {
                 See Prices <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
+
+            <p className="mt-2 text-xs text-muted-foreground">
+              Or for quick questions:{" "}
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-whatsapp underline-offset-2 hover:underline">
+                Ask on WhatsApp
+              </a>
+            </p>
 
             <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
