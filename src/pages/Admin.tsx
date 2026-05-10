@@ -349,14 +349,19 @@ function BookingCard({
   onPatch,
   onStatus,
   onPayment,
+  defaultOpen = false,
+  highlighted = false,
 }: {
   b: Booking;
   isOwner: boolean;
   onPatch: (id: string, patch: Partial<Booking>) => Promise<boolean>;
   onStatus: (id: string, s: BookingStatus) => void;
   onPayment: (id: string, s: PaymentStatus) => void;
+  defaultOpen?: boolean;
+  highlighted?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
+  useEffect(() => { if (defaultOpen) setOpen(true); }, [defaultOpen]);
 
   const statusChip = (s: BookingStatus) => {
     const map: Record<BookingStatus, string> = {
