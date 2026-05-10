@@ -5,8 +5,9 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
+
 import QuickQuote from "@/components/QuickQuote";
+import BookingSection from "@/components/BookingSection";
 
 
 import { whatsappLink } from "@/config/site";
@@ -86,12 +87,10 @@ export default function Home() {
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <a
-                href={whatsappLink()}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#book"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking on WhatsApp
+                <MessageCircle className="h-5 w-5" /> Request a Booking
               </a>
               <Link
                 to="/pricing"
@@ -100,6 +99,13 @@ export default function Home() {
                 See Prices <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
+
+            <p className="mt-2 text-xs text-muted-foreground">
+              Or for quick questions:{" "}
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-whatsapp underline-offset-2 hover:underline">
+                Ask on WhatsApp
+              </a>
+            </p>
 
             <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
@@ -240,14 +246,20 @@ export default function Home() {
             ))}
           </ol>
 
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
+            <a
+              href="#book"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+            </a>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              className="text-xs font-semibold text-whatsapp underline-offset-2 hover:underline"
             >
-              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+              Or ask a quick question on WhatsApp
             </a>
           </div>
         </div>
@@ -363,13 +375,21 @@ export default function Home() {
             >
               See full pricing <ArrowRight className="h-4 w-4" />
             </Link>
-            <WhatsAppButton size="lg" label="Request a Booking" className="animate-soft-pulse" />
+            <a
+              href="#book"
+              className="sheen inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse"
+            >
+              <MessageCircle className="h-4 w-4" /> Request a Booking
+            </a>
           </div>
         </div>
       </section>
 
       {/* 5. QUICK QUOTE */}
       <QuickQuote />
+
+      {/* 5b. OFFICIAL BOOKING REQUEST FORM */}
+      <BookingSection />
 
       {/* 6. COMPACT LOCATION FEE */}
       <section id="areas" className="section scroll-mt-24">
@@ -468,10 +488,15 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
             <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to request your FreshDream booking?</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Send your mattress size, area and preferred time on WhatsApp. We review every request, confirm availability manually and reply with your FreshDream booking reference, final price and location fee. Payment instructions are shared only after confirmation.
+              Use the official booking request form to send your mattress size, area and preferred time. We save your request, generate your FreshDream booking reference, and reply on WhatsApp to confirm availability, final price and location fee. Payment instructions are shared only after confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Request a Booking" />
+              <a
+                href="#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-5 w-5" /> Request a Booking
+              </a>
               <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"

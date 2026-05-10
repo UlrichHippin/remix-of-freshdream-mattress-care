@@ -119,28 +119,33 @@ export default function BookingSection() {
       d.notes ? `Special notes: ${d.notes}` : null,
     ].filter(Boolean).join("\n");
 
-    // Save to Supabase BEFORE handing over to WhatsApp
-    const { data: inserted, error } = await supabase.from("bookings").insert({
-      name: d.name,
-      phone: d.phone,
-      whatsapp: d.phone,
-      area: d.location,
-      service: mapPackageToService(d.pkg, d.item),
-      details: composedDetails,
-      starts_at: startsAt.toISOString(),
-      ends_at: endsAt.toISOString(),
-    }).select("id").single();
+    // Save the booking request via secure RPC BEFORE handing over to WhatsApp
+    const { data: rpcData, error } = await supabase.rpc("create_booking_request", {
+      _name: d.name,
+      _phone: d.phone,
+      _whatsapp: d.phone,
+      _email: null,
+      _area: d.location,
+      _property_type: null,
+      _service: mapPackageToService(d.pkg, d.item),
+      _details: composedDetails,
+      _starts_at: startsAt.toISOString(),
+      _ends_at: endsAt.toISOString(),
+    });
 
-    if (error || !inserted) {
+    const row = Array.isArray(rpcData) ? rpcData[0] : rpcData;
+    const reference: string | undefined = row?.booking_reference;
+
+    if (error || !reference) {
       setSubmitting(false);
       toast.error("Could not save your request. Please try again or contact us on WhatsApp.");
       return;
     }
 
-    const refShort = inserted.id.slice(0, 8).toUpperCase();
+    const dateStr = format(d.date, "dd.MM.yyyy");
     const message =
-      `Hello FreshDream Mattress Care, I would like to request a booking.\n\n` +
-      `Request ref: ${refShort}\n` +
+      `Hello FreshDream Mattress Care, I would like to confirm my booking request.\n\n` +
+      `FreshDream booking reference: ${reference}\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
@@ -148,12 +153,16 @@ export default function BookingSection() {
       `Size: ${d.size}\n` +
       `Number of items: ${d.quantity}\n` +
       `Location / estate: ${d.location}\n` +
-      `Preferred date: ${format(d.date, "PPP")}\n` +
+      `Preferred date: ${dateStr}\n` +
       `Preferred time: ${d.time}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
-      (d.notes ? `Special notes: ${d.notes}\n` : "");
+      (d.notes ? `Special notes: ${d.notes}\n` : "") +
+      `\nPlease confirm availability, final price and payment details. Thank you.`;
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success(`Request saved (ref ${refShort}). Opening WhatsApp — we'll reply with your FreshDream booking reference.`);
+    toast.success(
+      `Request saved. Your FreshDream booking reference is ${reference}. Opening WhatsApp — please send the message so we can confirm.`,
+      { duration: 8000 }
+    );
     setTimeout(() => setSubmitting(false), 800);
   };
 
@@ -175,32 +184,32 @@ export default function BookingSection() {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {/* WhatsApp option */}
+          {/* Quick WhatsApp inquiry — not the official booking path */}
           <div className="card-soft flex flex-col p-6 sm:p-8">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-whatsapp/10 text-whatsapp">
               <MessageCircle className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Request on WhatsApp</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Quick WhatsApp Inquiry</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground">
-              Send your package, mattress or upholstery details, location and preferred date. We'll review and reply with your FreshDream booking reference.
+              Just have a question, want to send photos or check pricing? Ask us on WhatsApp. This is a quick chat — it does not create an official booking. For a confirmed booking, please use the form on the right.
             </p>
             <div className="mt-5">
-              <WhatsAppButton size="lg" label="Request on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
+              <WhatsAppButton size="lg" label="Ask on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
             </div>
           </div>
 
-          {/* Form option */}
+          {/* Official booking request form */}
           <div className="card-soft p-6 sm:p-8">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Send a Booking Request</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Official Booking Request Form</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use the form to send your mattress hygiene request. Sofa and upholstery care is available on request — please share photos on WhatsApp so we can review accurately.
+              Use this form to send an official booking request. We save your request, generate your FreshDream booking reference, and then open WhatsApp so we can confirm availability and final price.
             </p>
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
-              <span>Share your location pin on WhatsApp so we can confirm the exact location fee with your booking reference.</span>
+              <span>Share your location pin and photos on WhatsApp after submitting so we can confirm the exact location fee with your booking reference.</span>
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
@@ -293,7 +302,7 @@ export default function BookingSection() {
                         className={cn("justify-start text-left font-normal", !form.date && "text-muted-foreground")}
                         aria-invalid={!!errors.date}>
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {form.date ? format(form.date, "PPP") : <span>Pick a date</span>}
+                        {form.date ? format(form.date, "dd.MM.yyyy") : <span>Pick a date</span>}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
@@ -344,7 +353,7 @@ export default function BookingSection() {
                 className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                {submitting ? "Opening WhatsApp…" : "Send Booking Request on WhatsApp"}
+                {submitting ? "Saving request…" : "Send Official Booking Request"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
                 Your WhatsApp message includes your package, mattress size, location and preferred day/time — just press send. We reply with your FreshDream booking reference once reviewed.

@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      audit_log: {
+        Row: {
+          action: string
+          booking_id: string | null
+          created_at: string
+          field: string | null
+          id: string
+          new_value: string | null
+          old_value: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          booking_id?: string | null
+          created_at?: string
+          field?: string | null
+          id?: string
+          new_value?: string | null
+          old_value?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          booking_id?: string | null
+          created_at?: string
+          field?: string | null
+          id?: string
+          new_value?: string | null
+          old_value?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       availability_rules: {
         Row: {
           end_minute: number
@@ -88,15 +121,30 @@ export type Database = {
       }
       bookings: {
         Row: {
+          after_photo_url: string | null
+          amount_paid_kes: number | null
           area: string
+          assigned_worker: string | null
+          before_photo_url: string | null
+          booking_reference: string | null
           created_at: string
+          customer_confirmation_note: string | null
           details: string | null
           email: string | null
           ends_at: string
           estimated_price_kes: number | null
           final_price_kes: number | null
           id: string
+          internal_notes: string | null
+          job_completed_at: string | null
+          job_started_at: string | null
+          mpesa_receipt_code: string | null
           name: string
+          payment_method: string | null
+          payment_notes: string | null
+          payment_received_at: string | null
+          payment_receiver: string | null
+          payment_status: Database["public"]["Enums"]["payment_status"]
           phone: string
           property_type: string | null
           service: Database["public"]["Enums"]["service_type"]
@@ -105,15 +153,30 @@ export type Database = {
           whatsapp: string | null
         }
         Insert: {
+          after_photo_url?: string | null
+          amount_paid_kes?: number | null
           area: string
+          assigned_worker?: string | null
+          before_photo_url?: string | null
+          booking_reference?: string | null
           created_at?: string
+          customer_confirmation_note?: string | null
           details?: string | null
           email?: string | null
           ends_at: string
           estimated_price_kes?: number | null
           final_price_kes?: number | null
           id?: string
+          internal_notes?: string | null
+          job_completed_at?: string | null
+          job_started_at?: string | null
+          mpesa_receipt_code?: string | null
           name: string
+          payment_method?: string | null
+          payment_notes?: string | null
+          payment_received_at?: string | null
+          payment_receiver?: string | null
+          payment_status?: Database["public"]["Enums"]["payment_status"]
           phone: string
           property_type?: string | null
           service: Database["public"]["Enums"]["service_type"]
@@ -122,15 +185,30 @@ export type Database = {
           whatsapp?: string | null
         }
         Update: {
+          after_photo_url?: string | null
+          amount_paid_kes?: number | null
           area?: string
+          assigned_worker?: string | null
+          before_photo_url?: string | null
+          booking_reference?: string | null
           created_at?: string
+          customer_confirmation_note?: string | null
           details?: string | null
           email?: string | null
           ends_at?: string
           estimated_price_kes?: number | null
           final_price_kes?: number | null
           id?: string
+          internal_notes?: string | null
+          job_completed_at?: string | null
+          job_started_at?: string | null
+          mpesa_receipt_code?: string | null
           name?: string
+          payment_method?: string | null
+          payment_notes?: string | null
+          payment_received_at?: string | null
+          payment_receiver?: string | null
+          payment_status?: Database["public"]["Enums"]["payment_status"]
           phone?: string
           property_type?: string | null
           service?: Database["public"]["Enums"]["service_type"]
@@ -166,6 +244,24 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      create_booking_request: {
+        Args: {
+          _area: string
+          _details: string
+          _email: string
+          _ends_at: string
+          _name: string
+          _phone: string
+          _property_type: string
+          _service: string
+          _starts_at: string
+          _whatsapp: string
+        }
+        Returns: {
+          booking_reference: string
+          id: string
+        }[]
+      }
       get_busy_slots: {
         Args: { _from: string; _to: string }
         Returns: {
@@ -180,6 +276,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      next_booking_reference: { Args: { _for_date: string }; Returns: string }
     }
     Enums: {
       app_role: "admin" | "user"
@@ -189,6 +286,7 @@ export type Database = {
         | "declined"
         | "completed"
         | "cancelled"
+      payment_status: "unpaid" | "deposit_paid" | "paid" | "cancelled"
       service_type:
         | "turnover"
         | "deep_clean"
@@ -331,6 +429,7 @@ export const Constants = {
         "completed",
         "cancelled",
       ],
+      payment_status: ["unpaid", "deposit_paid", "paid", "cancelled"],
       service_type: [
         "turnover",
         "deep_clean",
