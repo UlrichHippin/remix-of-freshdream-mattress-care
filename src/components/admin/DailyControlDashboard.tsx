@@ -50,9 +50,10 @@ interface Booking {
 interface Props {
   bookings: Booking[];
   isOwner: boolean;
+  onManage?: (id: string) => void;
 }
 
-export default function DailyControlDashboard({ bookings, isOwner }: Props) {
+export default function DailyControlDashboard({ bookings, isOwner, onManage }: Props) {
   const [range, setRange] = useState<Range>("today");
   const [customDate, setCustomDate] = useState<string>(() => nairobiDateKey(new Date()));
 
