@@ -330,7 +330,7 @@ export const freshSleepPackage = {
   ],
   whatsappMessage:
     "Hello, I would like to book the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300).\nLocation:\nMattress size:\nPreferred mattress cleaning package:",
-  cta: "Book Fresh Sleep Package on WhatsApp",
+  cta: "Ask about Fresh Sleep Package on WhatsApp",
 };
 
 export const pricingAddOns = [
@@ -374,7 +374,7 @@ export const openingOffer = {
     "First-time customers only. Limited launch period. Selected Nairobi areas. Location fee may apply unless waived by order value and service area. Final price may depend on mattress condition, location and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Opening Offer (Freshen Up). My location:\nMattress size:\nFirst-time customer: Yes",
-  cta: "Book Opening Offer on WhatsApp",
+  cta: "Ask about Opening Offer on WhatsApp",
 };
 
 // Airbnb Host Starter Package
@@ -403,7 +403,7 @@ export const hostStarter = {
     "Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
     "Hello, I would like to book the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:",
-  cta: "Book Host Package on WhatsApp",
+  cta: "Ask about Host Package on WhatsApp",
 };
 
 // Recurring Host Plans
@@ -435,7 +435,7 @@ export const reviewReferral = {
 
 // Trust points to display near pricing
 export const pricingTrustPoints = [
-  "WhatsApp booking",
+  "Official booking request form",
   "M-PESA accepted",
   "Based in Roysambu, Nairobi",
   "Airbnb-ready service",
