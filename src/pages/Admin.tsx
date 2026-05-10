@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -41,10 +40,18 @@ interface Booking {
 interface Block { id: string; starts_at: string; ends_at: string; reason: string | null; }
 interface AuditEntry { id: string; user_id: string | null; action: string; booking_id: string | null; field: string | null; old_value: string | null; new_value: string | null; created_at: string; }
 
-// European date helpers
-const fmtDate = (iso: string) => format(new Date(iso), "dd.MM.yyyy");
-const fmtDateTime = (iso: string) => format(new Date(iso), "dd.MM.yyyy, HH:mm");
-const fmtTime = (iso: string) => format(new Date(iso), "HH:mm");
+// Nairobi timezone helpers — admin views always show Africa/Nairobi time, regardless of browser TZ
+const NBO = "Africa/Nairobi";
+const _date = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, day: "2-digit", month: "2-digit", year: "numeric" });
+const _dateTime = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+const _time = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, hour: "2-digit", minute: "2-digit", hour12: false });
+const fmtDate = (iso: string) => _date.format(new Date(iso)).replace(/\//g, ".");
+const fmtDateTime = (iso: string) => {
+  const parts = _dateTime.formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  return `${get("day")}.${get("month")}.${get("year")}, ${get("hour")}:${get("minute")} Nairobi time`;
+};
+const fmtTime = (iso: string) => _time.format(new Date(iso));
 
 type BookingFilter = "all" | BookingStatus | "unpaid" | "deposit_paid" | "paid" | "payment_cancelled";
 
@@ -108,8 +115,8 @@ export default function Admin() {
   async function addBlock() {
     if (!blockStart || !blockEnd) return toast.error("Pick start and end");
     const { error } = await supabase.from("blocked_periods").insert({
-      starts_at: new Date(blockStart).toISOString(),
-      ends_at: new Date(blockEnd).toISOString(),
+      starts_at: fromNairobiLocalToISO(blockStart)!,
+      ends_at: fromNairobiLocalToISO(blockEnd)!,
       reason: blockReason || null,
     });
     if (error) return toast.error(error.message);
@@ -460,9 +467,21 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-// Convert ISO timestamp to value usable by <input type="datetime-local"> in local time
+// Nairobi is fixed UTC+3 (no DST). Treat datetime-local input as Nairobi wall time.
 function toDtLocal(iso: string): string {
-  const d = new Date(iso);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Nairobi",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hour12: false,
+  }).formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "00";
+  return `${get("year")}-${get("month")}-${get("day")}T${get("hour")}:${get("minute")}`;
+}
+
+// Interpret a "YYYY-MM-DDTHH:mm" value entered by an admin as Nairobi (UTC+3) wall time.
+function fromNairobiLocalToISO(value: string): string | null {
+  if (!value) return null;
+  // Append "+03:00" so the Date constructor anchors it to Nairobi time, not browser local.
+  const d = new Date(`${value}:00+03:00`);
+  return isNaN(d.getTime()) ? null : d.toISOString();
 }

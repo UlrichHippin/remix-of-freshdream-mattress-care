@@ -129,8 +129,8 @@ export default function Contact() {
 
   return (
     <PageLayout
-      title="Request a Quote — FreshDream Mattress Care"
-      description="Send a short request or message us on WhatsApp. We reply with a realistic quote and the next available slot. Mattress hygiene cleaning in Nairobi. Sofa and upholstery requests are available on request via WhatsApp."
+      title="Quick Inquiry — FreshDream Mattress Care"
+      description="Send a quick inquiry or message us on WhatsApp. For an official booking with a FreshDream booking reference, please use the booking request form on the home page."
     >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
@@ -138,19 +138,24 @@ export default function Contact() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> Contact & booking</p>
             <h1 className="mt-4 text-4xl font-bold text-primary sm:text-5xl">
-              Request a quote or book on WhatsApp.
+              Quick inquiry or message us on WhatsApp.
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Send your details, photos and preferred time. We'll reply with a realistic quote and
-              the next available slot.
+              Quick inquiry only. For an official booking with a FreshDream booking reference, please use the booking request form. Send your details, photos and preferred time and we'll reply with a realistic quote.
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Message on WhatsApp" />
+              <a
+                href="/#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                Request Official Booking
+              </a>
+              <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
               <a
                 href="#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
               >
-                Submit the form
+                Send inquiry form
               </a>
             </div>
             <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">
@@ -199,10 +204,10 @@ export default function Contact() {
               </div>
             ) : (
               <>
-                <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Short form</p>
+                <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Quick inquiry</p>
                 <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Tell us the basics.</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Just the essentials — we'll handle the rest on WhatsApp.
+                  Quick inquiry only — this does not create an official booking. For an official booking with a FreshDream booking reference, please <a href="/#book" className="font-semibold text-primary underline">use the booking request form</a>.
                 </p>
 
                 <form onSubmit={onSubmit} noValidate className="mt-6 grid gap-4 sm:grid-cols-2">

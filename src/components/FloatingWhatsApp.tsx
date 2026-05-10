@@ -7,7 +7,8 @@ export default function FloatingWhatsApp() {
       href={whatsappLink()}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
+      aria-label="Quick WhatsApp inquiry"
+      title="Quick WhatsApp inquiry — for an official booking, use the booking request form"
       className="group fixed bottom-5 right-5 z-50 hidden h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-lift transition-transform hover:scale-110 hover:bg-whatsapp-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp md:grid"
     >
       <span
@@ -21,7 +22,7 @@ export default function FloatingWhatsApp() {
         aria-hidden="true"
       />
       <MessageCircle className="relative h-6 w-6 transition-transform group-hover:rotate-[-8deg]" />
-      <span className="sr-only">Chat on WhatsApp</span>
+      <span className="sr-only">Quick WhatsApp inquiry</span>
     </a>
   );
 }

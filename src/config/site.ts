@@ -29,7 +29,7 @@ export const site = {
     "Results depend on stain age, depth, fabric and mattress condition. Some older or deeper stains may improve but not disappear completely.",
 };
 
-export const defaultWhatsAppMessage = `Hello FreshDream, I would like to request a booking for mattress / upholstery care. Here is my location pin and a photo:`;
+export const defaultWhatsAppMessage = `Hello FreshDream, I have a quick inquiry about mattress / upholstery care. (For an official booking with a FreshDream booking reference, please use the booking request form on the website.)`;
 
 export function whatsappLink(message: string = defaultWhatsAppMessage) {
   const text = encodeURIComponent(message).slice(0, 1800);

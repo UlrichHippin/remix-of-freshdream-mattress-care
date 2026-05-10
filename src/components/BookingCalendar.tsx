@@ -1,3 +1,5 @@
+// Legacy component — do not use for official booking flow.
+// Official booking flow is BookingSection + create_booking_request RPC.
 import { useEffect, useMemo, useState } from "react";
 import { format, addDays, startOfDay, isSameDay, isBefore } from "date-fns";
 import { CalendarIcon, Clock, Loader2, CheckCircle2 } from "lucide-react";

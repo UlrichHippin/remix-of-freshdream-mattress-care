@@ -356,7 +356,7 @@ export default function BookingSection() {
                 {submitting ? "Saving request…" : "Send Official Booking Request"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
-                Your WhatsApp message includes your package, mattress size, location and preferred day/time — just press send. We reply with your FreshDream booking reference once reviewed.
+                Your WhatsApp message includes your FreshDream booking reference. We reply on WhatsApp to confirm availability, final price, location fee and time slot.
               </p>
 
               <div className="rounded-xl border border-dashed border-border bg-surface p-4 text-xs text-muted-foreground">
