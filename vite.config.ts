@@ -5,10 +5,10 @@ import { componentTagger } from "lovable-tagger";
 
 // Public Supabase fallbacks (anon/publishable keys are safe to expose).
 // Used when build-time .env is unavailable (e.g. published deployments).
-const FALLBACK_SUPABASE_URL = "https://clwksxmpsmktvahfgalp.supabase.co";
+const FALLBACK_SUPABASE_URL = "https://zszpfgqtswqxmvhbitlv.supabase.co";
 const FALLBACK_SUPABASE_PUBLISHABLE_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNsd2tzeG1wc21rdHZhaGZnYWxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4MzUzNDQsImV4cCI6MjA5MzQxMTM0NH0.Grf_1oeY26Yo5trtmEems-HJm67oMEoNQLmzOtSQO10";
-const FALLBACK_SUPABASE_PROJECT_ID = "clwksxmpsmktvahfgalp";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpzenBmZ3F0c3dxeG12aGJpdGx2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDY5MDAsImV4cCI6MjA5Mzk4MjkwMH0.7ACSla6VGE2paQYO5y0aUa4eExeMIMdp2t3M338zF1k";
+const FALLBACK_SUPABASE_PROJECT_ID = "zszpfgqtswqxmvhbitlv";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {

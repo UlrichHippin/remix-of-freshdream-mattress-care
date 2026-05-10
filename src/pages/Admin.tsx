@@ -100,6 +100,14 @@ export default function Admin() {
   }
 
   useEffect(() => {
+    // Debug: confirm which Lovable Cloud / Supabase project the frontend talks to.
+    // Logs only the project ref (safe), never keys.
+    try {
+      const url = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+      const ref = url?.match(/^https?:\/\/([^.]+)\.supabase\.co/)?.[1] ?? "unknown";
+      // eslint-disable-next-line no-console
+      console.info(`[Admin] Supabase project ref: ${ref}`);
+    } catch { /* ignore */ }
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) { navigate("/admin/login", { replace: true }); return; }
