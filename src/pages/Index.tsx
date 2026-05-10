@@ -422,7 +422,7 @@ export default function Home() {
                   Airbnb Host?
                 </h2>
                 <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-                  Fast dry mattress refresh for turnovers — no wet-mattress waiting before the next guest.
+                  Reliable mattress and upholstery refresh between guests — guest-ready without long drying delays.
                 </p>
               </div>
             </div>
