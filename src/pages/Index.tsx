@@ -379,7 +379,7 @@ export default function Home() {
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Areas & Location Fees</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                Transparent location fees from Roysambu across Nairobi — confirmed after your WhatsApp location pin.
+                Transparent location fees from Roysambu across Nairobi — confirmed in writing with your booking reference before the visit.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
