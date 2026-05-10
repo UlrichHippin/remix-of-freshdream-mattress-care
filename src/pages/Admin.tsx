@@ -55,10 +55,15 @@ const fmtTime = (iso: string) => _time.format(new Date(iso));
 
 type BookingFilter = "all" | BookingStatus | "unpaid" | "deposit_paid" | "paid" | "payment_cancelled";
 
+type StaffRole = "owner" | "operator";
+
 export default function Admin() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [staffRole, setStaffRole] = useState<StaffRole | null>(null);
+  const isAdmin = staffRole !== null;
+  const isOwner = staffRole === "owner";
+  const isOperator = staffRole === "operator";
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [blocks, setBlocks] = useState<Block[]>([]);
   const [audit, setAudit] = useState<AuditEntry[]>([]);
