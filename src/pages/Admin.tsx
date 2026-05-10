@@ -228,6 +228,7 @@ export default function Admin() {
           )}
         </Card>
 
+        {isOwner && (
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Blocked periods</h2>
           <p className="text-sm text-muted-foreground">Mark days or specific hours as unavailable.</p>
@@ -253,6 +254,7 @@ export default function Admin() {
             {blocks.length === 0 && <p className="py-3 text-sm text-muted-foreground">No blocks.</p>}
           </ul>
         </Card>
+        )}
 
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Recent audit log</h2>
