@@ -177,7 +177,7 @@ export default function HostPackagesPreview() {
                 </div>
 
                 <div className="relative mt-7 flex flex-wrap gap-2.5">
-                  <WhatsAppButton className="flex-1" label="Get this package" />
+                  <WhatsAppButton className="flex-1" label="Ask about this package" />
                   <Link
                     to="/host-packages"
                     className="inline-flex h-11 items-center justify-center gap-1 rounded-full border-2 border-border px-4 text-sm font-semibold text-primary transition-colors hover:border-primary"

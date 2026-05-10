@@ -55,10 +55,15 @@ const fmtTime = (iso: string) => _time.format(new Date(iso));
 
 type BookingFilter = "all" | BookingStatus | "unpaid" | "deposit_paid" | "paid" | "payment_cancelled";
 
+type StaffRole = "owner" | "operator";
+
 export default function Admin() {
   const navigate = useNavigate();
   const [checking, setChecking] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [staffRole, setStaffRole] = useState<StaffRole | null>(null);
+  const isAdmin = staffRole !== null;
+  const isOwner = staffRole === "owner";
+  const isOperator = staffRole === "operator";
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [blocks, setBlocks] = useState<Block[]>([]);
   const [audit, setAudit] = useState<AuditEntry[]>([]);
@@ -72,9 +77,13 @@ export default function Admin() {
     (async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) { navigate("/admin/login", { replace: true }); return; }
-      const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", session.user.id);
-      const admin = (roles || []).some((r) => r.role === "admin");
-      setIsAdmin(admin);
+      const { data: staff } = await supabase
+        .from("staff_members" as never)
+        .select("role")
+        .eq("user_id", session.user.id)
+        .maybeSingle();
+      const role = (staff as { role?: StaffRole } | null)?.role ?? null;
+      setStaffRole(role);
       setChecking(false);
     })();
   }, [navigate]);
@@ -145,7 +154,7 @@ export default function Admin() {
         <div>
           <h1 className="text-2xl font-bold text-primary">No admin access</h1>
           <p className="mt-2 max-w-md text-muted-foreground">
-            Your account is signed in but does not have admin role. Ask the site owner to grant access.
+            Your account is signed in but does not have an owner or operator role. Ask the site owner to grant access.
           </p>
           <Button variant="outline" className="mt-6" onClick={signOut}><LogOut className="mr-2 h-4 w-4" />Sign out</Button>
         </div>
@@ -169,7 +178,12 @@ export default function Admin() {
     <div className="min-h-screen bg-surface">
       <header className="border-b border-border bg-background">
         <div className="container-tight flex h-16 items-center justify-between">
-          <h1 className="text-lg font-bold text-primary">Admin · FreshDream</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-lg font-bold text-primary">Admin · FreshDream</h1>
+            <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${isOwner ? "bg-primary text-primary-foreground" : "bg-accent-soft text-accent"}`}>
+              Role: {isOwner ? "Owner" : "Operator"}
+            </span>
+          </div>
           <Button variant="outline" size="sm" onClick={signOut}><LogOut className="mr-2 h-4 w-4" />Sign out</Button>
         </div>
       </header>
@@ -207,13 +221,14 @@ export default function Admin() {
           {loading ? <Loader2 className="mt-4 h-5 w-5 animate-spin" /> : (
             <div className="mt-5 space-y-4">
               {filtered.map((b) => (
-                <BookingCard key={b.id} b={b} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus} />
+                <BookingCard key={b.id} b={b} isOwner={isOwner} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus} />
               ))}
               {filtered.length === 0 && <p className="py-6 text-center text-sm text-muted-foreground">No bookings match this filter.</p>}
             </div>
           )}
         </Card>
 
+        {isOwner && (
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Blocked periods</h2>
           <p className="text-sm text-muted-foreground">Mark days or specific hours as unavailable.</p>
@@ -239,6 +254,7 @@ export default function Admin() {
             {blocks.length === 0 && <p className="py-3 text-sm text-muted-foreground">No blocks.</p>}
           </ul>
         </Card>
+        )}
 
         <Card className="p-6">
           <h2 className="text-lg font-bold text-primary">Recent audit log</h2>
@@ -270,11 +286,13 @@ export default function Admin() {
 
 function BookingCard({
   b,
+  isOwner,
   onPatch,
   onStatus,
   onPayment,
 }: {
   b: Booking;
+  isOwner: boolean;
   onPatch: (id: string, patch: Partial<Booking>) => Promise<boolean>;
   onStatus: (id: string, s: BookingStatus) => void;
   onPayment: (id: string, s: PaymentStatus) => void;
@@ -457,7 +475,7 @@ function BookingCard({
           </div>
 
           <div className="md:col-span-2 lg:col-span-3 flex flex-wrap gap-2">
-            {b.status !== "cancelled" && <Button size="sm" variant="outline" onClick={() => onStatus(b.id, "cancelled")}>Cancel booking</Button>}
+            {isOwner && b.status !== "cancelled" && <Button size="sm" variant="outline" onClick={() => onStatus(b.id, "cancelled")}>Cancel booking</Button>}
             <span className="ml-auto text-[11px] text-muted-foreground">Created {fmtDateTime(b.created_at)}</span>
           </div>
         </div>
