@@ -353,7 +353,7 @@ export default function Home() {
 
           <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
             <BadgeCheck className="h-4 w-4 text-accent" />
-            M-PESA &amp; Cash Accepted · Receipts on request
+            Payment instructions shared after booking confirmation · M-PESA &amp; Cash · Receipts on request
           </p>
 
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
