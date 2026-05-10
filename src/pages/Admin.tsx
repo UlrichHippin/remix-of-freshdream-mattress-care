@@ -102,6 +102,11 @@ export default function Admin() {
     setLoading(false);
   }
   useEffect(() => { if (isAdmin) load(); }, [isAdmin]);
+  useEffect(() => {
+    if (!isOwner) return;
+    supabase.from("staff_members").select("user_id, role, created_at").order("created_at", { ascending: true })
+      .then(({ data }) => { if (data) setStaffList(data as { user_id: string; role: StaffRole; created_at: string }[]); });
+  }, [isOwner]);
 
   async function patchBooking(id: string, patch: Partial<Booking>) {
     const { error } = await supabase.from("bookings").update(patch as never).eq("id", id);
@@ -254,6 +259,34 @@ export default function Admin() {
             ))}
             {blocks.length === 0 && <p className="py-3 text-sm text-muted-foreground">No blocks.</p>}
           </ul>
+        </Card>
+        )}
+
+        {isOwner && (
+        <Card className="p-6">
+          <h2 className="text-lg font-bold text-primary">Staff access (owner only)</h2>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Leah / operator accounts must be added to <code>staff_members</code> with role <strong>operator</strong>. Do not give operator accounts owner access. Only the owner may cancel bookings, manage blocked periods, change customer/scheduling fields or modify roles. Booking references are immutable after creation.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead className="text-left uppercase text-muted-foreground">
+                <tr><th className="py-2 pr-3">User ID</th><th className="py-2 pr-3">Role</th><th className="py-2 pr-3">Added</th></tr>
+              </thead>
+              <tbody>
+                {staffList.map((s) => (
+                  <tr key={s.user_id} className="border-t border-border">
+                    <td className="py-2 pr-3 font-mono">{s.user_id}</td>
+                    <td className="py-2 pr-3">{s.role}</td>
+                    <td className="py-2 pr-3">{fmtDateTime(s.created_at)}</td>
+                  </tr>
+                ))}
+                {staffList.length === 0 && (
+                  <tr><td colSpan={3} className="py-3 text-muted-foreground">No staff members loaded.</td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
         </Card>
         )}
 
