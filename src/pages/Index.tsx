@@ -375,7 +375,12 @@ export default function Home() {
             >
               See full pricing <ArrowRight className="h-4 w-4" />
             </Link>
-            <WhatsAppButton size="lg" label="Request a Booking" className="animate-soft-pulse" />
+            <a
+              href="#book"
+              className="sheen inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse"
+            >
+              <MessageCircle className="h-4 w-4" /> Request a Booking
+            </a>
           </div>
         </div>
       </section>
