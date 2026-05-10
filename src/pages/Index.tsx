@@ -247,7 +247,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
             >
-              <MessageCircle className="h-4 w-4" /> Start on WhatsApp
+              <MessageCircle className="h-4 w-4" /> Send a Booking Request
             </a>
           </div>
         </div>
