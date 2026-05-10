@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import QuickQuote from "@/components/QuickQuote";
+import BookingSection from "@/components/BookingSection";
 
 
 import { whatsappLink } from "@/config/site";
