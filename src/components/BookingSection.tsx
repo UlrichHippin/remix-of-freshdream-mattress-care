@@ -120,12 +120,12 @@ export default function BookingSection() {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-whatsapp/10 text-whatsapp">
               <MessageCircle className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Book on WhatsApp</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Request on WhatsApp</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground">
-              Send us your package, location, and preferred date on WhatsApp for a quick response.
+              Send your package, mattress or upholstery details, location and preferred date. We'll review and reply with your FreshDream booking reference.
             </p>
             <div className="mt-5">
-              <WhatsAppButton size="lg" label="Book on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
+              <WhatsAppButton size="lg" label="Request on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
             </div>
           </div>
 
