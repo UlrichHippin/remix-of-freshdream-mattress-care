@@ -98,7 +98,7 @@ export default function BookingSection() {
   };
 
   const quickWaMessage =
-    "Hello, I would like to book a cleaning service.\n\nPackage:\nMattress size:\nNumber of mattresses:\nLocation pin:\nPreferred date:\nAdd Sleep Area Dust Refresh? Yes/No:\nPhotos:";
+    "Hello FreshDream, I would like to request a booking.\n\nPackage:\nMattress size:\nNumber of mattresses:\nLocation pin:\nPreferred date:\nAdd Sleep Area Dust Refresh? Yes/No:\nPhotos:";
 
   return (
     <section id="book" className="section bg-surface">
