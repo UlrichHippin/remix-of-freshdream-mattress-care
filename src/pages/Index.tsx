@@ -388,6 +388,9 @@ export default function Home() {
       {/* 5. QUICK QUOTE */}
       <QuickQuote />
 
+      {/* 5b. OFFICIAL BOOKING REQUEST FORM */}
+      <BookingSection />
+
       {/* 6. COMPACT LOCATION FEE */}
       <section id="areas" className="section scroll-mt-24">
         <div className="container-tight">
