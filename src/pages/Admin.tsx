@@ -396,6 +396,7 @@ function BookingCard({
             <span className="font-mono text-sm font-bold text-primary">{b.booking_reference ?? `#${b.id.slice(0, 8)}`}</span>
             {statusChip(b.status)}
             {paymentChip(b.payment_status)}
+            <WorkflowStageBadge b={b as never} />
           </div>
           <div className="mt-1 text-sm font-semibold text-primary">{b.name} · {b.phone}</div>
           <div className="mt-0.5 text-xs text-muted-foreground">
