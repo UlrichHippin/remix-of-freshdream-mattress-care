@@ -1,7 +1,7 @@
 import {
-  ArrowRight, Clock4, ShieldCheck, Wrench, MapPin,
-  Sparkles, BadgeCheck, Zap, Droplets,
-  MessageCircle, BedDouble, Star, Check, Wind, Activity, Flame,
+  ArrowRight, ShieldCheck, MapPin,
+  Sparkles, BadgeCheck, Droplets,
+  MessageCircle, BedDouble, Star, Check, Wind,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
@@ -9,17 +9,11 @@ import PageLayout from "@/components/PageLayout";
 import QuickQuote from "@/components/QuickQuote";
 import BookingSection from "@/components/BookingSection";
 
-
 import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 import jimmyEquipmentProof from "@/assets/jimmy/hero-jimmy-bed.webp";
-import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.webp";
-import techHeatedAir from "@/assets/jimmy/tech-heated-air.webp";
-import techUvc from "@/assets/jimmy/tech-uvc.webp";
-import techTapping from "@/assets/jimmy/tech-tapping-brushroll.webp";
-import techOverview from "@/assets/jimmy/tech-overview.webp";
 
 import { locationFee } from "@/data/content";
 
