@@ -245,60 +245,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. COMPACT OPENING OFFER / PRICING TEASER */}
-      <section id="packages" className="section bg-surface">
-        <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Sparkles className="h-3.5 w-3.5" /> Opening Offer</p>
-            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
-              <span className="text-gradient-brand">Simple, Honest Pricing</span>
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-6 grid max-w-4xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border-2 border-accent/40 bg-accent-soft/30 p-5 shadow-soft">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                <Star className="h-3 w-3" /> Opening Offer · First-time
-              </p>
-              <p className="mt-3 text-lg font-extrabold text-primary nums">from KES 1,999</p>
-              <p className="mt-1 text-xs font-semibold text-primary/80">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Discounted Freshen Up for first-time customers. Same dry process — vacuum, UV-C, warm-air freshness.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-                <BadgeCheck className="h-3 w-3" /> Regular Freshen Up
-              </p>
-              <p className="mt-3 text-lg font-extrabold text-primary nums">from KES 2,500</p>
-              <p className="mt-1 text-xs font-semibold text-primary/80">Single 2,500 · Double 3,000 · Queen 3,500 · King 4,000</p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Standard rates for all mattress sizes. Sleep Area Dust Refresh +KES 300.
-              </p>
-            </div>
-          </div>
-
-          <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
-            <BadgeCheck className="h-4 w-4 text-accent" />
-            Payment instructions shared after booking confirmation · M-PESA &amp; Cash · Receipts on request
-          </p>
-
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              to="/pricing"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              See full pricing <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#book"
-              className="sheen inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse"
-            >
-              <MessageCircle className="h-4 w-4" /> Request a Booking
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* 5. QUICK QUOTE */}
       <QuickQuote />
