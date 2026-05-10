@@ -124,85 +124,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. JIMMY TECHNOLOGY IMAGE CARDS */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-              Why FreshDream Uses JIMMY BX7 Pro Max Technology
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Professional dry mattress hygiene equipment — combining heated air, UV-C support, smart dust detection, ultrasonic mite-control support and dry suction.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                img: techSmartDust,
-                t: "Smart Dust Detection",
-                d: "The LED display helps show where more dust is present and when the surface is cleaner.",
-              },
-              {
-                img: techHeatedAir,
-                t: "65°C Heated Air",
-                d: "Graphene heated air supports a fresh, dry sleeping feel without soaking the mattress.",
-              },
-              {
-                img: techUvc,
-                t: "UV-C Hygiene Support",
-                d: "UV-C technology supports surface hygiene as part of the dry refresh process.",
-              },
-              {
-                img: techTapping,
-                t: "Tapping Brushroll + Dry Suction",
-                d: "The composite brushroll helps loosen fine dust, hair and particles before suction removes them.",
-              },
-              {
-                img: techOverview,
-                t: "Ultrasonic Mite Control Support",
-                d: "Ultrasonic technology supports mite-control as part of the combined dry hygiene system.",
-              },
-            ].map((it) => (
-              <div key={it.t} className="card-soft overflow-hidden p-0">
-                <div className="aspect-square w-full bg-white/80 p-3 flex items-center justify-center">
-                  <img
-                    src={it.img}
-                    alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-bold text-primary">{it.t}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:hidden">
-            700W · Up to 16 kPa · 65°C Heat · UV-C · Smart Sensor
-          </p>
-          <p className="mx-auto mt-6 hidden max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:block">
-            700W Power · Up to 16 kPa Suction · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
-          </p>
-
-          <p className="mx-auto mt-3 max-w-3xl text-center text-[11px] text-muted-foreground">
-            Equipment images and technical claims are based on manufacturer information and lab conditions.
-          </p>
-
-          <div className="mt-6 flex justify-center">
-            <Link
-              to="/technology"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              See the Technology <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 2. TECHNOLOGY TEASER */}
+      <div className="text-center py-6 text-sm text-muted-foreground">
+        Powered by JIMMY BX7 Pro Max — heated air, UV-C, smart dust detection.{" "}
+        <Link to="/technology" className="font-semibold text-primary hover:underline">See the Technology →</Link>
+      </div>
 
       {/* 3. HOW IT WORKS — real 4-step process */}
       <section id="how-it-works" className="section bg-surface scroll-mt-24">
