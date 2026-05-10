@@ -68,7 +68,12 @@ export default function Admin() {
   const isOperator = staffRole === "operator";
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [blocks, setBlocks] = useState<Block[]>([]);
-  const [staffList, setStaffList] = useState<{ user_id: string; role: StaffRole; created_at: string }[]>([]);
+  const [staffList, setStaffList] = useState<{ user_id: string; role: StaffRole; created_at: string; email: string | null }[]>([]);
+  const [staffLoading, setStaffLoading] = useState(false);
+  const [newOpEmail, setNewOpEmail] = useState("");
+  const [newOpMode, setNewOpMode] = useState<"password" | "invite">("password");
+  const [newOpPassword, setNewOpPassword] = useState("");
+  const [creatingOp, setCreatingOp] = useState(false);
   const [audit, setAudit] = useState<AuditEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<BookingFilter>("requested");
