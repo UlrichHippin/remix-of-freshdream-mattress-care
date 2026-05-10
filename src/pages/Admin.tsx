@@ -328,25 +328,80 @@ export default function Admin() {
 
         {isOwner && (
         <Card className="p-6">
-          <h2 className="text-lg font-bold text-primary">Staff access (owner only)</h2>
+          <h2 className="text-lg font-bold text-primary">Staff Access / Operators (owner only)</h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            Leah / operator accounts must be added to <code>staff_members</code> with role <strong>operator</strong>. Do not give operator accounts owner access. Only the owner may cancel bookings, manage blocked periods, change customer/scheduling fields or modify roles. Booking references are immutable after creation.
+            Lege Operator-Zugänge an (z. B. für Leah). Nur der Owner kann Operatoren erstellen oder entfernen. Diese Form kann <strong>keine</strong> Owner-Konten erzeugen. Booking-Referenzen, Cancel- und Audit-Regeln bleiben unverändert.
           </p>
-          <div className="mt-4 overflow-x-auto">
+
+          <div className="mt-5 rounded-xl border border-border bg-surface p-4">
+            <h3 className="text-sm font-semibold text-primary">Neuen Operator hinzufügen</h3>
+            <div className="mt-3 grid gap-3 md:grid-cols-[1fr_auto_1fr_auto]">
+              <div>
+                <Label>Operator E-Mail</Label>
+                <Input type="email" value={newOpEmail} onChange={(e) => setNewOpEmail(e.target.value)} placeholder="leah@example.com" className="mt-1.5" />
+              </div>
+              <div>
+                <Label>Modus</Label>
+                <Select value={newOpMode} onValueChange={(v) => setNewOpMode(v as "password" | "invite")}>
+                  <SelectTrigger className="mt-1.5 w-[180px]"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="password">Temporäres Passwort</SelectItem>
+                    <SelectItem value="invite">Einladung per E-Mail</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label>Temporäres Passwort {newOpMode === "invite" && <span className="text-muted-foreground">(nicht benötigt)</span>}</Label>
+                <Input type="text" value={newOpPassword} onChange={(e) => setNewOpPassword(e.target.value)} disabled={newOpMode === "invite"} placeholder="min. 8 Zeichen" className="mt-1.5" />
+              </div>
+              <div className="flex items-end">
+                <Button onClick={createOperator} disabled={creatingOp}>
+                  {creatingOp && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  Operator anlegen
+                </Button>
+              </div>
+            </div>
+            <p className="mt-2 text-[11px] text-muted-foreground">
+              Rolle ist immer <strong>operator</strong>. Beim Modus „Temporäres Passwort" kann Leah sich sofort unter <code>/admin/login</code> anmelden. Bitte ändere das Passwort nach dem ersten Login.
+            </p>
+          </div>
+
+          <div className="mt-5 overflow-x-auto">
             <table className="w-full text-xs">
               <thead className="text-left uppercase text-muted-foreground">
-                <tr><th className="py-2 pr-3">User ID</th><th className="py-2 pr-3">Role</th><th className="py-2 pr-3">Added</th></tr>
+                <tr>
+                  <th className="py-2 pr-3">E-Mail</th>
+                  <th className="py-2 pr-3">Rolle</th>
+                  <th className="py-2 pr-3">Angelegt</th>
+                  <th className="py-2 pr-3">User ID</th>
+                  <th className="py-2 pr-3 text-right">Aktion</th>
+                </tr>
               </thead>
               <tbody>
-                {staffList.map((s) => (
+                {staffLoading && <tr><td colSpan={5} className="py-3"><Loader2 className="h-4 w-4 animate-spin" /></td></tr>}
+                {!staffLoading && staffList.map((s) => (
                   <tr key={s.user_id} className="border-t border-border">
-                    <td className="py-2 pr-3 font-mono">{s.user_id}</td>
-                    <td className="py-2 pr-3">{s.role}</td>
-                    <td className="py-2 pr-3">{fmtDateTime(s.created_at)}</td>
+                    <td className="py-2 pr-3">{s.email ?? <span className="text-muted-foreground">—</span>}</td>
+                    <td className="py-2 pr-3">
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${s.role === "owner" ? "bg-primary text-primary-foreground" : "bg-accent-soft text-accent"}`}>
+                        {s.role}
+                      </span>
+                    </td>
+                    <td className="py-2 pr-3 whitespace-nowrap">{fmtDateTime(s.created_at)}</td>
+                    <td className="py-2 pr-3 font-mono text-[10px]">{s.user_id.slice(0, 8)}…</td>
+                    <td className="py-2 pr-3 text-right">
+                      {s.role === "operator" ? (
+                        <Button size="sm" variant="ghost" onClick={() => removeOperator(s.user_id)}>
+                          <Trash2 className="mr-1 h-3 w-3" />Zugang entfernen
+                        </Button>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground">geschützt</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
-                {staffList.length === 0 && (
-                  <tr><td colSpan={3} className="py-3 text-muted-foreground">No staff members loaded.</td></tr>
+                {!staffLoading && staffList.length === 0 && (
+                  <tr><td colSpan={5} className="py-3 text-muted-foreground">Keine Staff-Mitglieder geladen.</td></tr>
                 )}
               </tbody>
             </table>
