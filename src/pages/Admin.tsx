@@ -110,14 +110,18 @@ export default function Admin() {
 
   async function load() {
     setLoading(true);
-    const [b1, b2, b3] = await Promise.all([
+    const [b1, b2] = await Promise.all([
       supabase.from("bookings").select("*").order("starts_at", { ascending: true }),
       supabase.from("blocked_periods").select("*").order("starts_at", { ascending: true }),
-      supabase.from("audit_log").select("*").order("created_at", { ascending: false }).limit(50),
     ]);
     if (b1.data) setBookings(b1.data as unknown as Booking[]);
     if (b2.data) setBlocks(b2.data as Block[]);
-    if (b3.data) setAudit(b3.data as AuditEntry[]);
+    if (isOwner) {
+      const { data: auditData } = await supabase.from("audit_log").select("*").order("created_at", { ascending: false }).limit(50);
+      if (auditData) setAudit(auditData as AuditEntry[]);
+    } else {
+      setAudit([]);
+    }
     setLoading(false);
   }
   useEffect(() => { if (isAdmin) load(); }, [isAdmin]);
