@@ -246,14 +246,20 @@ export default function Home() {
             ))}
           </ol>
 
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
+            <a
+              href="#book"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+            >
+              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+            </a>
             <a
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              className="text-xs font-semibold text-whatsapp underline-offset-2 hover:underline"
             >
-              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+              Or ask a quick question on WhatsApp
             </a>
           </div>
         </div>
