@@ -154,7 +154,7 @@ export default function Admin() {
         <div>
           <h1 className="text-2xl font-bold text-primary">No admin access</h1>
           <p className="mt-2 max-w-md text-muted-foreground">
-            Your account is signed in but does not have admin role. Ask the site owner to grant access.
+            Your account is signed in but does not have an owner or operator role. Ask the site owner to grant access.
           </p>
           <Button variant="outline" className="mt-6" onClick={signOut}><LogOut className="mr-2 h-4 w-4" />Sign out</Button>
         </div>
