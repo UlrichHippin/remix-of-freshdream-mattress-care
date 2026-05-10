@@ -17,6 +17,28 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+type ServiceEnum = "turnover" | "deep_clean" | "urine_odor" | "emergency" | "upholstery" | "other";
+
+function mapPackageToService(pkg: string, item: string): ServiceEnum {
+  const p = pkg.toLowerCase();
+  if (item.toLowerCase().includes("sofa") || item.toLowerCase().includes("upholstery")) return "upholstery";
+  if (p.includes("urine") || p.includes("odor") || p.includes("odour")) return "urine_odor";
+  if (p.includes("emergency") || p.includes("host support")) return "emergency";
+  if (p.includes("freshen") || p.includes("turnover") || p.includes("opening")) return "turnover";
+  if (p.includes("standard") || p.includes("intensive") || p.includes("deep")) return "deep_clean";
+  return "other";
+}
+
+// Map preferred time slot label to [startHour, endHour]
+function timeSlotToHours(time: string): [number, number] {
+  if (time.startsWith("Morning")) return [8, 11];
+  if (time.startsWith("Midday")) return [11, 14];
+  if (time.startsWith("Afternoon")) return [14, 17];
+  if (time.startsWith("Evening")) return [17, 19];
+  return [9, 17]; // Flexible
+}
 
 const PACKAGES = packageBookingLabels as readonly string[];
 
@@ -66,7 +88,7 @@ export default function BookingSection() {
   const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -79,8 +101,46 @@ export default function BookingSection() {
     setErrors({});
     setSubmitting(true);
     const d = result.data;
+
+    // Build starts_at / ends_at from the preferred date and time slot
+    const [sh, eh] = timeSlotToHours(d.time);
+    const startsAt = new Date(d.date);
+    startsAt.setHours(sh, 0, 0, 0);
+    const endsAt = new Date(d.date);
+    endsAt.setHours(eh, 0, 0, 0);
+
+    const composedDetails = [
+      `Package: ${d.pkg}`,
+      `Item: ${d.item}`,
+      `Size: ${d.size}`,
+      `Number of mattresses: ${d.quantity}`,
+      `Preferred time: ${d.time}`,
+      d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)` : null,
+      d.notes ? `Special notes: ${d.notes}` : null,
+    ].filter(Boolean).join("\n");
+
+    // Save to Supabase BEFORE handing over to WhatsApp
+    const { data: inserted, error } = await supabase.from("bookings").insert({
+      name: d.name,
+      phone: d.phone,
+      whatsapp: d.phone,
+      area: d.location,
+      service: mapPackageToService(d.pkg, d.item),
+      details: composedDetails,
+      starts_at: startsAt.toISOString(),
+      ends_at: endsAt.toISOString(),
+    }).select("id").single();
+
+    if (error || !inserted) {
+      setSubmitting(false);
+      toast.error("Could not save your request. Please try again or contact us on WhatsApp.");
+      return;
+    }
+
+    const refShort = inserted.id.slice(0, 8).toUpperCase();
     const message =
       `Hello FreshDream Mattress Care, I would like to request a booking.\n\n` +
+      `Request ref: ${refShort}\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
@@ -93,7 +153,7 @@ export default function BookingSection() {
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Special notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success("Opening WhatsApp to send your booking request — we'll reply with your FreshDream booking reference.");
+    toast.success(`Request saved (ref ${refShort}). Opening WhatsApp — we'll reply with your FreshDream booking reference.`);
     setTimeout(() => setSubmitting(false), 800);
   };
 
