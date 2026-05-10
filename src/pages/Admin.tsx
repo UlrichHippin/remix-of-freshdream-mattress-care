@@ -74,6 +74,24 @@ export default function Admin() {
   const [blockStart, setBlockStart] = useState("");
   const [blockEnd, setBlockEnd] = useState("");
   const [blockReason, setBlockReason] = useState("");
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [autoOpenId, setAutoOpenId] = useState<string | null>(null);
+
+  function handleManageBooking(id: string) {
+    // Ensure the booking is visible regardless of current filter
+    setFilter("all");
+    setAutoOpenId(id);
+    setHighlightedId(id);
+    // Wait for filter/render to apply, then scroll
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const el = document.getElementById(`booking-${id}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+        // Clear highlight after a few seconds
+        setTimeout(() => setHighlightedId((cur) => (cur === id ? null : cur)), 3500);
+      }, 60);
+    });
+  }
 
   useEffect(() => {
     (async () => {
