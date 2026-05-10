@@ -103,7 +103,7 @@ export default function Home() {
 
             <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
-              Based in Roysambu · Serving Nairobi · M-PESA accepted
+              Based in Roysambu · Serving Nairobi · Payment details shared after booking confirmation
             </p>
           </div>
 
