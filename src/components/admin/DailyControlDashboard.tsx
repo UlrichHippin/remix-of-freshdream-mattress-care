@@ -233,13 +233,25 @@ export default function DailyControlDashboard({ bookings, isOwner, onManage }: P
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <a
-                    target="_blank" rel="noopener noreferrer"
-                    href={whatsappLink(`Hi ${b.name}, regarding your FreshDream booking ${b.booking_reference ?? ""} on ${fmtDate(b.starts_at)} at ${fmtTime(b.starts_at)}…`)}
-                    className="inline-flex h-8 items-center gap-1 rounded-md bg-whatsapp px-2.5 text-[11px] font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
-                  >
-                    <MessageCircle className="h-3 w-3" /> WhatsApp
-                  </a>
+                  {(() => {
+                    const href = customerWhatsAppLink(
+                      b.whatsapp || b.phone,
+                      `Hi ${b.name}, regarding your FreshDream booking ${b.booking_reference ?? ""} on ${fmtDate(b.starts_at)} at ${fmtTime(b.starts_at)}…`,
+                    );
+                    return href ? (
+                      <a
+                        target="_blank" rel="noopener noreferrer"
+                        href={href}
+                        className="inline-flex h-8 items-center gap-1 rounded-md bg-whatsapp px-2.5 text-[11px] font-semibold text-whatsapp-foreground hover:bg-whatsapp-hover"
+                      >
+                        <MessageCircle className="h-3 w-3" /> WhatsApp
+                      </a>
+                    ) : (
+                      <span title="No customer WhatsApp/phone number on this booking." className="inline-flex h-8 cursor-not-allowed items-center gap-1 rounded-md bg-muted px-2.5 text-[11px] font-semibold text-muted-foreground">
+                        <MessageCircle className="h-3 w-3" /> WhatsApp (no number)
+                      </span>
+                    );
+                  })()}
                   <Button size="sm" variant="ghost" onClick={() => scrollToBooking(b.id)}>Manage</Button>
                 </div>
               </li>
