@@ -27,14 +27,20 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Server-side gate: only allow if no admin exists yet
-    const { count, error: countErr } = await supabase
+    // Server-side gate: block if either legacy admin OR new owner already exists
+    const { count: legacyCount, error: countErr } = await supabase
       .from("user_roles")
       .select("*", { count: "exact", head: true })
       .eq("role", "admin");
-
     if (countErr) throw countErr;
-    if ((count ?? 0) > 0) {
+
+    const { count: ownerCount, error: ownerErr } = await supabase
+      .from("staff_members")
+      .select("*", { count: "exact", head: true })
+      .eq("role", "owner");
+    if (ownerErr) throw ownerErr;
+
+    if ((legacyCount ?? 0) > 0 || (ownerCount ?? 0) > 0) {
       return new Response(
         JSON.stringify({ error: "Admin existiert bereits. Setup ist gesperrt." }),
         { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 403 },

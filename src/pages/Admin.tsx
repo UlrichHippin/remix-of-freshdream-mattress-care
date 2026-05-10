@@ -74,6 +74,24 @@ export default function Admin() {
   const [blockStart, setBlockStart] = useState("");
   const [blockEnd, setBlockEnd] = useState("");
   const [blockReason, setBlockReason] = useState("");
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+  const [autoOpenId, setAutoOpenId] = useState<string | null>(null);
+
+  function handleManageBooking(id: string) {
+    // Ensure the booking is visible regardless of current filter
+    setFilter("all");
+    setAutoOpenId(id);
+    setHighlightedId(id);
+    // Wait for filter/render to apply, then scroll
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        const el = document.getElementById(`booking-${id}`);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+        // Clear highlight after a few seconds
+        setTimeout(() => setHighlightedId((cur) => (cur === id ? null : cur)), 3500);
+      }, 60);
+    });
+  }
 
   useEffect(() => {
     (async () => {
@@ -196,7 +214,7 @@ export default function Admin() {
       </header>
 
       <main className="container-tight space-y-8 py-8">
-        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} />
+        <DailyControlDashboard bookings={bookings as never} isOwner={isOwner} onManage={handleManageBooking} />
 
         <Card className="p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
@@ -230,7 +248,9 @@ export default function Admin() {
           {loading ? <Loader2 className="mt-4 h-5 w-5 animate-spin" /> : (
             <div className="mt-5 space-y-4">
               {filtered.map((b) => (
-                <BookingCard key={b.id} b={b} isOwner={isOwner} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus} />
+                <BookingCard key={b.id} b={b} isOwner={isOwner} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus}
+                  defaultOpen={autoOpenId === b.id}
+                  highlighted={highlightedId === b.id} />
               ))}
               {filtered.length === 0 && <p className="py-6 text-center text-sm text-muted-foreground">No bookings match this filter.</p>}
             </div>
@@ -293,8 +313,9 @@ export default function Admin() {
         </Card>
         )}
 
+        {isOwner && (
         <Card className="p-6">
-          <h2 className="text-lg font-bold text-primary">Recent audit log</h2>
+          <h2 className="text-lg font-bold text-primary">Recent audit log (owner only)</h2>
           <p className="text-xs text-muted-foreground">Latest 50 admin changes (status, price, payment, receiver, worker, completion).</p>
           <div className="mt-3 overflow-x-auto">
             <table className="w-full text-xs">
@@ -316,6 +337,7 @@ export default function Admin() {
             </table>
           </div>
         </Card>
+        )}
       </main>
     </div>
   );
@@ -327,14 +349,19 @@ function BookingCard({
   onPatch,
   onStatus,
   onPayment,
+  defaultOpen = false,
+  highlighted = false,
 }: {
   b: Booking;
   isOwner: boolean;
   onPatch: (id: string, patch: Partial<Booking>) => Promise<boolean>;
   onStatus: (id: string, s: BookingStatus) => void;
   onPayment: (id: string, s: PaymentStatus) => void;
+  defaultOpen?: boolean;
+  highlighted?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
+  useEffect(() => { if (defaultOpen) setOpen(true); }, [defaultOpen]);
 
   const statusChip = (s: BookingStatus) => {
     const map: Record<BookingStatus, string> = {
@@ -357,7 +384,7 @@ function BookingCard({
   };
 
   return (
-    <div id={`booking-${b.id}`} className="rounded-xl border border-border bg-card p-4 shadow-soft scroll-mt-24 transition-shadow">
+    <div id={`booking-${b.id}`} className={`rounded-xl border bg-card p-4 shadow-soft scroll-mt-24 transition-all duration-300 ${highlighted ? "border-primary ring-2 ring-primary bg-primary-soft/30" : "border-border"}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
