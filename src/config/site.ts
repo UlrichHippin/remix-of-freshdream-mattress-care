@@ -35,3 +35,31 @@ export function whatsappLink(message: string = defaultWhatsAppMessage) {
   const text = encodeURIComponent(message).slice(0, 1800);
   return `https://wa.me/${site.whatsappNumber}?text=${text}`;
 }
+
+// Normalize a Kenyan phone/WhatsApp number for use in a wa.me link.
+// Returns null if the input cannot be normalized to a plausible KE number.
+export function normalizeKenyaPhone(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  // Strip spaces, plus signs, hyphens, brackets, dots
+  let n = String(raw).replace(/[\s+\-().]/g, "");
+  if (!n) return null;
+  if (!/^\d+$/.test(n)) return null;
+  if (n.startsWith("00")) n = n.slice(2);
+  if (n.startsWith("0")) n = "254" + n.slice(1);
+  else if (/^[71]\d{8}$/.test(n)) n = "254" + n;
+  if (!n.startsWith("254")) return null;
+  // Kenyan mobile/landline after 254 is 9 digits
+  if (n.length !== 12) return null;
+  return n;
+}
+
+// Build a wa.me link to the customer's number. Returns null if no usable number.
+export function customerWhatsAppLink(
+  phoneOrWhatsapp: string | null | undefined,
+  message: string,
+): string | null {
+  const num = normalizeKenyaPhone(phoneOrWhatsapp);
+  if (!num) return null;
+  const text = encodeURIComponent(message).slice(0, 1800);
+  return `https://wa.me/${num}?text=${text}`;
+}
