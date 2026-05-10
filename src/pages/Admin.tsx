@@ -248,7 +248,9 @@ export default function Admin() {
           {loading ? <Loader2 className="mt-4 h-5 w-5 animate-spin" /> : (
             <div className="mt-5 space-y-4">
               {filtered.map((b) => (
-                <BookingCard key={b.id} b={b} isOwner={isOwner} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus} />
+                <BookingCard key={b.id} b={b} isOwner={isOwner} onPatch={patchBooking} onStatus={setStatus} onPayment={setPaymentStatus}
+                  defaultOpen={autoOpenId === b.id}
+                  highlighted={highlightedId === b.id} />
               ))}
               {filtered.length === 0 && <p className="py-6 text-center text-sm text-muted-foreground">No bookings match this filter.</p>}
             </div>
