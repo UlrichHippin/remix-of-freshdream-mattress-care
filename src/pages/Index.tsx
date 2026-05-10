@@ -57,9 +57,9 @@ export default function Home() {
             <ul className="mt-4 flex flex-wrap gap-2">
               {[
                 "No wet mattress",
-                "Ready to use immediately",
-                "65°C heated air",
-                "Smart dust detection",
+                "Guest-ready quickly",
+                "Hospitality-aware",
+                "Booking reference for every job",
               ].map((b, i) => (
                 <li
                   key={b}
