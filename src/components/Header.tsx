@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link as RouterLink } from "react-router-dom";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
 import logoHorizontal from "@/assets/brand/logo-header.png";
