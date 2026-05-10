@@ -11,6 +11,8 @@ export interface WorkflowBooking {
   id: string;
   booking_reference: string | null;
   name: string;
+  phone: string;
+  whatsapp: string | null;
   area: string;
   service: string;
   starts_at: string;
