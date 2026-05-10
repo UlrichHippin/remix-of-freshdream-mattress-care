@@ -283,14 +283,22 @@ export default function QuickQuote() {
               </p>
 
               {ready ? (
-                <a
-                  href={whatsappLink(message)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-all hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
-                >
-                  <MessageCircle className="h-5 w-5" /> Continue on WhatsApp
-                </a>
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <a
+                    href={whatsappLink(message)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-all hover:bg-whatsapp-hover sm:w-auto"
+                  >
+                    <MessageCircle className="h-5 w-5" /> Send Quick Quote Inquiry
+                  </a>
+                  <a
+                    href="#book"
+                    className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-card transition-all hover:bg-primary/90 sm:w-auto"
+                  >
+                    Request Official Booking
+                  </a>
+                </div>
               ) : (
                 <button
                   type="button"
@@ -300,6 +308,9 @@ export default function QuickQuote() {
                   <MessageCircle className="h-5 w-5" /> Choose options first
                 </button>
               )}
+              <p className="mt-3 text-xs text-muted-foreground">
+                For an official booking with a FreshDream booking reference, please use the booking request form.
+              </p>
             </div>
           </div>
         </div>
