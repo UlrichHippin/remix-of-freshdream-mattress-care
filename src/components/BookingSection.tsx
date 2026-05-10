@@ -93,7 +93,7 @@ export default function BookingSection() {
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Special notes: ${d.notes}\n` : "");
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success("Opening WhatsApp to send your booking request…");
+    toast.success("Opening WhatsApp to send your booking request — we'll reply with your FreshDream booking reference.");
     setTimeout(() => setSubmitting(false), 800);
   };
 
