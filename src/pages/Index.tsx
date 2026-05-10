@@ -488,10 +488,15 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
             <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to request your FreshDream booking?</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Send your mattress size, area and preferred time on WhatsApp. We review every request, confirm availability manually and reply with your FreshDream booking reference, final price and location fee. Payment instructions are shared only after confirmation.
+              Use the official booking request form to send your mattress size, area and preferred time. We save your request, generate your FreshDream booking reference, and reply on WhatsApp to confirm availability, final price and location fee. Payment instructions are shared only after confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <WhatsAppButton size="lg" label="Request a Booking" />
+              <a
+                href="#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              >
+                <MessageCircle className="h-5 w-5" /> Request a Booking
+              </a>
               <Link
                 to="/pricing"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
