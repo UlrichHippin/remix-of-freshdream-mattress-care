@@ -384,7 +384,7 @@ function BookingCard({
   };
 
   return (
-    <div id={`booking-${b.id}`} className="rounded-xl border border-border bg-card p-4 shadow-soft scroll-mt-24 transition-shadow">
+    <div id={`booking-${b.id}`} className={`rounded-xl border bg-card p-4 shadow-soft scroll-mt-24 transition-all duration-300 ${highlighted ? "border-primary ring-2 ring-primary bg-primary-soft/30" : "border-border"}`}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
