@@ -216,7 +216,7 @@ export default function Home() {
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Simple WhatsApp booking, clear price confirmation and dry mattress refresh without long drying time.
+              Request-first booking. We review your request, confirm availability and share a FreshDream booking reference before your visit — no long drying wait after service.
             </p>
           </div>
 
