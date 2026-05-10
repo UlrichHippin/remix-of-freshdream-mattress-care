@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageCircle, AlertTriangle, ImageOff, Wallet, ClipboardCheck } from "lucide-react";
-import { whatsappLink } from "@/config/site";
+import { customerWhatsAppLink } from "@/config/site";
 
 const NBO = "Africa/Nairobi";
 const _date = new Intl.DateTimeFormat("en-GB", { timeZone: NBO, day: "2-digit", month: "2-digit", year: "numeric" });
