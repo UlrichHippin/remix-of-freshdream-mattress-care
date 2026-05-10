@@ -119,28 +119,33 @@ export default function BookingSection() {
       d.notes ? `Special notes: ${d.notes}` : null,
     ].filter(Boolean).join("\n");
 
-    // Save to Supabase BEFORE handing over to WhatsApp
-    const { data: inserted, error } = await supabase.from("bookings").insert({
-      name: d.name,
-      phone: d.phone,
-      whatsapp: d.phone,
-      area: d.location,
-      service: mapPackageToService(d.pkg, d.item),
-      details: composedDetails,
-      starts_at: startsAt.toISOString(),
-      ends_at: endsAt.toISOString(),
-    }).select("id").single();
+    // Save the booking request via secure RPC BEFORE handing over to WhatsApp
+    const { data: rpcData, error } = await supabase.rpc("create_booking_request", {
+      _name: d.name,
+      _phone: d.phone,
+      _whatsapp: d.phone,
+      _email: null,
+      _area: d.location,
+      _property_type: null,
+      _service: mapPackageToService(d.pkg, d.item),
+      _details: composedDetails,
+      _starts_at: startsAt.toISOString(),
+      _ends_at: endsAt.toISOString(),
+    });
 
-    if (error || !inserted) {
+    const row = Array.isArray(rpcData) ? rpcData[0] : rpcData;
+    const reference: string | undefined = row?.booking_reference;
+
+    if (error || !reference) {
       setSubmitting(false);
       toast.error("Could not save your request. Please try again or contact us on WhatsApp.");
       return;
     }
 
-    const refShort = inserted.id.slice(0, 8).toUpperCase();
+    const dateStr = format(d.date, "dd.MM.yyyy");
     const message =
-      `Hello FreshDream Mattress Care, I would like to request a booking.\n\n` +
-      `Request ref: ${refShort}\n` +
+      `Hello FreshDream Mattress Care, I would like to confirm my booking request.\n\n` +
+      `FreshDream booking reference: ${reference}\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
@@ -148,12 +153,16 @@ export default function BookingSection() {
       `Size: ${d.size}\n` +
       `Number of items: ${d.quantity}\n` +
       `Location / estate: ${d.location}\n` +
-      `Preferred date: ${format(d.date, "PPP")}\n` +
+      `Preferred date: ${dateStr}\n` +
       `Preferred time: ${d.time}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
-      (d.notes ? `Special notes: ${d.notes}\n` : "");
+      (d.notes ? `Special notes: ${d.notes}\n` : "") +
+      `\nPlease confirm availability, final price and payment details. Thank you.`;
     window.open(whatsappLink(message), "_blank", "noopener,noreferrer");
-    toast.success(`Request saved (ref ${refShort}). Opening WhatsApp — we'll reply with your FreshDream booking reference.`);
+    toast.success(
+      `Request saved. Your FreshDream booking reference is ${reference}. Opening WhatsApp — please send the message so we can confirm.`,
+      { duration: 8000 }
+    );
     setTimeout(() => setSubmitting(false), 800);
   };
 
