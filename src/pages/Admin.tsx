@@ -467,9 +467,21 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-// Convert ISO timestamp to value usable by <input type="datetime-local"> in local time
+// Nairobi is fixed UTC+3 (no DST). Treat datetime-local input as Nairobi wall time.
 function toDtLocal(iso: string): string {
-  const d = new Date(iso);
-  const pad = (n: number) => String(n).padStart(2, "0");
-  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Africa/Nairobi",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", hour12: false,
+  }).formatToParts(new Date(iso));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "00";
+  return `${get("year")}-${get("month")}-${get("day")}T${get("hour")}:${get("minute")}`;
+}
+
+// Interpret a "YYYY-MM-DDTHH:mm" value entered by an admin as Nairobi (UTC+3) wall time.
+function fromNairobiLocalToISO(value: string): string | null {
+  if (!value) return null;
+  // Append "+03:00" so the Date constructor anchors it to Nairobi time, not browser local.
+  const d = new Date(`${value}:00+03:00`);
+  return isNaN(d.getTime()) ? null : d.toISOString();
 }
