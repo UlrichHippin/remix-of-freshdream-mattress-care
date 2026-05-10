@@ -1,7 +1,7 @@
 import {
-  ArrowRight, Clock4, ShieldCheck, Wrench, MapPin,
-  Sparkles, BadgeCheck, Zap, Droplets,
-  MessageCircle, BedDouble, Star, Check, Wind, Activity, Flame,
+  ArrowRight, ShieldCheck, MapPin,
+  Sparkles, BadgeCheck, Droplets,
+  MessageCircle, BedDouble, Star, Check, Wind,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
@@ -9,17 +9,11 @@ import PageLayout from "@/components/PageLayout";
 import QuickQuote from "@/components/QuickQuote";
 import BookingSection from "@/components/BookingSection";
 
-
 import { whatsappLink } from "@/config/site";
 import { faqs } from "@/data/content";
 import heroBackground from "@/assets/brand/hero-background.webp";
 import logoMark from "@/assets/brand/logo-main.png";
 import jimmyEquipmentProof from "@/assets/jimmy/hero-jimmy-bed.webp";
-import techSmartDust from "@/assets/jimmy/tech-smart-dust-sensor.webp";
-import techHeatedAir from "@/assets/jimmy/tech-heated-air.webp";
-import techUvc from "@/assets/jimmy/tech-uvc.webp";
-import techTapping from "@/assets/jimmy/tech-tapping-brushroll.webp";
-import techOverview from "@/assets/jimmy/tech-overview.webp";
 
 import { locationFee } from "@/data/content";
 
@@ -85,27 +79,22 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#book"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" /> Request a Booking
               </a>
-              <Link
-                to="/pricing"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 text-base font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground sm:w-auto"
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-whatsapp underline-offset-2 hover:underline"
               >
-                See Prices <ArrowRight className="h-5 w-5" />
-              </Link>
-            </div>
-
-            <p className="mt-2 text-xs text-muted-foreground">
-              Or for quick questions:{" "}
-              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-whatsapp underline-offset-2 hover:underline">
-                Ask on WhatsApp
+                Quick question? Ask on WhatsApp
               </a>
-            </p>
+            </div>
 
             <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
@@ -135,85 +124,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. JIMMY TECHNOLOGY IMAGE CARDS */}
-      <section className="section">
-        <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Wrench className="h-3.5 w-3.5" /> Professional equipment</p>
-            <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">
-              Why FreshDream Uses JIMMY BX7 Pro Max Technology
-            </h2>
-            <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Professional dry mattress hygiene equipment — combining heated air, UV-C support, smart dust detection, ultrasonic mite-control support and dry suction.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                img: techSmartDust,
-                t: "Smart Dust Detection",
-                d: "The LED display helps show where more dust is present and when the surface is cleaner.",
-              },
-              {
-                img: techHeatedAir,
-                t: "65°C Heated Air",
-                d: "Graphene heated air supports a fresh, dry sleeping feel without soaking the mattress.",
-              },
-              {
-                img: techUvc,
-                t: "UV-C Hygiene Support",
-                d: "UV-C technology supports surface hygiene as part of the dry refresh process.",
-              },
-              {
-                img: techTapping,
-                t: "Tapping Brushroll + Dry Suction",
-                d: "The composite brushroll helps loosen fine dust, hair and particles before suction removes them.",
-              },
-              {
-                img: techOverview,
-                t: "Ultrasonic Mite Control Support",
-                d: "Ultrasonic technology supports mite-control as part of the combined dry hygiene system.",
-              },
-            ].map((it) => (
-              <div key={it.t} className="card-soft overflow-hidden p-0">
-                <div className="aspect-square w-full bg-white/80 p-3 flex items-center justify-center">
-                  <img
-                    src={it.img}
-                    alt={`${it.t} — JIMMY BX7 Pro Max manufacturer reference`}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-bold text-primary">{it.t}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{it.d}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mx-auto mt-6 max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:hidden">
-            700W · Up to 16 kPa · 65°C Heat · UV-C · Smart Sensor
-          </p>
-          <p className="mx-auto mt-6 hidden max-w-3xl text-center text-xs font-semibold uppercase tracking-wider text-primary/80 sm:block">
-            700W Power · Up to 16 kPa Suction · 245mm Cleaning Path · 0.5L Dust Cup · MIF Filtration
-          </p>
-
-          <p className="mx-auto mt-3 max-w-3xl text-center text-[11px] text-muted-foreground">
-            Equipment images and technical claims are based on manufacturer information and lab conditions.
-          </p>
-
-          <div className="mt-6 flex justify-center">
-            <Link
-              to="/technology"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              See the Technology <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 2. TECHNOLOGY TEASER */}
+      <div className="text-center py-6 text-sm text-muted-foreground">
+        Powered by JIMMY BX7 Pro Max — heated air, UV-C, smart dust detection.{" "}
+        <Link to="/technology" className="font-semibold text-primary hover:underline">See the Technology →</Link>
+      </div>
 
       {/* 3. HOW IT WORKS — real 4-step process */}
       <section id="how-it-works" className="section bg-surface scroll-mt-24">
@@ -330,60 +245,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. COMPACT OPENING OFFER / PRICING TEASER */}
-      <section id="packages" className="section bg-surface">
-        <div className="container-tight">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow justify-center"><Sparkles className="h-3.5 w-3.5" /> Opening Offer</p>
-            <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
-              <span className="text-gradient-brand">Simple, Honest Pricing</span>
-            </h2>
-          </div>
-
-          <div className="mx-auto mt-6 grid max-w-4xl gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border-2 border-accent/40 bg-accent-soft/30 p-5 shadow-soft">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground">
-                <Star className="h-3 w-3" /> Opening Offer · First-time
-              </p>
-              <p className="mt-3 text-lg font-extrabold text-primary nums">from KES 1,999</p>
-              <p className="mt-1 text-xs font-semibold text-primary/80">Single 1,999 · Double 2,499 · Queen 2,999 · King 3,499</p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Discounted Freshen Up for first-time customers. Same dry process — vacuum, UV-C, warm-air freshness.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-                <BadgeCheck className="h-3 w-3" /> Regular Freshen Up
-              </p>
-              <p className="mt-3 text-lg font-extrabold text-primary nums">from KES 2,500</p>
-              <p className="mt-1 text-xs font-semibold text-primary/80">Single 2,500 · Double 3,000 · Queen 3,500 · King 4,000</p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Standard rates for all mattress sizes. Sleep Area Dust Refresh +KES 300.
-              </p>
-            </div>
-          </div>
-
-          <p className="mx-auto mt-4 flex max-w-3xl items-center justify-center gap-2 text-center text-sm font-semibold text-primary">
-            <BadgeCheck className="h-4 w-4 text-accent" />
-            Payment instructions shared after booking confirmation · M-PESA &amp; Cash · Receipts on request
-          </p>
-
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              to="/pricing"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
-            >
-              See full pricing <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#book"
-              className="sheen inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse"
-            >
-              <MessageCircle className="h-4 w-4" /> Request a Booking
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* 5. QUICK QUOTE */}
       <QuickQuote />
@@ -486,9 +347,9 @@ export default function Home() {
       <section className="section bg-surface">
         <div className="container-tight">
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
-            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to request your FreshDream booking?</h2>
+            <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready? Request your FreshDream booking now.</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Use the official booking request form to send your mattress size, area and preferred time. Your FreshDream booking reference is generated immediately when you submit the form, and your WhatsApp message includes that reference. Your booking is confirmed only after we reply on WhatsApp with availability, final price and time slot. Payment instructions are shared only after confirmation.
+              Your booking reference is generated instantly when you submit the form. We confirm availability, price and time slot on WhatsApp — payment details shared only after confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
