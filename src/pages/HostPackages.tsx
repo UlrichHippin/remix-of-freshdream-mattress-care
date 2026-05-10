@@ -203,8 +203,14 @@ export default function HostPackages() {
                 <div className="relative mt-6 border-t border-border pt-5">
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pricing</p>
                   <p className="mt-1 text-base font-bold text-primary">{p.pricing}</p>
-                  <div className="mt-4">
-                    <WhatsAppButton label="Request this package" message={packageMessage(p.name)} />
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      to="/contact"
+                      className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+                    >
+                      Request Quote
+                    </Link>
+                    <WhatsAppButton label="Request Quote on WhatsApp" message={packageMessage(p.name)} />
                   </div>
                 </div>
               </div>
@@ -270,7 +276,7 @@ export default function HostPackages() {
                 >
                   Open the quote form <ArrowRight className="h-4 w-4" />
                 </Link>
-                <WhatsAppButton size="lg" label="WhatsApp now" message={portfolioMessage} />
+                <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" message={portfolioMessage} />
               </div>
             </div>
             <div className="md:col-span-5">
@@ -307,7 +313,7 @@ export default function HostPackages() {
                 >
                   Request a portfolio quote
                 </Link>
-                <WhatsAppButton size="lg" label="WhatsApp now" message={portfolioMessage} />
+                <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" message={portfolioMessage} />
               </div>
             </div>
           </div>

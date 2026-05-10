@@ -98,6 +98,12 @@ export default function Pricing() {
                 <p className="mt-3 text-base text-muted-foreground">{openingOffer.text}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
+                    href="/#book"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+                  >
+                    Request Official Booking <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a
                     href={whatsappLink(openingOffer.whatsappMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -221,7 +227,13 @@ export default function Pricing() {
                 <li key={it} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><span>{it}</span></li>
               ))}
             </ul>
-            <div className="mt-5">
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href="/#book"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                Request Official Booking
+              </a>
               <a
                 href={whatsappLink(freshSleepPackage.whatsappMessage)}
                 target="_blank"
@@ -263,7 +275,13 @@ export default function Pricing() {
                 ))}
               </div>
 
-              <div className="mt-6">
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href="/#book"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
+                >
+                  Request Official Booking
+                </a>
                 <a
                   href={whatsappLink(hostStarter.whatsappMessage)}
                   target="_blank"
@@ -508,8 +526,14 @@ export default function Pricing() {
                 realistic price and an available slot.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <WhatsAppButton size="lg" label="WhatsApp now" />
-                <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary hover:bg-primary-foreground/90">
+                <a
+                  href="/#book"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft hover:bg-primary-foreground/90"
+                >
+                  Request Official Booking
+                </a>
+                <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
+                <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10">
                   Ask about host packages
                 </Link>
                 <Link to="/contact" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10">

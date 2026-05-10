@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <PageLayout
       title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Book FreshDream Mattress Care by WhatsApp."
+      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Request your FreshDream booking online — your booking reference is generated when you submit the form, and we confirm availability on WhatsApp."
     >
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-border animate-fade-up">
@@ -222,14 +222,14 @@ export default function Home() {
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Request-first booking. We review your request, confirm availability and share a FreshDream booking reference before your visit — no long drying wait after service.
+              Request-first booking. Your FreshDream booking reference is generated immediately when you submit the official booking form. We then review availability and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot — no long drying wait after service.
             </p>
           </div>
 
           <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: MessageCircle, t: "Send Your Booking Request", d: "Share your mattress size, location and preferred time on WhatsApp." },
-              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually to avoid scheduling conflicts and reply with your FreshDream booking reference, final price and location fee." },
+              { i: MessageCircle, t: "Submit Your Booking Request", d: "Send the official booking form with your mattress size, location and preferred time. Your FreshDream booking reference is generated immediately." },
+              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot. Your booking is confirmed only after this reply." },
               { i: Sparkles, t: "Mattress & Upholstery Care", d: "Our specialist process refreshes your mattress or upholstery without soaking — suitable for homes, Airbnb and serviced apartments." },
               { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Payment instructions are shared only after booking confirmation." },
             ].map((s, idx) => (
@@ -488,7 +488,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
             <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready to request your FreshDream booking?</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Use the official booking request form to send your mattress size, area and preferred time. We save your request, generate your FreshDream booking reference, and reply on WhatsApp to confirm availability, final price and location fee. Payment instructions are shared only after confirmation.
+              Use the official booking request form to send your mattress size, area and preferred time. Your FreshDream booking reference is generated immediately when you submit the form, and your WhatsApp message includes that reference. Your booking is confirmed only after we reply on WhatsApp with availability, final price and time slot. Payment instructions are shared only after confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
