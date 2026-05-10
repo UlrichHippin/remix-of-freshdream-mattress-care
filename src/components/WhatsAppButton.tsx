@@ -12,7 +12,7 @@ interface Props {
 
 export function WhatsAppButton({
   message = defaultWhatsAppMessage,
-  label = "Book on WhatsApp",
+  label = "Request a Booking",
   className,
   size = "md",
   variant = "solid",
