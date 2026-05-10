@@ -115,8 +115,8 @@ export default function Admin() {
   async function addBlock() {
     if (!blockStart || !blockEnd) return toast.error("Pick start and end");
     const { error } = await supabase.from("blocked_periods").insert({
-      starts_at: new Date(blockStart).toISOString(),
-      ends_at: new Date(blockEnd).toISOString(),
+      starts_at: fromNairobiLocalToISO(blockStart)!,
+      ends_at: fromNairobiLocalToISO(blockEnd)!,
       reason: blockReason || null,
     });
     if (error) return toast.error(error.message);
