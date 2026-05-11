@@ -384,8 +384,8 @@ export const hostStarter = {
   text:
     "Keep your guest rooms fresh, hygienic and review-ready between bookings. Ideal for Airbnb hosts, serviced apartments and short-stay property managers in Nairobi.",
   options: [
-    { label: "2 mattresses Freshen Up", price: "from KES 4,999" },
-    { label: "3 mattresses Freshen Up", price: "from KES 7,499" },
+    { label: "2 mattresses Freshen Up (single-size mattresses)", price: "from KES 4,999" },
+    { label: "3 mattresses Freshen Up (single-size mattresses)", price: "from KES 7,499" },
     { label: "Additional mattress", price: "quoted by size" },
     { label: "Same-day or urgent turnover", price: "subject to availability" },
   ],
@@ -400,7 +400,7 @@ export const hostStarter = {
     "Same-day support where available",
   ],
   smallPrint:
-    "Final price depends on mattress size, location, condition and urgency.",
+    "Starter package prices are based on single-size mattresses. Larger mattresses are quoted by size. Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
     "Hello FreshDream, I have a quick inquiry about the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:\n(To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).)",
   cta: "Ask about Host Package on WhatsApp",
