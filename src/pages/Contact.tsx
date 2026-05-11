@@ -131,7 +131,7 @@ export default function Contact() {
   return (
     <PageLayout
       title="Quick Inquiry — FreshDream Mattress Care"
-      description="Send a quick inquiry or message us on WhatsApp. For an official booking with a FreshDream booking reference, please use the booking request form on the home page."
+      description="Send a quick inquiry or message us on WhatsApp. To send a full booking request, use the booking form on the home page — it opens WhatsApp with all details prefilled."
     >
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-hero">
