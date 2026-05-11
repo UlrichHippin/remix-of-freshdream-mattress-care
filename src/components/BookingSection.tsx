@@ -92,6 +92,9 @@ export default function BookingSection() {
 
     const reference = generateRequestId(new Date());
     const dateStr = format(d.date, "dd.MM.yyyy");
+    const sleepAreaLine = d.sleepAreaAddOn
+      ? `Yes — KES 300 per mattress / sleep area (× ${d.quantity} = KES ${300 * d.quantity})`
+      : "No";
     const addonLine = d.sleepAreaAddOn
       ? `Add-on: Sleep Area Dust Refresh — KES 300 per mattress / sleep area (× ${d.quantity} = KES ${300 * d.quantity})\n`
       : "";
@@ -119,6 +122,46 @@ export default function BookingSection() {
     const waUrl = whatsappLink(message);
     setSavedRef(reference);
     setSavedWaUrl(waUrl);
+
+    // Fire-and-forget internal email notification via Web3Forms (non-blocking).
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    if (accessKey) {
+      const fd = new FormData();
+      fd.append("access_key", accessKey);
+      fd.append("subject", `New FreshDream Booking Request — ${reference}`);
+      fd.append("from_name", "FreshDream Website Booking Form");
+      fd.append("Request ID", reference);
+      fd.append("Name", d.name);
+      fd.append("WhatsApp / Phone", d.phone);
+      fd.append("Customer email", "Not provided");
+      fd.append("Service / Package", d.pkg);
+      fd.append("Item Type", d.item);
+      fd.append("Mattress Size", d.size);
+      fd.append("Number of mattresses", String(d.quantity));
+      fd.append("Location / estate", d.location);
+      fd.append("Preferred date", dateStr);
+      fd.append("Preferred time", d.time);
+      fd.append("Sleep Area Dust Refresh", sleepAreaLine);
+      fd.append("Location pin", "Customer will send after WhatsApp message");
+      fd.append("Photos", "Customer will send after WhatsApp message");
+      fd.append("Access / parking / estate gate notes", "Customer will share on WhatsApp");
+      fd.append("Urgency / next guest check-in time", "Customer will share on WhatsApp");
+      fd.append("Notes / stains / odor / special instructions", d.notes || "—");
+      fd.append(
+        "Internal note",
+        "Booking is not confirmed until FreshDream replies on WhatsApp. Payment details should only be sent after final confirmation."
+      );
+      fetch("https://api.web3forms.com/submit", { method: "POST", body: fd })
+        .then((r) => {
+          if (!r.ok) throw new Error("web3forms failed");
+        })
+        .catch(() => {
+          toast.message(
+            "We could not send the internal email copy, but you can still complete your request by sending the WhatsApp message."
+          );
+        });
+    }
+
     const popup = window.open(waUrl, "_blank", "noopener,noreferrer");
     if (!popup) {
       toast.success(
@@ -127,8 +170,8 @@ export default function BookingSection() {
       );
     } else {
       toast.success(
-        `WhatsApp message ready. Please send the message in WhatsApp to complete your request. (Request ID: ${reference})`,
-        { duration: 8000 }
+        "Your request details are ready. Please send the WhatsApp message to complete your request. FreshDream will confirm availability, final price, location fee and payment details on WhatsApp.",
+        { duration: 9000 }
       );
     }
     setTimeout(() => setSubmitting(false), 600);
@@ -325,6 +368,9 @@ export default function BookingSection() {
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
                 Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp.
+              </p>
+              <p className="text-xs text-muted-foreground">
+                Your request details may also be sent to FreshDream by internal email so we can respond and coordinate your booking. Your booking is confirmed only after FreshDream replies on WhatsApp.
               </p>
 
               <div className="rounded-xl border border-border bg-surface p-4 text-xs text-muted-foreground space-y-2">
