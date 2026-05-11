@@ -191,7 +191,7 @@ export default function BookingSection() {
     // then redirect it to WhatsApp once the email attempt resolves.
     const popup = window.open("about:blank", "_blank", "noopener,noreferrer");
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    const accessKey = site.web3FormsAccessKey;
     const keyMissing = !accessKey || accessKey.includes("your-web3forms");
 
     if (keyMissing) {
