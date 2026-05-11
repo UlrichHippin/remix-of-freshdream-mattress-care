@@ -148,14 +148,14 @@ export default function BookingSection() {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {/* Quick WhatsApp inquiry — not the official booking path */}
+          {/* Quick WhatsApp inquiry — not the full booking request path */}
           <div className="card-soft flex flex-col p-6 sm:p-8">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-whatsapp/10 text-whatsapp">
               <MessageCircle className="h-6 w-6" />
             </div>
             <h3 className="mt-4 text-xl font-bold text-primary">Quick WhatsApp Inquiry</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground">
-              Just have a question, want to send photos or check pricing? Ask us on WhatsApp. This is a quick chat — it does not create an official booking. For a confirmed booking, please use the form on the right.
+              Just have a question, want to send photos or check pricing? Ask us on WhatsApp. This is a quick chat — it does not create a full booking request. For a confirmed booking, please use the form on the right.
             </p>
             <div className="mt-5">
               <WhatsAppButton size="lg" label="Ask on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
