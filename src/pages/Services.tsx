@@ -111,7 +111,7 @@ export default function Services() {
                     href="/#book"
                     className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                   >
-                    Request Official Booking
+                    Send WhatsApp Booking Request
                   </a>
                   <WhatsAppButton message={s.whatsappTemplate} label={`Ask about ${s.title} on WhatsApp`} />
                   <Link to="/contact" className="inline-flex h-11 items-center justify-center rounded-full border-2 border-primary px-5 text-sm font-semibold text-primary hover:bg-primary-soft">

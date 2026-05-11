@@ -101,7 +101,7 @@ export default function Pricing() {
                     href="/#book"
                     className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                   >
-                    Request Official Booking <ArrowRight className="h-4 w-4" />
+                    Send WhatsApp Booking Request <ArrowRight className="h-4 w-4" />
                   </a>
                   <a
                     href={whatsappLink(openingOffer.whatsappMessage)}
@@ -232,7 +232,7 @@ export default function Pricing() {
                 href="/#book"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
-                Request Official Booking
+                Send WhatsApp Booking Request
               </a>
               <a
                 href={whatsappLink(freshSleepPackage.whatsappMessage)}
@@ -280,7 +280,7 @@ export default function Pricing() {
                   href="/#book"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                 >
-                  Request Official Booking
+                  Send WhatsApp Booking Request
                 </a>
                 <a
                   href={whatsappLink(hostStarter.whatsappMessage)}
@@ -530,7 +530,7 @@ export default function Pricing() {
                   href="/#book"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft hover:bg-primary-foreground/90"
                 >
-                  Request Official Booking
+                  Send WhatsApp Booking Request
                 </a>
                 <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
                 <Link to="/host-packages" className="inline-flex h-12 items-center justify-center rounded-full border-2 border-primary-foreground/40 px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10">

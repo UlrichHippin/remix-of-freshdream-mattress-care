@@ -149,7 +149,7 @@ export default function Contact() {
                 href="/#book"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
-                Request Official Booking
+                Send WhatsApp Booking Request
               </a>
               <WhatsAppButton size="lg" label="Quick WhatsApp Inquiry" />
             </div>

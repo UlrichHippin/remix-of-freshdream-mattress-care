@@ -54,7 +54,7 @@ export default function Home() {
                 "No wet mattress",
                 "Guest-ready quickly",
                 "Hospitality-aware",
-                "Booking reference for every job",
+                "WhatsApp Request ID for every job",
               ].map((b, i) => (
                 <li
                   key={b}
@@ -249,7 +249,7 @@ export default function Home() {
       {/* 5. QUICK QUOTE */}
       <QuickQuote />
 
-      {/* 5b. OFFICIAL BOOKING REQUEST FORM */}
+      {/* 5b. FULL WHATSAPP BOOKING REQUEST FORM */}
       <BookingSection />
 
       {/* 6. COMPACT LOCATION FEE */}
