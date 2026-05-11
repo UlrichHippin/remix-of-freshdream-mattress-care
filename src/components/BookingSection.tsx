@@ -369,6 +369,9 @@ export default function BookingSection() {
               <p className="-mt-2 text-xs text-muted-foreground">
                 Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp.
               </p>
+              <p className="text-xs text-muted-foreground">
+                Your request details may also be sent to FreshDream by internal email so we can respond and coordinate your booking. Your booking is confirmed only after FreshDream replies on WhatsApp.
+              </p>
 
               <div className="rounded-xl border border-border bg-surface p-4 text-xs text-muted-foreground space-y-2">
                 <p>
