@@ -299,8 +299,8 @@ export default function BookingSection() {
                   className="mt-0.5"
                 />
                 <span className="flex-1">
-                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning.</span>
+                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300 per mattress / sleep area</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning. Charged per mattress / sleep area.</span>
                 </span>
               </label>
 
