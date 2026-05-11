@@ -85,7 +85,7 @@ export default function BookingSection() {
     dateStr: string,
     sleepAreaLine: string,
   ): Promise<{ ok: boolean; reason?: string; status?: number; json?: unknown }> {
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    const accessKey = site.web3FormsAccessKey;
     if (!accessKey || accessKey.includes("your-web3forms")) {
       console.warn("Web3Forms access key is missing or not configured.");
       return { ok: false, reason: "missing_key" };
