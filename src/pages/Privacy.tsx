@@ -7,7 +7,7 @@ export default function Privacy() {
       description="How FreshDream Mattress Care collects, uses and protects your personal information."
       heading="Privacy Policy"
     >
-      <p>We respect your privacy. This page explains what personal information we receive when you contact us or send a booking request, and how we use it.</p>
+      <p>FreshDream is operated by FreshDream Mattress Care Limited. We respect your privacy. This page explains what personal information we receive when you contact us or send a booking request, and how we use it.</p>
       <h2>How booking works on this website</h2>
       <p>This website does not store booking data in a database. When you submit the booking form, your details are placed into a prefilled WhatsApp message and opened through WhatsApp. FreshDream only receives the message after you send it in WhatsApp.</p>
       <h2>Information we receive</h2>
