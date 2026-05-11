@@ -1,13 +1,12 @@
 # FreshDream Mattress Care
 
-Marketing site and booking system for FreshDream Mattress Care — a dry mattress, sofa and rug cleaning business based in Roysambu, Nairobi, serving Airbnb hosts, serviced apartments and homes.
+Static marketing website with WhatsApp-only booking flow for FreshDream Mattress Care. No database, no Supabase, no admin login required.
 
 ## Stack
 
 - React 18 + Vite 5 + TypeScript
 - Tailwind CSS v3 + shadcn/ui
 - React Router
-- Lovable Cloud (Supabase) — Postgres, Auth, Edge Functions
 
 ## Setup
 
@@ -19,22 +18,13 @@ npm run preview  # preview production build
 npm test         # run vitest
 ```
 
-## Environment
+## How booking works
 
-Copy `.env.example` to `.env` and fill in Lovable Cloud values (auto-provisioned in Lovable):
-
-```
-VITE_SUPABASE_PROJECT_ID=
-VITE_SUPABASE_PUBLISHABLE_KEY=
-VITE_SUPABASE_URL=
-```
-
-For the first admin account, set the edge function secret `ADMIN_SETUP_CODE` and use it on `/admin` setup screen.
+The booking form on the site does not store any data. On submit it generates a client-side Request ID and opens WhatsApp with a fully prefilled booking message. The booking is only confirmed after FreshDream replies on WhatsApp with availability, final price, location fee and payment details.
 
 ## Structure
 
-- `src/pages` — routed pages (Index, Services, Pricing, HostPackages, FAQ, Contact, Admin, legal pages)
+- `src/pages` — routed pages (Index, Services, Pricing, HostPackages, FAQ, Contact, legal pages)
 - `src/components` — UI components and section blocks
 - `src/data/packages.ts` — single source of truth for service packages and pricing
 - `src/config/site.ts` — business contact details and service areas
-- `supabase/functions` — edge functions (bootstrap-admin, check-admin-exists)
