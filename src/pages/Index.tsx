@@ -36,17 +36,17 @@ export default function Home() {
         <div className="container-tight grid gap-6 py-8 sm:gap-8 sm:py-12 lg:grid-cols-12 lg:items-center lg:py-14">
           <div className="order-2 lg:order-1 lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent-foreground shadow-soft sm:px-3.5 sm:py-1.5 sm:text-[11px]">
-              <Sparkles className="h-3.5 w-3.5" /> FreshDream Mattress Care
+              <Sparkles className="h-3.5 w-3.5" /> Dry Mattress Cleaning in Nairobi
             </p>
             <h1
               className="mt-3 text-[1.625rem] font-extrabold leading-[1.15] tracking-tight text-primary sm:mt-3 sm:text-4xl sm:leading-[1.1] lg:text-[2.625rem] lg:leading-[1.05]"
               style={{ textWrap: "balance" as never }}
             >
               <span className="text-gradient-brand">Dry Mattress Hygiene</span>{" "}
-              <span className="text-primary">— No Wet Mattress. No Drying Time.</span>
+              <span className="text-primary">for Airbnb Hosts & Homes in Nairobi</span>
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Specialist mattress and upholstery care in Nairobi for homes, Airbnb hosts and serviced apartments — refreshed and guest-ready without long drying delays.
+              FreshDream provides dry mattress cleaning and hygiene refresh services in Nairobi for Airbnb hosts, homes and serviced apartments — with WhatsApp booking and M-PESA payment after confirmation.
             </p>
 
             <ul className="mt-4 flex flex-wrap gap-2">
