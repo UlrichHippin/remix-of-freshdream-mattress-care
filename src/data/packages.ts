@@ -37,9 +37,9 @@ export const packages: PackageDef[] = [
     included: [
       "High-Frequency Vibration Tapping (45,000 taps/min) to dislodge deep dust and allergens",
       "Dust, hair, and dander removal",
-      "Ultrasonic Mite Suppression — disrupts the mite nervous system",
+      "Ultrasonic Mite Suppression — supports ultrasonic mite-control",
       "UV-C hygiene treatment",
-      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies the mattress in Nairobi's humid climate",
+      "65°C heated air freshness support — supports mite reduction and dehumidifies the mattress in Nairobi's humid climate",
       "Suitable for mattresses (sofa support available on request)",
     ],
     bestFor: ["Light odors", "Dust buildup", "Routine maintenance", "Allergy-sensitive homes"],
@@ -68,7 +68,7 @@ export const packages: PackageDef[] = [
       "Ultrasonic Mite Suppression to disrupt the mite nervous system",
       "Dust and odor reduction",
       "UV-C hygiene treatment",
-      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
+      "65°C heated air freshness support — supports mite reduction and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: [
       "Sweat and body odor",
@@ -101,7 +101,7 @@ export const packages: PackageDef[] = [
       "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
       "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
+      "65°C heated air freshness support — supports mite reduction and dehumidifies in Nairobi's humid climate",
     ],
     bestFor: ["Beverage stains", "Food stains", "Vomit stains", "Localized heavy dirt"],
     readyIn: "Service time varies by condition",
@@ -129,7 +129,7 @@ export const packages: PackageDef[] = [
       "High-Frequency Vibration Tapping (45,000 taps/min) with deep suction",
       "Ultrasonic Mite Suppression",
       "UV-C hygiene support",
-      "65°C Graphene Heat Sterilization — eliminates mites and dehumidifies in Nairobi's humid climate",
+      "65°C heated air freshness support — supports mite reduction and dehumidifies in Nairobi's humid climate",
       "Final inspection",
     ],
     bestFor: [

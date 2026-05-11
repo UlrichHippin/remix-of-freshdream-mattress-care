@@ -202,7 +202,7 @@ export const locationFee = {
   intro:
     "FreshDream Mattress Care is based in Roysambu, Nairobi. We call it a Location Fee because it depends on your area, distance, traffic, parking and access. The final location fee is always confirmed before booking after receiving your WhatsApp location pin.",
   fairness:
-    "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
+    "Location Fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies. Order value means cleaning package + selected add-ons, before Location Fee.",
   zones: [
     {
       area: "Nearby Roysambu Area",
@@ -338,13 +338,13 @@ export const pricingAddOns = [
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
-  { t: "Extra drying support / return check", p: "+ KES 500–1,000" },
+  { t: "Extra ventilation / follow-up support for odor or stain cases", p: "+ KES 500–1,000" },
 ];
 
 export const pricingUpholstery = [
   { t: "Pillow cleaning", p: "KES 300–700 each" },
-  { t: "Sofa seat / cushion cleaning", p: "KES 500–1,500 per seat" },
-  { t: "Dining chair upholstery cleaning", p: "KES 300–800 each" },
+  { t: "Sofa seat / cushion dry refresh & spot support", p: "KES 500–1,500 per seat" },
+  { t: "Dining chair upholstery dry refresh", p: "KES 300–800 each" },
   { t: "Small rug refresh and spot support", p: "from KES 1,000" },
 ];
 
@@ -384,8 +384,8 @@ export const hostStarter = {
   text:
     "Keep your guest rooms fresh, hygienic and review-ready between bookings. Ideal for Airbnb hosts, serviced apartments and short-stay property managers in Nairobi.",
   options: [
-    { label: "2 mattresses Freshen Up", price: "from KES 4,999" },
-    { label: "3 mattresses Freshen Up", price: "from KES 7,499" },
+    { label: "2 mattresses Freshen Up (single-size mattresses)", price: "from KES 4,999" },
+    { label: "3 mattresses Freshen Up (single-size mattresses)", price: "from KES 7,499" },
     { label: "Additional mattress", price: "quoted by size" },
     { label: "Same-day or urgent turnover", price: "subject to availability" },
   ],
@@ -400,7 +400,7 @@ export const hostStarter = {
     "Same-day support where available",
   ],
   smallPrint:
-    "Final price depends on mattress size, location, condition and urgency.",
+    "Starter package prices are based on single-size mattresses. Larger mattresses are quoted by size. Final price depends on mattress size, location, condition and urgency.",
   whatsappMessage:
     "Hello FreshDream, I have a quick inquiry about the Airbnb Host Starter Package.\nNumber of mattresses:\nLocation:\nNext check-in time:\n(To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).)",
   cta: "Ask about Host Package on WhatsApp",

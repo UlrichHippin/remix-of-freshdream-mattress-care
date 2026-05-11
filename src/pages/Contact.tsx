@@ -58,6 +58,12 @@ function buildMessage(v: z.output<typeof schema>) {
   if (v.preferred) lines.push(`Preferred date/time: ${v.preferred}`);
   if (v.photos) lines.push(`Photos: ${v.photos}`);
   if (v.note) lines.push(`Note: ${v.note}`);
+  lines.push(
+    ``,
+    `This is a quick inquiry, not a confirmed booking.`,
+    `Please confirm final price, location fee, availability and payment details.`,
+    `I will not send payment before confirmation.`,
+  );
   return lines.join("\n");
 }
 
@@ -67,7 +73,9 @@ Location:
 Service type:
 Mattress size / item:
 Preferred date/time:
-Photos attached: yes/no`;
+Location pin: I will send after this message
+Photos attached: yes/no
+Next guest check-in time / urgency:`;
 
 export default function Contact() {
   const [values, setValues] = useState<FormValues>(EMPTY);

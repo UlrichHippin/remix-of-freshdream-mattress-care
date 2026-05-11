@@ -107,8 +107,12 @@ export default function BookingSection() {
       `Location / estate: ${d.location}\n` +
       `Preferred date: ${dateStr} (Nairobi time)\n` +
       `Preferred time: ${d.time}\n` +
+      `Location pin: I will send my location pin after this message\n` +
+      `Photos: I will send mattress / stain photos after this message\n` +
+      `Access / parking / estate gate notes:\n` +
+      `Urgency / next guest check-in time:\n` +
       addonLine +
-      (d.notes ? `Notes / stains / special instructions: ${d.notes}\n` : "") +
+      (d.notes ? `Notes / stains / access / urgency / next guest check-in time: ${d.notes}\n` : "") +
       `\nPlease confirm availability, final price, location fee and payment details. ` +
       `I understand that the booking is only confirmed after FreshDream replies on WhatsApp. ` +
       `I will not send payment before confirmation.`;
