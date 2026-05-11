@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { whatsappLink } from "@/config/site";
+import { site, whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
 
