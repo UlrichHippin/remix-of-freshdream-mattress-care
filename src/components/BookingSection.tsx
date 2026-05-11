@@ -17,27 +17,13 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
-type ServiceEnum = "turnover" | "deep_clean" | "urine_odor" | "emergency" | "upholstery" | "other";
-
-function mapPackageToService(pkg: string, item: string): ServiceEnum {
-  const p = pkg.toLowerCase();
-  if (item.toLowerCase().includes("sofa") || item.toLowerCase().includes("upholstery")) return "upholstery";
-  if (p.includes("urine") || p.includes("odor") || p.includes("odour")) return "urine_odor";
-  if (p.includes("emergency") || p.includes("host support")) return "emergency";
-  if (p.includes("freshen") || p.includes("turnover") || p.includes("opening")) return "turnover";
-  if (p.includes("standard") || p.includes("intensive") || p.includes("deep")) return "deep_clean";
-  return "other";
-}
-
-// Map preferred time slot label to [startHour, endHour]
-function timeSlotToHours(time: string): [number, number] {
-  if (time.startsWith("Morning")) return [8, 11];
-  if (time.startsWith("Midday")) return [11, 14];
-  if (time.startsWith("Afternoon")) return [14, 17];
-  if (time.startsWith("Evening")) return [17, 19];
-  return [9, 17]; // Flexible
+function generateRequestId(date: Date): string {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, "0");
+  const dd = String(date.getDate()).padStart(2, "0");
+  const rand = String(Math.floor(1000 + Math.random() * 9000));
+  return `FD-${yyyy}${mm}${dd}-${rand}`;
 }
 
 const PACKAGES = packageBookingLabels as readonly string[];
