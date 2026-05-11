@@ -338,13 +338,13 @@ export const pricingAddOns = [
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
-  { t: "Extra drying support / return check", p: "+ KES 500–1,000" },
+  { t: "Extra ventilation / follow-up support for odor or stain cases", p: "+ KES 500–1,000" },
 ];
 
 export const pricingUpholstery = [
   { t: "Pillow cleaning", p: "KES 300–700 each" },
-  { t: "Sofa seat / cushion cleaning", p: "KES 500–1,500 per seat" },
-  { t: "Dining chair upholstery cleaning", p: "KES 300–800 each" },
+  { t: "Sofa seat / cushion dry refresh & spot support", p: "KES 500–1,500 per seat" },
+  { t: "Dining chair upholstery dry refresh", p: "KES 300–800 each" },
   { t: "Small rug refresh and spot support", p: "from KES 1,000" },
 ];
 
