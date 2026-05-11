@@ -30,7 +30,7 @@ export default function Footer() {
               <span className="inline-flex items-start gap-2 rounded-2xl border border-accent/40 bg-accent-soft px-3 py-2 text-xs font-medium text-primary shadow-soft">
                 <BadgeCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
                 <span>
-                  Payment instructions are shared after booking confirmation. Please only use the official FreshDream payment details provided together with your booking reference.
+                  Payment instructions are shared on WhatsApp only after booking confirmation. Please only use the official FreshDream payment details we provide on WhatsApp.
                 </span>
               </span>
             </li>
