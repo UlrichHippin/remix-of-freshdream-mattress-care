@@ -202,7 +202,7 @@ export const locationFee = {
   intro:
     "FreshDream Mattress Care is based in Roysambu, Nairobi. We call it a Location Fee because it depends on your area, distance, traffic, parking and access. The final location fee is always confirmed before booking after receiving your WhatsApp location pin.",
   fairness:
-    "Location fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies.",
+    "Location Fee is charged once per visit, not per mattress. If several mattresses are cleaned at the same location, only one location fee applies. Order value means cleaning package + selected add-ons, before Location Fee.",
   zones: [
     {
       area: "Nearby Roysambu Area",
