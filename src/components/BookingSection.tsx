@@ -163,13 +163,13 @@ export default function BookingSection() {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />
             </div>
-            <h3 className="mt-4 text-xl font-bold text-primary">Official Booking Request Form</h3>
+            <h3 className="mt-4 text-xl font-bold text-primary">Booking Request Form (WhatsApp)</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Submit this form to send an official booking request. Your FreshDream booking reference is generated immediately on submit, and your WhatsApp message includes that reference so we can confirm availability and final price.
+              Fill in the form and submit. Your booking request opens directly in WhatsApp with all the details prefilled — no booking data is stored on this website.
             </p>
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
-              <span>Share your location pin and photos on WhatsApp after submitting so we can confirm the exact location fee with your booking reference.</span>
+              <span>Share your location pin and photos on WhatsApp after submitting so we can confirm the exact location fee.</span>
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
