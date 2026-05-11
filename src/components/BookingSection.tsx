@@ -78,8 +78,8 @@ export default function BookingSection() {
 
   async function sendInternalBookingEmail(
     data: {
-      name: string; phone: string; pkg: string; item: string; size: string;
-      quantity: number; location: string; time: string; notes?: string;
+      name?: string; phone?: string; pkg?: string; item?: string; size?: string;
+      quantity?: number; location?: string; time?: string; notes?: string;
     },
     reference: string,
     dateStr: string,
