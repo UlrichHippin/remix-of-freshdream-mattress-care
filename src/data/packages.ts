@@ -51,7 +51,7 @@ export const packages: PackageDef[] = [
       { label: "Queen (5x6 ft)", price: "KES 3,500" },
       { label: "King (6x6 ft)", price: "KES 4,000" },
     ],
-    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Freshen Up package (from KES 2,500). For an official booking with a FreshDream booking reference, I will use the booking request form on the website.",
+    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Freshen Up package (from KES 2,500). To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).",
   },
   {
     slug: "standard",
@@ -84,7 +84,7 @@ export const packages: PackageDef[] = [
       { label: "Queen (5x6 ft)", price: "KES 4,500" },
       { label: "King (6x6 ft)", price: "KES 5,000" },
     ],
-    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Standard Cleaning package (from KES 3,500). For an official booking with a FreshDream booking reference, I will use the booking request form on the website.",
+    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Standard Cleaning package (from KES 3,500). To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).",
   },
   {
     slug: "intensive-stain",
@@ -112,7 +112,7 @@ export const packages: PackageDef[] = [
       { label: "Queen (5x6 ft)", price: "KES 5,500" },
       { label: "King (6x6 ft)", price: "KES 6,500" },
     ],
-    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Intensive Stain Treatment package (from KES 4,500). For an official booking with a FreshDream booking reference, I will use the booking request form on the website.",
+    whatsappMessage: "Hello FreshDream, I have a quick inquiry about the Intensive Stain Treatment package (from KES 4,500). To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).",
   },
   {
     slug: "urine-odor",

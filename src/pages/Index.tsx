@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <PageLayout
       title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Request your FreshDream booking online — your booking reference is generated when you submit the form, and we confirm availability on WhatsApp."
+      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Send your booking request directly on WhatsApp — your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price and payment details."
     >
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-border animate-fade-up">
@@ -137,16 +137,16 @@ export default function Home() {
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Request-first booking. Your FreshDream booking reference is generated immediately when you submit the official booking form. We then review availability and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot — no long drying wait after service.
+              Send your booking request directly on WhatsApp. Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price, location fee and payment details.
             </p>
           </div>
 
           <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: MessageCircle, t: "Submit Your Booking Request", d: "Send the official booking form with your mattress size, location and preferred time. Your FreshDream booking reference is generated immediately." },
-              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot. Your booking is confirmed only after this reply." },
+              { i: MessageCircle, t: "Submit Your Booking Request", d: "Fill in the booking form. On submit, your details open in WhatsApp with everything prefilled — no data is stored on this website." },
+              { i: ShieldCheck, t: "We Review & Confirm", d: "We reply on WhatsApp to confirm availability, final price, location fee and time slot. Your booking is confirmed only after this reply." },
               { i: Sparkles, t: "Mattress & Upholstery Care", d: "Our specialist process refreshes your mattress or upholstery without soaking — suitable for homes, Airbnb and serviced apartments." },
-              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Payment instructions are shared only after booking confirmation." },
+              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Do not send payment before confirmation." },
             ].map((s, idx) => (
               <li key={s.t} className="card-soft relative p-5">
                 <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
@@ -260,7 +260,7 @@ export default function Home() {
               <p className="eyebrow justify-center"><MapPin className="h-3.5 w-3.5" /> Transparent pricing</p>
               <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Areas & Location Fees</h2>
               <p className="mt-2 text-sm font-semibold text-primary">
-                Transparent location fees from Roysambu across Nairobi — confirmed in writing with your booking reference before the visit.
+                Transparent location fees from Roysambu across Nairobi — confirmed in writing on WhatsApp before the visit.
               </p>
               <p className="mt-1 text-xs text-muted-foreground">{locationFee.fairness}</p>
             </div>
@@ -349,7 +349,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
             <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready? Request your FreshDream booking now.</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Your booking reference is generated instantly when you submit the form. We confirm availability, price and time slot on WhatsApp — payment details shared only after confirmation.
+              Send your booking request directly on WhatsApp with all details prefilled. We confirm availability, final price, location fee and payment details on WhatsApp. Do not send payment before confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
