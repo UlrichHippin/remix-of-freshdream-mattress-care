@@ -349,7 +349,7 @@ export default function Home() {
           <div className="mx-auto max-w-3xl rounded-2xl border-2 border-accent/30 bg-gradient-to-br from-accent-soft/40 to-card p-6 text-center shadow-soft sm:p-8">
             <h2 className="text-2xl font-bold text-primary sm:text-3xl">Ready? Request your FreshDream booking now.</h2>
             <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-              Your booking reference is generated instantly when you submit the form. We confirm availability, price and time slot on WhatsApp — payment details shared only after confirmation.
+              Send your booking request directly on WhatsApp with all details prefilled. We confirm availability, final price, location fee and payment details on WhatsApp. Do not send payment before confirmation.
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
