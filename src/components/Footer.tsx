@@ -79,7 +79,10 @@ export default function Footer() {
             <li aria-hidden="true">·</li>
             <li><Link to="/cancellation" className="hover:text-primary">Cancellation</Link></li>
           </ul>
-          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          <div className="flex flex-col gap-1 sm:items-end">
+            <p>FreshDream is operated by FreshDream Mattress Care Limited.</p>
+            <p>© {new Date().getFullYear()} FreshDream Mattress Care Limited. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
