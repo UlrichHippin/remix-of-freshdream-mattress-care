@@ -127,7 +127,7 @@ export default function BookingSection() {
   };
 
   const quickWaMessage =
-    "Hello FreshDream, I have a quick inquiry about mattress / upholstery care. I understand that official bookings with a FreshDream booking reference are made through the booking request form on the website.";
+    "Hello FreshDream, I have a quick inquiry about mattress / upholstery care. (To send a full booking request, I will use the booking form on the website — it opens WhatsApp with all the details prefilled.)";
 
   return (
     <section id="book" className="section bg-surface">
