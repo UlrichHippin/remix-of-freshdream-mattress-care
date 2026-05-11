@@ -7,7 +7,7 @@ export default function Terms() {
       description="Terms governing the use of FreshDream Mattress Care services in Nairobi."
       heading="Terms of Service"
     >
-      <p>By sending a booking request to FreshDream Mattress Care, you agree to the following terms.</p>
+      <p>FreshDream is operated by FreshDream Mattress Care Limited. By sending a booking request to FreshDream, you agree to the following terms.</p>
       <h2>How bookings work</h2>
       <ul>
         <li>The booking form on this website does not store data. On submit it opens WhatsApp with your details prefilled — you choose to send the message.</li>
