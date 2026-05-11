@@ -22,8 +22,7 @@ export default function About() {
               Built for hosts. Based in Roysambu.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-              FreshDream Mattress Care is a specialist support service for Airbnb hosts, serviced
-              apartments, guesthouses and short-stay property managers in Nairobi.
+              FreshDream is operated by FreshDream Mattress Care Limited and serves Nairobi customers from the Roysambu area — a specialist support service for Airbnb hosts, serviced apartments, guesthouses and short-stay property managers.
             </p>
           </div>
           <div className="lg:col-span-5">
