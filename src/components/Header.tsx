@@ -42,10 +42,10 @@ export default function Header() {
           scrolled ? "h-16 sm:h-16" : "h-16 sm:h-20",
         )}
       >
-        <Link to="/" className="flex items-center" aria-label={site.name}>
+        <Link to="/" className="flex items-center gap-3" aria-label={site.name}>
           <img
             src={logoHorizontal}
-            alt="FreshDream Mattress Care logo"
+            alt="FreshDream logo"
             width={1200}
             height={400}
             className={cn(
@@ -53,6 +53,9 @@ export default function Header() {
               scrolled ? "h-12 sm:h-14" : "h-12 sm:h-14 lg:h-16",
             )}
           />
+          <span className="hidden text-xs font-medium text-muted-foreground md:inline">
+            Dry Mattress Cleaning Nairobi
+          </span>
         </Link>
 
 
