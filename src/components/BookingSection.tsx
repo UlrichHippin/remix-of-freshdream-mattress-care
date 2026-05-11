@@ -313,10 +313,10 @@ export default function BookingSection() {
                 className="sheen inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card transition-colors hover:bg-whatsapp-hover disabled:opacity-60 sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" />
-                {submitting ? "Saving request…" : "Send Official Booking Request"}
+                {submitting ? "Opening WhatsApp…" : "Send Booking Request on WhatsApp"}
               </button>
               <p className="-mt-2 text-xs text-muted-foreground">
-                Your WhatsApp message includes your FreshDream booking reference. We reply on WhatsApp to confirm availability, final price, location fee and time slot.
+                Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp.
               </p>
 
               <div className="rounded-xl border border-border bg-surface p-4 text-xs text-muted-foreground space-y-2">
@@ -325,21 +325,20 @@ export default function BookingSection() {
                   Send photos of the mattress on WhatsApp after submitting — it helps us confirm the price.
                 </p>
                 <p>
-                  <strong className="text-primary">Booking reference:</strong>{" "}
-                  Generated immediately on submit. Your booking is confirmed only after FreshDream 
-                  replies on WhatsApp with availability and final price.
+                  <strong className="text-primary">Confirmation:</strong>{" "}
+                  Your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price, location fee and payment details.
                 </p>
                 <p>
                   <strong className="text-primary">Payment:</strong>{" "}
-                  Instructions shared only after confirmation. M-PESA and cash accepted. 
-                  <span className="font-semibold text-destructive"> Do not pay before your booking is confirmed.</span>
+                  Instructions shared only after confirmation. M-PESA and cash accepted.
+                  <span className="font-semibold text-destructive"> Do not send payment before confirmation.</span>
                 </p>
               </div>
 
               {savedRef && savedWaUrl && (
                 <div className="rounded-xl border-2 border-whatsapp/40 bg-whatsapp/5 p-4">
                   <p className="text-sm font-semibold text-primary">
-                    Request saved — Booking reference <span className="font-mono">{savedRef}</span>
+                    Request ready on WhatsApp — Request ID <span className="font-mono">{savedRef}</span>
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground">
                     If WhatsApp did not open automatically, tap the button below to send your booking message.
@@ -351,7 +350,7 @@ export default function BookingSection() {
                     className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    Open WhatsApp with Booking Reference
+                    Open WhatsApp with Booking Request
                   </a>
                 </div>
               )}
