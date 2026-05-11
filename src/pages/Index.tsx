@@ -137,16 +137,16 @@ export default function Home() {
             <p className="eyebrow justify-center"><MessageCircle className="h-3.5 w-3.5" /> How It Works</p>
             <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Booking & How It Works</h2>
             <p className="mt-2 text-sm text-muted-foreground sm:text-base">
-              Request-first booking. Your FreshDream booking reference is generated immediately when you submit the official booking form. We then review availability and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot — no long drying wait after service.
+              Send your booking request directly on WhatsApp. Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price, location fee and payment details.
             </p>
           </div>
 
           <ol className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { i: MessageCircle, t: "Submit Your Booking Request", d: "Send the official booking form with your mattress size, location and preferred time. Your FreshDream booking reference is generated immediately." },
-              { i: ShieldCheck, t: "We Review & Confirm", d: "We check availability manually and reply on WhatsApp using your booking reference to confirm final price, location fee and time slot. Your booking is confirmed only after this reply." },
+              { i: MessageCircle, t: "Submit Your Booking Request", d: "Fill in the booking form. On submit, your details open in WhatsApp with everything prefilled — no data is stored on this website." },
+              { i: ShieldCheck, t: "We Review & Confirm", d: "We reply on WhatsApp to confirm availability, final price, location fee and time slot. Your booking is confirmed only after this reply." },
               { i: Sparkles, t: "Mattress & Upholstery Care", d: "Our specialist process refreshes your mattress or upholstery without soaking — suitable for homes, Airbnb and serviced apartments." },
-              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Payment instructions are shared only after booking confirmation." },
+              { i: BedDouble, t: "Guest-Ready Without Long Drying", d: "No wet mattress and no long drying delay — re-sheet and prepare the room shortly after the visit. Do not send payment before confirmation." },
             ].map((s, idx) => (
               <li key={s.t} className="card-soft relative p-5">
                 <span className="absolute -top-3 left-5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground shadow-soft">
