@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { whatsappLink } from "@/config/site";
+import { site, whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
 
@@ -85,7 +85,7 @@ export default function BookingSection() {
     dateStr: string,
     sleepAreaLine: string,
   ): Promise<{ ok: boolean; reason?: string; status?: number; json?: unknown }> {
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    const accessKey = site.web3FormsAccessKey;
     if (!accessKey || accessKey.includes("your-web3forms")) {
       console.warn("Web3Forms access key is missing or not configured.");
       return { ok: false, reason: "missing_key" };
@@ -191,7 +191,7 @@ export default function BookingSection() {
     // then redirect it to WhatsApp once the email attempt resolves.
     const popup = window.open("about:blank", "_blank", "noopener,noreferrer");
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    const accessKey = site.web3FormsAccessKey;
     const keyMissing = !accessKey || accessKey.includes("your-web3forms");
 
     if (keyMissing) {
