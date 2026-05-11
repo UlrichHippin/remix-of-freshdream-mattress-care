@@ -8,7 +8,7 @@ export const site = {
   base: "Roysambu, Nairobi",
   // Use international format without leading + for wa.me
   whatsappNumber: "4915756233913",
-  phoneDisplay: "+49 157 56233913",
+  phoneDisplay: "+49 1575 6233913",
   email: "info@freshdream.co.ke",
   serviceAreas: [
     "Westlands", "Kilimani", "Kileleshwa", "Lavington", "Parklands",
