@@ -76,6 +76,70 @@ export default function BookingSection() {
   const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
 
+  async function sendInternalBookingEmail(
+    data: {
+      name: string; phone: string; pkg: string; item: string; size: string;
+      quantity: number; location: string; time: string; notes?: string;
+    },
+    reference: string,
+    dateStr: string,
+    sleepAreaLine: string,
+  ): Promise<{ ok: boolean; reason?: string; status?: number; json?: unknown }> {
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+    if (!accessKey || accessKey.includes("your-web3forms")) {
+      console.warn("Web3Forms access key is missing or not configured.");
+      return { ok: false, reason: "missing_key" };
+    }
+
+    const fd = new FormData();
+    fd.append("access_key", accessKey);
+    fd.append("subject", `New FreshDream Booking Request — ${reference}`);
+    fd.append("from_name", "FreshDream Website Booking Form");
+    fd.append("botcheck", "");
+    fd.append("Request ID", reference);
+    fd.append("Name", data.name);
+    fd.append("WhatsApp / Phone", data.phone);
+    fd.append("Customer email", "Not provided");
+    fd.append("Service / Package", data.pkg);
+    fd.append("Item Type", data.item);
+    fd.append("Mattress Size", data.size);
+    fd.append("Number of mattresses", String(data.quantity));
+    fd.append("Location / estate", data.location);
+    fd.append("Preferred date", dateStr);
+    fd.append("Preferred time", data.time);
+    fd.append("Sleep Area Dust Refresh", sleepAreaLine);
+    fd.append("Location pin", "Customer will send after WhatsApp message");
+    fd.append("Photos", "Customer will send after WhatsApp message");
+    fd.append("Access / parking / estate gate notes", "Customer will share on WhatsApp");
+    fd.append("Urgency / next guest check-in time", "Customer will share on WhatsApp");
+    fd.append("Notes / stains / odor / special instructions", data.notes || "—");
+    fd.append(
+      "Internal note",
+      "Booking is not confirmed until FreshDream replies on WhatsApp. Payment details should only be sent after final confirmation."
+    );
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+      let json: { success?: boolean } | null = null;
+      try {
+        json = await response.json();
+      } catch {
+        json = null;
+      }
+      if (!response.ok || json?.success === false) {
+        console.warn("Web3Forms email failed", response.status, json);
+        return { ok: false, reason: "web3forms_error", status: response.status, json };
+      }
+      return { ok: true };
+    } catch (error) {
+      console.warn("Web3Forms request failed", error);
+      return { ok: false, reason: "network_error" };
+    }
+  }
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(form);
