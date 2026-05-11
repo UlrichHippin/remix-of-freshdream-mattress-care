@@ -9,7 +9,7 @@ export default function Privacy() {
     >
       <p>We respect your privacy. This page explains what personal information we receive when you contact us or send a booking request, and how we use it.</p>
       <h2>How booking works on this website</h2>
-      <p>This website does not store booking data in a database. When you submit the booking form, your details are placed into a prefilled WhatsApp message that opens on your device. Nothing is sent to a server until you tap send in WhatsApp.</p>
+      <p>This website does not store booking data in a database. When you submit the booking form, your details are placed into a prefilled WhatsApp message and opened through WhatsApp. FreshDream only receives the message after you send it in WhatsApp.</p>
       <h2>Information we receive</h2>
       <ul>
         <li>Name and phone / WhatsApp number you share when messaging us.</li>
