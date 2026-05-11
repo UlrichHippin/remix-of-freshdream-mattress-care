@@ -139,7 +139,7 @@ export default function BookingSection() {
             Send your mattress and upholstery details — we'll review and confirm before any payment.
           </p>
           <p className="mt-2 text-sm font-semibold text-primary">
-            Your FreshDream booking reference is generated immediately when you submit the official form. We then reply on WhatsApp using that reference to confirm availability, final price, location fee and time slot. Your booking is confirmed only after this reply. Payment instructions are shared only after confirmation.
+            Send your booking request directly on WhatsApp. Your WhatsApp message includes all booking details. Your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price, location fee and payment details. Do not send payment before confirmation.
           </p>
         </div>
 
