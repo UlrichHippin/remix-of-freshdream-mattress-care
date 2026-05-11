@@ -162,7 +162,7 @@ export default function BookingSection() {
             </div>
           </div>
 
-          {/* Official booking request form */}
+          {/* WhatsApp booking request form */}
           <div className="card-soft p-6 sm:p-8">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />

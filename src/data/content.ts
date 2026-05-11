@@ -435,7 +435,7 @@ export const reviewReferral = {
 
 // Trust points to display near pricing
 export const pricingTrustPoints = [
-  "Official booking request form",
+  "WhatsApp booking request form",
   "M-PESA accepted",
   "Based in Roysambu, Nairobi",
   "Airbnb-ready service",
