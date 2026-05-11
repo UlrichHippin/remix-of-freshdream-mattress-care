@@ -8,7 +8,7 @@ export default function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Quick WhatsApp inquiry"
-      title="Quick WhatsApp inquiry — for an official booking, use the booking request form"
+      title="Quick WhatsApp inquiry — for a full booking request, use the booking form"
       className="group fixed bottom-5 right-5 z-50 hidden h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-lift transition-transform hover:scale-110 hover:bg-whatsapp-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-whatsapp md:grid"
     >
       <span
