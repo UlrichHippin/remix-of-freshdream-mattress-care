@@ -187,10 +187,6 @@ export default function BookingSection() {
     setSavedRef(reference);
     setSavedWaUrl(waUrl);
 
-    // Option A: Open a placeholder window synchronously to avoid popup blockers,
-    // then redirect it to WhatsApp once the email attempt resolves.
-    const popup = window.open("about:blank", "_blank", "noopener,noreferrer");
-
     const accessKey = site.web3FormsAccessKey;
     const keyMissing = !accessKey || accessKey.includes("your-web3forms");
 
@@ -200,7 +196,7 @@ export default function BookingSection() {
       const emailResult = await Promise.race<{ ok: boolean; reason?: string }>([
         sendInternalBookingEmail(d, reference, dateStr, sleepAreaLine),
         new Promise<{ ok: boolean; reason?: string }>((resolve) =>
-          setTimeout(() => resolve({ ok: false, reason: "timeout" }), 2500)
+          setTimeout(() => resolve({ ok: false, reason: "timeout" }), 1800)
         ),
       ]);
       if (!emailResult.ok) {
@@ -210,23 +206,14 @@ export default function BookingSection() {
       }
     }
 
-    if (popup && !popup.closed) {
-      try {
-        popup.location.href = waUrl;
-      } catch {
-        window.location.href = waUrl;
-      }
-      toast.success(
-        "Your request details are ready. Please send the WhatsApp message to complete your request. FreshDream will confirm availability, final price, location fee and payment details on WhatsApp.",
-        { duration: 9000 }
-      );
-    } else {
-      toast.success(
-        `Request ID ${reference}. Tap "Open WhatsApp with Booking Request" below to send your message.`,
-        { duration: 10000 }
-      );
-    }
-    setTimeout(() => setSubmitting(false), 600);
+    toast.success(
+      `Request ID ${reference}. Opening WhatsApp now — if it doesn't open, tap "Open WhatsApp with Booking Request" below.`,
+      { duration: 9000 }
+    );
+
+    setSubmitting(false);
+    // Same-tab redirect to WhatsApp — avoids blank popup windows.
+    window.location.href = waUrl;
   };
 
   const quickWaMessage =
