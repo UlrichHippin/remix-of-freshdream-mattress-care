@@ -92,6 +92,9 @@ export default function BookingSection() {
 
     const reference = generateRequestId(new Date());
     const dateStr = format(d.date, "dd.MM.yyyy");
+    const addonLine = d.sleepAreaAddOn
+      ? `Add-on: Sleep Area Dust Refresh — KES 300 per mattress / sleep area (× ${d.quantity} = KES ${300 * d.quantity})\n`
+      : "";
     const message =
       `Hello FreshDream Mattress Care, I would like to send a booking request via WhatsApp.\n\n` +
       `Request ID: ${reference}\n` +
@@ -104,10 +107,11 @@ export default function BookingSection() {
       `Location / estate: ${d.location}\n` +
       `Preferred date: ${dateStr} (Nairobi time)\n` +
       `Preferred time: ${d.time}\n` +
-      (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
-      (d.notes ? `Special notes: ${d.notes}\n` : "") +
+      addonLine +
+      (d.notes ? `Notes / stains / special instructions: ${d.notes}\n` : "") +
       `\nPlease confirm availability, final price, location fee and payment details. ` +
-      `I understand that the booking is only confirmed after FreshDream replies on WhatsApp.`;
+      `I understand that the booking is only confirmed after FreshDream replies on WhatsApp. ` +
+      `I will not send payment before confirmation.`;
     const waUrl = whatsappLink(message);
     setSavedRef(reference);
     setSavedWaUrl(waUrl);
@@ -119,7 +123,7 @@ export default function BookingSection() {
       );
     } else {
       toast.success(
-        `Your request is ready on WhatsApp. Request ID: ${reference}. Please send the message so we can confirm.`,
+        `WhatsApp message ready. Please send the message in WhatsApp to complete your request. (Request ID: ${reference})`,
         { duration: 8000 }
       );
     }
@@ -144,14 +148,14 @@ export default function BookingSection() {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          {/* Quick WhatsApp inquiry — not the official booking path */}
+          {/* Quick WhatsApp inquiry — not the full booking request path */}
           <div className="card-soft flex flex-col p-6 sm:p-8">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-whatsapp/10 text-whatsapp">
               <MessageCircle className="h-6 w-6" />
             </div>
             <h3 className="mt-4 text-xl font-bold text-primary">Quick WhatsApp Inquiry</h3>
             <p className="mt-2 flex-1 text-sm text-muted-foreground">
-              Just have a question, want to send photos or check pricing? Ask us on WhatsApp. This is a quick chat — it does not create an official booking. For a confirmed booking, please use the form on the right.
+              Just have a question, want to send photos or check pricing? Ask us on WhatsApp. This is a quick chat — it does not create a full booking request. For a confirmed booking, please use the form on the right.
             </p>
             <div className="mt-5">
               <WhatsAppButton size="lg" label="Ask on WhatsApp" message={quickWaMessage} className="w-full sm:w-auto" />
@@ -295,8 +299,8 @@ export default function BookingSection() {
                   className="mt-0.5"
                 />
                 <span className="flex-1">
-                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300</span>
-                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning.</span>
+                  <span className="block text-sm font-semibold text-primary">Add Sleep Area Dust Refresh — KES 300 per mattress / sleep area</span>
+                  <span className="mt-1 block text-xs text-muted-foreground">Quick hygiene add-on around the sleeping area only. Not full room cleaning. Charged per mattress / sleep area.</span>
                 </span>
               </label>
 

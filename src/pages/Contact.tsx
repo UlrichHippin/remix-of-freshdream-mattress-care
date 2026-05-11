@@ -367,7 +367,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Quick inquiry only — official booking is handled by BookingSection. */}
+      {/* Quick inquiry only — full booking requests are handled by BookingSection. */}
     </PageLayout>
   );
 }

@@ -1,1 +1,0 @@
-DROP POLICY IF EXISTS "Admins delete bookings" ON public.bookings;

@@ -147,8 +147,13 @@ export const packages: PackageDef[] = [
   },
 ];
 
+const labelWithFrom = (title: string, price: string) =>
+  price.toLowerCase().startsWith("from")
+    ? `${title} — ${price}`
+    : `${title} — from ${price}`;
+
 export const packageBookingLabels = [
   "Opening Offer — First-time customer — from KES 1,999",
-  ...packages.map((p) => `${p.title} — from ${p.sizes[0].price}`),
+  ...packages.map((p) => labelWithFrom(p.title, p.sizes[0].price)),
 ];
 

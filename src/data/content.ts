@@ -300,8 +300,8 @@ export const hostPackages = [
 // Sleep Area Dust Refresh — optional hygiene add-on around the sleeping area
 export const sleepAreaAddOn = {
   name: "Sleep Area Dust Refresh",
-  price: "KES 300",
-  priceLabel: "Add Sleep Area Dust Refresh — KES 300",
+  price: "KES 300 per mattress / sleep area",
+  priceLabel: "Add Sleep Area Dust Refresh — KES 300 per mattress / sleep area",
   included: [
     "Quick vacuuming around the bed area",
     "Floor edges near the bed",
@@ -310,7 +310,7 @@ export const sleepAreaAddOn = {
     "Visible dust reduction around the sleeping area",
   ],
   note:
-    "This is a quick hygiene add-on around the sleeping area only. It is not full room cleaning or housekeeping.",
+    "This is a quick hygiene add-on around the sleeping area only. It is not full room cleaning or housekeeping. Charged per mattress / sleep area.",
 };
 
 // Fresh Sleep Package — mattress hygiene cleaning + Sleep Area Dust Refresh
@@ -318,23 +318,23 @@ export const freshSleepPackage = {
   name: "Fresh Sleep Package",
   badge: "Recommended · Best for Airbnb & Homes",
   summary:
-    "Fresh Sleep Package = your selected mattress cleaning package + Sleep Area Dust Refresh for KES 300. The mattress cleaning price depends on the package and mattress size you choose; the Sleep Area Dust Refresh is always a flat KES 300 add-on.",
+    "Fresh Sleep Package = your selected mattress cleaning package + Sleep Area Dust Refresh at KES 300 per mattress / sleep area. The mattress cleaning price depends on the package and mattress size you choose.",
   priceLogic:
-    "Total = selected mattress cleaning package + KES 300 Sleep Area Dust Refresh. Opening Offer starts from KES 1,999 where applicable; regular Freshen Up starts from KES 2,500.",
+    "Total = selected mattress cleaning package + KES 300 per mattress / sleep area for the Sleep Area Dust Refresh. Opening Offer starts from KES 1,999 where applicable; regular Freshen Up starts from KES 2,500.",
   includes: [
     "Mattress hygiene cleaning (your selected package)",
-    "Sleep Area Dust Refresh add-on (KES 300)",
+    "Sleep Area Dust Refresh add-on (KES 300 per mattress / sleep area)",
     "Vacuuming around the bed and reachable under-bed areas",
     "Light dust removal from bed frame/headboard",
     "Photo documentation",
   ],
   whatsappMessage:
-    "Hello FreshDream, I have a quick inquiry about the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300).\nLocation:\nMattress size:\nPreferred mattress cleaning package:\n(To send a full booking request, I will use the booking form on the website (it opens WhatsApp with all details prefilled).)",
+    "Hello FreshDream, I have a quick inquiry about the Fresh Sleep Package (mattress cleaning + Sleep Area Dust Refresh KES 300 per mattress / sleep area).\nLocation:\nMattress size:\nNumber of mattresses:\nPreferred mattress cleaning package:\n(To send a full booking request, I will use the booking form on the website — it opens WhatsApp with all details prefilled.)",
   cta: "Ask about Fresh Sleep Package on WhatsApp",
 };
 
 export const pricingAddOns = [
-  { t: "Sleep Area Dust Refresh (around the bed only)", p: "KES 300" },
+  { t: "Sleep Area Dust Refresh (around the bed only)", p: "KES 300 per mattress / sleep area" },
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
