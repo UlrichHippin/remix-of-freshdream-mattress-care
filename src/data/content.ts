@@ -334,7 +334,7 @@ export const freshSleepPackage = {
 };
 
 export const pricingAddOns = [
-  { t: "Sleep Area Dust Refresh (around the bed only)", p: "KES 300" },
+  { t: "Sleep Area Dust Refresh (around the bed only)", p: "KES 300 per mattress / sleep area" },
   { t: "Intensive stain treatment", p: "from KES 4,500" },
   { t: "Urine & odor reduction treatment", p: "from KES 4,500 (quoted)" },
   { t: "Same-day emergency call-out", p: "+ KES 1,000–2,000" },
