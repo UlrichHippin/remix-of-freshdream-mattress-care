@@ -202,7 +202,7 @@ export default function Contact() {
                 <p className="eyebrow"><MessageSquareText className="h-3.5 w-3.5" /> Quick inquiry</p>
                 <h2 className="mt-3 text-2xl font-bold text-primary sm:text-3xl">Tell us the basics.</h2>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Not an official booking — for a booking reference, use the form on the home page.
+                  Not a booking — to send a booking request, use the form on the home page (opens WhatsApp).
                 </p>
 
                 <form onSubmit={onSubmit} noValidate className="mt-6 grid gap-4 sm:grid-cols-2">
