@@ -8,7 +8,6 @@ const labels: Record<string, string> = {
   about: "About",
   faq: "FAQ",
   contact: "Book Now",
-  admin: "Admin",
 };
 
 export default function Breadcrumbs() {
