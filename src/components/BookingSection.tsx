@@ -90,75 +90,36 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
 
-    // Build starts_at / ends_at as Nairobi (UTC+3) wall time, regardless of browser timezone.
-    const [sh, eh] = timeSlotToHours(d.time);
-    const yyyy = d.date.getFullYear();
-    const mm = String(d.date.getMonth() + 1).padStart(2, "0");
-    const dd = String(d.date.getDate()).padStart(2, "0");
-    const startsAtISO = new Date(`${yyyy}-${mm}-${dd}T${String(sh).padStart(2, "0")}:00:00+03:00`).toISOString();
-    const endsAtISO = new Date(`${yyyy}-${mm}-${dd}T${String(eh).padStart(2, "0")}:00:00+03:00`).toISOString();
-
-    const composedDetails = [
-      `Package: ${d.pkg}`,
-      `Item: ${d.item}`,
-      `Size: ${d.size}`,
-      `Number of mattresses: ${d.quantity}`,
-      `Preferred time: ${d.time}`,
-      d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)` : null,
-      d.notes ? `Special notes: ${d.notes}` : null,
-    ].filter(Boolean).join("\n");
-
-    // Save the booking request via secure RPC BEFORE handing over to WhatsApp
-    const { data: rpcData, error } = await supabase.rpc("create_booking_request", {
-      _name: d.name,
-      _phone: d.phone,
-      _whatsapp: d.phone,
-      _email: null,
-      _area: d.location,
-      _property_type: null,
-      _service: mapPackageToService(d.pkg, d.item),
-      _details: composedDetails,
-      _starts_at: startsAtISO,
-      _ends_at: endsAtISO,
-    });
-
-    const row = Array.isArray(rpcData) ? rpcData[0] : rpcData;
-    const reference: string | undefined = row?.booking_reference;
-
-    if (error || !reference) {
-      setSubmitting(false);
-      toast.error("Could not save your request. Please try again or contact us on WhatsApp.");
-      return;
-    }
-
+    const reference = generateRequestId(new Date());
     const dateStr = format(d.date, "dd.MM.yyyy");
     const message =
-      `Hello FreshDream Mattress Care, I would like to confirm my booking request.\n\n` +
-      `FreshDream booking reference: ${reference}\n` +
+      `Hello FreshDream Mattress Care, I would like to send a booking request via WhatsApp.\n\n` +
+      `Request ID: ${reference}\n` +
       `Name: ${d.name}\n` +
       `WhatsApp / Phone: ${d.phone}\n` +
       `Service / Package: ${d.pkg}\n` +
-      `Item: ${d.item}\n` +
-      `Size: ${d.size}\n` +
-      `Number of items: ${d.quantity}\n` +
+      `Item Type: ${d.item}\n` +
+      `Mattress Size: ${d.size}\n` +
+      `Number of mattresses: ${d.quantity}\n` +
       `Location / estate: ${d.location}\n` +
       `Preferred date: ${dateStr} (Nairobi time)\n` +
       `Preferred time: ${d.time}\n` +
       (d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (KES 300)\n` : "") +
       (d.notes ? `Special notes: ${d.notes}\n` : "") +
-      `\nPlease confirm availability, final price and payment details. Thank you.`;
+      `\nPlease confirm availability, final price, location fee and payment details. ` +
+      `I understand that the booking is only confirmed after FreshDream replies on WhatsApp.`;
     const waUrl = whatsappLink(message);
     setSavedRef(reference);
     setSavedWaUrl(waUrl);
     const popup = window.open(waUrl, "_blank", "noopener,noreferrer");
     if (!popup) {
       toast.success(
-        `Request saved. Booking reference ${reference}. Tap "Open WhatsApp with Booking Reference" below to send the message.`,
+        `Request ID ${reference}. Tap "Open WhatsApp with Booking Request" below to send your message.`,
         { duration: 10000 }
       );
     } else {
       toast.success(
-        `Request saved. Your FreshDream booking reference is ${reference}. Please send the WhatsApp message so we can confirm.`,
+        `Your request is ready on WhatsApp. Request ID: ${reference}. Please send the message so we can confirm.`,
         { duration: 8000 }
       );
     }
