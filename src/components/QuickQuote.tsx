@@ -127,6 +127,9 @@ export default function QuickQuote() {
   const message =
     `Hello FreshDream Mattress Care,\n\n` +
     `I would like to request a mattress cleaning quote.\n\n` +
+    `Name:\n` +
+    `WhatsApp / Phone:\n` +
+    `Specific estate / building:\n` +
     `Package: ${pkgLabel || "-"}\n` +
     `Mattress size: ${sizeLabel || "-"}\n` +
     `Number of mattresses: ${qtyObj.label}\n` +
@@ -135,10 +138,10 @@ export default function QuickQuote() {
     `Location zone: ${zoneObj?.label || "-"}\n` +
     `Location fee: ${feeLine}\n` +
     `Estimated total: ${ready && !isUrine && !isCustomQty && !isCustomZone ? `from ${fmt(calc.total)}` : totalLabel}\n` +
-    `Preferred date:\n` +
-    `Location pin:\n` +
-    `Photos:\n\n` +
-    `Please confirm the final price and available slot.`;
+    `Location pin: I will send after this message\n` +
+    `Photos: I will send after this message\n\n` +
+    `This is only a website estimate. Please confirm the final price, location fee and available slot after I send my location pin and photos.\n` +
+    `I will not send payment before confirmation.`;
 
   return (
     <section id="quick-quote" className="section bg-surface">
