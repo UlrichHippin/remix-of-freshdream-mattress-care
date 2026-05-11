@@ -20,8 +20,8 @@ import { locationFee } from "@/data/content";
 export default function Home() {
   return (
     <PageLayout
-      title="Mattress Cleaning Nairobi | Airbnb Mattress Hygiene | FreshDream Mattress Care"
-      description="Professional mattress and upholstery care in Nairobi for Airbnb hosts, families and modern homes. Send your booking request directly on WhatsApp — your booking is confirmed only after FreshDream replies on WhatsApp with availability, final price and payment details."
+      title="FreshDream | Dry Mattress Cleaning Nairobi for Airbnb & Homes"
+      description="FreshDream offers dry mattress cleaning in Nairobi for Airbnb hosts, homes and serviced apartments. No wet mattress waiting, WhatsApp booking and M-PESA after confirmation."
     >
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-border animate-fade-up">
