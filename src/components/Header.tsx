@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ClipboardCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { site } from "@/config/site";
