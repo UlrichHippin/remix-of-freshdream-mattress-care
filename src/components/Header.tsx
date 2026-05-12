@@ -120,9 +120,9 @@ export default function Header() {
             <div className="flex flex-col gap-2 pt-3">
               <Link
                 to="/#booking-form"
-                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft"
+                className="inline-flex h-11 w-full items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft ring-2 ring-accent/40"
               >
-                Request a Booking
+                <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
               </Link>
               <WhatsAppButton className="w-full" label="Quick WhatsApp Inquiry" />
             </div>
