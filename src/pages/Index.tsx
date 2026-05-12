@@ -201,9 +201,9 @@ export default function Home() {
           <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
             <a
               href="#booking-form"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
             >
-              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+              <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
             </a>
             <a
               href={whatsappLink()}
