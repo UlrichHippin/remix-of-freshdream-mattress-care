@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { format } from "date-fns";
-import { CalendarIcon, MessageCircle, Send, ShieldCheck, Droplets, Zap, ClipboardCheck } from "lucide-react";
+import { CalendarIcon, MessageCircle, Send, ShieldCheck, Droplets, Zap, ClipboardCheck, BadgeCheck, Copy, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
