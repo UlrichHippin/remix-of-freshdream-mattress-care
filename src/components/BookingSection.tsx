@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { format } from "date-fns";
-import { CalendarIcon, MessageCircle, Send, ShieldCheck, Droplets, Zap, ClipboardCheck } from "lucide-react";
+import { CalendarIcon, MessageCircle, Send, ShieldCheck, Droplets, Zap, ClipboardCheck, BadgeCheck, Copy, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -249,7 +249,7 @@ export default function BookingSection() {
           </div>
 
           {/* WhatsApp booking request form */}
-          <div className="card-soft p-6 sm:p-8">
+          <div id="booking-form" className="card-soft p-6 sm:p-8 scroll-mt-28">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary-soft text-primary">
               <Send className="h-6 w-6" />
             </div>
@@ -257,9 +257,28 @@ export default function BookingSection() {
             <p className="mt-2 text-sm text-muted-foreground">
               Fill in the form and submit. Your booking request opens directly in WhatsApp with all the details prefilled — no booking data is stored on this website.
             </p>
+
+            {/* Request ID explainer */}
+            <div className="mt-4 rounded-xl border-2 border-accent/40 bg-accent-soft/40 p-4">
+              <p className="flex items-center gap-2 text-sm font-bold text-primary">
+                <BadgeCheck className="h-4 w-4 text-accent" /> Why use this booking form?
+              </p>
+              <p className="mt-1.5 text-xs text-foreground">
+                When you submit this form, you receive a unique <strong>Request ID</strong>. We use this ID to check your details, confirm availability, send follow-up messages, and manage your cleaning job properly.
+              </p>
+              <ul className="mt-2 grid gap-1 text-xs text-foreground">
+                <li className="flex items-start gap-1.5"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" /> Get a clear Request ID</li>
+                <li className="flex items-start gap-1.5"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" /> Helps us confirm your job faster</li>
+                <li className="flex items-start gap-1.5"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" /> Useful for follow-up, changes, and proof of request</li>
+              </ul>
+            </div>
+
             <p className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-border bg-surface p-3 text-xs text-foreground">
               <MessageCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-whatsapp" />
               <span>Share your location pin and photos on WhatsApp after submitting so we can confirm the exact location fee.</span>
+            </p>
+            <p className="mt-3 text-xs font-semibold text-primary">
+              Fill in the form below. After submitting, you will receive your Request ID for confirmation and follow-up.
             </p>
 
             <form onSubmit={onSubmit} className="mt-5 grid gap-4" noValidate>
@@ -429,22 +448,43 @@ export default function BookingSection() {
               </div>
 
               {savedRef && savedWaUrl && (
-                <div className="rounded-xl border-2 border-whatsapp/40 bg-whatsapp/5 p-4">
-                  <p className="text-sm font-semibold text-primary">
-                    Request ready on WhatsApp — Request ID <span className="font-mono">{savedRef}</span>
+                <div className="rounded-xl border-2 border-whatsapp/50 bg-whatsapp/5 p-5">
+                  <p className="flex items-center gap-2 text-sm font-bold text-primary">
+                    <CheckCircle2 className="h-5 w-5 text-whatsapp" /> Booking request received.
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    If WhatsApp did not open automatically, tap the button below to send your booking message.
+                  <p className="mt-2 text-xs text-muted-foreground">Your Request ID is:</p>
+                  <p className="mt-1 break-all font-mono text-2xl font-extrabold text-primary">{savedRef}</p>
+                  <p className="mt-2 text-xs text-foreground">
+                    Please keep this ID. We use it to confirm, update, and manage your cleaning request.
                   </p>
-                  <a
-                    href={savedWaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
-                  >
-                    <MessageCircle className="h-4 w-4" />
-                    Open WhatsApp with Booking Request
-                  </a>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard?.writeText(savedRef);
+                        toast.success("Request ID copied");
+                      }}
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-primary bg-background px-4 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <Copy className="h-4 w-4" /> Copy Request ID
+                    </button>
+                    <a
+                      href={whatsappLink(`Hello FreshDream, I submitted a booking request. My Request ID is ${savedRef}. Please confirm availability.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-whatsapp px-4 text-xs font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                    >
+                      <MessageCircle className="h-4 w-4" /> Send Request ID on WhatsApp
+                    </a>
+                    <a
+                      href={savedWaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-whatsapp px-4 text-xs font-semibold text-whatsapp hover:bg-whatsapp/10"
+                    >
+                      Open full booking message
+                    </a>
+                  </div>
                 </div>
               )}
             </form>

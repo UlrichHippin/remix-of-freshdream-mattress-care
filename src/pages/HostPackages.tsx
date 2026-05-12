@@ -117,7 +117,7 @@ export default function HostPackages() {
                 Request a portfolio quote <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full border-2 border-primary px-6 text-sm font-semibold text-primary hover:bg-primary-soft"
               >
                 Send WhatsApp Booking Request <ArrowRight className="h-4 w-4" />

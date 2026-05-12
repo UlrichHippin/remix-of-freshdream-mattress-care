@@ -1,7 +1,7 @@
 import {
   ArrowRight, ShieldCheck, MapPin,
   Sparkles, BadgeCheck, Droplets,
-  MessageCircle, BedDouble, Star, Check, Wind,
+  MessageCircle, BedDouble, Star, Check, Wind, ClipboardCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
@@ -81,22 +81,26 @@ export default function Home() {
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#book"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
+                href="#booking-form"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90 animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking
+                <ClipboardCheck className="h-5 w-5" /> Book &amp; Get Request ID
               </a>
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-whatsapp underline-offset-2 hover:underline"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-whatsapp px-5 text-sm font-semibold text-whatsapp hover:bg-whatsapp/10 sm:w-auto"
               >
-                Quick question? Ask on WhatsApp
+                <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
               </a>
             </div>
 
-            <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+            <p className="mt-3 text-xs font-medium text-foreground">
+              Use the booking form to receive your <strong>Request ID</strong>. We use this ID to review, confirm, and manage your cleaning request. WhatsApp = quick questions · Booking form = official request.
+            </p>
+
+            <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
               Based in Roysambu · Serving Nairobi · Payment details shared after booking confirmation
             </p>
@@ -129,6 +133,39 @@ export default function Home() {
         Powered by JIMMY BX7 Pro Max — heated air, UV-C, smart dust detection.{" "}
         <Link to="/technology" className="font-semibold text-primary hover:underline">See the Technology →</Link>
       </div>
+
+      {/* 2b. COMPACT BOOKING CTA — Request ID priority */}
+      <section className="border-y border-border bg-gradient-to-br from-primary-soft/60 via-card to-accent-soft/40">
+        <div className="container-tight py-6 sm:py-8">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-soft">
+              <ClipboardCheck className="h-6 w-6" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-lg font-bold text-primary sm:text-xl">Ready to book?</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Use the booking form to get your <strong className="text-primary">Request ID</strong>. This helps us confirm your cleaning request quickly and correctly.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+              <a
+                href="#booking-form"
+                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
+              >
+                <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
+              </a>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full border-2 border-whatsapp px-4 text-sm font-semibold text-whatsapp hover:bg-whatsapp/10"
+              >
+                <MessageCircle className="h-4 w-4" /> Ask First on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 3. HOW IT WORKS — real 4-step process */}
       <section id="how-it-works" className="section bg-surface scroll-mt-24">
@@ -163,10 +200,10 @@ export default function Home() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
             <a
-              href="#book"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+              href="#booking-form"
+              className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
             >
-              <MessageCircle className="h-4 w-4" /> Send a Booking Request
+              <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
             </a>
             <a
               href={whatsappLink()}
@@ -353,10 +390,10 @@ export default function Home() {
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="#book"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+                href="#booking-form"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking
+                <ClipboardCheck className="h-5 w-5" /> Book &amp; Get Request ID
               </a>
               <Link
                 to="/pricing"

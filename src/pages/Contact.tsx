@@ -154,7 +154,7 @@ export default function Contact() {
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
                 Send WhatsApp Booking Request

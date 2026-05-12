@@ -35,7 +35,7 @@ export default function Technology() {
             </span>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
                 Request a Booking <ArrowRight className="h-4 w-4" />
@@ -252,7 +252,7 @@ export default function Technology() {
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
                 Request a Booking <ArrowRight className="h-5 w-5" />

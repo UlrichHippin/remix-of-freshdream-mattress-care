@@ -16,7 +16,7 @@ export default function MobileStickyCTA() {
         </div>
         <div className="flex shrink-0 items-center gap-1.5">
           <Link
-            to="/#book"
+            to="/#booking-form"
             className="inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary px-3 text-[11px] font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
           >
             <Send className="h-3.5 w-3.5" /> Request Booking
