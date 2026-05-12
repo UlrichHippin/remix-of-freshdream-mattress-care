@@ -1,7 +1,7 @@
 import {
   ArrowRight, ShieldCheck, MapPin,
   Sparkles, BadgeCheck, Droplets,
-  MessageCircle, BedDouble, Star, Check, Wind,
+  MessageCircle, BedDouble, Star, Check, Wind, ClipboardCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
