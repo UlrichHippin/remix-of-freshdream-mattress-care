@@ -391,9 +391,9 @@ export default function Home() {
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
                 href="#booking-form"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking
+                <ClipboardCheck className="h-5 w-5" /> Book &amp; Get Request ID
               </a>
               <Link
                 to="/pricing"
