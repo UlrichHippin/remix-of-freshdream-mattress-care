@@ -448,22 +448,43 @@ export default function BookingSection() {
               </div>
 
               {savedRef && savedWaUrl && (
-                <div className="rounded-xl border-2 border-whatsapp/40 bg-whatsapp/5 p-4">
-                  <p className="text-sm font-semibold text-primary">
-                    Request ready on WhatsApp — Request ID <span className="font-mono">{savedRef}</span>
+                <div className="rounded-xl border-2 border-whatsapp/50 bg-whatsapp/5 p-5">
+                  <p className="flex items-center gap-2 text-sm font-bold text-primary">
+                    <CheckCircle2 className="h-5 w-5 text-whatsapp" /> Booking request received.
                   </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    If WhatsApp did not open automatically, tap the button below to send your booking message.
+                  <p className="mt-2 text-xs text-muted-foreground">Your Request ID is:</p>
+                  <p className="mt-1 break-all font-mono text-2xl font-extrabold text-primary">{savedRef}</p>
+                  <p className="mt-2 text-xs text-foreground">
+                    Please keep this ID. We use it to confirm, update, and manage your cleaning request.
                   </p>
-                  <a
-                    href={savedWaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
-                  >
-                    <MessageCircle className="h-4 w-4" />
-                    Open WhatsApp with Booking Request
-                  </a>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard?.writeText(savedRef);
+                        toast.success("Request ID copied");
+                      }}
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-primary bg-background px-4 text-xs font-semibold text-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <Copy className="h-4 w-4" /> Copy Request ID
+                    </button>
+                    <a
+                      href={whatsappLink(`Hello FreshDream, I submitted a booking request. My Request ID is ${savedRef}. Please confirm availability.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-whatsapp px-4 text-xs font-semibold text-whatsapp-foreground shadow-soft hover:bg-whatsapp-hover"
+                    >
+                      <MessageCircle className="h-4 w-4" /> Send Request ID on WhatsApp
+                    </a>
+                    <a
+                      href={savedWaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-whatsapp px-4 text-xs font-semibold text-whatsapp hover:bg-whatsapp/10"
+                    >
+                      Open full booking message
+                    </a>
+                  </div>
                 </div>
               )}
             </form>
