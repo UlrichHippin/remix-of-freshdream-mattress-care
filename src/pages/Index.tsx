@@ -82,21 +82,25 @@ export default function Home() {
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
                 href="#booking-form"
-                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-base font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90 animate-soft-pulse sm:w-auto"
               >
-                <MessageCircle className="h-5 w-5" /> Request a Booking
+                <ClipboardCheck className="h-5 w-5" /> Book &amp; Get Request ID
               </a>
               <a
                 href={whatsappLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-whatsapp underline-offset-2 hover:underline"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border-2 border-whatsapp px-5 text-sm font-semibold text-whatsapp hover:bg-whatsapp/10 sm:w-auto"
               >
-                Quick question? Ask on WhatsApp
+                <MessageCircle className="h-4 w-4" /> Ask on WhatsApp
               </a>
             </div>
 
-            <p className="mt-3 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+            <p className="mt-3 text-xs font-medium text-foreground">
+              Use the booking form to receive your <strong>Request ID</strong>. We use this ID to review, confirm, and manage your cleaning request. WhatsApp = quick questions · Booking form = official request.
+            </p>
+
+            <p className="mt-2 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-accent" />
               Based in Roysambu · Serving Nairobi · Payment details shared after booking confirmation
             </p>
