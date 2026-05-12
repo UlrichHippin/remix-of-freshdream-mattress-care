@@ -81,9 +81,9 @@ export default function Header() {
         <div className="hidden items-center gap-2 lg:flex">
           <Link
             to="/#booking-form"
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
+            className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft ring-2 ring-accent/40 transition-colors hover:bg-primary/90"
           >
-            Request a Booking
+            <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
           </Link>
           <WhatsAppButton size="sm" label="Quick WhatsApp Inquiry" />
         </div>
