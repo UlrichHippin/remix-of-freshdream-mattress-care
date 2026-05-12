@@ -81,7 +81,7 @@ export default function Home() {
 
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
-                href="#book"
+                href="#booking-form"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover animate-soft-pulse sm:w-auto"
               >
                 <MessageCircle className="h-5 w-5" /> Request a Booking
@@ -163,7 +163,7 @@ export default function Home() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
             <a
-              href="#book"
+              href="#booking-form"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-whatsapp px-5 text-sm font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
             >
               <MessageCircle className="h-4 w-4" /> Send a Booking Request
@@ -353,7 +353,7 @@ export default function Home() {
             </p>
             <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a
-                href="#book"
+                href="#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-whatsapp px-6 text-base font-semibold text-whatsapp-foreground shadow-card hover:bg-whatsapp-hover"
               >
                 <MessageCircle className="h-5 w-5" /> Request a Booking

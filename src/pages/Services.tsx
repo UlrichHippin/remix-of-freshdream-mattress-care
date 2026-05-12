@@ -108,7 +108,7 @@ export default function Services() {
 
                 <div className="mt-6 flex flex-wrap gap-3">
                   <a
-                    href="/#book"
+                    href="/#booking-form"
                     className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                   >
                     Send WhatsApp Booking Request

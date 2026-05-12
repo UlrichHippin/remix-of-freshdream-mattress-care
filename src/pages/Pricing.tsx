@@ -49,7 +49,7 @@ export default function Pricing() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
                 Request a Booking <ArrowRight className="h-4 w-4" />
@@ -98,7 +98,7 @@ export default function Pricing() {
                 <p className="mt-3 text-base text-muted-foreground">{openingOffer.text}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
-                    href="/#book"
+                    href="/#booking-form"
                     className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                   >
                     Send WhatsApp Booking Request <ArrowRight className="h-4 w-4" />
@@ -229,7 +229,7 @@ export default function Pricing() {
             </ul>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
-                href="/#book"
+                href="/#booking-form"
                 className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
               >
                 Send WhatsApp Booking Request
@@ -277,7 +277,7 @@ export default function Pricing() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="/#book"
+                  href="/#booking-form"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-soft hover:bg-primary/90"
                 >
                   Send WhatsApp Booking Request
@@ -527,7 +527,7 @@ export default function Pricing() {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <a
-                  href="/#book"
+                  href="/#booking-form"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary-foreground px-6 text-sm font-semibold text-primary shadow-soft hover:bg-primary-foreground/90"
                 >
                   Send WhatsApp Booking Request

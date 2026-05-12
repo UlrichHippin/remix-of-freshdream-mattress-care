@@ -80,7 +80,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <Link
-            to="/#book"
+            to="/#booking-form"
             className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft transition-colors hover:bg-primary/90"
           >
             Request a Booking
@@ -119,7 +119,7 @@ export default function Header() {
             ))}
             <div className="flex flex-col gap-2 pt-3">
               <Link
-                to="/#book"
+                to="/#booking-form"
                 className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-soft"
               >
                 Request a Booking
