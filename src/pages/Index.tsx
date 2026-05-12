@@ -134,6 +134,39 @@ export default function Home() {
         <Link to="/technology" className="font-semibold text-primary hover:underline">See the Technology →</Link>
       </div>
 
+      {/* 2b. COMPACT BOOKING CTA — Request ID priority */}
+      <section className="border-y border-border bg-gradient-to-br from-primary-soft/60 via-card to-accent-soft/40">
+        <div className="container-tight py-6 sm:py-8">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-soft">
+              <ClipboardCheck className="h-6 w-6" />
+            </span>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-lg font-bold text-primary sm:text-xl">Ready to book?</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Use the booking form to get your <strong className="text-primary">Request ID</strong>. This helps us confirm your cleaning request quickly and correctly.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+              <a
+                href="#booking-form"
+                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lift ring-2 ring-accent/40 hover:bg-primary/90"
+              >
+                <ClipboardCheck className="h-4 w-4" /> Book &amp; Get Request ID
+              </a>
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full border-2 border-whatsapp px-4 text-sm font-semibold text-whatsapp hover:bg-whatsapp/10"
+              >
+                <MessageCircle className="h-4 w-4" /> Ask First on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. HOW IT WORKS — real 4-step process */}
       <section id="how-it-works" className="section bg-surface scroll-mt-24">
         <div className="container-tight">
