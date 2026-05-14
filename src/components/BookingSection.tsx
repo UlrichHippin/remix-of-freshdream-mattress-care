@@ -17,6 +17,38 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site, whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+// Map UI package labels and time slots to DB enums / timestamps.
+function pkgToServiceType(pkg: string): "turnover" | "deep_clean" | "urine_odor" | "emergency" | "upholstery" | "other" {
+  const p = pkg.toLowerCase();
+  if (p.includes("turnover")) return "turnover";
+  if (p.includes("deep")) return "deep_clean";
+  if (p.includes("urine") || p.includes("odor")) return "urine_odor";
+  if (p.includes("emergency") || p.includes("urgent")) return "emergency";
+  if (p.includes("uphol") || p.includes("sofa")) return "upholstery";
+  return "other";
+}
+
+// Slot label -> [startHour, endHour] in Africa/Nairobi (UTC+3, no DST).
+function timeSlotToHours(slot: string): [number, number] {
+  if (slot.startsWith("Morning")) return [8, 11];
+  if (slot.startsWith("Midday")) return [11, 14];
+  if (slot.startsWith("Afternoon")) return [14, 17];
+  if (slot.startsWith("Evening")) return [17, 19];
+  return [9, 18]; // Flexible
+}
+
+function nairobiTimestamps(date: Date, slot: string): { starts_at: string; ends_at: string } {
+  const [sh, eh] = timeSlotToHours(slot);
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  // Nairobi is UTC+3 year-round.
+  const starts_at = new Date(`${y}-${m}-${d}T${String(sh).padStart(2, "0")}:00:00+03:00`).toISOString();
+  const ends_at = new Date(`${y}-${m}-${d}T${String(eh).padStart(2, "0")}:00:00+03:00`).toISOString();
+  return { starts_at, ends_at };
+}
 
 function generateRequestId(date: Date): string {
   const yyyy = date.getFullYear();
