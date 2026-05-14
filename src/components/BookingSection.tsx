@@ -17,7 +17,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site, whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { externalSupabase } from "@/integrations/external-supabase/client";
 
 // Map UI package labels and time slots to DB enums / timestamps.
 function pkgToServiceType(pkg: string): "turnover" | "deep_clean" | "urine_odor" | "emergency" | "upholstery" | "other" {
@@ -186,7 +186,7 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
 
-    // 1) Persist to Lovable Cloud (booking record + DB-issued reference).
+    // 1) Persist to external Supabase project (booking record + locally-generated reference).
     let reference = generateRequestId(new Date());
     try {
       const { starts_at, ends_at } = nairobiTimestamps(d.date, d.time);
@@ -198,22 +198,28 @@ export default function BookingSection() {
         d.notes ? `Notes: ${d.notes}` : null,
       ].filter(Boolean).join("\n");
 
-      const { data: rpcData, error: rpcError } = await supabase.rpc("create_booking_request", {
-        _name: d.name,
-        _phone: d.phone,
-        _whatsapp: d.phone,
-        _email: "",
-        _area: d.location,
-        _property_type: "",
-        _service: pkgToServiceType(d.pkg),
-        _details: detailsBlob,
-        _starts_at: starts_at,
-        _ends_at: ends_at,
-      });
-      if (rpcError) {
-        console.warn("create_booking_request failed", rpcError);
-      } else if (rpcData && rpcData[0]?.booking_reference) {
-        reference = rpcData[0].booking_reference;
+      const { data: inserted, error: insertError } = await externalSupabase
+        .from("bookings")
+        .insert({
+          booking_reference: reference,
+          name: d.name,
+          phone: d.phone,
+          whatsapp: d.phone,
+          email: null,
+          area: d.location,
+          property_type: null,
+          service: pkgToServiceType(d.pkg),
+          details: detailsBlob,
+          starts_at,
+          ends_at,
+          status: "requested",
+        })
+        .select("booking_reference")
+        .single();
+      if (insertError) {
+        console.warn("External Supabase booking insert failed", insertError);
+      } else if (inserted?.booking_reference) {
+        reference = inserted.booking_reference;
       }
     } catch (err) {
       console.warn("Booking persistence error", err);
