@@ -262,6 +262,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      claim_owner_role: { Args: { _setup_code: string }; Returns: boolean }
       create_booking_request: {
         Args: {
           _area: string
