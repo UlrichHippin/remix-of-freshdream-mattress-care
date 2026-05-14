@@ -186,7 +186,39 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
 
-    const reference = generateRequestId(new Date());
+    // 1) Persist to Lovable Cloud (booking record + DB-issued reference).
+    let reference = generateRequestId(new Date());
+    try {
+      const { starts_at, ends_at } = nairobiTimestamps(d.date, d.time);
+      const detailsBlob = [
+        `Item: ${d.item}`,
+        `Size: ${d.size}`,
+        `Quantity: ${d.quantity}`,
+        d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (× ${d.quantity})` : null,
+        d.notes ? `Notes: ${d.notes}` : null,
+      ].filter(Boolean).join("\n");
+
+      const { data: rpcData, error: rpcError } = await supabase.rpc("create_booking_request", {
+        _name: d.name,
+        _phone: d.phone,
+        _whatsapp: d.phone,
+        _email: "",
+        _area: d.location,
+        _property_type: "",
+        _service: pkgToServiceType(d.pkg),
+        _details: detailsBlob,
+        _starts_at: starts_at,
+        _ends_at: ends_at,
+      });
+      if (rpcError) {
+        console.warn("create_booking_request failed", rpcError);
+      } else if (rpcData && rpcData[0]?.booking_reference) {
+        reference = rpcData[0].booking_reference;
+      }
+    } catch (err) {
+      console.warn("Booking persistence error", err);
+    }
+
     const dateStr = format(d.date, "dd.MM.yyyy");
     const sleepAreaLine = d.sleepAreaAddOn
       ? `Yes — KES 300 per mattress / sleep area (× ${d.quantity} = KES ${300 * d.quantity})`
