@@ -15,6 +15,8 @@ import Terms from "./pages/Terms";
 import Disclaimer from "./pages/Disclaimer";
 import Cancellation from "./pages/Cancellation";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
+import AdminLogin from "./pages/AdminLogin";
 
 const App = () => (
   <TooltipProvider>
@@ -34,6 +36,8 @@ const App = () => (
         <Route path="/terms" element={<Terms />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/cancellation" element={<Cancellation />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

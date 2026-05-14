@@ -17,6 +17,38 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site, whatsappLink } from "@/config/site";
 import { packageBookingLabels } from "@/data/packages";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+
+// Map UI package labels and time slots to DB enums / timestamps.
+function pkgToServiceType(pkg: string): "turnover" | "deep_clean" | "urine_odor" | "emergency" | "upholstery" | "other" {
+  const p = pkg.toLowerCase();
+  if (p.includes("turnover")) return "turnover";
+  if (p.includes("deep")) return "deep_clean";
+  if (p.includes("urine") || p.includes("odor")) return "urine_odor";
+  if (p.includes("emergency") || p.includes("urgent")) return "emergency";
+  if (p.includes("uphol") || p.includes("sofa")) return "upholstery";
+  return "other";
+}
+
+// Slot label -> [startHour, endHour] in Africa/Nairobi (UTC+3, no DST).
+function timeSlotToHours(slot: string): [number, number] {
+  if (slot.startsWith("Morning")) return [8, 11];
+  if (slot.startsWith("Midday")) return [11, 14];
+  if (slot.startsWith("Afternoon")) return [14, 17];
+  if (slot.startsWith("Evening")) return [17, 19];
+  return [9, 18]; // Flexible
+}
+
+function nairobiTimestamps(date: Date, slot: string): { starts_at: string; ends_at: string } {
+  const [sh, eh] = timeSlotToHours(slot);
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  // Nairobi is UTC+3 year-round.
+  const starts_at = new Date(`${y}-${m}-${d}T${String(sh).padStart(2, "0")}:00:00+03:00`).toISOString();
+  const ends_at = new Date(`${y}-${m}-${d}T${String(eh).padStart(2, "0")}:00:00+03:00`).toISOString();
+  return { starts_at, ends_at };
+}
 
 function generateRequestId(date: Date): string {
   const yyyy = date.getFullYear();
@@ -154,7 +186,39 @@ export default function BookingSection() {
     setSubmitting(true);
     const d = result.data;
 
-    const reference = generateRequestId(new Date());
+    // 1) Persist to Lovable Cloud (booking record + DB-issued reference).
+    let reference = generateRequestId(new Date());
+    try {
+      const { starts_at, ends_at } = nairobiTimestamps(d.date, d.time);
+      const detailsBlob = [
+        `Item: ${d.item}`,
+        `Size: ${d.size}`,
+        `Quantity: ${d.quantity}`,
+        d.sleepAreaAddOn ? `Add-on: Sleep Area Dust Refresh (× ${d.quantity})` : null,
+        d.notes ? `Notes: ${d.notes}` : null,
+      ].filter(Boolean).join("\n");
+
+      const { data: rpcData, error: rpcError } = await supabase.rpc("create_booking_request", {
+        _name: d.name,
+        _phone: d.phone,
+        _whatsapp: d.phone,
+        _email: "",
+        _area: d.location,
+        _property_type: "",
+        _service: pkgToServiceType(d.pkg),
+        _details: detailsBlob,
+        _starts_at: starts_at,
+        _ends_at: ends_at,
+      });
+      if (rpcError) {
+        console.warn("create_booking_request failed", rpcError);
+      } else if (rpcData && rpcData[0]?.booking_reference) {
+        reference = rpcData[0].booking_reference;
+      }
+    } catch (err) {
+      console.warn("Booking persistence error", err);
+    }
+
     const dateStr = format(d.date, "dd.MM.yyyy");
     const sleepAreaLine = d.sleepAreaAddOn
       ? `Yes — KES 300 per mattress / sleep area (× ${d.quantity} = KES ${300 * d.quantity})`
