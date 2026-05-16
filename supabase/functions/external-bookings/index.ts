@@ -26,11 +26,17 @@ Deno.serve(async (req) => {
     if (!isOwner) return json({ error: "Forbidden" }, 403);
 
     // External Supabase client (service role)
-    const external = createClient(
-      Deno.env.get("EXTERNAL_SUPABASE_URL")!,
-      Deno.env.get("EXTERNAL_SUPABASE_SERVICE_ROLE_KEY")!,
-      { auth: { persistSession: false, autoRefreshToken: false } },
-    );
+    const extUrl = Deno.env.get("EXTERNAL_SUPABASE_URL")?.trim();
+    const extKey = Deno.env.get("EXTERNAL_SUPABASE_SERVICE_ROLE_KEY")?.trim();
+    if (!extUrl || !/^https?:\/\//.test(extUrl)) {
+      return json({ error: "EXTERNAL_SUPABASE_URL is missing or invalid (must start with https://)" }, 500);
+    }
+    if (!extKey) {
+      return json({ error: "EXTERNAL_SUPABASE_SERVICE_ROLE_KEY is missing" }, 500);
+    }
+    const external = createClient(extUrl, extKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+    });
 
     const body = req.method === "POST" ? await req.json().catch(() => ({})) : {};
     const action = body.action ?? "list";
