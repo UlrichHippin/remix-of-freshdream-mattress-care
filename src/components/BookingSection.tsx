@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { z } from "zod";
 import { format } from "date-fns";
 import { CalendarIcon, MessageCircle, Send, ShieldCheck, Droplets, Zap, ClipboardCheck, BadgeCheck, Copy, CheckCircle2 } from "lucide-react";
@@ -107,6 +107,29 @@ export default function BookingSection() {
 
   const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
+
+  // Prefill test booking via ?prefill=test (used by admin "Testbuchung anlegen" CTA)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("prefill") !== "test") return;
+    const inThreeDays = new Date();
+    inThreeDays.setDate(inThreeDays.getDate() + 3);
+    setForm({
+      name: "Test Booking",
+      phone: "+254700000000",
+      pkg: PACKAGES[1] ?? PACKAGES[0],
+      item: "Mattress",
+      size: "Double (4x6 ft)",
+      quantity: 1,
+      location: "Test — Roysambu (please ignore / delete)",
+      date: inThreeDays,
+      time: "Flexible",
+      notes: "TEST BOOKING from admin dashboard — please ignore or delete.",
+      sleepAreaAddOn: false,
+    });
+    toast.message("Testbuchung-Voreinstellungen geladen. Du kannst sie jetzt absenden.");
+  }, []);
 
   async function sendInternalBookingEmail(
     data: {

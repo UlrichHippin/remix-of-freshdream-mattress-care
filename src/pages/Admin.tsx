@@ -148,7 +148,7 @@ export default function Admin() {
             {filter === "all" ? (
               <div className="flex flex-wrap items-center justify-center gap-2">
                 <Button asChild size="sm" variant="default">
-                  <a href="/#booking" target="_blank" rel="noopener noreferrer">
+                  <a href="/?prefill=test#booking-form" target="_blank" rel="noopener noreferrer">
                     Testbuchung anlegen
                   </a>
                 </Button>
