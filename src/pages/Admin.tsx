@@ -143,7 +143,7 @@ export default function Admin() {
             <p className="mx-auto mb-4 max-w-md text-sm text-muted-foreground">
               {filter === "all"
                 ? "Sobald Kunden über das Buchungsformular eine Anfrage senden, erscheinen sie hier in Echtzeit."
-                : "Wechsle den Filter auf „All", um alle Buchungen zu sehen."}
+                : "Wechsle den Filter auf „All“, um alle Buchungen zu sehen."}
             </p>
             {filter === "all" ? (
               <div className="flex flex-wrap items-center justify-center gap-2">
