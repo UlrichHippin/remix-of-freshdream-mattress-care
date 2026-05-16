@@ -1,57 +1,33 @@
-## Ziel
+## Status
 
-Das bestehende `BookingSection`-Formular schreibt seine Anfragen künftig in dein **externes** Supabase-Projekt (`rfcfmslgscpknibjdhkf`). Nach jeder Anfrage erhältst du automatisch eine E-Mail an `bookings@freshdream.co.ke` mit allen Details + einem 1-Klick-WhatsApp-Link an `+4915756233913`.
+Das SQL ist im externen Supabase-Projekt (`rfcfmslgscpknibjdhkf`) ausgeführt. Der bestehende Code in `src/components/BookingSection.tsx` (Zeilen 201–223) schreibt bereits via `externalSupabase.from("bookings").insert(...)` direkt in die neu angelegte Tabelle. Der externe Client ist in `src/integrations/external-supabase/client.ts` mit URL + Anon Key korrekt konfiguriert.
 
-## Architektur
+→ **Keine Datei muss geändert werden.** Das System ist live.
 
-```text
-Browser (BookingSection)
-   │
-   │ 1. INSERT booking → externes Supabase (rfcfmslgscpknibjdhkf)
-   │
-   │ 2. invoke('notify-booking', { id, ref, ... }) → Lovable Cloud Edge Function
-   │                                                       │
-   │                                                       └─ sendet E-Mail via Lovable Email
-   │                                                          (mit wa.me-Link für 1-Klick-WhatsApp)
-```
+## Was jetzt zu tun ist (kein Code, nur Test)
 
-Warum gemischt: Edge Functions und Lovable Email laufen nur auf der internen Lovable Cloud. Daten liegen aber – wie gewünscht – im externen Supabase. Die beiden Systeme reden nur via HTTPS-Aufruf miteinander, kein Daten-Cross-over.
+1. **Buchung im Browser absenden**
+   - Auf `/` runter zum Booking-Formular scrollen
+   - Alle Pflichtfelder ausfüllen, Datum + Zeitslot wählen
+   - „Open WhatsApp with Booking Request" klicken
 
-## Schritte
+2. **Erwartetes Verhalten**
+   - WhatsApp öffnet mit vorgefülltem Text inkl. `Request ID: FD-DDMMYYYY-XXXX`
+   - In Supabase Dashboard → **Table Editor** → `bookings`: neue Zeile sichtbar
+   - `booking_reference` wurde vom DB-Trigger gesetzt (Format `FD-16052026-0001`)
+   - `status` = `requested`
 
-### 1. Externer Supabase-Client
-Neue Datei `src/integrations/external-supabase/client.ts` mit hartcodierter URL + anon key (publishable, darf im Code stehen). Der Lovable-interne Client (`src/integrations/supabase/client.ts`) bleibt unangetastet und wird weiter für Admin/Auth/Edge Functions genutzt.
+3. **Falls die Zeile fehlt**
+   - Browser DevTools → Console öffnen, nochmal absenden
+   - Nach `External Supabase booking insert failed` suchen → Fehlertext kopieren und mir schicken
+   - Häufige Ursachen: RLS-Policy für `anon` INSERT fehlt, Enum-Wert (`service`) stimmt nicht, oder Trigger-Validierung schlägt an
 
-### 2. Tabelle im externen Supabase anlegen
-Du führst dieses SQL einmal im externen Supabase SQL Editor aus (kann ich dir nach Plan-Approval als Copy-Paste-Block geben):
+## Optional, später
 
-- Tabelle `public.bookings` (id, booking_reference, name, phone, whatsapp, email, area, property_type, service, details, starts_at, ends_at, status, created_at)
-- RLS aktiv
-- Policy: `anon` darf nur `INSERT`, kein SELECT/UPDATE/DELETE
-- Trigger generiert `booking_reference` im Format `FD-DDMMYYYY-0001`
+- E-Mail-Benachrichtigung an `bookings@freshdream.co.ke` über Lovable Email (Edge Function `notify-booking`) — kann ich nach erfolgreichem Test bauen, sobald die Email-Domain einmal per DNS verifiziert ist.
 
-### 3. `BookingSection` umbauen
-- Statt `supabase.rpc('create_booking_request', …)` → `externalSupabase.from('bookings').insert(...).select('id, booking_reference').single()`
-- Validierung (zod) bleibt clientseitig.
-- Slot-Verfügbarkeit (`get_busy_slots`) wird ebenfalls aus dem externen Supabase gelesen – der Trigger oder eine RPC muss dort existieren (im SQL-Block enthalten).
+## Technische Details
 
-### 4. E-Mail-Benachrichtigung
-- Lovable Email Domain einrichten (1× DNS, danach automatisch).
-- Edge Function `notify-booking` (auf Lovable Cloud) nimmt die Buchungsdaten entgegen und sendet eine HTML-Mail an `bookings@freshdream.co.ke` mit:
-  - Referenz, Name, Telefon, Service, Termin, Adresse, Notizen
-  - Button „Per WhatsApp antworten" → `https://wa.me/4915756233913?text=…` mit vorausgefülltem Kundentext
-- Wird direkt nach erfolgreichem Insert vom Browser aufgerufen (`supabase.functions.invoke`).
-
-### 5. WhatsApp-Push (optional, später)
-Echte WhatsApp-Push-Nachricht an dein Handy benötigt Twilio/WhatsApp Business API + Kosten. Vorerst Lösung via E-Mail mit Klick-zu-WhatsApp-Link, was de facto innerhalb von 1 Sekunde dieselbe Funktion erfüllt. Echte API-Anbindung können wir nachrüsten, wenn gewünscht.
-
-## Was du nach Approval tust
-1. SQL-Block im externen Supabase ausführen (gebe ich dir).
-2. E-Mail-Domain-Setup-Dialog in Lovable einmal durchklicken (DNS-Records).
-
-Den Rest baue ich.
-
-## Offene Frage
-Bist du okay damit, dass der Admin-Bereich (Bookings-Übersicht, Status ändern, Audit-Log) **weiterhin auf Lovable Cloud läuft** und dort eine separate Kopie der Buchungen liegt – oder soll der Admin auch komplett aufs externe Supabase migriert werden? Letzteres bedeutet: kompletter Neuaufbau aller Tabellen, Rollen, RLS-Policies, Setup-Code-Flow im externen Projekt (großer Aufwand, bricht alle bestehenden Funktionen).
-
-Empfehlung: Nur das **öffentliche Buchungsformular** schreibt extern (wie oben). Falls du Admin-Sicht auch extern willst, sag Bescheid und ich erweitere den Plan.
+- Insert nutzt clientseitig generierte `booking_reference` als Fallback; der DB-Trigger `set_booking_reference` überschreibt sie ohnehin im korrekten Format.
+- `get_busy_slots()` wird aktuell **nicht** vom Formular aufgerufen (kein Verfügbarkeitsblock im UI). Die Funktion existiert für spätere Erweiterung.
+- Der interne Lovable-Cloud-Supabase-Client (Admin-Bereich) bleibt unberührt — Buchungen liegen ausschließlich extern.
