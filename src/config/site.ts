@@ -10,7 +10,7 @@ export const site = {
   whatsappNumber: "4915756233913",
   phoneDisplay: "+49 1575 6233913",
   email: "info@freshdream.co.ke",
-  web3FormsAccessKey: "1b00767e-c033-4a3e-89b9-472e3f568596",
+  web3FormsAccessKey: (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined) ?? "",
   serviceAreas: [
     "Westlands", "Kilimani", "Kileleshwa", "Lavington", "Parklands",
     "Karen", "Runda", "Gigiri", "Roysambu", "Kasarani",
