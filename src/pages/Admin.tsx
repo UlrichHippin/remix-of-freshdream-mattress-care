@@ -133,7 +133,38 @@ export default function Admin() {
         {loading ? (
           <p className="text-muted-foreground">Loading...</p>
         ) : visible.length === 0 ? (
-          <p className="text-muted-foreground">No bookings yet.</p>
+          <div className="rounded-xl border border-dashed border-border bg-card/50 p-8 text-center">
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+              <ShieldCheck className="h-6 w-6 text-muted-foreground" />
+            </div>
+            <h2 className="mb-1 text-lg font-semibold">
+              {filter === "all" ? "Noch keine Buchungen" : `Keine Buchungen mit Status „${filter}"`}
+            </h2>
+            <p className="mx-auto mb-4 max-w-md text-sm text-muted-foreground">
+              {filter === "all"
+                ? "Sobald Kunden über das Buchungsformular eine Anfrage senden, erscheinen sie hier in Echtzeit."
+                : "Wechsle den Filter auf „All", um alle Buchungen zu sehen."}
+            </p>
+            {filter === "all" ? (
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <Button asChild size="sm" variant="default">
+                  <a href="/#booking" target="_blank" rel="noopener noreferrer">
+                    Testbuchung anlegen
+                  </a>
+                </Button>
+                <Button size="sm" variant="outline" onClick={load}>
+                  <RefreshCw className="h-4 w-4" /> Aktualisieren
+                </Button>
+              </div>
+            ) : (
+              <Button size="sm" variant="outline" onClick={() => setFilter("all")}>
+                Filter zurücksetzen
+              </Button>
+            )}
+            <p className="mt-4 text-xs text-muted-foreground">
+              Tipp: Öffne das Formular in einem privaten Fenster und sende eine Anfrage — sie erscheint hier innerhalb von ~30 s.
+            </p>
+          </div>
         ) : (
           <div className="grid gap-3">
             {visible.map((b) => (
