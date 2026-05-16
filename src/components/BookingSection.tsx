@@ -206,6 +206,12 @@ export default function BookingSection() {
       return;
     }
     setErrors({});
+    // Remove prefill query param so the URL is clean after submission
+    if (typeof window !== "undefined" && window.location.search.includes("prefill=test")) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("prefill");
+      window.history.replaceState({}, "", url.toString());
+    }
     setSubmitting(true);
     const d = result.data;
 
