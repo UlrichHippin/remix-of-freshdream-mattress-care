@@ -6,37 +6,52 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { format } from "date-fns";
 import { LogOut, RefreshCw, ShieldCheck, MessageCircle } from "lucide-react";
-import type { Database } from "@/integrations/supabase/types";
 
-type Booking = Database["public"]["Tables"]["bookings"]["Row"];
-type BookingStatus = Database["public"]["Enums"]["booking_status"];
+type BookingStatus = "requested" | "confirmed" | "completed" | "declined" | "cancelled";
+
+type ExternalBooking = {
+  id: string;
+  booking_reference: string | null;
+  status: BookingStatus;
+  created_at: string;
+  name: string;
+  phone: string;
+  whatsapp: string | null;
+  email: string | null;
+  area: string;
+  property_type: string | null;
+  service: string;
+  details: string | null;
+  starts_at: string;
+  ends_at: string;
+};
 
 const STATUSES: BookingStatus[] = ["requested", "confirmed", "completed", "declined", "cancelled"];
 
 export default function Admin() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [bookings, setBookings] = useState<ExternalBooking[]>([]);
   const [filter, setFilter] = useState<BookingStatus | "all">("all");
 
   const load = useCallback(async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("bookings")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(500);
+    const { data, error } = await supabase.functions.invoke("external-bookings", {
+      body: { action: "list" },
+    });
     setLoading(false);
     if (error) {
-      if (error.message.toLowerCase().includes("row-level") || error.code === "PGRST301") {
-        toast.error("You don't have access. Claim owner role first.");
-        navigate("/admin/login", { replace: true });
-        return;
-      }
       toast.error(error.message);
       return;
     }
-    setBookings(data ?? []);
+    if (data?.error) {
+      toast.error(data.error);
+      if (data.error === "Forbidden" || data.error === "Unauthorized") {
+        navigate("/admin/login", { replace: true });
+      }
+      return;
+    }
+    setBookings((data?.bookings ?? []) as ExternalBooking[]);
   }, [navigate]);
 
   useEffect(() => {
@@ -53,20 +68,20 @@ export default function Admin() {
       if (!session) navigate("/admin/login", { replace: true });
     });
 
-    const channel = supabase
-      .channel("bookings-admin")
-      .on("postgres_changes", { event: "*", schema: "public", table: "bookings" }, () => load())
-      .subscribe();
+    const interval = setInterval(load, 30000);
 
     return () => {
       sub.subscription.unsubscribe();
-      supabase.removeChannel(channel);
+      clearInterval(interval);
     };
   }, [navigate, load]);
 
   async function updateStatus(id: string, status: BookingStatus) {
-    const { error } = await supabase.from("bookings").update({ status }).eq("id", id);
+    const { data, error } = await supabase.functions.invoke("external-bookings", {
+      body: { action: "update_status", id, status },
+    });
     if (error) return toast.error(error.message);
+    if (data?.error) return toast.error(data.error);
     toast.success(`Status set to ${status}`);
     load();
   }
